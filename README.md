@@ -40,19 +40,19 @@
    ```bash
    git clone https://github.com/teleparadigmrepo/techtonic.git
    cd techtonic
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
 
 
-techtonic/
-├── app.py                      # Main Flask application
-├── config.py                   # Configuration & env loading
-├── models.py                   # SQLAlchemy models
-├── templates/                  # Jinja2 templates
-├── static/                     # CSS, JS, images
-├── migrations/                 # Flask-Migrate files
-└── requirements.txt            # Python dependencies
+  ```techtonic/
+  ├── app.py                      # Main Flask application
+  ├── config.py                   # Configuration & env loading
+  ├── models.py                   # SQLAlchemy models
+  ├── templates/                  # Jinja2 templates
+  ├── static/                     # CSS, JS, images
+  ├── migrations/                 # Flask-Migrate files
+  └── requirements.txt            # Python dependencies
 
 
 🎓 Usage Examples
