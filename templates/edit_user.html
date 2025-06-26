@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <div class="container-fluid py-3 border-bottom">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <h4 class="dashboard-title mb-0 fw-semibold">
+            <i class="fas fa-user-edit me-2 text-primary"></i>Edit User
+          </h4>
+          <p class="text-muted small mb-0">Modify user information and settings</p>
+        </div>
+        <div>
+          <a href="{{ url_for('manage_users') }}" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-arrow-left me-1"></i> Back to Users
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+          <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %} me-2"></i>
+          {{ msg }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- User Info Card -->
+        <div class="card shadow-sm border-0 mb-3">
+          <div class="card-header bg-primary text-white">
+            <div class="d-flex align-items-center">
+              <div class="avatar-circle bg-white text-primary me-3">
+                {{ user.username[0]|upper }}
+              </div>
+              <div>
+                <h5 class="mb-0">{{ user.username }}</h5>
+                <small class="opacity-75">
+                  <i class="fas fa-calendar me-1"></i>
+                  Created: {{ user.created_at.strftime('%d-%m-%Y') if user.created_at else 'N/A' }}
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edit Form -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-edit text-primary me-2"></i>User Information
+            </h5>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}">
+                  </div>
+                  <div class="form-text">Leave blank to keep current username</div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                  <label for="status" class="form-label">Status</label>
+                  <select class="form-select" id="status" name="status">
+                    <option value="active" {{ 'selected' if user.status == 'active' or not user.status }}>Active</option>
+                    <option value="inactive" {{ 'selected' if user.status == 'inactive' }}>Inactive</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <select class="form-select" id="role" name="role">
+                    <option value="student" {{ 'selected' if user.role == 'student' }}>Student</option>
+                    <option value="teacher" {{ 'selected' if user.role == 'teacher' }}>Teacher</option>
+                  </select>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ user.name or '' }}">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="htno" class="form-label">Hall Ticket Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-ticket-alt"></i></span>
+                    <input type="text" class="form-control" id="htno" name="htno" value="{{ user.htno or '' }}">
+                  </div>
+                  <div class="form-text">For students only</div>
+                </div>
+              </div>
+
+              <!-- Password Section -->
+              <div class="card bg-light border-0 mb-3">
+                <div class="card-header bg-transparent">
+                  <h6 class="mb-0">
+                    <i class="fas fa-key text-warning me-2"></i>Password Settings
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-8 mb-3">
+                      <label for="new_password" class="form-label">New Password</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="new_password" name="new_password">
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </div>
+                      <div class="form-text">Leave blank to keep current password. Minimum 6 characters.</div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                      <div class="form-check form-switch mt-4">
+                        <input class="form-check-input" type="checkbox" id="force_password_change" name="force_password_change" {{ 'checked' if user.must_change_password }}>
+                        <label class="form-check-label" for="force_password_change">
+                          Force password change
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {% if user.password_changed_at %}
+                  <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Last password change: {{ user.password_changed_at.strftime('%d-%m-%Y %H:%M') }}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Current Status -->
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <div class="alert alert-light border">
+                    <h6 class="alert-heading">
+                      <i class="fas fa-info-circle text-info me-2"></i>Current Status
+                    </h6>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <strong>Role:</strong> 
+                        <span class="badge bg-{{ 'success' if user.role == 'student' else 'warning' }}">
+                          {{ user.role.title() }}
+                        </span>
+                      </div>
+                      <div class="col-md-3">
+                        <strong>Status:</strong> 
+                        <span class="badge bg-{{ 'success' if user.status == 'active' or not user.status else 'danger' }}">
+                          {{ user.status.title() if user.status else 'Active' }}
+                        </span>
+                      </div>
+                      <div class="col-md-3">
+                        <strong>Password:</strong> 
+                        {% if user.must_change_password %}
+                          <span class="badge bg-warning">Must Change</span>
+                        {% else %}
+                          <span class="badge bg-success">OK</span>
+                        {% endif %}
+                      </div>
+                      <div class="col-md-3">
+                        <strong>Access:</strong> 
+                        {% if user.status == 'inactive' %}
+                          <span class="badge bg-danger">Blocked</span>
+                        {% else %}
+                          <span class="badge bg-success">Allowed</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end gap-2">
+                <a href="{{ url_for('manage_users') }}" class="btn btn-secondary">
+                  <i class="fas fa-times me-1"></i>Cancel
+                </a>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save me-1"></i>Update User
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #f8f9fa;
+    color: #495057;
+  }
+  
+  .dashboard-container {
+    min-height: 100vh;
+    padding: 2% 10%;
+  }
+  
+  .dashboard-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-title {
+    font-weight: 600;
+    color: #212529;
+  }
+  
+  .card {
+    border-radius: 0.5rem;
+  }
+  
+  .card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+  }
+  
+  .input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+  }
+  
+  .form-control {
+    border-left: none;
+  }
+  
+  .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .avatar-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Toggle password visibility
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('new_password');
+  
+  togglePassword.addEventListener('click', function() {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-eye');
+    icon.classList.toggle('fa-eye-slash');
+  });
+  
+  // Role-based field visibility
+  const roleSelect = document.getElementById('role');
+  const htnoField = document.getElementById('htno').closest('.col-md-6');
+  
+  function toggleHtnoField() {
+    if (roleSelect.value === 'student') {
+      htnoField.style.display = 'block';
+    } else {
+      htnoField.style.display = 'none';
+    }
+  }
+  
+  // Initial state
+  toggleHtnoField();
+  
+  roleSelect.addEventListener('change', toggleHtnoField);
+  
+  // Status change warning
+  const statusSelect = document.getElementById('status');
+  statusSelect.addEventListener('change', function() {
+    if (this.value === 'inactive') {
+      if (!confirm('Setting user status to inactive will prevent them from logging in. Are you sure?')) {
+        this.value = 'active';
+      }
+    }
+  });
+});
+</script>
+{% endblock %}

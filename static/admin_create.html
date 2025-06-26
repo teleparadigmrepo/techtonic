@@ -1,0 +1,65 @@
+<!-- Title -->
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input id="titleInput" class="form-control" placeholder="Enter problem title…" />
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="mb-3">
+      <label class="form-label">Problem Statement</label>
+      <textarea id="problemInput" class="form-control" rows="6"></textarea>
+    </div>
+
+    <!-- Topics Input -->
+    <div class="mb-3">
+      <label class="form-label">Knowledge Topics (one per line)</label>
+      <textarea id="topicsInput" class="form-control" rows="4"></textarea>
+    </div>
+
+    <!-- Scoring Metadata -->
+    <div class="mb-3">
+      <label class="form-label">Scoring Metadata (aspect|max per line)</label>
+      <textarea id="metaInput" class="form-control" rows="4"></textarea>
+    </div>
+
+    <!-- PDF Upload -->
+    <div class="mb-3">
+      <label class="form-label">Knowledge Document (PDF)</label>
+      <input type="file" id="pdfInput" accept="application/pdf" class="form-control" />
+    </div>
+
+    <!-- Video URL -->
+    <div class="mb-3">
+      <label class="form-label">Knowledge Video Link (YouTube URL)</label>
+      <input type="url" id="videoInput" class="form-control" placeholder="https://youtube.com/..." />
+    </div>
+
+    <!-- Generate & Preview Pills -->
+    <div class="mb-3 text-end">
+      <button id="generatePillsBtn" class="btn btn-outline-primary me-2">
+        <i class="fas fa-magic me-1"></i>Generate Pills
+      </button>
+      <button id="previewPillsBtn" class="btn btn-outline-secondary" disabled>
+        <i class="fas fa-eye me-1"></i>Preview Pills
+      </button>
+    </div>
+
+    <!-- System Prompt + Generate Prompt -->
+    <div class="mb-3">
+      <label class="form-label">Evaluator Prompt</label>
+      <textarea id="systemPromptInput" class="form-control" rows="6"></textarea>
+    </div>
+    <div class="mb-3 text-end">
+      <button id="generatePromptBtn" class="btn btn-outline-secondary">
+        <i class="fas fa-magic me-1"></i>Generate Prompt
+      </button>
+    </div>
+
+    <!-- Save Problem -->
+    <div class="text-end">
+      <button id="saveProblemBtn" class="btn btn-success">
+        <i class="fas fa-save me-1"></i>Save Problem
+      </button>
+    </div>
+  </div>
+</div>

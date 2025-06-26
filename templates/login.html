@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{# Remove the global header on this page #}
+{% block header %}{% endblock %}
+
+{% block content %}
+<style>
+  /* Full-screen light background */
+  body {
+    background-color: #f0f2f5;
+  }
+  /* Center the card vertically */
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  .login-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0056b3;
+  }
+  .min-vh-100{
+    background: url('/static/images/bd.jpg') no-repeat center center;
+  background-size: cover;
+  }
+</style>
+
+<div class="login-container">
+  <div class="card login-card shadow-sm p-4">
+    <!-- Centered Logo -->
+    <div class="text-center mb-4">
+      <i class="fas fa-mountain logo-icon fa-2x"></i>
+      <span class="login-logo">TECHTONIC</span>
+    </div>
+
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input name="username" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" required>
+      </div>
+      <button class="btn btn-primary w-100">Login</button>
+    </form>
+    
+  </div>
+</div>
+{% endblock %}

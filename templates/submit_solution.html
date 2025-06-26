@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Solve: {{ problem.title }}</h4>
+<p>Attempt: {{ attempts }} / 3</p>
+<form method="post" action="#">
+  <div class="mb-3">
+    <label class="form-label">Solution (HTML allowed)</label>
+    <textarea name="solution" class="form-control" rows="6" required></textarea>
+  </div>
+  <button class="btn btn-success">Submit Solution</button>
+</form>
+{% endblock %}
+

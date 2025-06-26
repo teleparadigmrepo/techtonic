@@ -1,0 +1,669 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+
+  <!-- Course Header -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <h3 class="card-title animate__animated animate__fadeInDown mb-2">
+            <i class="fas fa-book text-primary me-2"></i>{{ course.name }}
+          </h3>
+          <p class="text-muted mb-3">{{ course.description }}</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge bg-primary">{{ course.code }}</span>
+            <span class="badge bg-info">{{ course.semester }}</span>
+            <span class="badge bg-success">{{ problems|length }} Problems</span>
+          </div>
+        </div>
+        <div class="text-end">
+          <a
+            href="{{ url_for('teacher_create_problem', course_id=course.id) }}"
+            class="btn btn-primary"
+          >
+            <i class="fas fa-plus me-1"></i>Add New Problem
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Statistics -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-tasks fa-2x text-primary mb-2"></i>
+          <h4 class="mb-1">{{ problems|length }}</h4>
+          <small class="text-muted">Total Problems</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-users fa-2x text-success mb-2"></i>
+          <h4 class="mb-1">{{ enrolled_students }}</h4>
+          <small class="text-muted">Enrolled Students</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-check-circle fa-2x text-info mb-2"></i>
+          <h4 class="mb-1">{{ total_submissions }}</h4>
+          <small class="text-muted">Total Submissions</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-chart-line fa-2x text-warning mb-2"></i>
+          <h4 class="mb-1">{{ average_score|round(1) }}%</h4>
+          <small class="text-muted">Average Score</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problems Section Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h5 class="mb-1">
+        <i class="fas fa-list-alt text-primary me-2"></i>Course Problems
+      </h5>
+      <p class="text-muted mb-0 small">Manage and monitor your course problems</p>
+    </div>
+    <div class="d-flex gap-2">
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <i class="fas fa-sort me-1"></i>Sort by
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#" data-sort="newest">Newest First</a></li>
+          <li><a class="dropdown-item" href="#" data-sort="oldest">Oldest First</a></li>
+          <li><a class="dropdown-item" href="#" data-sort="title">Title A-Z</a></li>
+          <li><a class="dropdown-item" href="#" data-sort="status">Status</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-danger" id="resetSessionsBtn">
+        <i class="fas fa-power-off me-1"></i>Reset All Sessions
+      </button>
+    </div>
+  </div>
+
+  <!-- Problems Table -->
+  {% if problems %}
+    <div class="card border-0 shadow-sm">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0" id="problemsTable">
+            <thead class="table-light sticky-top">
+              <tr>
+                <th scope="col" class="px-4 py-3 border-0">
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-book-open text-primary me-2"></i>
+                    Problem Details
+                  </div>
+                </th>
+                <th scope="col" class="text-center px-3 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-toggle-on text-success me-2"></i>
+                    Status
+                  </div>
+                </th>
+                <th scope="col" class="text-center px-3 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-users text-info me-2"></i>
+                    Attempted
+                  </div>
+                </th>
+                <th scope="col" class="text-center px-3 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-chart-line text-warning me-2"></i>
+                    Avg Score
+                  </div>
+                </th>
+                <!-- <th scope="col" class="text-center px-3 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-calendar text-muted me-2"></i>
+                    Created
+                  </div>
+                </th> -->
+                <th scope="col" class="text-center px-4 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-cogs text-secondary me-2"></i>
+                    Actions
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="problemsTableBody">
+              {% for problem in problems|sort(attribute='created_at', reverse=true) %}
+                {% set stats = submission_stats[problem.id] %}
+                <tr class="problem-row position-relative" data-problem-id="{{ problem.id }}" data-created="{{ problem.created_at.isoformat() }}" data-title="{{ problem.title }}" data-status="{{ 'active' if problem.is_active else 'inactive' }}">
+                  <td class="px-4 py-3">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-shrink-0 me-3">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                          <i class="fas fa-book-open text-primary"></i>
+                        </div>
+                      </div>
+                      <div class="flex-grow-1 min-width-0">
+                        <h6 class="mb-1 fw-semibold text-truncate"">
+                          <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
+                          class="btn btn-outline-info btn-sm" target="_blank" style="font-size: 16px;
+                          padding: 0px;
+                          font-weight: bold;">
+                          {{ problem.title }}
+                       </a>
+                       </h6>
+                        <div class="d-flex flex-wrap gap-1">
+                          <small class="text-muted">ID: {{ problem.id }}</small>
+                          <span class="text-muted">•</span>
+                          <small class="text-muted">{{ problem.created_at.strftime('%b %d, %Y at %I:%M %p') }}</small>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center px-3 py-3">
+                    <div class="d-flex flex-column align-items-center gap-2">
+                      <span class="badge {{ 'bg-success' if problem.is_active else 'bg-secondary' }} rounded-pill px-3 py-2" id="status-badge-{{ problem.id }}">
+                        <i class="fas {{ 'fa-play' if problem.is_active else 'fa-pause' }} me-1"></i>
+                        {{ 'Active' if problem.is_active else 'Inactive' }}
+                      </span>
+                      <div class="btn-group btn-group-sm" role="group">
+                        {% if problem.is_active %}
+                          <button type="button" class="btn btn-outline-danger stop-btn" data-problem-id="{{ problem.id }}" title="Stop Problem">
+                            <i class="fas fa-stop"></i>
+                          </button>
+                        {% else %}
+                          <button type="button" class="btn btn-outline-success start-btn" data-problem-id="{{ problem.id }}" title="Start Problem">
+                            <i class="fas fa-play"></i>
+                          </button>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center px-3 py-3">
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="h5 mb-0 text-primary fw-bold">{{ stats.attempted }}</span>
+                      <small class="text-muted">of {{ stats.total_students }}</small>
+                    </div>
+                  </td>
+                  <td class="text-center px-3 py-3">
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="h5 mb-0 fw-bold {{ 'text-success' if stats.avg_score >= 70 else 'text-warning' if stats.avg_score >= 50 else 'text-danger' if stats.avg_score > 0 else 'text-muted' }}">
+                        {{ stats.avg_score|round(1) }}%
+                      </span>
+                      {% if stats.attempted > 0 %}
+                        <div class="progress mt-1" style="width: 60px; height: 4px;">
+                          <div class="progress-bar {{ 'bg-success' if stats.avg_score >= 70 else 'bg-warning' if stats.avg_score >= 50 else 'bg-danger' }}" 
+                               style="width: {{ stats.avg_score }}%"></div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </td>
+                  <!-- <td class="text-center px-3 py-3">
+                    <div class="text-muted">
+                      <div class="fw-medium">{{ problem.created_at.strftime('%b %d') }}</div>
+                      <small>{{ problem.created_at.strftime('%Y') }}</small>
+                    </div>
+                  </td> -->
+                  <td class="text-center px-4 py-3">
+                    <div class="d-flex justify-content-center gap-1">
+                      <!-- Always available actions -->
+                      <!-- <a href="/teacher/problem/{{ problem.id }}/edit" 
+                         class="btn btn-outline-primary btn-sm" 
+                         title="Edit Problem">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                      <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
+                         class="btn btn-outline-info btn-sm" 
+                         title="Preview Problem">
+                        <i class="fas fa-eye"></i>
+                      </a> -->
+                      
+                      <!-- Conditional actions -->
+                      <!-- {% if stats.attempted > 0 %} -->
+                        <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" 
+                           class="btn btn-outline-success btn-sm" 
+                           title="View Submissions ({{ stats.attempted }})">
+                          <i class="fas fa-users text-primary mb-2"></i>
+                        </a>
+                        <!-- <a href="{{ url_for('teacher_problem_analytics', problem_id=problem.id) }}" 
+                           class="btn btn-outline-warning btn-sm" 
+                           title="View Analytics">
+                          <i class="fas fa-chart-bar"></i>
+                        </a>
+                      {% else %}
+                        <button class="btn btn-outline-secondary btn-sm" 
+                                disabled 
+                                title="No submissions yet">
+                          <i class="fas fa-file-alt"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" 
+                                disabled 
+                                title="No data for analytics">
+                          <i class="fas fa-chart-bar"></i>
+                        </button>
+                      {% endif %}
+                      
+                      {% if not problem.is_active and stats.attempted == 0 %}
+                        <button class="btn btn-outline-danger btn-sm" 
+                                onclick="deleteProblem({{ problem.id }})" 
+                                title="Delete Problem">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      {% else %}
+                        <button class="btn btn-outline-secondary btn-sm" 
+                                disabled 
+                                title="Cannot delete: {{ 'Problem is active' if problem.is_active else 'Has submissions' }}">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      {% endif %} -->
+                    </div>
+                  </td>
+                  
+                  <!-- Row Loading Overlay -->
+                  <td class="position-absolute top-0 start-0 w-100 h-100 d-none align-items-center justify-content-center bg-white bg-opacity-90" id="loading-{{ problem.id }}" style="z-index: 10;">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <!-- Empty State -->
+    <div class="card border-0 shadow-sm">
+      <div class="card-body text-center py-5">
+        <div class="mb-4">
+          <i class="fas fa-inbox fa-4x text-muted opacity-50"></i>
+        </div>
+        <h5 class="text-muted mb-3">No Problems Created Yet</h5>
+        <p class="text-muted mb-4">
+          Start building your course by creating your first problem. Problems help you assess student understanding and track progress.
+        </p>
+        <a href="{{ url_for('teacher_create_problem', course_id=course.id) }}" class="btn btn-primary btn-lg">
+          <i class="fas fa-plus me-2"></i>Create Your First Problem
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Reset Sessions Confirmation Modal -->
+<div class="modal fade" id="resetSessionsModal" tabindex="-1" aria-labelledby="resetSessionsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resetSessionsModalLabel">
+          <i class="fas fa-exclamation-triangle text-warning me-2"></i>Reset All Student Sessions
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3">
+          <strong>Warning:</strong> This action will log out all students enrolled in this course from the system.
+        </p>
+        <p class="mb-3">
+          Students in the following groups will be affected:
+        </p>
+        <ul class="list-unstyled mb-3">
+          {% for group in groups %}
+            <li class="mb-1">
+              <i class="fas fa-users text-muted me-2"></i>
+              <strong>{{ group.name }}</strong> ({{ group.students|length }} students)
+            </li>
+          {% endfor %}
+        </ul>
+        <p class="text-muted mb-0">
+          <strong>Total students affected:</strong> {{ enrolled_students }}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmResetBtn">
+          <i class="fas fa-power-off me-1"></i>Reset All Sessions
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Problem Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">
+          <i class="fas fa-exclamation-triangle text-warning me-2"></i>Delete Problem
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this problem? This action cannot be undone.</p>
+        <p class="text-muted">This problem has no submissions and is currently inactive, so it's safe to delete.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+          <i class="fas fa-trash me-1"></i>Delete Problem
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(function(){
+  let currentProblemId = null;
+  
+  const showSpinner = () => $('#globalSpinner').removeClass('d-none');
+  const hideSpinner = () => $('#globalSpinner').addClass('d-none');
+  const showCardLoading = (problemId) => $(`#loading-${problemId}`).removeClass('d-none').addClass('d-flex');
+  const hideCardLoading = (problemId) => $(`#loading-${problemId}`).removeClass('d-flex').addClass('d-none');
+
+  // Sorting functionality
+  $('[data-sort]').on('click', function(e) {
+    e.preventDefault();
+    const sortBy = $(this).data('sort');
+    const tbody = $('#problemsTableBody');
+    const rows = tbody.find('.problem-row').get();
+    
+    rows.sort(function(a, b) {
+      const $a = $(a);
+      const $b = $(b);
+      
+      switch(sortBy) {
+        case 'newest':
+          return new Date($b.data('created')) - new Date($a.data('created'));
+        case 'oldest':
+          return new Date($a.data('created')) - new Date($b.data('created'));
+        case 'title':
+          return $a.data('title').toLowerCase().localeCompare($b.data('title').toLowerCase());
+        case 'status':
+          const statusA = $a.data('status');
+          const statusB = $b.data('status');
+          if (statusA === statusB) return 0;
+          return statusA === 'active' ? -1 : 1;
+        default:
+          return 0;
+      }
+    });
+    
+    // Animate the reordering
+    tbody.fadeOut(200, function() {
+      $.each(rows, function(index, item) {
+        tbody.append(item);
+      });
+      tbody.fadeIn(200);
+    });
+  });
+
+  // Reset Sessions functionality
+  $('#resetSessionsBtn').on('click', function() {
+    new bootstrap.Modal($('#resetSessionsModal')).show();
+  });
+
+  $('#confirmResetBtn').on('click', async function() {
+    showSpinner();
+    try {
+      const response = await fetch(`/api/teacher/course/{{ course.id }}/reset-sessions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      
+      const data = await response.json();
+      
+      if (data.status === 'ok') {
+        bootstrap.Modal.getInstance($('#resetSessionsModal')).hide();
+        
+        // Show success message
+        const alert = $(`
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>${data.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        `);
+        $('.container').first().prepend(alert);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => alert.alert('close'), 5000);
+        
+      } else {
+        throw new Error(data.error || 'Failed to reset sessions');
+      }
+    } catch (error) {
+      alert('Error resetting sessions: ' + error.message);
+    } finally {
+      hideSpinner();
+    }
+  });
+
+  // Start/Stop Problem functionality with row-specific loading
+  $('.start-btn, .stop-btn').on('click', async function() {
+    const problemId = $(this).data('problem-id');
+    const isStartBtn = $(this).hasClass('start-btn');
+    const action = isStartBtn ? 'start' : 'stop';
+    
+    showCardLoading(problemId);
+    
+    try {
+      const response = await fetch(`/api/teacher/problem/${problemId}/${action}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      
+      const data = await response.json();
+      
+      if (data.status === 'ok') {
+        const row = $(this).closest('.problem-row');
+        const statusBadge = row.find(`#status-badge-${problemId}`);
+        
+        if (action === 'start') {
+          // Update to active state
+          statusBadge.removeClass('bg-secondary').addClass('bg-success')
+            .html('<i class="fas fa-play me-1"></i>Active');
+          
+          // Replace start button with stop button
+          $(this).removeClass('btn-outline-success start-btn')
+            .addClass('btn-outline-danger stop-btn')
+            .html('<i class="fas fa-stop"></i>')
+            .attr('title', 'Stop Problem');
+          
+          // Update row data attribute
+          row.attr('data-status', 'active');
+          
+        } else {
+          // Update to inactive state
+          statusBadge.removeClass('bg-success').addClass('bg-secondary')
+            .html('<i class="fas fa-pause me-1"></i>Inactive');
+          
+          // Replace stop button with start button
+          $(this).removeClass('btn-outline-danger stop-btn')
+            .addClass('btn-outline-success start-btn')
+            .html('<i class="fas fa-play"></i>')
+            .attr('title', 'Start Problem');
+          
+          // Update row data attribute
+          row.attr('data-status', 'inactive');
+        }
+        
+        // Show success toast
+        showToast(`Problem ${action === 'start' ? 'activated' : 'deactivated'} successfully!`, 'success');
+        
+      } else {
+        throw new Error(data.error || `Failed to ${action} problem`);
+      }
+    } catch (error) {
+      showToast(`Error ${action}ing problem: ` + error.message, 'error');
+    } finally {
+      hideCardLoading(problemId);
+    }
+  });
+
+  // Delete problem functionality
+  window.deleteProblem = function(problemId) {
+    currentProblemId = problemId;
+    new bootstrap.Modal($('#deleteModal')).show();
+  };
+
+  $('#confirmDeleteBtn').on('click', async function() {
+    if (!currentProblemId) return;
+    
+    showSpinner();
+    try {
+      const response = await fetch(`/api/teacher/problem/${currentProblemId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      
+      const data = await response.json();
+      
+      if (data.status === 'ok') {
+        // Remove the problem row with animation
+        const row = $(`.problem-row[data-problem-id="${currentProblemId}"]`);
+        row.fadeOut(300, function() {
+          $(this).remove();
+          
+          // Check if no problems left
+          if ($('.problem-row').length === 0) {
+            location.reload(); // Reload to show empty state
+          }
+        });
+        
+        bootstrap.Modal.getInstance($('#deleteModal')).hide();
+        showToast('Problem deleted successfully!', 'success');
+        
+      } else {
+        throw new Error(data.error || 'Failed to delete problem');
+      }
+    } catch (error) {
+      showToast('Error deleting problem: ' + error.message, 'error');
+    } finally {
+      hideSpinner();
+      currentProblemId = null;
+    }
+  });
+
+  // Toast notification helper
+  function showToast(message, type = 'info') {
+    const bgClass = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info';
+    const toast = $(`
+      <div class="toast align-items-center text-white ${bgClass} border-0 position-fixed" 
+           style="top: 20px; right: 20px; z-index: 9999;" role="alert">
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} me-2"></i>
+            ${message}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      </div>
+    `);
+    
+    $('body').append(toast);
+    const bsToast = new bootstrap.Toast(toast[0], { delay: 4000 });
+    bsToast.show();
+    
+    // Remove from DOM after hiding
+    toast.on('hidden.bs.toast', function() {
+      $(this).remove();
+    });
+  }
+
+  // Initialize tooltips
+  $('[title]').tooltip();
+
+  // Add hover effects to table rows
+  $('.problem-row').hover(
+    function() { $(this).addClass('table-active'); },
+    function() { $(this).removeClass('table-active'); }
+  );
+});
+</script>
+
+<style>
+.problem-row {
+  transition: all 0.2s ease;
+}
+
+.problem-row:hover {
+  background-color: rgba(0, 123, 255, 0.05) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.progress {
+  border-radius: 3px;
+}
+
+.toast {
+  min-width: 300px;
+}
+
+.table thead th {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.min-width-0 {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .problem-row td {
+    padding: 0.75rem 0.5rem !important;
+  }
+}
+
+</style>
+{% endblock %}

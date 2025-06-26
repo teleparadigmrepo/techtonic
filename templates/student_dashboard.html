@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0">
+      <i class="fas fa-tachometer-alt text-primary me-2"></i>Your Dashboard
+    </h4>
+  </div>
+
+  <!-- Show enrolled courses info -->
+  {% if courses %}
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h6 class="card-title mb-2">
+              <i class="fas fa-graduation-cap text-info me-2"></i>Enrolled Courses
+            </h6>
+            <div class="d-flex flex-wrap gap-2">
+              {% for course in courses %}
+                <span class="badge bg-primary">{{ course.code }} - {{ course.name }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Problems Section -->
+  <div class="row g-3">
+    {% if problems %}
+      {% for problem in problems %}
+        {% set sub = subs.get(problem.id) %}
+        <div class="col-12">
+          <div class="card shadow-sm {{ 'border-primary' if not sub else '' }}">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div class="flex-grow-1">
+                <h5 class="card-title mb-1">{{ problem.title }}</h5>
+                <small class="text-muted mb-2 d-block">
+                  <i class="fas fa-book me-1"></i>{{ problem.course.code }} - {{ problem.course.name }}
+                </small>
+                {% if sub %}
+                  <p class="mb-0 text-muted">
+                    Last Attempt: {{ sub.created_at.strftime('%d-%m-%Y %H:%M') }}
+                    &bull;
+                    Score: <span class="fw-bold text-success">{{ '%.1f' % sub.total_score }} / 100</span>
+                    &bull;
+                    Attempt: {{ sub.attempt }} / 3
+                  </p>
+                {% else %}
+                  <p class="mb-0 text-warning">
+                    <i class="fas fa-exclamation-circle me-1"></i>Not attempted yet
+                  </p>
+                {% endif %}
+              </div>
+              <div class="d-flex gap-2">
+                {% if sub %}
+                  <!-- Download the saved report -->
+                  <a href="{{ url_for('student_report', sid=sub.id) }}"
+                     class="btn btn-sm btn-outline-secondary"
+                     title="Download Report">
+                    <i class="fas fa-file-alt me-1"></i>Report
+                  </a>
+
+                  {# Calculate remaining attempts #}
+                  {% set left = 3 - sub.attempt %}
+                  {% if left > 0 %}
+                    <a href="{{ url_for('student_solve', pid=problem.id) }}"
+                       class="btn btn-sm btn-primary"
+                       title="Re-attempt this problem">
+                      <i class="fas fa-redo me-1"></i>Re-Attempt ({{ left }} left)
+                    </a>
+                  {% else %}
+                    <span class="btn btn-sm btn-secondary disabled">
+                      <i class="fas fa-ban me-1"></i>No attempts left
+                    </span>
+                  {% endif %}
+                {% else %}
+                  <!-- First-time solve -->
+                  <a href="{{ url_for('student_solve', pid=problem.id) }}"
+                     class="btn btn-sm btn-primary"
+                     title="Start solving this problem">
+                    <i class="fas fa-play me-1"></i>Solve
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <!-- No problems available -->
+      <div class="col-12">
+        <div class="card border-0 bg-light">
+          <div class="card-body text-center py-5">
+            {% if not courses %}
+              <i class="fas fa-user-graduate fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">Not Enrolled in Any Course</h5>
+              <p class="text-muted mb-0">
+                You are not currently enrolled in any courses. Please contact your instructor to be added to a course group.
+              </p>
+            {% else %}
+              <i class="fas fa-tasks fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">No Problems Available</h5>
+              <p class="text-muted mb-0">
+                No active problems are available in your enrolled courses yet. Check back later or contact your instructor.
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- (no custom JS needed here) -->
+{% endblock %}

@@ -1,0 +1,361 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <div class="container-fluid py-3 border-bottom">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <h4 class="dashboard-title mb-0 fw-semibold">
+            <i class="fas fa-upload me-2 text-primary"></i>Bulk Create Users
+          </h4>
+          <p class="text-muted small mb-0">Create multiple users at once using CSV format</p>
+        </div>
+        <div>
+          <a href="{{ url_for('manage_users') }}" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-arrow-left me-1"></i> Back to Users
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flash messages -->
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+          <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %} me-2"></i>
+          {{ msg }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- Instructions Card -->
+      <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-header bg-light">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-info-circle text-info me-2"></i>Instructions
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info">
+              <h6 class="alert-heading">Format Requirements:</h6>
+              <p class="mb-0">Each line should contain user data separated by commas:</p>
+            </div>
+            
+            <div class="mb-3">
+              <h6 class="fw-bold">Format:</h6>
+              <code class="d-block bg-light p-2 rounded small">
+                username,password,name,htno
+              </code>
+            </div>
+            
+            <div class="mb-3">
+              <h6 class="fw-bold">Example:</h6>
+              <code class="d-block bg-light p-2 rounded small">
+                john_doe,password123,John Doe,20CS001<br>
+                jane_smith,mypass456,Jane Smith,20CS002<br>
+                bob_wilson,securepass,Bob Wilson,20CS003
+              </code>
+            </div>
+            
+            <div class="alert alert-warning small">
+              <strong>Notes:</strong>
+              <ul class="mb-0 mt-2">
+                <li>Username and password are required</li>
+                <li>Name and HTNO are optional</li>
+                <li>Passwords must be at least 6 characters</li>
+                <li>Users will be forced to change password on first login</li>
+                <li>Duplicate usernames will be skipped</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bulk Create Form -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-users text-primary me-2"></i>Create Users
+            </h5>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              <!-- Role Selection -->
+              <div class="mb-4">
+                <label for="role" class="form-label fw-semibold">
+                  <i class="fas fa-user-tag me-2"></i>Default Role for All Users
+                </label>
+                <select class="form-select" id="role" name="role" required>
+                  <option value="student" selected>Student</option>
+                  <option value="teacher">Teacher</option>
+                </select>
+                <div class="form-text">All users in the batch will be assigned this role</div>
+              </div>
+
+              <!-- Users Data Textarea -->
+              <div class="mb-4">
+                <label for="users_data" class="form-label fw-semibold">
+                  <i class="fas fa-list me-2"></i>Users Data
+                </label>
+                <textarea 
+                  class="form-control font-monospace" 
+                  id="users_data" 
+                  name="users_data" 
+                  rows="12" 
+                  placeholder="Enter user data, one user per line:&#10;username1,password1,Full Name 1,HTNO1&#10;username2,password2,Full Name 2,HTNO2&#10;username3,password3,Full Name 3,HTNO3"
+                  required></textarea>
+                <div class="form-text">
+                  <i class="fas fa-exclamation-triangle text-warning me-1"></i>
+                  Paste your user data here. Each line represents one user.
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-muted small">
+                  <i class="fas fa-shield-alt me-1"></i>
+                  All users will be required to change their password on first login
+                </div>
+                <div>
+                  <button type="button" class="btn btn-outline-secondary me-2" onclick="clearForm()">
+                    <i class="fas fa-eraser me-1"></i>Clear
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-plus-circle me-1"></i>Create Users
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sample Data Card -->
+        <div class="card shadow-sm border-0 mt-4">
+          <div class="card-header bg-light">
+            <h6 class="card-title mb-0">
+              <i class="fas fa-download text-success me-2"></i>Sample Data
+            </h6>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small mb-2">Copy and paste this sample data to test:</p>
+            <div class="bg-light p-3 rounded">
+              <code class="d-block small" id="sampleData">student1,pass123456,Student One,21CS001
+student2,pass123456,Student Two,21CS002
+student3,pass123456,Student Three,21CS003
+teacher1,teach123456,Teacher One,
+teacher2,teach123456,Teacher Two,</code>
+            </div>
+            <div class="mt-2">
+              <button type="button" class="btn btn-sm btn-outline-primary" onclick="copySampleData()">
+                <i class="fas fa-copy me-1"></i>Copy Sample Data
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-success" onclick="useSampleData()">
+                <i class="fas fa-magic me-1"></i>Use Sample Data
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Reuse dashboard styles */
+  body {
+    background-color: #f8f9fa;
+    color: #495057;
+  }
+  
+  .dashboard-container {
+    min-height: 100vh;
+    padding: 2% 10%;
+  }
+  
+  .dashboard-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-title {
+    font-weight: 600;
+    color: #212529;
+  }
+  
+  .card {
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+  }
+  
+  .form-label {
+    color: #495057;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control, .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .font-monospace {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875rem;
+  }
+  
+  .fw-semibold {
+    font-weight: 600;
+  }
+  
+  code {
+    color: #d63384;
+    background-color: #f8f9fa;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+    
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .d-flex.justify-content-between .text-muted {
+      order: 2;
+    }
+    
+    .d-flex.justify-content-between > div:last-child {
+      order: 1;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Auto-resize textarea based on content
+  const textarea = document.getElementById('users_data');
+  if (textarea) {
+    textarea.addEventListener('input', function() {
+      const lines = this.value.split('\n').length;
+      const minRows = 12;
+      const maxRows = 20;
+      const rows = Math.min(Math.max(lines + 2, minRows), maxRows);
+      this.rows = rows;
+    });
+  }
+  
+  // Form validation
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(e) {
+    const usersData = document.getElementById('users_data').value.trim();
+    if (!usersData) {
+      e.preventDefault();
+      alert('Please enter user data');
+      return;
+    }
+    
+    const lines = usersData.split('\n').filter(line => line.trim());
+    if (lines.length === 0) {
+      e.preventDefault();
+      alert('Please enter at least one user data line');
+      return;
+    }
+    
+    // Validate format of each line
+    let invalidLines = [];
+    lines.forEach((line, index) => {
+      const parts = line.split(',');
+      if (parts.length < 2) {
+        invalidLines.push(index + 1);
+      }
+    });
+    
+    if (invalidLines.length > 0) {
+      e.preventDefault();
+      alert(`Invalid format on line(s): ${invalidLines.join(', ')}. Each line must have at least username and password.`);
+      return;
+    }
+    
+    // Confirm creation
+    const userCount = lines.length;
+    const role = document.getElementById('role').value;
+    if (!confirm(`Create ${userCount} ${role}(s)? This action cannot be undone.`)) {
+      e.preventDefault();
+    }
+  });
+});
+
+function clearForm() {
+  if (confirm('Clear all data? This cannot be undone.')) {
+    document.getElementById('users_data').value = '';
+    document.getElementById('users_data').rows = 12;
+    document.getElementById('role').value = 'student';
+  }
+}
+
+function copySampleData() {
+  const sampleData = document.getElementById('sampleData').textContent;
+  navigator.clipboard.writeText(sampleData).then(function() {
+    // Show temporary success message
+    const button = event.target.closest('button');
+    const originalText = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+    button.classList.remove('btn-outline-primary');
+    button.classList.add('btn-success');
+    
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.classList.remove('btn-success');
+      button.classList.add('btn-outline-primary');
+    }, 2000);
+  }).catch(function(err) {
+    alert('Failed to copy sample data. Please select and copy manually.');
+  });
+}
+
+function useSampleData() {
+  const sampleData = document.getElementById('sampleData').textContent;
+  document.getElementById('users_data').value = sampleData;
+  document.getElementById('users_data').rows = Math.min(sampleData.split('\n').length + 2, 20);
+  
+  // Show feedback
+  const button = event.target.closest('button');
+  const originalText = button.innerHTML;
+  button.innerHTML = '<i class="fas fa-check me-1"></i>Applied!';
+  button.classList.remove('btn-outline-success');
+  button.classList.add('btn-success');
+  
+  setTimeout(() => {
+    button.innerHTML = originalText;
+    button.classList.remove('btn-success');
+    button.classList.add('btn-outline-success');
+  }, 2000);
+}
+</script>
+{% endblock %}

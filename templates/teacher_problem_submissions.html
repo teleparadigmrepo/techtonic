@@ -1,0 +1,944 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+
+  <!-- Header -->
+<div class="card shadow-sm border-0 mb-4">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+              <a href="{{ url_for('teacher_dashboard') }}" class="text-decoration-none">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="{{ url_for('teacher_course_detail', course_id=course.id) }}" class="text-decoration-none">{{ course.name }}</a>
+            </li>
+            <li class="breadcrumb-item active">{{ problem.title }} - Submissions</li>
+          </ol>
+        </nav>
+        <h3 class="card-title mb-2">
+          <i class="fas fa-file-alt text-primary me-2"></i>{{ problem.title }}
+        </h3>
+        <p class="text-muted mb-3">Submissions Overview</p>
+        
+        <!-- Problem Status and Timing -->
+        <div class="d-flex gap-3 align-items-center mb-2">
+          <span class="badge bg-{{ 'success' if problem.current_state == 'active' else 'warning' if problem.current_state == 'pending' else 'danger' }} fs-6">
+            <i class="fas fa-{{ 'play' if problem.current_state == 'active' else 'clock' if problem.current_state == 'pending' else 'stop' }}"></i>
+            {{ problem.current_state.title() }}
+          </span>
+          {% if problem.start_date %}
+          <small class="text-muted">
+            <i class="fas fa-calendar-start me-1"></i>
+            Start: {{ problem.start_date.strftime('%b %d, %Y %H:%M') }}
+          </small>
+          {% endif %}
+          {% if problem.end_date %}
+          <small class="text-muted">
+            <i class="fas fa-calendar-times me-1"></i>
+            End: {{ problem.end_date.strftime('%b %d, %Y %H:%M') }}
+          </small>
+          {% endif %}
+        </div>
+      </div>
+      <div class="text-end">
+        <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" class="btn btn-outline-primary me-2">
+          <i class="fas fa-eye me-1"></i>Preview Problem
+        </a>
+        
+        
+        <a href="{{ url_for('teacher_problem_analytics', problem_id=problem.id) }}" class="btn btn-primary">
+          <i class="fas fa-chart-bar me-1"></i>Analytics
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+  <div class="col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <i class="fas fa-users fa-2x text-primary mb-2"></i>
+        <h4 class="mb-1" id="enrolled-count">{{ enrolled_count }}</h4>
+        <small class="text-muted">Total Enrolled</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <i class="fas fa-wifi fa-2x text-success mb-2"></i>
+        <h4 class="mb-1" id="logged-in-count">{{ logged_in_count }}</h4>
+        <small class="text-muted">Currently Online</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <i class="fas fa-user-check fa-2x text-info mb-2"></i>
+        <h4 class="mb-1" id="unique-students">{{ unique_students }}</h4>
+        <small class="text-muted">Students Attempted</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <i class="fas fa-chart-line fa-2x text-warning mb-2"></i>
+        <h4 class="mb-1" id="avg-score">{{ avg_score|round(1) }}%</h4>
+        <small class="text-muted">Average Score</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Latest Submissions -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-white">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+          <i class="fas fa-list text-primary me-2"></i>Latest Submissions
+        </h5>
+        <div class="d-flex gap-2">
+          <!-- Filters -->
+          <select class="form-select form-select-sm" id="scoreFilter" onchange="applyFilters()" style="width: 150px;">
+            <option value="all" {{ 'selected' if current_filter == 'all' }}>All Scores</option>
+            <option value="excellent" {{ 'selected' if current_filter == 'excellent' }}>Excellent (80%+)</option>
+            <option value="passed" {{ 'selected' if current_filter == 'passed' }}>Passed (60%+)</option>
+            <option value="failed" {{ 'selected' if current_filter == 'failed' }}>Failed (<60%)</option>
+          </select>
+          
+          <select class="form-select form-select-sm" id="sortBy" onchange="applyFilters()" style="width: 150px;">
+            <option value="latest" {{ 'selected' if current_sort == 'latest' }}>Latest First</option>
+            <option value="score_high" {{ 'selected' if current_sort == 'score_high' }}>Highest Score</option>
+            <option value="score_low" {{ 'selected' if current_sort == 'score_low' }}>Lowest Score</option>
+            <option value="name" {{ 'selected' if current_sort == 'name' }}>Student Name</option>
+          </select>
+          
+          <input type="text" class="form-control form-control-sm" placeholder="Search students..." id="searchSubmissions" style="width: 200px;">
+          
+          <button class="btn btn-outline-secondary btn-sm"
+        onclick="location.reload();"
+        title="Refresh Data">
+  <i class="fas fa-sync-alt me-1"></i>Refresh
+</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      {% if submissions %}
+      <div class="table-responsive">
+        <table class="table table-hover table-sortable" id="submissionsTable">
+          <thead class="table-light">
+            <tr>
+              <th class="sortable" data-column="student">Student <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="score">Score <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="attempt">Attempt <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="date">Submitted At <i class="fas fa-sort ms-1"></i></th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="submissionsTableBody">
+            {% for submission, user in submissions %}
+            <tr data-score="{{ submission.total_score }}" data-name="{{ user.name or user.username }}" data-htno="{{ user.htno or user.username }}" data-date="{{ submission.created_at.isoformat() }}">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                    {{ user.name[0].upper() if user.name else user.username[0].upper() }}
+                  </div>
+                  <div>
+                    <div class="fw-medium">{{ user.name or user.username }}</div>
+                    <small class="text-muted">{{ user.htno or user.username }}</small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="badge bg-{{ 'success' if submission.total_score >= 80 else 'warning' if submission.total_score >= 60 else 'danger' }}">
+                  {{ submission.total_score|round(1) }}%
+                </span>
+              </td>
+              <td>
+                <span class="badge bg-secondary">{{ submission.attempt }}</span>
+              </td>
+              <td>
+                <small>{{ submission.created_at.strftime('%b %d, %Y %H:%M') }}</small>
+              </td>
+              <td>
+                {% if submission.total_score >= 80 %}
+                  <span class="badge bg-success">Excellent</span>
+                {% elif submission.total_score >= 60 %}
+                  <span class="badge bg-warning">Good</span>
+                {% else %}
+                  <span class="badge bg-danger">Needs Improvement</span>
+                {% endif %}
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="viewSubmission({{ submission.id }})" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <a href="{{ url_for('teacher_report', sid=submission.id) }}" class="btn btn-outline-info" target="_blank" title="Download Report">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="text-center py-5" id="noSubmissionsMessage">
+        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+        <h5 class="text-muted mb-3">No Submissions Yet</h5>
+        <p class="text-muted">Students haven't submitted solutions for this problem yet.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Best Submissions -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-white">
+      <h5 class="mb-0">
+        <i class="fas fa-trophy text-warning me-2"></i>Best Submissions by Student
+      </h5>
+    </div>
+    <div class="card-body">
+      {% if best_submissions %}
+      <div class="table-responsive">
+        <table class="table table-hover table-sortable" id="bestSubmissionsTable">
+          <thead class="table-light">
+            <tr>
+              <th class="sortable" data-column="student">Student <i class="fas fa-sort ms-1"></i></th>
+              <th>Hall Ticket No.</th>
+              <th class="sortable" data-column="score">Best Score <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="attempt">Attempt <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="date">Submitted At <i class="fas fa-sort ms-1"></i></th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bestSubmissionsTableBody">
+            {% for submission, user in best_submissions %}
+            <tr data-score="{{ submission.total_score }}" data-name="{{ user.name or user.username }}" data-date="{{ submission.created_at.isoformat() }}">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                    {{ user.name[0].upper() if user.name else user.username[0].upper() }}
+                  </div>
+                  <div>
+                    <div class="fw-medium">{{ user.name or user.username }}</div>
+                    <small class="text-muted">{{ user.username }}</small>
+                  </div>
+                </div>
+              </td>
+              <td>{{ user.htno or 'N/A' }}</td>
+              <td>
+                <span class="badge bg-{{ 'success' if submission.total_score >= 80 else 'warning' if submission.total_score >= 60 else 'danger' }}">
+                  {{ submission.total_score|round(1) }}%
+                </span>
+              </td>
+              <td>{{ submission.attempt }}</td>
+              <td>
+                <small>{{ submission.created_at.strftime('%b %d, %Y %H:%M') }}</small>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-primary" onclick="viewSubmission({{ submission.id }})" title="View Details">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <a href="{{ url_for('teacher_report', sid=submission.id) }}" class="btn btn-outline-info" target="_blank" title="Download Report">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="text-center py-5" id="noBestSubmissionsMessage">
+        <i class="fas fa-trophy fa-3x text-muted mb-3"></i>
+        <h5 class="text-muted mb-3">No Best Submissions Yet</h5>
+        <p class="text-muted">No students have submitted solutions with scores above 0.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Students Not Submitted -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-white">
+      <h5 class="mb-0">
+        <i class="fas fa-user-times text-danger me-2"></i>Students Who Haven't Submitted <span id="notSubmittedCount" class="badge bg-danger">{{ not_submitted_students|length }}</span>
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row" id="notSubmittedStudents">
+        {% if not_submitted_students %}
+        {% for student in not_submitted_students %}
+        <div class="col-md-6 col-lg-4 mb-2">
+          <div class="d-flex align-items-center p-2 border rounded">
+            <div class="avatar-sm bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+              {{ student.name[0].upper() if student.name else student.username[0].upper() }}
+            </div>
+            <div>
+              <div class="fw-medium">{{ student.name or student.username }}</div>
+              <small class="text-muted">{{ student.htno or student.username }}</small>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-12 text-center py-3">
+          <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+          <p class="text-muted mb-0">All enrolled students have submitted!</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+    
+</div>
+
+<!-- Submission View Modal -->
+<div class="modal fade" id="submissionModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fas fa-file-alt me-2"></i>Submission Details
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="submissionContent">
+        <div class="text-center py-4">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0,123,255,.1);
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+  }
+  
+  .btn-group-sm > .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .sortable {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .sortable:hover {
+    background-color: rgba(0,123,255,.1);
+  }
+  
+  .sortable.asc .fas {
+    transform: rotate(180deg);
+  }
+  
+  .sortable.desc .fas {
+    transform: rotate(0deg);
+  }
+  
+  .card {
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .highlight {
+    background-color: yellow !important;
+    transition: background-color 0.3s ease;
+  }
+  
+  .no-results {
+    opacity: 0.6;
+    font-style: italic;
+  }
+  
+  .refresh-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .refresh-btn.loading {
+    pointer-events: none;
+  }
+  
+  .refresh-btn.loading .fa-sync-alt {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .student-card {
+    transition: all 0.2s ease;
+  }
+  
+  .student-card:hover {
+    background-color: rgba(0,123,255,.05);
+    border-color: rgba(0,123,255,.3) !important;
+  }
+  
+  .modal-xl {
+    max-width: 1200px;
+  }
+  
+  @media (max-width: 768px) {
+    .d-flex.gap-2 {
+      flex-direction: column;
+      gap: 0.5rem !important;
+    }
+    
+    .btn-group-sm {
+      flex-direction: column;
+    }
+    
+    .table-responsive {
+      font-size: 0.875rem;
+    }
+  }
+  </style>
+  
+  <script>
+  let sortDirection = {};
+  let currentFilter = {
+    score: 'all',
+    sort: 'latest',
+    search: ''
+  };
+  
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEventListeners();
+    initializeSearch();
+    setupTableSorting();
+  });
+  
+  function initializeEventListeners() {
+    // Filter change listeners
+    document.getElementById('scoreFilter').addEventListener('change', applyFilters);
+    document.getElementById('sortBy').addEventListener('change', applyFilters);
+    
+    // Search input with debounce
+    const searchInput = document.getElementById('searchSubmissions');
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentFilter.search = this.value.toLowerCase();
+        filterSubmissions();
+      }, 300);
+    });
+    
+  }
+  
+  function initializeSearch() {
+    const searchInput = document.getElementById('searchSubmissions');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        filterSubmissions();
+      });
+    }
+  }
+  
+  function setupTableSorting() {
+    // Add click listeners to sortable headers
+    document.querySelectorAll('.sortable').forEach(header => {
+      header.addEventListener('click', function() {
+        const column = this.dataset.column;
+        sortTable(column);
+      });
+    });
+  }
+  
+  function applyFilters() {
+    const scoreFilter = document.getElementById('scoreFilter').value;
+    const sortBy = document.getElementById('sortBy').value;
+    
+    currentFilter.score = scoreFilter;
+    currentFilter.sort = sortBy;
+    
+    // Update URL parameters
+    const url = new URL(window.location);
+    url.searchParams.set('score_filter', scoreFilter);
+    url.searchParams.set('sort_by', sortBy);
+    window.history.replaceState({}, '', url);
+    
+    // Apply filters to current data
+    filterSubmissions();
+  }
+  
+  function filterSubmissions() {
+    const searchTerm = currentFilter.search;
+    const scoreFilter = currentFilter.score;
+    const sortBy = currentFilter.sort;
+    
+    const submissionsTable = document.getElementById('submissionsTableBody');
+    const bestSubmissionsTable = document.getElementById('bestSubmissionsTableBody');
+    
+    if (submissionsTable) {
+      filterTable(submissionsTable, searchTerm, scoreFilter, sortBy);
+    }
+    
+    if (bestSubmissionsTable) {
+      filterTable(bestSubmissionsTable, searchTerm, scoreFilter, sortBy, true);
+    }
+  }
+  
+  function filterTable(tableBody, searchTerm, scoreFilter, sortBy, isBestSubmissions = false) {
+    const rows = Array.from(tableBody.querySelectorAll('tr'));
+    let visibleRows = [];
+    
+    rows.forEach(row => {
+      const name = row.dataset.name.toLowerCase();
+      const htno = row.dataset.htno ? row.dataset.htno.toLowerCase() : '';
+      const score = parseFloat(row.dataset.score);
+      
+      // Search filter
+      const matchesSearch = !searchTerm || 
+        name.includes(searchTerm) || 
+        htno.includes(searchTerm);
+      
+      // Score filter
+      let matchesScore = true;
+      if (scoreFilter === 'passed') {
+        matchesScore = score >= 60;
+      } else if (scoreFilter === 'failed') {
+        matchesScore = score < 60;
+      } else if (scoreFilter === 'excellent') {
+        matchesScore = score >= 80;
+      }
+      
+      if (matchesSearch && matchesScore) {
+        row.style.display = '';
+        visibleRows.push(row);
+      } else {
+        row.style.display = 'none';
+      }
+    });
+    
+    // Sort visible rows
+    if (sortBy && visibleRows.length > 0) {
+      visibleRows.sort((a, b) => {
+        switch (sortBy) {
+          case 'latest':
+            return new Date(b.dataset.date) - new Date(a.dataset.date);
+          case 'score_high':
+            return parseFloat(b.dataset.score) - parseFloat(a.dataset.score);
+          case 'score_low':
+            return parseFloat(a.dataset.score) - parseFloat(b.dataset.score);
+          case 'name':
+            return a.dataset.name.localeCompare(b.dataset.name);
+          default:
+            return 0;
+        }
+      });
+      
+      // Reorder rows in DOM
+      visibleRows.forEach(row => tableBody.appendChild(row));
+    }
+    
+    // Show/hide no results message
+    const noResultsMsg = tableBody.parentElement.querySelector('.no-results');
+    if (visibleRows.length === 0 && !noResultsMsg) {
+      const noResults = document.createElement('tr');
+      noResults.className = 'no-results';
+      noResults.innerHTML = `
+        <td colspan="6" class="text-center py-4">
+          <i class="fas fa-search fa-2x text-muted mb-2"></i>
+          <p class="text-muted mb-0">No submissions match your criteria</p>
+        </td>
+      `;
+      tableBody.appendChild(noResults);
+    } else if (visibleRows.length > 0 && noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }
+  
+  function sortTable(column) {
+    const table = event.target.closest('table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.no-results)'));
+    
+    // Toggle sort direction
+    const currentDir = sortDirection[column] || 'asc';
+    const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+    sortDirection[column] = newDir;
+    
+    // Update header icons
+    table.querySelectorAll('.sortable').forEach(header => {
+      header.classList.remove('asc', 'desc');
+    });
+    event.target.closest('.sortable').classList.add(newDir);
+    
+    // Sort rows
+    rows.sort((a, b) => {
+      let aVal, bVal;
+      
+      switch (column) {
+        case 'student':
+          aVal = a.dataset.name;
+          bVal = b.dataset.name;
+          break;
+        case 'score':
+          aVal = parseFloat(a.dataset.score);
+          bVal = parseFloat(b.dataset.score);
+          break;
+        case 'date':
+          aVal = new Date(a.dataset.date);
+          bVal = new Date(b.dataset.date);
+          break;
+        case 'attempt':
+          aVal = parseInt(a.querySelector('td:nth-child(3)').textContent);
+          bVal = parseInt(b.querySelector('td:nth-child(3)').textContent);
+          break;
+        default:
+          return 0;
+      }
+      
+      if (aVal < bVal) return newDir === 'asc' ? -1 : 1;
+      if (aVal > bVal) return newDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    
+    // Reorder rows
+    rows.forEach(row => tbody.appendChild(row));
+  }
+  
+ 
+  function createSubmissionRow(submission) {
+    const row = document.createElement('tr');
+    row.dataset.score = submission.score;
+    row.dataset.name = submission.student_name;
+    row.dataset.htno = submission.student_htno;
+    row.dataset.date = submission.created_at_iso;
+    
+    const scoreClass = submission.score >= 80 ? 'success' : 
+                      submission.score >= 60 ? 'warning' : 'danger';
+    
+    const statusText = submission.score >= 80 ? 'Excellent' : 
+                      submission.score >= 60 ? 'Good' : 'Needs Improvement';
+    
+    const statusClass = submission.score >= 80 ? 'success' : 
+                       submission.score >= 60 ? 'warning' : 'danger';
+    
+    row.innerHTML = `
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+            ${submission.student_name.charAt(0).toUpperCase()}
+          </div>
+          <div>
+            <div class="fw-medium">${submission.student_name}</div>
+            <small class="text-muted">${submission.student_htno}</small>
+          </div>
+        </div>
+      </td>
+      <td>
+        <span class="badge bg-${scoreClass}">${submission.score}%</span>
+      </td>
+      <td>
+        <span class="badge bg-secondary">${submission.attempt}</span>
+      </td>
+      <td>
+        <small>${submission.created_at}</small>
+      </td>
+      <td>
+        <span class="badge bg-${statusClass}">${statusText}</span>
+      </td>
+      <td>
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-outline-primary" onclick="viewSubmission(${submission.id})" title="View Details">
+            <i class="fas fa-eye"></i>
+          </button>
+          <a href="/teacher/report/${submission.id}" class="btn btn-outline-info" target="_blank" title="Download Report">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+      </td>
+    `;
+    
+    return row;
+  }
+  
+  function createBestSubmissionRow(submission) {
+    const row = document.createElement('tr');
+    row.dataset.score = submission.score;
+    row.dataset.name = submission.student_name;
+    row.dataset.date = submission.created_at_iso;
+    
+    const scoreClass = submission.score >= 80 ? 'success' : 
+                      submission.score >= 60 ? 'warning' : 'danger';
+    
+    row.innerHTML = `
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+            ${submission.student_name.charAt(0).toUpperCase()}
+          </div>
+          <div>
+            <div class="fw-medium">${submission.student_name}</div>
+            <small class="text-muted">${submission.student_username}</small>
+          </div>
+        </div>
+      </td>
+      <td>${submission.student_htno}</td>
+      <td>
+        <span class="badge bg-${scoreClass}">${submission.score}%</span>
+      </td>
+      <td>${submission.attempt}</td>
+      <td>
+        <small>${submission.created_at}</small>
+      </td>
+      <td>
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-outline-primary" onclick="viewSubmission(${submission.id})" title="View Details">
+            <i class="fas fa-eye"></i>
+          </button>
+          <a href="/teacher/report/${submission.id}" class="btn btn-outline-info" target="_blank" title="Download Report">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+      </td>
+    `;
+    
+    return row;
+  }
+  
+  function updateNotSubmittedStudents(students) {
+    const container = document.getElementById('notSubmittedStudents');
+    const countBadge = document.getElementById('notSubmittedCount');
+    
+    if (!container || !countBadge) return;
+    
+    countBadge.textContent = students.length;
+    container.innerHTML = '';
+    
+    if (students.length === 0) {
+      container.innerHTML = `
+        <div class="col-12 text-center py-3">
+          <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+          <p class="text-muted mb-0">All enrolled students have submitted!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    students.forEach(student => {
+      const div = document.createElement('div');
+      div.className = 'col-md-6 col-lg-4 mb-2';
+      div.innerHTML = `
+        <div class="d-flex align-items-center p-2 border rounded student-card">
+          <div class="avatar-sm bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+            ${student.name.charAt(0).toUpperCase()}
+          </div>
+          <div>
+            <div class="fw-medium">${student.name}</div>
+            <small class="text-muted">${student.htno}</small>
+          </div>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  }
+  
+// View submission details
+async function viewSubmission(submissionId) {
+  try {
+    $('#submissionModal').modal('show');
+    $('#submissionContent').html(`
+      <div class="text-center py-4">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    `);
+
+    const response = await fetch(`/api/teacher/submission/${submissionId}`);
+    const data = await response.json();
+
+    if (data.status === 'ok') {
+      const submission = data.submission;
+      let solutionHtml = '';
+      
+      try {
+        const solution = JSON.parse(submission.solution);
+        for (const [category, content] of Object.entries(solution)) {
+          solutionHtml += `
+            <div class="mb-4">
+              <h6 class="fw-bold text-primary">${category}</h6>
+              <div class="border rounded p-3 bg-light">
+                ${content}
+              </div>
+            </div>
+          `;
+        }
+      } catch (e) {
+        solutionHtml = `<div class="border rounded p-3 bg-light">${submission.solution}</div>`;
+      }
+
+      let feedbackHtml = '';
+      if (submission.feedback && submission.feedback.length > 0) {
+        feedbackHtml = submission.feedback.map(fb => {
+          const [category, message] = fb.split(':', 2);
+          const score = submission.scores[category.trim()] || 0;
+          return `
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="fw-bold mb-1">${category.trim()}</h6>
+                <span class="badge bg-primary">${score}%</span>
+              </div>
+              <p class="mb-0">${message.trim()}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      $('#submissionContent').html(`
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card border-0 bg-light mb-3">
+              <div class="card-body">
+                <h6 class="card-title">Student Information</h6>
+                <p class="mb-1"><strong>Name:</strong> ${submission.student.name}</p>
+                <p class="mb-1"><strong>Hall Ticket:</strong> ${submission.student.htno}</p>
+                <p class="mb-1"><strong>Username:</strong> ${submission.student.username}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-0 bg-light mb-3">
+              <div class="card-body">
+                <h6 class="card-title">Submission Details</h6>
+                <p class="mb-1"><strong>Total Score:</strong> <span class="badge bg-primary">${submission.total_score}%</span></p>
+                <p class="mb-1"><strong>Attempt:</strong> ${submission.attempt}</p>
+                <p class="mb-1"><strong>Submitted:</strong> ${new Date(submission.created_at).toLocaleString()}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <h6 class="fw-bold">Solution</h6>
+          ${solutionHtml}
+        </div>
+        
+        ${feedbackHtml ? `
+          <div class="mb-4">
+            <h6 class="fw-bold">Feedback</h6>
+            ${feedbackHtml}
+          </div>
+        ` : ''}
+      `);
+    } else {
+      $('#submissionContent').html(`
+        <div class="alert alert-danger">
+          <i class="fas fa-exclamation-triangle me-2"></i>
+          Error loading submission: ${data.error}
+        </div>
+      `);
+    }
+  } catch (error) {
+    $('#submissionContent').html(`
+      <div class="alert alert-danger">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Error loading submission details.
+      </div>
+    `);
+  }
+}
+
+
+  
+  function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
+    notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    
+    notification.innerHTML = `
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-dismiss after 5 seconds
+    setTimeout(() => {
+      if (notification.parentElement) {
+        notification.remove();
+      }
+    }, 5000);
+  }
+  
+  // Auto-refresh functionality (optional)
+  let autoRefreshInterval;
+  
+  function startAutoRefresh(intervalMs = 30000) {
+    stopAutoRefresh();
+    autoRefreshInterval = setInterval(refreshData, intervalMs);
+  }
+  
+  function stopAutoRefresh() {
+    if (autoRefreshInterval) {
+      clearInterval(autoRefreshInterval);
+      autoRefreshInterval = null;
+    }
+  }
+  
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', stopAutoRefresh);
+
+ 
+  </script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  
+  {% endblock %}

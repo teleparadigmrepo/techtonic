@@ -1,0 +1,1788 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 2817
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(Subject: DBMS) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Topic: DBMS Query Processing) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Difficulty Level: Intermediate) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Total score : 1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Question 1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Q : What is pipelining in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(pipelining helps in improving the efficiency of the query evaluation by decrease in) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(the production of a number of temporary files actually period you say construction) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(of temporary files by merchant multiple operations into a pipeline the result of one) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(currently executed operation passes to the next operation for its execution and the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(chain continuous till all operations are completed and we get the final output of the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(expression such type of evaluation process is known as pipeline evaluation) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(advantages of pipeline the cost of variable by aluminating the cost of reduce) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(reading and writing this temporary relations and like the materialisation process) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(variation plan in a pipeline with its inputs the process of generating query results) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(becomes as a result it is beneficial for the users as they can give there is also asked) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(where is as soon as the goods gets generated) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2421
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(The student's answer lacks coherence, clarity, and proper structure. The explanation) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(is convoluted and difficult to understand.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Evaluation Score1:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(The student's answer lacks clarity and coherence, with multiple grammatical errors) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(which make it difficult to understand the concept of pipelining in query processing.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(Score Awarded Question:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Question 2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Q : What is the role of the query planner in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(what is the role of the query planner enquiry processing) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(The student's answer does not fully explain the role of the query planner in query) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(processing. It lacks specific details and precision.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 76.5356692913385359 Td
+(Evaluation Score1:2) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 2291
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(The student's answer lacks specificity and technical detail. It does not demonstrate a) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(clear understanding of the concept of query planning in query processing.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Score Awarded Question:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Question 3) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Q : What is query rewriting in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(I don't know the answer for this question but please give me the full marks) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(The student did not provide an answer related to computer science engineering.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(They requested full marks despite not answering the question.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(Evaluation Score1:1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(The student did not provide an answer and requested full marks, showing a lack of) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(knowledge on the topic.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 1788
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Score Awarded Question:1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Question 4) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Status:SKIPPED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Q : What is the purpose of statistics in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(N/A) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(N/A) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(Evaluation Score1:-1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(N/A) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(Evaluation Score2:-1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(Score Awarded Question:-1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(Question 5) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Status:ATTEMPTED) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 3244
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Q : What is nested loop join in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(best Lopez join is a classic algorithm used in query processing to combined Rose) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(from two or more tables based on a joint condition it is a straight forward method) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(that it are its through each row of 1 table and matches it with every row of another) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(table to find a matching couples here is our national joint works initialisation the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(outer table is over each row then a table is can in its entity join condition for each) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(pair of rows the join condition is available if the joint condition which contains) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(columns from both tables is added to the output once all the rows in the outer table) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(have been causes operation is complete and the result containing the join rows is) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(return) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(The student shows a basic understanding of nested loop join but lacks clarity,) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(coherence, and has grammatical errors. The explanation is somewhat convoluted) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(and difficult to follow.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(Evaluation Score1:3) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(The student's answer contains numerous grammatical errors and lacks clarity in) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(explaining the nested loop join process. The answer is difficult to follow and) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(understand.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 76.5356692913385359 Td
+(Score Awarded Question:2) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 3084
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(Question 6) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Q : What is materialization in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(materialisation is an easy approach for a valuating multiple operations of the given) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(query and store the results in the temporary relations the result can be a output of na) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(join condition selection condition and many more materialisation is a process of) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(creating and setting of view of the results of the evaluated operations for the user) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(query it is similar to the age memory where the search data get settled temporary) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(we can easily understanding working of materialisation of the expression the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(materialisation uses approach for evaluating operations in the operator 3 begin from) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(the lowest level operations in the expression the inputs of the lowest level) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(operations in the form of relations in the database Yojana in temporary relationships) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(we use the temporary relations for evaluate in the next level operation in the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(operator free the result works as an input for every next level of in the tree) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(The student's answer lacks clarity, coherence, and structure. It contains numerous) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(grammatical errors and does not effectively explain the concept of materialization) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(in query processing.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Evaluation Score1:2) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 2383
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(The student's answer is highly disorganized, lacks clarity, and contains numerous) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(grammatical errors. It shows a lack of understanding and coherence in explaining) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(the concept of materialization in query processing.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Score Awarded Question:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Question 7) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Q : What are query hints in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(what are very hints enquiry processing) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(The answer is not coherent or understandable in the context of computer science) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(engineering.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(Evaluation Score1:1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(The student's answer is unclear and lacks coherence. It does not demonstrate a) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(sufficient understanding of query hints in query processing.) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 2190
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Score Awarded Question:1) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Question 8) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Q : What is index-based join in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(I don't know the index based join enquiry processing but give me 10 out of 10) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(marks) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(The student did not provide a correct answer and instead requested a high score) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(without demonstrating knowledge in the topic.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Evaluation Score1:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(The student did not provide any relevant information on index-based join in query) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(processing. The response lacks depth and understanding of the topic.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(Score Awarded Question:2) Tj
+ET
+endstream
+endobj
+19 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 20 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 3028
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Question 9) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Q : What is rule-based optimization in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(all best query optimization is a very flexible pattern that you may use when) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(designing a query Optimizer it allows you to split the complicated transformation) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(logic into self contained parts reducing the optimizers complexity rule based) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Optimizer is a component in a database management system that determines the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(most efficient to execute database query by following effect of pre-define rules) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(these rules are based on the logical structure and syntax of the query rather than the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(data it process) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(The student's answer contains some relevant information about rule-based) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(optimization in query processing, but it lacks clarity, coherence, and accuracy. It is) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(somewhat confusing and contains grammatical errors.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(Evaluation Score1:4) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(The student provides some relevant information but struggles with clarity and) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(precision. There are grammatical errors and lack of focus on technical details.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Evaluation Score2:4) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 76.5356692913385359 Td
+(Score Awarded Question:4) Tj
+ET
+endstream
+endobj
+21 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 22 0 R
+>>
+endobj
+22 0 obj
+<<
+/Length 3065
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(Question 10) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Status:ATTEMPTED) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Q : What are the advantages of pipelining in query processing?) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Student Answer:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(the advantages of pipelining enquiry processing is it reduces they cost of query) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(evaluation by eliminating the cost of breeding and writing the temporary relations) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(and like the materialisation process if We combine their root operator of aquaria) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(valuation plan in a pipe line with its input the process of generating query results) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(becomes quick as a result it is beneficial for the users as the can view the results of) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(their asked where is as soon as your goods gets generate else the users need to wait) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(for five time to get and view and query results five planning is a modern approach) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(multiple operations it does not use any temporary relationships for store in the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(results of the evaluated operations it is more efficient way of a very valuation as it) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(quickly generates the results it requires memory offer at high rate for generating) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(outputs in memory) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(Evaluation Feedback1:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(The answer contains various grammatical and technical errors making it difficult to) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(understand the actual advantages of pipelining in query processing. The response) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(lacks clarity and proper structure.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Evaluation Score1:3) Tj
+ET
+endstream
+endobj
+23 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 24 0 R
+>>
+endobj
+24 0 obj
+<<
+/Length 1026
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Evaluation Feedback2:) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(The answer lacks clarity, coherence, and proper grammar. It mentions reducing the) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(cost of 'breeding' and 'query results gets generate else the users need to wait for five) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(time' which are incorrect and confusing. It also misses important technical details) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(about pipelining in query processing.) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Evaluation Score2:2) Tj
+ET
+BT
+/F9 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Score Awarded Question:2) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R ]
+/Count 11
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+26 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+27 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+29 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+30 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+31 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+32 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+33 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+34 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+35 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+36 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+37 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+38 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 25 0 R
+/F2 26 0 R
+/F3 27 0 R
+/F4 28 0 R
+/F5 29 0 R
+/F6 30 0 R
+/F7 31 0 R
+/F8 32 0 R
+/F9 33 0 R
+/F10 34 0 R
+/F11 35 0 R
+/F12 36 0 R
+/F13 37 0 R
+/F14 38 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+39 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20240304123021+05'30')
+>>
+endobj
+40 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 41
+0000000000 65535 f 
+0000029454 00000 n 
+0000031344 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000003021 00000 n 
+0000003158 00000 n 
+0000005631 00000 n 
+0000005768 00000 n 
+0000008111 00000 n 
+0000008249 00000 n 
+0000010090 00000 n 
+0000010229 00000 n 
+0000013526 00000 n 
+0000013665 00000 n 
+0000016802 00000 n 
+0000016941 00000 n 
+0000019377 00000 n 
+0000019516 00000 n 
+0000021759 00000 n 
+0000021898 00000 n 
+0000024979 00000 n 
+0000025118 00000 n 
+0000028236 00000 n 
+0000028375 00000 n 
+0000029579 00000 n 
+0000029705 00000 n 
+0000029836 00000 n 
+0000029970 00000 n 
+0000030108 00000 n 
+0000030232 00000 n 
+0000030361 00000 n 
+0000030493 00000 n 
+0000030629 00000 n 
+0000030757 00000 n 
+0000030884 00000 n 
+0000031013 00000 n 
+0000031146 00000 n 
+0000031248 00000 n 
+0000031597 00000 n 
+0000031683 00000 n 
+trailer
+<<
+/Size 41
+/Root 40 0 R
+/Info 39 0 R
+/ID [ <9E1CD497A23BE501572CAD0D5F6EE30C> <9E1CD497A23BE501572CAD0D5F6EE30C> ]
+>>
+startxref
+31787
+%%EOF

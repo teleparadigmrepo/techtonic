@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Quill Snow Theme CSS -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+  <div class="container my-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <h5 class="card-title animate__animated animate__bounce mb-4">
+          <i class="fas fa-edit text-primary me-2"></i>Edit Problem: {{ problem.title }}
+        </h5>
+        <form id="problemForm" novalidate>
+          <!-- 1) Course Selection -->
+          <div class="mb-3">
+            <label for="courseSelect" class="form-label">
+              <i class="fas fa-book"></i> Select Course *
+            </label>
+            <select id="courseSelect" name="course_id" class="form-select" required>
+              <option value="">Choose a course...</option>
+              {% for course in courses %}
+                <option value="{{ course.id }}" {% if course.id == problem.course_id %}selected{% endif %}>
+                  {{ course.code }} – {{ course.name }}
+                </option>
+              {% endfor %}
+            </select>
+            {% if not courses %}
+              <div class="form-text text-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                No courses available. Contact admin.
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- 2) Title -->
+          <div class="mb-3">
+            <label for="titleInput" class="form-label">
+              <i class="fas fa-heading"></i> Problem Title *
+            </label>
+            <input id="titleInput" name="title" type="text"
+                   class="form-control" placeholder="Enter problem title…" 
+                   value="{{ problem.title }}" required />
+          </div>
+
+          <!-- 3) Statement (Quill) -->
+          <div class="mb-3">
+            <label class="form-label">
+              <i class="fas fa-file-alt"></i> Problem Statement *
+            </label>
+            <div id="problemEditor" style="height: 200px; background: #fff;"></div>
+            <textarea id="problemInput" name="statement"
+                      class="form-control d-none" required>{{ problem.statement }}</textarea>
+          </div>
+
+          <!-- 4) Topics -->
+          <div class="mb-3">
+            <label for="topicsInput" class="form-label">
+              <i class="fas fa-tags"></i> Knowledge Topics (one per line) *
+            </label>
+            <textarea id="topicsInput" name="topics_json"
+                      class="form-control" rows="6"
+                      placeholder="E.g. Machine Learning\nData Structures"
+                      required>{% if problem.topics %}{% for topic in problem.topics|fromjson %}{{ topic }}
+{% endfor %}{% endif %}</textarea>
+          </div>
+
+          <!-- 5) Rubric -->
+          <div class="mb-3">
+            <label for="metaInput" class="form-label">
+              <i class="fas fa-clipboard-list"></i> Scoring Metadata *
+            </label>
+            <textarea id="metaInput" class="form-control" rows="6"
+                      placeholder="Problem Understanding|30\nAlgorithm Design|30\nCode Quality|40"
+                      required>{% if problem.rubric %}{% for aspect, points in (problem.rubric|fromjson).items() %}{{ aspect }}|{{ points }}
+{% endfor %}{% endif %}</textarea>
+            <div id="metaError" class="text-danger mt-2" style="display:none;"></div>
+          </div>
+
+          <!-- 6) Supporting Media -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="pdfInput" class="form-label">
+                <i class="fas fa-file-pdf"></i> Supporting Document (PDF)
+              </label>
+              <input id="pdfInput" name="doc_file" type="file"
+                     accept="application/pdf" class="form-control" />
+              {% if problem.doc_path %}
+                <div class="form-text text-info">
+                  <i class="fas fa-info-circle"></i>
+                  Current document: <a href="{{ url_for('static', filename=problem.doc_path) }}" target="_blank">View PDF</a>
+                </div>
+              {% endif %}
+            </div>
+            <div class="col-md-6">
+              <label for="videoLinkInput" class="form-label">
+                <i class="fas fa-video"></i> Video URL
+              </label>
+              <input id="videoLinkInput" name="video_url" type="url"
+                     class="form-control"
+                     placeholder="https://youtube.com/watch?v=…"
+                     value="{{ problem.video_url or '' }}" />
+            </div>
+          </div>
+
+          <!-- 7) Generate / Preview Pills -->
+          <div class="mb-3 text-end">
+            <button type="button" id="generatePillsBtn"
+                    class="btn btn-outline-primary me-2">
+              <i class="fas fa-magic me-1"></i>Generate Knowledge Pills
+            </button>
+            <button type="button" id="previewPillsBtn"
+                    class="btn btn-outline-secondary" {% if not problem.pills or problem.pills == '[]' %}disabled{% endif %}>
+              <i class="fas fa-eye me-1"></i>Preview Knowledge Pills
+            </button>
+          </div>
+
+          <!-- 8) Evaluation Prompt -->
+          <div class="mb-3">
+            <label for="systemPromptInput" class="form-label">
+              <i class="fas fa-robot"></i> Evaluation Prompt *
+            </label>
+            <textarea id="systemPromptInput" name="prompt_text"
+                      class="form-control" rows="8" required>{{ problem.prompt }}</textarea>
+          </div>
+          <div class="mb-3 text-end">
+            <button type="button" id="generatePromptBtn"
+                    class="btn btn-outline-secondary">
+              <i class="fas fa-magic me-1"></i>Generate Evaluation Prompt
+            </button>
+          </div>
+
+          <!-- 9) Update -->
+          <div class="text-end">
+            <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
+               class="btn btn-outline-secondary me-2">
+              <i class="fas fa-arrow-left me-1"></i>Cancel
+            </a>
+            <button type="button" id="updateProblemBtn"
+                    class="btn btn-success">
+              <i class="fas fa-save me-1"></i>Update Problem
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pills Preview Modal -->
+  <div class="modal fade" id="pillsModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="fas fa-lightbulb text-warning me-2"></i>Knowledge Pills Preview
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="pillsModalBody">
+          <!-- Accordion injected by JS -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Spinner -->
+  <div id="globalSpinner"
+       class="position-fixed top-0 start-0 w-100 h-100 d-none d-flex
+              align-items-center justify-content-center"
+       style="background:rgba(255,255,255,0.7); z-index:2000;">
+    <div class="spinner-border text-primary" style="width:3rem; height:3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- CSS for pills accordion -->
+  <style>
+    .pill-card {
+      border-left: 4px solid #0056b3;
+      border-radius: .5rem;
+      background: #fff;
+      margin-bottom: .75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.2s ease;
+    }
+    .pill-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .pill-header .accordion-button {
+      background: #fff;
+      border: none;
+      font-weight: 600;
+      color: #0056b3;
+      padding: 1rem 1.25rem;
+    }
+    .pill-header .accordion-button:not(.collapsed) {
+      background: #f8f9fa;
+      color: #0056b3;
+    }
+    .accordion-body {
+      background: #f8f9fa;
+      padding: 1.25rem;
+      line-height: 1.6;
+    }
+    .example-box {
+      background: #fff !important;
+      border-left: 4px solid #0056b3 !important;
+      border-radius: 0 .5rem .5rem 0 !important;
+      padding: 1rem !important;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    }
+    .example-box p {
+      margin-bottom: 0 !important;
+      font-style: italic !important;
+      color: #495057;
+    }
+    .example-box strong {
+      color: #0056b3;
+    }
+  </style>
+{% endblock %}
+
+{% block scripts %}
+  <!-- Quill Core JS -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+  <script>
+    $(function(){
+      let generatedPills = [];
+
+      // Load existing pills if available
+      {% if problem.pills and problem.pills != '[]' %}
+        try {
+          generatedPills = {{ problem.pills|safe }};
+          console.log('Loaded existing pills:', generatedPills);
+        } catch(e) {
+          console.error('Error parsing existing pills:', e);
+          generatedPills = [];
+        }
+      {% endif %}
+
+      // 1) Quill init
+      const problemEditor = new Quill('#problemEditor', {
+        theme: 'snow',
+        modules: {
+          toolbar: [
+            ['bold','italic','underline'],
+            ['code-block'],['link'],
+            [{list:'ordered'},{list:'bullet'}],
+            [{header:[1,2,3,false]}],
+            ['clean']
+          ]
+        }
+      });
+      
+      // Set initial content from database - need to properly escape and load
+      const initialContent = `{{ problem.statement|safe }}`;
+      if (initialContent && initialContent.trim() !== '') {
+        problemEditor.root.innerHTML = initialContent;
+      }
+
+      problemEditor.on('text-change', ()=> {
+        $('#problemInput').val(problemEditor.root.innerHTML);
+      });
+
+      // 2) Validate rubric total
+      function validateScoreTotal(){
+        const lines = $('#metaInput').val().trim().split(/\r?\n/);
+        let total=0, valid=true;
+        lines.forEach(l=>{
+          const [aspect,pts]=l.split('|').map(s=>s.trim());
+          if(!aspect||isNaN(+pts)) valid=false;
+          else total+=Number(pts);
+        });
+        if(!valid|| total!==100){
+          $('#metaError')
+            .text(!valid ? 'Each line must be "Aspect|number".'
+                          : `Total must be 100. Current: ${total}.`)
+            .show();
+          $('#updateProblemBtn').prop('disabled',true);
+          return false;
+        }
+        $('#metaError').hide();
+        $('#updateProblemBtn').prop('disabled',false);
+        return true;
+      }
+      $('#metaInput').on('blur input', validateScoreTotal);
+
+      // Initial validation
+      validateScoreTotal();
+
+      // 3) Pills generation
+      $('#generatePillsBtn').on('click',async()=>{
+        const topics = $('#topicsInput').val()
+                          .split(/\r?\n/)
+                          .map(s=>s.trim()).filter(Boolean);
+        const problem = problemEditor.root.innerHTML.trim();
+        if(!topics.length||!problem){
+          return alert('Enter statement & at least one topic.');
+        }
+        $('#globalSpinner').removeClass('d-none');
+        try{
+          const res = await fetch('/api/generate_pills',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ topics, problem_statement:problem })
+          });
+          const data = await res.json();
+          if(data.pills){
+            generatedPills = data.pills;
+            $('#previewPillsBtn').prop('disabled',false);
+            console.log('Generated new pills:', generatedPills);
+          } else throw new Error(data.error||'Error');
+        }catch(e){ alert(e.message); }
+        $('#globalSpinner').addClass('d-none');
+      });
+
+      // 4) Preview in modal
+      $('#previewPillsBtn').on('click',()=>{
+        if (!generatedPills || generatedPills.length === 0) {
+          alert('No pills available to preview. Generate pills first.');
+          return;
+        }
+        
+        const body = $('#pillsModalBody').empty();
+        const accId = 'knowledgePillsAccordion';
+        body.append(`<div class="accordion" id="${accId}"></div>`);
+        
+        generatedPills.forEach((pill,i)=>{
+          const collapse = `collapse${i}`, head=`heading${i}`;
+          $(`#${accId}`).append(`
+            <div class="accordion-item pill-card">
+              <h2 class="accordion-header pill-header" id="${head}">
+                <button class="accordion-button ${i?'collapsed':''}"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#${collapse}"
+                        aria-expanded="${!i}" 
+                        aria-controls="${collapse}">
+                  ${pill.topic}
+                </button>
+              </h2>
+              <div id="${collapse}" 
+                   class="accordion-collapse collapse ${!i?'show':''}" 
+                   aria-labelledby="${head}" 
+                   data-bs-parent="#${accId}">
+                <div class="accordion-body">
+                  <div class="pill-content mb-3">
+                    ${pill.content}
+                  </div>
+                  <div class="example-box">
+                    <p class="mb-0"><strong>Example:</strong> ${pill.example}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+        new bootstrap.Modal($('#pillsModal')).show();
+      });
+
+      // 5) Generate evaluation prompt
+      $('#generatePromptBtn').on('click',async()=>{
+        const topics = $('#topicsInput').val()
+                          .split(/\r?\n/)
+                          .map(s=>s.trim()).filter(Boolean);
+        const problem = problemEditor.root.innerHTML.trim();
+        if(!validateScoreTotal()||!topics.length||!problem){
+          return alert('Fill statement, topics & rubric.');
+        }
+        const rubric = {};
+        $('#metaInput').val().split(/\r?\n/).forEach(l=>{
+          const [k,v]=l.split('|').map(s=>s.trim());
+          if(k&&v) rubric[k]=+v;
+        });
+        $('#globalSpinner').removeClass('d-none');
+        try{
+          const res = await fetch('/api/generate_prompt',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+              base_prompt:'',
+              problem_statement:problem,
+              pill_topics:topics,
+              rubric
+            })
+          });
+          const data = await res.json();
+          if(data.system_prompt){
+            $('#systemPromptInput').val(data.system_prompt);
+          } else throw new Error(data.error||'Error');
+        }catch(e){ alert(e.message); }
+        $('#globalSpinner').addClass('d-none');
+      });
+
+      // 6) Update problem
+      $('#updateProblemBtn').on('click',async()=>{
+        if(!validateScoreTotal()) return;
+        $('#problemInput').val(problemEditor.root.innerHTML);
+        const form = new FormData();
+        form.append('course_id',$('#courseSelect').val());
+        form.append('title',$('#titleInput').val());
+        form.append('statement',problemEditor.root.innerHTML);
+        form.append('topics_json',
+                    JSON.stringify($('#topicsInput').val()
+                      .split(/\r?\n/).map(s=>s.trim()).filter(Boolean)));
+        const rubricObj={};
+        $('#metaInput').val().split(/\r?\n/).forEach(l=>{
+          const [k,v]=l.split('|').map(s=>s.trim());
+          if(k&&v) rubricObj[k]=+v;
+        });
+        form.append('rubric_json', JSON.stringify(rubricObj));
+        form.append('pills_json', JSON.stringify(generatedPills));
+        form.append('prompt_text',$('#systemPromptInput').val());
+        const file = $('#pdfInput')[0].files[0];
+        if(file) form.append('doc_file',file);
+        form.append('video_url',$('#videoLinkInput').val());
+
+        $('#updateProblemBtn').prop('disabled',true)
+                              .html('<i class="fas fa-spinner fa-spin"></i> Updating...');
+        try{
+          const res = await fetch(`/api/update_problem/{{ problem.id }}`,{
+            method:'POST',
+            body: form
+          });
+          const data = await res.json();
+          if(data.status==='ok'){
+            alert('Problem updated successfully!');
+            window.location.href = '{{ url_for("teacher_problem_preview", problem_id=problem.id) }}';
+          } else {
+            throw new Error(data.error||'Unknown error');
+          }
+        }catch(e){
+          alert('Error updating problem: '+e.message);
+        }finally{
+          $('#updateProblemBtn').prop('disabled',false)
+                               .html('<i class="fas fa-save me-1"></i>Update Problem');
+        }
+      });
+
+      // Enable preview button if pills exist
+      if (generatedPills && generatedPills.length > 0) {
+        $('#previewPillsBtn').prop('disabled', false);
+      }
+    });
+  </script>
+{% endblock %}

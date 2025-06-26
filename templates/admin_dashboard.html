@@ -1,0 +1,850 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+/* Modern, Professional Color Palette - Same as Teacher Dashboard */
+:root {
+  --primary-blue: #4f46e5;
+  --primary-blue-light: #6366f1;
+  --secondary-purple: #7c3aed;
+  --accent-teal: #0d9488;
+  --accent-emerald: #059669;
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--neutral-50);
+  color: var(--neutral-800);
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Welcome Header - Consistent with Teacher Dashboard */
+.welcome-header {
+  background: linear-gradient(135deg, var(--neutral-800) 0%, var(--neutral-700) 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.welcome-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.welcome-header p {
+  margin: 0;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+/* Stats Cards - Same as Teacher Dashboard */
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.stats-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-blue);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.stats-card:hover::before {
+  opacity: 1;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.stats-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  background: var(--neutral-100);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--neutral-600);
+  transition: all 0.2s ease;
+}
+
+.stats-card:hover .stats-icon {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.stats-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+  margin: 0 0 0.5rem;
+  line-height: 1;
+}
+
+.stats-label {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title i {
+  color: var(--neutral-500);
+}
+
+.action-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.action-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover .action-icon {
+  transform: scale(1.05);
+}
+
+.action-course .action-icon {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+}
+
+.action-teacher .action-icon {
+  background: linear-gradient(135deg, var(--success) 0%, var(--accent-emerald) 100%);
+}
+
+.action-student .action-icon {
+  background: linear-gradient(135deg, var(--accent-teal) 0%, var(--success) 100%);
+}
+
+.action-analytics .action-icon {
+  background: linear-gradient(135deg, var(--secondary-purple) 0%, var(--primary-blue) 100%);
+}
+
+.action-card h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: 0.75rem;
+}
+
+.action-card p {
+  color: var(--neutral-500);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.btn-course {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-course:hover {
+  background: var(--primary-blue-light);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-teacher {
+  background: var(--success);
+  color: white;
+}
+
+.btn-teacher:hover {
+  background: var(--accent-emerald);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-student {
+  background: var(--accent-teal);
+  color: white;
+}
+
+.btn-student:hover {
+  background: var(--success);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-analytics {
+  background: var(--secondary-purple);
+  color: white;
+}
+
+.btn-analytics:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Content Cards */
+.content-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.card-header-modern {
+  background: var(--neutral-50);
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 1.5rem 2rem;
+  border-radius: 12px 12px 0 0;
+}
+
+.card-header-modern h4 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-header-modern i {
+  color: var(--neutral-500);
+}
+
+/* Data Cards for Recent Items */
+.data-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  height: 100%;
+  overflow: hidden;
+}
+
+.data-card:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.10);
+  border-color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.data-item {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--neutral-100);
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  transition: background-color 0.2s ease;
+}
+
+.data-item:last-child {
+  border-bottom: none;
+}
+
+.data-item:hover {
+  background-color: var(--neutral-50);
+}
+
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.item-info h6 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+.item-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--neutral-500);
+}
+
+.item-meta {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+}
+
+/* Tables */
+.table-modern {
+  border: none;
+  margin: 0;
+}
+
+.table-modern th {
+  border: none;
+  background: var(--neutral-50);
+  color: var(--neutral-600);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.table-modern td {
+  border: none;
+  border-bottom: 1px solid var(--neutral-100);
+  padding: 1.25rem 1.5rem;
+  vertical-align: middle;
+}
+
+.table-modern tbody tr:hover {
+  background: var(--neutral-50);
+}
+
+.course-info h6 {
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.course-code {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.course-description {
+  color: var(--neutral-500);
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+.status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-inactive {
+  background: var(--neutral-100);
+  color: var(--neutral-500);
+}
+
+/* Empty States */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--neutral-500);
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  background: var(--neutral-100);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--neutral-400);
+}
+
+.empty-state h5 {
+  color: var(--neutral-700);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.empty-state p {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+/* Flash Messages */
+.alert {
+  border: none;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background: #f0fdf4;
+  border-left-color: var(--success);
+  color: #166534;
+}
+
+.alert-danger {
+  background: #fef2f2;
+  border-left-color: var(--danger);
+  color: #991b1b;
+}
+
+.alert-info {
+  background: #eff6ff;
+  border-left-color: var(--primary-blue);
+  color: #1e40af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .welcome-header {
+    padding: 1.5rem;
+  }
+  
+  .stats-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .action-card {
+    padding: 1.5rem;
+  }
+  
+  .card-header-modern {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .table-modern th,
+  .table-modern td {
+    padding: 1rem;
+  }
+  
+  .data-item {
+    padding: 1rem;
+  }
+}
+</style>
+
+<div class="dashboard-container">
+  <!-- Flash messages -->
+  {% if messages %}
+    {% for category, msg in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %} me-2"></i>
+      {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+  <!-- Welcome Header -->
+  <div class="welcome-header">
+    <div class="d-flex align-items-center">
+      <i class="fas fa-tachometer-alt me-3" style="font-size: 2rem;"></i>
+      <div>
+        <h2>Admin Dashboard</h2>
+        <p>Complete system overview and management</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stats-number">{{ courses|length }}</div>
+          <p class="stats-label">Courses</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <div class="stats-number">{{ teachers|length }}</div>
+          <p class="stats-label">Teachers</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="stats-number">{{ students|length }}</div>
+          <p class="stats-label">Students</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stats-number">{{ groups|length }}</div>
+          <p class="stats-label">Groups</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions-section">
+    <h3 class="section-title">
+      <i class="fas fa-bolt"></i>
+      Quick Actions
+    </h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <div class="action-card action-course">
+          <div class="action-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h5>Create Course</h5>
+          <p>Set up new courses with teachers and groups</p>
+          <a href="/admin/create-course" class="btn-action btn-course">
+            <i class="fas fa-plus"></i> New Course
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <div class="action-card action-teacher">
+          <div class="action-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h5>Add Teacher</h5>
+          <p>Register new faculty members to the system</p>
+          <a href="/admin/create-teacher" class="btn-action btn-teacher">
+            <i class="fas fa-user-plus"></i> Add Teacher
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <div class="action-card action-student">
+          <div class="action-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h5>Manage Students</h5>
+          <p>Add individual students or import in bulk</p>
+          <a href="/admin/create-student" class="btn-action btn-student">
+            <i class="fas fa-users"></i> Add Students
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <div class="action-card action-analytics">
+          <div class="action-icon">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <h5>Manage Groups</h5>
+          <p>Create Student Groups</p>
+          <a href="/admin/create-group" class="btn-action btn-analytics">
+            <i class="fas fa-chart-bar"></i> Add Group
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Courses Section -->
+    <div class="col-lg-8">
+      <div class="content-card">
+        <div class="card-header-modern">
+          <h4>
+            <i class="fas fa-book"></i>
+            Recent Courses ({{ courses|length }})
+          </h4>
+        </div>
+        {% if courses %}
+          <div class="table-responsive">
+            <table class="table table-modern">
+              <thead>
+                <tr>
+                  <th>Course Details</th>
+                  <th>Teacher</th>
+                  <th>Groups</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for course in courses[:10] %}
+                <tr>
+                  <td>
+                    <div class="course-info">
+                      <h6>{{ course.name }}</h6>
+                      <span class="course-code">{{ course.code }}</span>
+                      {% if course.description %}
+                      <p class="course-description">{{ course.description[:60] }}{% if course.description|length > 60 %}...{% endif %}</p>
+                      {% endif %}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="avatar-circle bg-success text-white me-2" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                        {{ course.teacher.username[0]|upper }}
+                      </div>
+                      <span>{{ course.teacher.username }}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge bg-light text-dark">{{ course.groups|length }}</span>
+                  </td>
+                  <td>
+                    <span class="status-badge {% if course.is_active %}status-active{% else %}status-inactive{% endif %}">
+                      {% if course.is_active %}Active{% else %}Inactive{% endif %}
+                    </span>
+                  </td>
+                  <td>
+                    <small class="text-muted">{{ course.created_at.strftime('%d %b %Y') }}</small>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% if courses|length > 10 %}
+          <div class="text-center p-3 border-top">
+            <a href="/admin/courses" class="btn btn-outline-primary btn-sm">View All Courses</a>
+          </div>
+          {% endif %}
+        {% else %}
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h5>No courses created</h5>
+            <p>Start by creating your first course</p>
+            <a href="/admin/create-course" class="btn-action btn-course">
+              <i class="fas fa-plus"></i> Create First Course
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="col-lg-4">
+      <!-- Recent Teachers -->
+      <div class="content-card">
+        <div class="card-header-modern">
+          <h4>
+            <i class="fas fa-chalkboard-teacher"></i>
+            Recent Teachers ({{ teachers|length }})
+          </h4>
+        </div>
+        <div class="data-card">
+          {% if teachers %}
+            {% for teacher in teachers[:6] %}
+            <div class="data-item">
+              <div class="avatar-circle bg-success text-white">
+                {{ teacher.username[0]|upper }}
+              </div>
+              <div class="item-info flex-grow-1">
+                <h6>{{ teacher.username }}</h6>
+                <p>{{ teacher.taught_courses|length }} course{% if teacher.taught_courses|length != 1 %}s{% endif %}</p>
+              </div>
+              <div class="item-meta">
+                <small>{{ teacher.created_at.strftime('%d %b') }}</small>
+              </div>
+            </div>
+            {% endfor %}
+            {% if teachers|length > 6 %}
+            <div class="text-center p-3 border-top">
+              <a href="/admin/teachers" class="btn btn-outline-success btn-sm">View All Teachers</a>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="empty-state">
+              <div class="empty-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <h5>No teachers added</h5>
+              <p>Add your first teacher to get started</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Recent Students -->
+      <div class="content-card">
+        <div class="card-header-modern">
+          <h4>
+            <i class="fas fa-user-graduate"></i>
+            Recent Students ({{ students|length }})
+          </h4>
+        </div>
+        <div class="data-card">
+          {% if students %}
+            {% for student in students[:6] %}
+            <div class="data-item">
+              <div class="avatar-circle bg-info text-white" style="background: var(--accent-teal) !important;">
+                {{ student.username[0]|upper }}
+              </div>
+              <div class="item-info flex-grow-1">
+                <h6>{{ student.username }}</h6>
+                <p>{% if student.htno %}{{ student.htno }}{% else %}Student ID{% endif %}</p>
+              </div>
+              <div class="item-meta">
+                <small>{{ student.created_at.strftime('%d %b') }}</small>
+              </div>
+            </div>
+            {% endfor %}
+            {% if students|length > 6 %}
+            <div class="text-center p-3 border-top">
+              <a href="/admin/students" class="btn btn-outline-info btn-sm">View All Students</a>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="empty-state">
+              <div class="empty-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h5>No students enrolled</h5>
+              <p>Start adding students to the system</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize tooltips if Bootstrap is available
+  if (typeof bootstrap !== 'undefined') {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }
+
+  // Auto-dismiss flash messages after 5 seconds
+  setTimeout(function() {
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(alert) {
+      if (alert.querySelector('.btn-close')) {
+        alert.querySelector('.btn-close').click();
+      }
+    });
+  }, 5000);
+
+  // Add smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

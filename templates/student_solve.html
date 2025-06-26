@@ -1,0 +1,621 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Quill Snow theme for editor -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<style>
+ /* ===== General Step & Pills ===== */
+.step { display: none; }
+.step.active { display: block; }
+.pill-card {
+  border-left: 4px solid #0056b3;
+  border-radius: .5rem;
+  padding: 1rem;
+  background: #fff;
+  margin-bottom: .75rem;
+}
+.pill-header { cursor: pointer; user-select: none; }
+.pill-header h6 { margin: 0; font-weight: 500; color: #0056b3; }
+
+/* ===== Results Modal: Enhanced Total Score Colors ===== */
+.total-score-section h4 { font-weight: 600; color: #333; margin: 0; }
+.total-score-section #totalScoreLabel { color: #666; font-weight: 600; }
+.total-score-section .progress { 
+  height: 1rem; 
+  background-color: #e9ecef; 
+  border-radius: .5rem; 
+  margin-top: .5rem; 
+  overflow: hidden; 
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Score-based progress bar colors */
+.progress-bar-poor { background: linear-gradient(45deg, #dc3545, #c82333) !important; }
+.progress-bar-average { background: linear-gradient(45deg, #fd7e14, #e8590c) !important; }
+.progress-bar-good { background: linear-gradient(45deg, #198754, #146c43) !important; }
+.progress-bar-excellent { background: linear-gradient(45deg, #0d6efd, #0b5ed7) !important; }
+
+/* ===== Results Modal: Enhanced Feedback List ===== */
+#feedbackList .list-group-item {
+  position: relative;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .75rem;
+  margin-bottom: 0.75rem;
+  padding: 1.25rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+#feedbackList .list-group-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.feedback-category {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.feedback-message {
+  color: #495057;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.score-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Score-based badge colors */
+.score-badge-poor { background: linear-gradient(45deg, #dc3545, #c82333); }
+.score-badge-average { background: linear-gradient(45deg, #fd7e14, #e8590c); }
+.score-badge-good { background: linear-gradient(45deg, #198754, #146c43); }
+.score-badge-excellent { background: linear-gradient(45deg, #0d6efd, #0b5ed7); }
+
+.weightage-text {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+/* PDF Overlay - Simplified positioning */
+/* PDF Overlay (hidden off-screen until export) */
+#pdfOverlay {
+  position: fixed;
+  top: -9999px;
+  left: 0;
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  padding: 20mm;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+  z-index: -1;
+  visibility: hidden;
+  overflow: visible;
+}
+
+/* flip on when exporting */
+#pdfOverlay.pdf-visible {
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: visible;
+}
+
+/* Force content to wrap and avoid awkward page-breaks */
+.pdf-section,
+.pdf-feedback-item,
+.pdf-solution-content {
+  page-break-inside: avoid !important;
+  word-break: break-word !important;
+  hyphens: auto !important;
+}
+
+/* Example section titles */
+.pdf-section h4 {
+  margin: 0 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #2c5aa0;
+  color: #2c5aa0;
+  font-size: 16px;
+}
+
+/* Container for each answer snippet */
+.pdf-solution-content > div,
+.pdf-feedback-message {
+  background: #f8f9fa;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+}
+
+/* Feedback header */
+.pdf-feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: #f0f4f8;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pdf-feedback-category {
+  font-weight: bold;
+  color: #2c5aa0;
+}
+
+.pdf-feedback-score {
+  padding: 2px 6px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Score summary footer */
+.pdf-score-summary {
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  background: #f0f4f8;
+  border: 2px solid #2c5aa0;
+  border-radius: 6px;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  #pdfOverlay, #pdfOverlay * { visibility: visible; }
+  #pdfOverlay { position: absolute; top:0; left:0; }
+}
+</style>
+
+<div class="container my-5">
+
+  <!-- STEP 2: Problem & Knowledge Pills -->
+  <div id="step2" class="step active">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-info-circle text-primary me-2"></i>Problem & Knowledge Pills</h5>
+        <h6 class="mt-3"><strong>Problem Statement</strong></h6>
+        <div class="problem-statement p-3 mb-4 bg-light rounded border-start border-primary border-3">
+          <p class="fst-italic mb-0">{{ problem.statement | safe  }}</p>
+        </div>
+        <h6 class="mt-4 mb-3"><strong>Knowledge Pills</strong> <span class="ms-2 text-muted fs-6">(Click to expand)</span></h6>
+        <div class="accordion" id="knowledgePillsAccordion">
+          {% for p in pills %}
+          <div class="accordion-item pill-card">
+            <h2 class="accordion-header pill-header" id="heading{{ loop.index }}">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                {{ p.topic }}
+              </button>
+            </h2>
+            <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#knowledgePillsAccordion">
+              <div class="accordion-body bg-light">
+                {{ p.content | safe }}
+                <div class="example-box p-3 bg-white border-start border-primary border-4 rounded-end shadow-sm">
+                  <p class="mb-0 fst-italic"><strong>Example:</strong> {{ p.example | safe  }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <div></div>
+          <div class="text-end">
+            {% if problem.doc_path %}
+            <button id="viewPdfBtn" class="btn btn-outline-danger me-2"><i class="fas fa-file-pdf me-1"></i>View PDF</button>
+            {% endif %}
+            {% if problem.video_url %}
+            <button id="viewVideoBtn" class="btn btn-outline-danger me-2"><i class="fas fa-video me-1"></i>View Video</button>
+            {% endif %}
+            <button id="toStep3" class="btn btn-success"><i class="fas fa-arrow-right me-1"></i>Next: Solve</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Dynamic Solution Editors & Evaluate -->
+  <div id="step3" class="step">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-edit me-2"></i>Your Solution</h5>
+        <div id="solutionSections"></div>
+        <div class="mt-4 text-end">
+          <button id="backToStep2" class="btn btn-secondary me-2"><i class="fas fa-arrow-left me-1"></i>Back</button>
+          <button id="evaluateBtn" class="btn btn-success me-2" {% raw %}{% if attempts_left==0 %}disabled{% endif %}{% endraw %}><i class="fas fa-rocket me-1"></i>Evaluate ({{ attempts_left }} left)</button>
+          <button id="showFeedbackBtn" class="btn btn-outline-primary me-2" disabled>
+            <i class="fas fa-eye me-1"></i>Show Feedback
+          </button>
+          <!-- <button id="downloadPdfBtn" class="btn btn-outline-success" disabled><i class="fas fa-file-pdf me-1"></i>Download Feedback</button>  -->
+          <span id="evalLoading" class="ms-2 d-none"><i class="fas fa-spinner fa-spin"></i> Evaluating...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PDF Preview Modal -->
+<div class="modal fade" id="pdfModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fas fa-file-pdf me-2"></i>Knowledge Document</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <embed id="pdfViewer" type="application/pdf" width="100%" height="600px"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Video Preview Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fas fa-video me-2"></i>Knowledge Video</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="ratio ratio-16x9">
+          <iframe id="videoPlayer" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced Evaluation Results Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="fas fa-clipboard-check me-2"></i>Evaluation Results</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="total-score-section mb-4 p-3 bg-light rounded">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h4 class="mb-0">Total Score</h4>
+            <span id="totalScoreLabel" class="h4 mb-0">0 / 100</span>
+          </div>
+          <div class="progress">
+            <div id="scoreBar" class="progress-bar" role="progressbar" style="width:0%;"></div>
+          </div>
+          <div id="scoreMessage" class="mt-2 text-center font-weight-bold"></div>
+        </div>
+        <div id="feedbackList"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times me-1"></i>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Professional PDF Overlay -->
+<div id="pdfOverlay">
+  <div id="pdfContent">
+    <div class="pdf-header">
+      <h2>TECHTONIC Evaluation Report</h2>
+      <p id="pdfProblem">Problem Title</p>
+      <p id="pdfDate">Date</p>
+    </div>
+    
+    <div class="pdf-info-grid">
+      <!-- Info grid content will be populated by JS -->
+    </div>
+    
+    <div class="pdf-section">
+      <h4>Problem Statement</h4>
+      <div id="pdfProblemStatement"></div>
+    </div>
+    
+    <div class="pdf-section">
+      <h4>Solution</h4>
+      <div id="pdfSolutionSections"></div>
+    </div>
+    
+    <div class="pdf-section">
+      <h4>Feedback Details</h4>
+      <div id="pdfFeedbackDetails"></div>
+    </div>
+    
+    <div class="pdf-score-summary">
+      <h3>Total Score: <span id="pdfTotalScore">0/100</span></h3>
+    </div>
+  </div>
+</div>
+
+<!-- Centered Spinner -->
+<div id="globalSpinner" class="position-fixed top-0 start-0 w-100 h-100 d-none d-flex align-items-center justify-content-center" style="background:rgba(255,255,255,0.7); z-index:2000;">
+  <div class="spinner-border text-primary" style="width:3rem; height:3rem;" role="status"><span class="visually-hidden">Loading...</span></div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+$(function(){
+  const PROBLEM_ID    = {{ problem.id }};
+  const SYSTEM_PROMPT = {{ problem.prompt|tojson }};
+  const PROB_STMT     = {{ problem.statement|tojson }};
+  let attempts_left   = {{ attempts_left }};
+
+  const RUBRIC  = {{ rubric|tojson }};
+  const KEYS    = Object.keys(RUBRIC);
+  const editors = [];
+  
+  // Declare solObj in broader scope so both handlers can access it
+  let solObj = {};
+
+  // Helper functions for scoring
+  function getScoreClass(score, maxScore) {
+    const percentage = (score / maxScore) * 100;
+    if (percentage >= 90) return 'excellent';
+    if (percentage >= 70) return 'good';
+    if (percentage >= 50) return 'average';
+    return 'poor';
+  }
+
+  function getScoreMessage(totalScore) {
+    if (totalScore >= 90) return 'Excellent Performance! 🎉';
+    if (totalScore >= 70) return 'Good Work! 👍';
+    if (totalScore >= 50) return 'Average Performance 📈';
+    return 'Needs Improvement 💪';
+  }
+
+  // 1) Initialize one Quill instance per rubric category
+  KEYS.forEach((cat, i) => {
+    $('#solutionSections').append(`
+      <div class="mb-4">
+        <h6><strong>${cat}</strong> <span class="text-muted">(${RUBRIC[cat]} points)</span></h6>
+        <div id="editor-${i}" style="height:200px; background:#fff;"></div>
+      </div>
+    `);
+    editors[i] = new Quill(`#editor-${i}`, {
+      theme: 'snow',
+      modules: { toolbar: [['bold','italic'], ['code-block'], ['link'], [{ list:'ordered' }, { list:'bullet' }]] }
+    });
+  });
+
+  const showSpinner = ()=> $('#globalSpinner').removeClass('d-none');
+  const hideSpinner = ()=> $('#globalSpinner').addClass('d-none');
+
+  // Step navigation
+  $('#toStep3').click(()=>{ $('#step2').removeClass('active'); $('#step3').addClass('active'); });
+  $('#backToStep2').click(()=>{ $('#step3').removeClass('active'); $('#step2').addClass('active'); });
+
+  // View PDF modal
+  {% if problem.doc_path %}
+  $('#viewPdfBtn').click(()=>{
+    $('#pdfViewer').attr('src', "{{ url_for('static', filename=problem.doc_path) }}");
+    new bootstrap.Modal($('#pdfModal')).show();
+  });
+  {% endif %}
+
+  // View Video modal
+  {% if problem.video_url %}
+  $('#viewVideoBtn').click(()=>{
+    let vid = new URL("{{ problem.video_url }}").searchParams.get('v');
+    if(!vid && "{{ problem.video_url }}".includes('youtu.be')) {
+      vid = "{{ problem.video_url }}".split('/').pop();
+    }
+    $('#videoPlayer').attr('src', `https://www.youtube.com/embed/${vid}`);
+    new bootstrap.Modal($('#videoModal')).show();
+  });
+  {% endif %}
+
+  // Enhanced Evaluate button
+  $('#evaluateBtn').click(async ()=>{
+    if(attempts_left <= 0) return;
+    
+    // Update solObj with current editor content
+    solObj = {}; // Reset the object
+    KEYS.forEach((cat,i) => {
+      solObj[cat] = editors[i].root.innerHTML.trim();
+    });
+    const solJSON = JSON.stringify(solObj);
+
+    showSpinner();
+    try {
+      const res = await fetch('/api/evaluate', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify({ 
+          problem_id: PROBLEM_ID, 
+          system_prompt: SYSTEM_PROMPT, 
+          problem_statement: PROB_STMT, 
+          student_solution: solJSON 
+        })
+      });
+      const data = await res.json();
+      if(data.error) throw new Error(data.error);
+
+      // Enhanced Results Modal Population
+      const totalScore = data.total_score || 0;
+      const scoreClass = getScoreClass(totalScore, 100);
+      const scoreMessage = getScoreMessage(totalScore);
+
+      $('#totalScoreLabel').text(`${totalScore} / 100`);
+      $('#scoreBar').removeClass('progress-bar-poor progress-bar-average progress-bar-good progress-bar-excellent')
+                   .addClass(`progress-bar-${scoreClass}`)
+                   .css('width', totalScore + '%');
+      $('#scoreMessage').text(scoreMessage).removeClass('text-danger text-warning text-success text-primary')
+                       .addClass(scoreClass === 'poor' ? 'text-danger' : 
+                                scoreClass === 'average' ? 'text-warning' :
+                                scoreClass === 'good' ? 'text-success' : 'text-primary');
+
+      // Enhanced Feedback List
+      $('#feedbackList').empty();
+      data.feedback.forEach(item => {
+        const [cat, ...rest] = item.split(':');
+        const msg = rest.join(':').trim();
+        const score = data.scores[cat.trim()] || 0;
+        const maxScore = RUBRIC[cat.trim()] || 10;
+        const scoreClass = getScoreClass(score, maxScore);
+        
+        $('#feedbackList').append(`
+          <div class="list-group-item">
+            <div class="d-flex justify-content-between align-items-start">
+              <div class="flex-grow-1">
+                <div class="feedback-category">${cat.trim()}</div>
+                <div class="feedback-message">${msg}</div>
+              </div>
+              <div class="score-badge-container">
+                <div class="score-badge score-badge-${scoreClass}">${score}/${maxScore}</div>
+               
+              </div>
+            </div>
+          </div>
+        `);
+      });
+
+      new bootstrap.Modal($('#resultModal')).show();
+
+      // Prepare Professional PDF content
+      $('#pdfProblem').text(`{{ problem.title }}`);
+      $('#pdfDate').text(new Date().toLocaleString());
+      $('#pdfTotalScore').text(`${totalScore}/100`);
+      $('#pdfProblemStatement').html(`<p>${PROB_STMT}</p>`);
+      
+      // Clear and populate solution sections
+      $('#pdfSolutionSections').empty();
+      KEYS.forEach(cat => {
+        const content = solObj[cat];
+        if (content && content.trim() !== '<p><br></p>' && content.trim() !== '') {
+          $('#pdfSolutionSections').append(`
+            <div class="pdf-solution-content">
+              <h5>${cat} (${RUBRIC[cat]} points)</h5>
+              <div>${content}</div>
+            </div>
+          `);
+        }
+      });
+
+      // Clear and populate detailed feedback
+      $('#pdfFeedbackDetails').empty();
+      data.feedback.forEach(item => {
+        const [cat, ...rest] = item.split(':');
+        const msg = rest.join(':').trim();
+        const score = data.scores[cat.trim()] || 0;
+        const maxScore = RUBRIC[cat.trim()] || 10;
+        const scoreClass = getScoreClass(score, maxScore);
+        
+        // Determine score color for PDF
+        let scoreColor = '#dc3545'; // poor
+        if (scoreClass === 'average') scoreColor = '#fd7e14';
+        else if (scoreClass === 'good') scoreColor = '#198754';
+        else if (scoreClass === 'excellent') scoreColor = '#0d6efd';
+
+        $('#pdfFeedbackDetails').append(`
+          <div class="pdf-feedback-item">
+            <div class="pdf-feedback-header">
+              <div class="pdf-feedback-category">${cat.trim()}</div>
+              <div class="pdf-feedback-score" style="background-color: ${scoreColor};">${score}/${maxScore}</div>
+            </div>
+            <div class="pdf-feedback-message">${msg}</div>
+          </div>
+        `);
+      });
+
+      $('#downloadPdfBtn').prop('disabled', false);
+      $('#showFeedbackBtn').prop('disabled', false);
+      attempts_left--;
+      $('#evaluateBtn').text(`Evaluate (${attempts_left} left)`);
+      if(attempts_left === 0) $('#evaluateBtn').prop('disabled', true);
+
+    } catch(err) {
+      alert(err.message);
+    } finally {
+      hideSpinner();
+    }
+  });
+  
+  $('#showFeedbackBtn').click(() => {
+    // use the actual DOM element, not the jQuery wrapper
+    const resultModalEl = document.getElementById('resultModal');
+    const resultModal   = new bootstrap.Modal(resultModalEl);
+    resultModal.show();
+  });
+  
+  // Enhanced PDF Download
+  // Enhanced PDF Download
+// Enhanced PDF Download with proper multi-page generation and custom filename
+$('#downloadPdfBtn').click(async () => {
+  // 1) Make overlay visible and scroll top
+  const $ov = $('#pdfOverlay').addClass('pdf-visible').css({
+    top: 0, left: 0, visibility: 'visible', zIndex: 9999
+  });
+  window.scrollTo(0,0);
+
+  // 2) Give browser ~1s to reflow with new CSS/visibility
+  await new Promise(r => setTimeout(r, 1000));
+
+  // 3) PDF options
+  const opts = {
+    margin:       [10, 10, 10, 10],        // mm
+    filename:     `TECHTONIC_Report_${new Date().toISOString().split('T')[0]}.pdf`,
+    html2canvas:  { scale: 1.5, useCORS: true, scrollX:0, scrollY:0 },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    {
+       mode: ['avoid-all','css'],
+       before: ['.pdf-section'],
+       avoid: ['.pdf-feedback-item','.pdf-solution-content']
+    }
+  };
+
+  // 4) Export
+  html2pdf().set(opts)
+             .from(document.getElementById('pdfContent'))
+             .save()
+             .then(() => {
+               // Hide overlay again
+               $ov.removeClass('pdf-visible')
+                  .css({ top:'-9999px', visibility:'hidden', zIndex:-1 });
+             })
+             .catch(err => {
+               console.error('PDF export error:', err);
+               alert('PDF generation failed. See console for details.');
+             });
+
+});
+
+// Auto-expand first accordion on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const firstAccordion = document.querySelector('.accordion-collapse');
+  if (firstAccordion) {
+    new bootstrap.Collapse(firstAccordion, { toggle: false }).show();
+  }
+});
+});
+
+
+</script>
+{% endblock %}

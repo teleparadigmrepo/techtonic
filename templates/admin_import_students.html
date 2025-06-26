@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="text-dark fw-bold mb-1">Import Students</h2>
+      <p class="text-muted mb-0">Upload CSV file to import students to groups</p>
+    </div>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary">
+      <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+    </a>
+  </div>
+
+  <div class="row">
+    <!-- Import Form -->
+    <div class="col-lg-8">
+      <div class="bg-white rounded-3 border-0 shadow-sm p-4 mb-4">
+        <form method="POST" enctype="multipart/form-data" id="importForm">
+          <!-- Group Selection -->
+          <div class="mb-4">
+            <label for="group_id" class="form-label fw-semibold text-dark mb-2">
+              Select Target Group
+            </label>
+            <select class="form-select form-select-lg border-2" id="group_id" name="group_id" required>
+              <option value="">Choose a group...</option>
+              {% for group in groups %}
+                <option value="{{ group.id }}">
+                  {{ group.name }} - {{ group.course.code }} ({{ group.course.name }})
+                </option>
+              {% endfor %}
+            </select>
+            {% if not groups %}
+              <div class="mt-2 p-3 bg-warning-subtle border border-warning rounded-2">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                  <span class="text-warning-emphasis">No groups available. Please create groups first.</span>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- File Upload -->
+          <div class="mb-4">
+            <label for="csv_file" class="form-label fw-semibold text-dark mb-2">
+              Upload CSV File
+            </label>
+            <div class="border-2 border-dashed rounded-3 p-4 text-center bg-light-subtle" id="dropZone">
+              <input type="file" class="form-control d-none" id="csv_file" name="csv_file" accept=".csv" required>
+              <div id="defaultState">
+                <i class="fas fa-cloud-upload-alt fa-2x text-muted mb-2"></i>
+                <p class="mb-2 text-dark">Drag and drop your CSV file here or <button type="button" class="btn btn-link p-0 text-decoration-none" onclick="document.getElementById('csv_file').click()">browse</button></p>
+                <small class="text-muted">Supports CSV files up to 10MB</small>
+              </div>
+              <div id="fileSelected" class="d-none">
+                <i class="fas fa-file-csv fa-2x text-success mb-2"></i>
+                <p class="mb-1 text-dark fw-semibold" id="fileName"></p>
+                <small class="text-muted" id="fileSize"></small>
+                <div class="mt-2">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="clearFile()">
+                    <i class="fas fa-times me-1"></i>Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary px-4" {% if not groups %}disabled{% endif %}>
+              <i class="fas fa-upload me-2"></i>Import Students
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Instructions Sidebar -->
+    <div class="col-lg-4">
+      <div class="bg-white rounded-3 border-0 shadow-sm p-4 mb-4">
+        <h5 class="text-dark fw-bold mb-3">
+          <i class="fas fa-info-circle text-primary me-2"></i>Import Instructions
+        </h5>
+        <div class="text-muted">
+          <div class="mb-3">
+            <h6 class="fw-semibold text-dark mb-2">CSV Format Requirements:</h6>
+            <ul class="list-unstyled ms-3">
+              <li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>Format: <code>htno,name,password</code></li>
+              <li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>One student per line</li>
+              <li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>No header row required</li>
+            </ul>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="fw-semibold text-dark mb-2">Example:</h6>
+            <div class="bg-light p-2 rounded-2 font-monospace small">
+              HTNO001,John Doe,temp123<br>
+              HTNO002,Jane Smith,pass456<br>
+              HTNO003,Bob Johnson,secure789
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <h6 class="fw-semibold text-dark mb-2">Important Notes:</h6>
+            <ul class="list-unstyled ms-3">
+              <li class="mb-1"><i class="fas fa-arrow-right text-muted me-2"></i>Existing students will be added to the group</li>
+              <li class="mb-1"><i class="fas fa-arrow-right text-muted me-2"></i>New students will be created with temporary passwords</li>
+              <li class="mb-1"><i class="fas fa-arrow-right text-muted me-2"></i>Students must change password on first login</li>
+              <li class="mb-1"><i class="fas fa-arrow-right text-muted me-2"></i>Empty lines will be ignored</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Existing Groups Table -->
+  {% if groups %}
+  <div class="bg-white rounded-3 border-0 shadow-sm">
+    <div class="p-4 border-bottom">
+      <h5 class="text-dark fw-bold mb-0">
+        <i class="fas fa-users me-2"></i>Current Groups Overview
+      </h5>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th class="fw-semibold">Group Name</th>
+            <th class="fw-semibold">Course</th>
+            <th class="fw-semibold">Students</th>
+            <th class="fw-semibold">Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for group in groups %}
+            <tr>
+              <td>
+                <div class="fw-semibold text-dark">{{ group.name }}</div>
+              </td>
+              <td>
+                <div class="text-dark">{{ group.course.code }}</div>
+                <small class="text-muted">{{ group.course.name }}</small>
+              </td>
+              <td>
+                <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">
+                  {{ group.students|length }} enrolled
+                </span>
+                {% if group.students %}
+                  <div class="mt-1">
+                    <small class="text-muted">
+                      {% for student in group.students[:3] %}
+                        {{ student.name or student.username }}{% if not loop.last %}, {% endif %}
+                      {% endfor %}
+                      {% if group.students|length > 3 %}
+                        and {{ group.students|length - 3 }} more
+                      {% endif %}
+                    </small>
+                  </div>
+                {% endif %}
+              </td>
+              <td class="text-muted">
+                {{ group.created_at.strftime('%d %b %Y') if group.created_at else 'N/A' }}
+              </td>
+            </tr>
+          {% else %}
+            <tr>
+              <td colspan="4" class="text-center text-muted py-4">
+                <i class="fas fa-users fa-2x mb-2 d-block"></i>
+                No groups created yet
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+// File upload handling
+document.getElementById('csv_file').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = formatFileSize(file.size);
+    document.getElementById('defaultState').classList.add('d-none');
+    document.getElementById('fileSelected').classList.remove('d-none');
+  }
+});
+
+// Drag and drop functionality
+const dropZone = document.getElementById('dropZone');
+
+dropZone.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  dropZone.classList.add('border-primary', 'bg-primary-subtle');
+});
+
+dropZone.addEventListener('dragleave', function(e) {
+  e.preventDefault();
+  dropZone.classList.remove('border-primary', 'bg-primary-subtle');
+});
+
+dropZone.addEventListener('drop', function(e) {
+  e.preventDefault();
+  dropZone.classList.remove('border-primary', 'bg-primary-subtle');
+  
+  const files = e.dataTransfer.files;
+  if (files.length > 0) {
+    const file = files[0];
+    if (file.type === 'text/csv' || file.name.endsWith('.csv')) {
+      document.getElementById('csv_file').files = files;
+      document.getElementById('fileName').textContent = file.name;
+      document.getElementById('fileSize').textContent = formatFileSize(file.size);
+      document.getElementById('defaultState').classList.add('d-none');
+      document.getElementById('fileSelected').classList.remove('d-none');
+    }
+  }
+});
+
+function clearFile() {
+  document.getElementById('csv_file').value = '';
+  document.getElementById('defaultState').classList.remove('d-none');
+  document.getElementById('fileSelected').classList.add('d-none');
+}
+
+function formatFileSize(bytes) {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// Form validation
+document.getElementById('importForm').addEventListener('submit', function(e) {
+  const groupId = document.getElementById('group_id').value;
+  const file = document.getElementById('csv_file').files[0];
+  
+  if (!groupId) {
+    e.preventDefault();
+    alert('Please select a group.');
+    return;
+  }
+  
+  if (!file) {
+    e.preventDefault();
+    alert('Please select a CSV file.');
+    return;
+  }
+});
+</script>
+
+<style>
+.bg-light-subtle {
+  background-color: #f8f9fa !important;
+}
+
+.bg-primary-subtle {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+}
+
+.text-primary-emphasis {
+  color: #052c65 !important;
+}
+
+.text-warning-emphasis {
+  color: #664d03 !important;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+code {
+  background-color: #e9ecef;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+</style>
+{% endblock %}

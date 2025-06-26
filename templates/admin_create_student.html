@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">
+            <i class="fas fa-user-plus me-2"></i>Create New Student
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Note:</strong> Students will be required to change their password on first login for security.
+          </div>
+          
+          <form method="POST" id="createStudentForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="username" class="form-label">
+                    <i class="fas fa-user me-1"></i>Username
+                  </label>
+                  <input type="text" class="form-control" id="username" name="username" 
+                         required minlength="3" maxlength="50" 
+                         pattern="[a-zA-Z0-9_.-]+" 
+                         title="Username can only contain letters, numbers, underscore, dot, and hyphen">
+                  <div class="form-text">3-50 characters, letters, numbers, _, ., - only</div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="temp_password" class="form-label">
+                    <i class="fas fa-lock me-1"></i>Temporary Password
+                  </label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="temp_password" name="temp_password" 
+                           required minlength="6" maxlength="50">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                      <i class="fas fa-eye" id="toggleIcon"></i>
+                    </button>
+                  </div>
+                  <div class="form-text">Minimum 6 characters</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <button type="button" class="btn btn-outline-info btn-sm" id="generatePassword">
+                <i class="fas fa-random me-1"></i>Generate Random Password
+              </button>
+              <small class="text-muted ms-2">Click to generate a secure temporary password</small>
+            </div>
+            
+            <div class="mb-4">
+              <div class="card bg-light">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <i class="fas fa-shield-alt text-warning me-1"></i>Security Notice
+                  </h6>
+                  <ul class="mb-0 small">
+                    <li>The student will be forced to change this password on first login</li>
+                    <li>Make sure to securely share the temporary password with the student</li>
+                    <li>Consider using a temporary password that's easy to communicate but secure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary me-md-2">
+                <i class="fas fa-arrow-left me-1"></i>Cancel
+              </a>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-user-plus me-1"></i>Create Student
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="successModalLabel">
+          <i class="fas fa-check-circle me-2"></i>Student Created Successfully
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Username:</strong> <span id="createdUsername"></span></p>
+        <p><strong>Temporary Password:</strong> <code id="createdPassword"></code></p>
+        <div class="alert alert-warning">
+          <i class="fas fa-exclamation-triangle me-2"></i>
+          Make sure to securely share these credentials with the student. They will be required to change the password on first login.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('createStudentForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('temp_password');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const generatePasswordBtn = document.getElementById('generatePassword');
+    
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        if (type === 'text') {
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    });
+    
+    // Generate random password
+    generatePasswordBtn.addEventListener('click', function() {
+        const password = generateRandomPassword();
+        passwordInput.value = password;
+        passwordInput.setAttribute('type', 'text');
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    });
+    
+    // Username validation
+    usernameInput.addEventListener('input', function() {
+        const username = this.value;
+        const isValid = /^[a-zA-Z0-9_.-]+$/.test(username);
+        
+        if (!isValid && username.length > 0) {
+            this.classList.add('is-invalid');
+        } else {
+            this.classList.remove('is-invalid');
+        }
+    });
+    
+    // Form submission with loading state
+    form.addEventListener('submit', function(e) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Creating...';
+        submitBtn.disabled = true;
+        
+        // Re-enable button after 3 seconds in case of error
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+    });
+    
+    function generateRandomPassword() {
+        const length = 8;
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+        let password = "";
+        
+        // Ensure at least one character from each type
+        password += getRandomChar("abcdefghijklmnopqrstuvwxyz"); // lowercase
+        password += getRandomChar("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); // uppercase
+        password += getRandomChar("0123456789"); // numbers
+        password += getRandomChar("!@#$%^&*"); // special chars
+        
+        // Fill the rest randomly
+        for (let i = 4; i < length; i++) {
+            password += getRandomChar(charset);
+        }
+        
+        // Shuffle the password
+        return password.split('').sort(() => Math.random() - 0.5).join('');
+    }
+    
+    function getRandomChar(str) {
+        return str.charAt(Math.floor(Math.random() * str.length));
+    }
+});
+</script>
+{% endblock %}

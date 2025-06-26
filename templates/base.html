@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TECHTONIC</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+  <!-- Quill Snow theme -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+  <style>
+    body { background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+    .navbar-brand { font-size: 1.75rem; font-weight: bold; color: #0056b3; }
+    .logo-icon { color: #0056b3; margin-right: 8px; }
+    footer { margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #555; padding: 1rem 0; }
+
+    /* Enhanced mobile navigation */
+    .navbar-nav .nav-item { margin-left: 0.5rem; }
+    @media (max-width: 768px) {
+      .navbar-nav { flex-direction: column; align-items: flex-start; width: 100%; }
+      .navbar-nav .nav-item { margin-left: 0; margin-bottom: 0.25rem; width: 100%; }
+    }
+    main .container {
+      max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1rem !important;
+  background-color: var(--white) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px var(--shadow) !important;
+  min-height:625px !important;
+  }
+  </style>
+ 
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  {% block header %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-mountain logo-icon"></i> TECHTONIC
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          {% if current_user.is_authenticated %}
+            {% if current_user.role == 'admin' %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                  <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+              </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#"
+                   id="userManagementDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-users"></i> User Management
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userManagementDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('manage_users') }}">
+                    <i class="fas fa-list"></i> Manage Users
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ url_for('create_user') }}">
+                    <i class="fas fa-user-plus"></i> Create User
+                  </a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('bulk_create_users') }}">
+                    <i class="fas fa-upload"></i> Bulk Create Users
+                  </a></li>
+                </ul>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#"
+                   id="systemManagementDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-cog"></i> System Management
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="systemManagementDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('admin_create_student') }}">
+                    <i class="fas fa-user-graduate"></i> Create Student
+                  </a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('admin_create_teacher') }}">
+                    <i class="fas fa-chalkboard-teacher"></i> Create Teacher
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ url_for('admin_create_course') }}">
+                    <i class="fas fa-book"></i> Create Course
+                  </a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('admin_create_group') }}">
+                    <i class="fas fa-users-cog"></i> Create Group
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ url_for('admin_import_students') }}">
+                    <i class="fas fa-file-import"></i> Import Students
+                  </a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('manage_users') }}">
+                    <i class="fas fa-list"></i> Manage Users
+                  </a></li>
+                  <!-- <li><a class="dropdown-item" href="{{ url_for('bulk_create_users') }}">
+                    <i class="fas fa-upload"></i> Bulk Create Users
+                  </a></li> -->
+                </ul>
+              </li>
+            {% elif current_user.role == 'teacher' %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('teacher_dashboard') }}">
+                  <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('teacher_create_problem') }}">
+                  <i class="fas fa-plus-circle"></i> Create Problem
+                </a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('student_dashboard') }}">
+                  <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('student_reports') }}">
+                  <i class="fas fa-tachometer-alt"></i> Reports
+                </a>
+              </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('change_password') }}">
+                <i class="fas fa-key"></i> Change Password
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{{ url_for('logout') }}">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register') }}">
+                <i class="fas fa-user-plus"></i> Register
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endblock %}
+
+  <!-- Flash Messages -->
+  <div class="container mt-3">
+    {% with msgs = get_flashed_messages(with_categories=true) %}
+      {% if msgs %}
+        {% for cat, msg in msgs %}
+          <div class="alert alert-{{ 'danger' if cat=='error' else cat }} alert-dismissible fade show" role="alert">
+            {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-light border-top mt-5">
+    <div class="container text-center py-3">
+      <p class="mb-0">
+        © TECHTONIC • Developed By Teleparadigm Networks • <span id="genDate"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS: jQuery then Bootstrap Bundle -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1) Set date
+      const genDate = document.getElementById('genDate');
+      if (genDate) genDate.textContent = new Date().toLocaleDateString();
+
+      // 2) Auto-close non-error alerts
+      document.querySelectorAll('.alert:not(.alert-danger)').forEach(a => {
+        setTimeout(() => new bootstrap.Alert(a).close(), 5000);
+      });
+
+      // 3) Card fade-in
+      document.querySelectorAll('.card').forEach((c, i) => {
+        c.classList.add('animate__animated','animate__fadeIn');
+        c.style.animationDelay = `${i*0.1}s`;
+      });
+
+      // 4) Button pulse
+      document.querySelectorAll('.btn').forEach(b => {
+        b.addEventListener('click', function() {
+          this.classList.add('animate__animated','animate__pulse');
+          setTimeout(() => this.classList.remove('animate__animated','animate__pulse'), 500);
+        });
+      });
+
+      // 5) Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior:'smooth', block:'start' });
+        });
+      });
+
+      // 6) Form-focus styling
+      document.querySelectorAll('.form-control').forEach(f => {
+        f.addEventListener('focus',  () => f.parentElement.classList.add('is-focused'));
+        f.addEventListener('blur',   () => f.parentElement.classList.remove('is-focused'));
+      });
+
+      // 7) Responsive tables
+      document.querySelectorAll('table:not(.no-responsive)').forEach(t => {
+        if (!t.parentElement.classList.contains('table-responsive')) {
+          const w = document.createElement('div');
+          w.classList.add('table-responsive');
+          t.before(w);
+          w.append(t);
+        }
+      });
+
+      // 8) Collapse mobile menu on click
+      const toggle = document.querySelector('.navbar-toggler');
+      if (toggle) {
+        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(l => {
+          l.addEventListener('click', () => {
+            const nav = document.querySelector('.navbar-collapse.show');
+            if (nav) toggle.click();
+          });
+        });
+      }
+
+      // 9) Step fade-out (student_solve)
+      document.querySelectorAll('[id^="toStep"], [id^="backToStep"]').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.step.active').forEach(s => {
+            s.classList.add('animate__animated','animate__fadeOut');
+          });
+        });
+      });
+
+      // 10) Touch-friendly hover
+      if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+        document.querySelectorAll('.card,.btn,.pill-card').forEach(e => {
+          e.addEventListener('touchstart', () => e.classList.add('is-touched'), {passive:true});
+          e.addEventListener('touchend',   () => setTimeout(() => e.classList.remove('is-touched'), 300), {passive:true});
+        });
+      }
+
+      // 11) Lazy-load images
+      document.querySelectorAll('img').forEach(img => img.loading = 'lazy');
+
+      // 12) ***FIXED*** Modal animations
+      document.querySelectorAll('.modal').forEach(m => {
+        m.addEventListener('show.bs.modal', () => {
+          const dlg = m.querySelector('.modal-dialog');
+          dlg.classList.remove('animate__zoomOut');
+          dlg.classList.add('animate__animated','animate__zoomIn');
+        });
+        m.addEventListener('hidden.bs.modal', () => {
+          const dlg = m.querySelector('.modal-dialog');
+          dlg.classList.remove('animate__animated','animate__zoomIn');
+        });
+      });
+    });
+  </script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

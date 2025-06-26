@@ -1,0 +1,1116 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+/* Modern, Professional Color Palette */
+:root {
+  --primary-blue: #4f46e5;
+  --primary-blue-light: #6366f1;
+  --secondary-purple: #7c3aed;
+  --accent-teal: #0d9488;
+  --accent-emerald: #059669;
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--neutral-50);
+  color: var(--neutral-800);
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Welcome Header - Refined */
+.welcome-header {
+  background: linear-gradient(135deg, var(--neutral-800) 0%, var(--neutral-700) 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.welcome-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.welcome-header p {
+  margin: 0;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+/* Stats Cards - Subtle and Professional */
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.stats-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-blue);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.stats-card:hover::before {
+  opacity: 1;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.stats-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  background: var(--neutral-100);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--neutral-600);
+  transition: all 0.2s ease;
+}
+
+.stats-card:hover .stats-icon {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.stats-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+  margin: 0 0 0.5rem;
+  line-height: 1;
+}
+
+.stats-label {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Quick Actions - Clean and Accessible */
+.quick-actions-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title i {
+  color: var(--neutral-500);
+}
+
+.action-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.action-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover .action-icon {
+  transform: scale(1.05);
+}
+
+.action-create .action-icon {
+  background: linear-gradient(135deg, var(--success) 0%, var(--accent-emerald) 100%);
+}
+
+.action-analytics .action-icon {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+}
+
+.action-card h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: 0.75rem;
+}
+
+.action-card p {
+  color: var(--neutral-500);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.btn-create {
+  background: var(--success);
+  color: white;
+}
+
+.btn-create:hover {
+  background: var(--accent-emerald);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-analytics {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-analytics:hover {
+  background: var(--primary-blue-light);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Content Cards - Clean and Modern */
+.content-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.card-header-modern {
+  background: var(--neutral-50);
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 1.5rem 2rem;
+  border-radius: 12px 12px 0 0;
+}
+
+.card-header-modern h4 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-header-modern i {
+  color: var(--neutral-500);
+}
+
+/* Course Cards */
+.course-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  height: 100%;
+  overflow: hidden;
+}
+
+.course-card:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.10);
+  border-color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.course-header {
+  background: var(--neutral-50);
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.course-code {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+}
+
+.course-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.course-body {
+  padding: 1.25rem;
+}
+
+.course-description {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.course-groups {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-course-detail {
+  padding: 0.5rem 1rem;
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+  border: 1px solid var(--neutral-200);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-course-detail:hover {
+  background: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+}
+
+/* Problems Table */
+.table-modern {
+  border: none;
+  margin: 0;
+}
+
+.table-modern th {
+  border: none;
+  background: var(--neutral-50);
+  color: var(--neutral-600);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.table-modern td {
+  border: none;
+  border-bottom: 1px solid var(--neutral-100);
+  padding: 1.25rem 1.5rem;
+  vertical-align: middle;
+}
+
+.table-modern tbody tr:hover {
+  background: var(--neutral-50);
+}
+
+.problem-title {
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.problem-title a {
+  color: var(--neutral-800);
+  transition: color 0.2s ease;
+}
+
+.problem-title a:hover {
+  color: var(--primary-blue);
+}
+
+.problem-statement {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.course-badge {
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-inactive {
+  background: var(--neutral-100);
+  color: var(--neutral-500);
+}
+
+/* Action Buttons */
+.problem-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-action-sm {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--neutral-300);
+  border-radius: 6px;
+  background: white;
+  color: var(--neutral-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-download-problem {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.btn-download-problem:hover {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-download-solution {
+  border-color: var(--secondary-purple);
+  color: var(--secondary-purple);
+}
+
+.btn-download-solution:hover {
+  background: var(--secondary-purple);
+  color: white;
+}
+
+.btn-view-submissions {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+}
+
+.btn-view-submissions:hover {
+  background: var(--accent-teal);
+  color: white;
+}
+
+/* Empty States */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--neutral-500);
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  background: var(--neutral-100);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--neutral-400);
+}
+
+.empty-state h5 {
+  color: var(--neutral-700);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.empty-state p {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+/* Toast Notifications */
+.toast {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .welcome-header {
+    padding: 1.5rem;
+  }
+  
+  .stats-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .action-card {
+    padding: 1.5rem;
+  }
+  
+  .card-header-modern {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .table-modern th,
+  .table-modern td {
+    padding: 1rem;
+  }
+}
+</style>
+
+<div class="dashboard-container">
+  <!-- Welcome Header -->
+  <div class="welcome-header">
+    <div class="d-flex align-items-center">
+      <i class="fas fa-chalkboard-teacher me-3" style="font-size: 2rem;"></i>
+      <div>
+        <h2>Teacher Dashboard</h2>
+        <p>Welcome back, {{ current_user.name or current_user.username }}!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stats-number">{{ courses|length }}</div>
+          <p class="stats-label">Courses</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <div class="stats-number">{{ problems|length }}</div>
+          <p class="stats-label">Problems</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stats-number">{{ problems|selectattr('is_active')|list|length }}</div>
+          <p class="stats-label">Active</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stats-number">{{ courses|map(attribute='groups')|map('length')|sum }}</div>
+          <p class="stats-label">Groups</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <!-- <div class="quick-actions-section">
+    <h3 class="section-title">
+      <i class="fas fa-bolt"></i>
+      Quick Actions
+    </h3>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="action-card action-create">
+          <div class="action-icon">
+            <i class="fas fa-plus"></i>
+          </div>
+          <h5>Create New Problem</h5>
+          <p>Design and create new problems for your courses</p>
+          <a href="{{ url_for('teacher_create_problem') }}" class="btn-action btn-create">
+            <i class="fas fa-plus"></i> Create Problem
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="action-card action-analytics">
+          <div class="action-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h5>View Course Analytics</h5>
+          <p>Monitor student progress and performance metrics</p>
+          <a href="#courses-section" class="btn-action btn-analytics">
+            <i class="fas fa-chart-bar"></i> View Analytics
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- My Courses Section -->
+  <div class="content-card" id="courses-section">
+    <div class="card-header-modern">
+      <h4>
+        <i class="fas fa-book"></i>
+        My Courses ({{ courses|length }})
+      </h4>
+    </div>
+    <div class="card-body p-4">
+      {% if courses %}
+        <div class="row g-4">
+          {% for course in courses %}
+            <div class="col-md-6 col-xl-4">
+              <div class="course-card">
+                <div class="course-header">
+                  <p class="course-code">{{ course.code }}</p>
+                  <h6 class="course-name">{{ course.name }}</h6>
+                </div>
+                <div class="course-body">
+                  {% if course.description %}
+                    <p class="course-description">
+                      {{ course.description[:80] }}{% if course.description|length > 80 %}...{% endif %}
+                    </p>
+                  {% endif %}
+                  <div class="course-meta">
+                    <span class="course-groups">
+                      <i class="fas fa-users"></i>
+                      {{ course.groups|length }} groups
+                    </span>
+                    <a href="{{ url_for('teacher_course_detail', course_id=course.id) }}" class="btn-course-detail">
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <div class="empty-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h5>No courses assigned</h5>
+          <p>Contact your administrator to get courses assigned to you</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- My Problems Section -->
+  <div class="content-card">
+    <div class="card-header-modern">
+      <h4>
+        <i class="fas fa-puzzle-piece"></i>
+        My Problems ({{ problems|length }})
+      </h4>
+    </div>
+    {% if problems %}
+      <div class="table-responsive">
+        <table class="table table-modern">
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Course</th>
+              <th>Created</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for problem in problems %}
+              <tr data-problem-id="{{ problem.id }}">
+                <td>
+                  <h6 class="problem-title">
+                    <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
+                       class="text-decoration-none" 
+                       target="_blank"
+                       title="Preview Problem">
+                      {{ problem.title }}
+                    </a>
+                  </h6>
+                  <p class="problem-statement">
+                    {{ problem.statement[:100]|safe }}{% if problem.statement|length > 100 %}...{% endif %}
+                  </p>
+                </td>
+                <td>
+                  <span class="course-badge">{{ problem.course.code }}</span>
+                  <div class="mt-1">
+                    <small class="text-muted">{{ problem.course.name }}</small>
+                  </div>
+                </td>
+                <td>
+                  <small class="text-muted">
+                    {{ problem.created_at.strftime('%d %b %Y') if problem.created_at else 'N/A' }}
+                  </small>
+                </td>
+                <td>
+                  <span class="status-badge {% if problem.is_active %}status-active{% else %}status-inactive{% endif %}">
+                    {% if problem.is_active %}Active{% else %}Inactive{% endif %}
+                  </span>
+                </td>
+                <td>
+                  <div class="problem-actions">
+                    <a href="{{ url_for('download_problem_pdf', problem_id=problem.id) }}" 
+                       class="btn-action-sm btn-download-problem"
+                       title="Download Problem PDF"
+                       target="_blank">
+                      <i class="fas fa-file-pdf"></i>
+                    </a>
+                    
+                    <a href="{{ url_for('download_solution_pdf', problem_id=problem.id) }}" 
+                       class="btn-action-sm btn-download-solution"
+                       title="Download Solution PDF"
+                       target="_blank">
+                      <i class="fas fa-file-code"></i>
+                    </a>
+                    
+                    <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" 
+                       class="btn-action-sm btn-view-submissions"
+                       title="View Submissions"
+                       target="_blank">
+                      <i class="fas fa-list-alt"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <div class="empty-icon">
+          <i class="fas fa-puzzle-piece"></i>
+        </div>
+        <h5>No problems created yet</h5>
+        <p>Start by creating your first problem for your courses</p>
+        <a href="{{ url_for('teacher_create_problem') }}" class="btn-action btn-create">
+          <i class="fas fa-plus"></i> Create First Problem
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="actionToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Notification</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body"></div>
+  </div>
+</div>
+
+<script>
+  function showToast(message, type = 'success') {
+    const toast = document.getElementById('actionToast');
+    const toastBody = toast.querySelector('.toast-body');
+    
+    toastBody.textContent = message;
+    
+    toast.classList.remove('text-bg-success', 'text-bg-danger', 'text-bg-warning');
+    
+    if (type === 'success') {
+      toast.classList.add('text-bg-success');
+    } else if (type === 'error') {
+      toast.classList.add('text-bg-danger');
+    } else {
+      toast.classList.add('text-bg-warning');
+    }
+    
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+  }
+  
+  // Load login status for all courses on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    loadAllLoginStatuses();
+    
+    // Refresh login statuses every 30 seconds
+    setInterval(loadAllLoginStatuses, 30000);
+  });
+  
+  function loadAllLoginStatuses() {
+    const courseCards = document.querySelectorAll('[data-course-id]');
+    
+    courseCards.forEach(card => {
+      const courseId = card.dataset.courseId;
+      loadLoginStatus(courseId);
+    });
+  }
+  
+  function loadLoginStatus(courseId) {
+    fetch(`/teacher/course/${courseId}/login_status`)
+      .then(response => response.json())
+      .then(data => {
+        const card = document.querySelector(`[data-course-id="${courseId}"]`);
+        if (card) {
+          const activeCount = card.querySelector('.active-count');
+          const totalCount = card.querySelector('.total-count');
+          
+          if (activeCount) activeCount.textContent = data.active_students;
+          if (totalCount) totalCount.textContent = data.total_students;
+        }
+      })
+      .catch(error => {
+        console.error('Error loading login status:', error);
+      });
+  }
+  
+  function showLoginStatus(courseId) {
+    fetch(`/teacher/course/${courseId}/login_status`)
+      .then(response => response.json())
+      .then(data => {
+        // Update modal title and counts
+        document.getElementById('modalCourseName').textContent = data.course_name;
+        document.getElementById('modalActiveCount').textContent = data.active_students;
+        document.getElementById('modalTotalCount').textContent = data.total_students;
+        
+        // Update reset button
+        const resetButton = document.getElementById('modalResetButton');
+        resetButton.onclick = () => resetCourseLogins(courseId, data.course_name);
+        
+        // Update student list
+        const studentList = document.getElementById('studentList');
+        const noStudentsDiv = document.getElementById('noStudentsOnline');
+        
+        if (data.students && data.students.length > 0) {
+          studentList.style.display = 'block';
+          noStudentsDiv.style.display = 'none';
+          
+          studentList.innerHTML = data.students.map(student => `
+            <div class="student-item">
+              <div class="student-info">
+                <h6>${student.name || student.username}</h6>
+                <small>Group: ${student.group} | Last seen: ${formatDateTime(student.last_login)}</small>
+              </div>
+              <div class="online-indicator"></div>
+            </div>
+          `).join('');
+        } else {
+          studentList.style.display = 'none';
+          noStudentsDiv.style.display = 'block';
+        }
+        
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('loginStatusModal'));
+        modal.show();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showToast('Error loading login status', 'error');
+      });
+  }
+  
+  function resetCourseLogins(courseId, courseName) {
+    const confirmMessage = `Are you sure you want to log out ALL students from "${courseName}"?\n\nThis will immediately end their sessions and they will need to log in again.`;
+    
+    if (!confirm(confirmMessage)) {
+      return;
+    }
+    
+    // Disable button to prevent multiple clicks
+    const resetButtons = document.querySelectorAll(`[onclick*="resetCourseLogins(${courseId}"]`);
+    resetButtons.forEach(btn => {
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Resetting...';
+    });
+    
+    fetch(`/teacher/course/${courseId}/reset_logins`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        showToast(data.message, 'success');
+        
+        // Update login status display
+        setTimeout(() => {
+          loadLoginStatus(courseId);
+        }, 1000);
+        
+        // Close modal if open
+        const modal = bootstrap.Modal.getInstance(document.getElementById('loginStatusModal'));
+        if (modal) {
+          modal.hide();
+        }
+      } else {
+        showToast(data.message || 'Error resetting logins', 'error');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showToast('Error resetting logins', 'error');
+    })
+    .finally(() => {
+      // Re-enable buttons
+      resetButtons.forEach(btn => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Reset All Logins';
+      });
+    });
+  }
+  
+  // Helper function to format date/time
+  function formatDateTime(dateString) {
+    if (!dateString) return 'Never';
+    
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffInMinutes = Math.floor((now - date) / (1000 * 60));
+    
+    if (diffInMinutes < 1) {
+      return 'Just now';
+    } else if (diffInMinutes < 60) {
+      return `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    } else if (diffInMinutes < 1440) { // 24 hours
+      const hours = Math.floor(diffInMinutes / 60);
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else {
+      return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    }
+  }
+  
+  // Problem management functions
+  function toggleProblemStatus(problemId, currentStatus) {
+    const newStatus = !currentStatus;
+    const action = newStatus ? 'activate' : 'deactivate';
+    
+    if (!confirm(`Are you sure you want to ${action} this problem?`)) {
+      return;
+    }
+    
+    fetch(`/teacher/problem/${problemId}/toggle_status`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ is_active: newStatus })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        showToast(data.message, 'success');
+        
+        // Update the status badge
+        const row = document.querySelector(`tr[data-problem-id="${problemId}"]`);
+        if (row) {
+          const statusBadge = row.querySelector('.status-badge');
+          if (statusBadge) {
+            statusBadge.className = `status-badge ${newStatus ? 'status-active' : 'status-inactive'}`;
+            statusBadge.textContent = newStatus ? 'Active' : 'Inactive';
+          }
+        }
+      } else {
+        showToast(data.message || 'Error updating problem status', 'error');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showToast('Error updating problem status', 'error');
+    });
+  }
+  
+  // Auto-refresh functionality
+  function startAutoRefresh() {
+    // Refresh every 30 seconds
+    setInterval(() => {
+      loadAllLoginStatuses();
+    }, 30000);
+  }
+  
+  // Initialize auto-refresh when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    startAutoRefresh();
+  });
+  
+  // Handle page visibility changes to pause/resume auto-refresh
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // Page is hidden, could pause auto-refresh here if needed
+      console.log('Dashboard hidden - auto-refresh continues');
+    } else {
+      // Page is visible, refresh immediately
+      loadAllLoginStatuses();
+    }
+  });
+  
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(event) {
+    // Alt + C to create new problem
+    if (event.altKey && event.key === 'c') {
+      event.preventDefault();
+      const createLink = document.querySelector('a[href*="teacher_create_problem"]');
+      if (createLink) {
+        window.location.href = createLink.href;
+      }
+    }
+    
+    // Alt + R to refresh dashboard
+    if (event.altKey && event.key === 'r') {
+      event.preventDefault();
+      loadAllLoginStatuses();
+      showToast('Dashboard refreshed', 'success');
+    }
+  });
+  
+  // Add tooltips to action buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tooltips if available
+    if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    }
+  });
+  
+  // Handle download button clicks with loading states
+  document.addEventListener('click', function(event) {
+    if (event.target.closest('.btn-download-problem, .btn-download-solution')) {
+      const button = event.target.closest('.btn-action-sm');
+      const originalHTML = button.innerHTML;
+      
+      // Show loading state
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      button.style.pointerEvents = 'none';
+      
+      // Reset button after 3 seconds
+      setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.style.pointerEvents = 'auto';
+      }, 3000);
+    }
+  });
+  
+  // Handle form submissions with loading states
+  function handleFormSubmission(form, submitButton) {
+    const originalText = submitButton.textContent;
+    const originalHTML = submitButton.innerHTML;
+    
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+    
+    // Reset button after form submission completes
+    form.addEventListener('submit', function() {
+      setTimeout(() => {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalHTML;
+      }, 2000);
+    });
+  }
+  
+  // Initialize any forms with loading states
+  document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+      if (submitButton) {
+        handleFormSubmission(form, submitButton);
+      }
+    });
+  });
+  </script>
+  {% endblock %}

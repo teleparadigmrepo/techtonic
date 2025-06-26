@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+          <h4 class="mb-0">
+            <i class="fas fa-users"></i> Create New Group
+          </h4>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label for="course_id" class="form-label">
+                <i class="fas fa-book"></i> Select Course *
+              </label>
+              <select class="form-select" id="course_id" name="course_id" required>
+                <option value="">Choose a course...</option>
+                {% for course in courses %}
+                  <option value="{{ course.id }}">
+                    {{ course.code }} - {{ course.name }}
+                    ({{ course.teacher.name or course.teacher.username }})
+                  </option>
+                {% endfor %}
+              </select>
+              {% if not courses %}
+                <div class="form-text text-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  No active courses available. Create courses first.
+                </div>
+              {% endif %}
+            </div>
+            
+            <div class="mb-3">
+              <label for="name" class="form-label">
+                <i class="fas fa-tag"></i> Group Name *
+              </label>
+              <input type="text" class="form-control" id="name" name="name" required>
+              <div class="form-text">e.g., "Section A", "Batch 2024", "Morning Group"</div>
+            </div>
+            
+            <div class="alert alert-info">
+              <i class="fas fa-info-circle"></i>
+              <strong>What's Next:</strong> After creating this group, you can:
+              <ul class="mb-0 mt-2">
+                <li>Import students in bulk using CSV</li>
+                <li>Add individual students to this group</li>
+                <li>Assign problems to students in this group</li>
+              </ul>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+              <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+              </a>
+              <button type="submit" class="btn btn-warning" {% if not courses %}disabled{% endif %}>
+                <i class="fas fa-plus"></i> Create Group
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if courses %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-list"></i> Existing Groups
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Group Name</th>
+                  <th>Course</th>
+                  <th>Teacher</th>
+                  <th>Students</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for course in courses %}
+                  {% for group in course.groups %}
+                    <tr>
+                      <td><strong>{{ group.name }}</strong></td>
+                      <td>{{ course.code }} - {{ course.name }}</td>
+                      <td>{{ course.teacher.name or course.teacher.username }}</td>
+                      <td>
+                        <span class="badge bg-primary">{{ group.students|length }} students</span>
+                      </td>
+                      <td>{{ group.created_at.strftime('%d-%m-%Y') if group.created_at else 'N/A' }}</td>
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr>
+                    <td colspan="5" class="text-center text-muted">No groups created yet</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

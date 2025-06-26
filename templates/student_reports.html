@@ -1,0 +1,448 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0">
+      <i class="fas fa-chart-line text-success me-2"></i>Performance Reports
+    </h4>
+    <!-- <div class="d-flex gap-2">
+      <button class="btn btn-outline-primary btn-sm" onclick="printReports()">
+        <i class="fas fa-print me-1"></i>Print Summary
+      </button>
+    </div> -->
+  </div>
+
+  <!-- Overall Performance Summary -->
+  {% if submissions %}
+    <div class="row mb-4">
+      <!-- Overall Statistics Cards -->
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-gradient-primary text-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="card-title mb-1">Total Attempts</h6>
+                <h3 class="mb-0">{{ submissions|length }}</h3>
+              </div>
+              <i class="fas fa-tasks fa-2x opacity-75"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-gradient-success text-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="card-title mb-1">Average Score</h6>
+                <h3 class="mb-0">{{ '%.1f' % avg_score }}%</h3>
+              </div>
+              <i class="fas fa-trophy fa-2x opacity-75"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-gradient-info text-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="card-title mb-1">Best Score</h6>
+                <h3 class="mb-0">{{ '%.1f' % best_score }}%</h3>
+              </div>
+              <i class="fas fa-star fa-2x opacity-75"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card bg-gradient-warning text-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="card-title mb-1">Problems Solved</h6>
+                <h3 class="mb-0">{{ unique_problems }}</h3>
+              </div>
+              <i class="fas fa-check-circle fa-2x opacity-75"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course-wise Performance -->
+    {% if course_stats %}
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-header bg-light">
+              <h5 class="mb-0">
+                <i class="fas fa-graduation-cap text-primary me-2"></i>Course-wise Performance
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                {% for course_code, stats in course_stats.items() %}
+                  <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="card border-start border-primary border-4">
+                      <div class="card-body">
+                        <h6 class="card-title text-primary">{{ course_code }}</h6>
+                        <div class="row text-center">
+                          <div class="col-4">
+                            <div class="text-muted small">Problems</div>
+                            <div class="fw-bold">{{ stats.problems_count }}</div>
+                          </div>
+                          <div class="col-4">
+                            <div class="text-muted small">Avg Score</div>
+                            <div class="fw-bold text-success">{{ '%.1f' % stats.avg_score }}%</div>
+                          </div>
+                          <div class="col-4">
+                            <div class="text-muted small">Best</div>
+                            <div class="fw-bold text-info">{{ '%.1f' % stats.best_score }}%</div>
+                          </div>
+                        </div>
+                        <div class="progress mt-2" style="height: 6px;">
+                          <div class="progress-bar bg-gradient-primary" role="progressbar" 
+                               style="width: {{ stats.avg_score }}%" 
+                               aria-valuenow="{{ stats.avg_score }}"
+                               aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Performance Timeline Chart -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-light">
+            <h5 class="mb-0">
+              <i class="fas fa-chart-area text-info me-2"></i>Performance Timeline
+            </h5>
+          </div>
+          <div class="card-body">
+            <canvas id="performanceChart" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Submissions History -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+              <i class="fas fa-history text-secondary me-2"></i>All Submission Reports
+            </h5>
+            <div class="d-flex gap-2">
+              <select class="form-select form-select-sm" id="courseFilter" onchange="filterSubmissions()">
+                <option value="">All Courses</option>
+                {% for course_code in course_stats.keys() %}
+                  <option value="{{ course_code }}">{{ course_code }}</option>
+                {% endfor %}
+              </select>
+              <select class="form-select form-select-sm" id="sortBy" onchange="sortSubmissions()">
+                <option value="date">Sort by Date</option>
+                <option value="score">Sort by Score</option>
+                <option value="course">Sort by Course</option>
+                <option value="problem">Sort by Problem</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0" id="submissionsTable">
+                <thead class="table-light">
+                  <tr>
+                    <th>Problem</th>
+                    <th>Course</th>
+                    <th>Final Score</th>
+                    <th>Total Attempts</th>
+                    <th>Last Attempt Date</th>
+                    <th>Performance</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for submission in submissions %}
+                    <tr data-course="{{ submission.problem.course.code }}" 
+                        data-problem="{{ submission.problem.title }}"
+                        data-score="{{ submission.total_score or 0 }}"
+                        data-date="{{ submission.created_at.strftime('%Y-%m-%d') }}">
+                      <td>
+                        <div class="fw-bold text-dark">{{ submission.problem.title }}</div>
+                        <small class="text-muted">Problem ID: #{{ submission.problem.id }}</small>
+                      </td>
+                      <td>
+                        <span class="badge bg-primary">{{ submission.problem.course.code }}</span>
+                        <div class="small text-muted">{{ submission.problem.course.name }}</div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="me-2">
+                            <div class="fw-bold {{ 'text-success' if (submission.total_score or 0) >= 80 else 'text-warning' if (submission.total_score or 0) >= 60 else 'text-danger' }}">
+                              {{ '%.1f' % (submission.total_score or 0) }}%
+                            </div>
+                          </div>
+                          <div class="progress" style="width: 60px; height: 8px;">
+                            <div class="progress-bar {{ 'bg-success' if (submission.total_score or 0) >= 80 else 'bg-warning' if (submission.total_score or 0) >= 60 else 'bg-danger' }}" 
+                                 role="progressbar" 
+                                 style="width: {{ submission.total_score or 0 }}%"
+                                 aria-valuenow="{{ submission.total_score or 0 }}"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="badge bg-secondary">{{ submission.attempt or 'N/A' }}</span>
+                      </td>
+                      <td>
+                        <div class="fw-bold">{{ submission.created_at.strftime('%d %b %Y') }}</div>
+                        <small class="text-muted">{{ submission.created_at.strftime('%I:%M %p') }}</small>
+                      </td>
+                      <td>
+                        {% if (submission.total_score or 0) >= 90 %}
+                          <span class="badge bg-success"><i class="fas fa-trophy me-1"></i>Excellent</span>
+                        {% elif (submission.total_score or 0) >= 80 %}
+                          <span class="badge bg-info"><i class="fas fa-thumbs-up me-1"></i>Good</span>
+                        {% elif (submission.total_score or 0) >= 60 %}
+                          <span class="badge bg-warning"><i class="fas fa-meh me-1"></i>Average</span>
+                        {% else %}
+                          <span class="badge bg-danger"><i class="fas fa-exclamation-triangle me-1"></i>Needs Work</span>
+                        {% endif %}
+                      </td>
+                      <td>
+                        <div class="d-flex gap-1">
+                          <a href="{{ url_for('student_report', sid=submission.id) }}"
+                             class="btn btn-sm btn-outline-primary"
+                             title="Download Detailed Report">
+                            <i class="fas fa-download"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% else %}
+    <!-- No submissions yet -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card border-0 bg-light">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-chart-line fa-4x text-muted mb-4"></i>
+            <h4 class="text-muted mb-3">No Reports Available</h4>
+            <p class="text-muted mb-4">
+              You haven't submitted any solutions yet. Start solving problems to see your performance reports here.
+            </p>
+            <a href="{{ url_for('student_dashboard') }}" class="btn btn-primary">
+              <i class="fas fa-play me-2"></i>Go to Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize performance chart if we have submissions
+    {% if submissions %}
+    initPerformanceChart();
+    {% endif %}
+});
+
+function initPerformanceChart() {
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    
+    // Prepare data for chart
+    const submissionData = [
+        {% for submission in submissions %}
+        {
+            date: '{{ submission.created_at.strftime("%Y-%m-%d") }}',
+            score: {{ submission.total_score or 0 }},
+            problem: '{{ submission.problem.title }}',
+            course: '{{ submission.problem.course.code }}'
+        },
+        {% endfor %}
+    ];
+
+    // Sort by date
+    submissionData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: submissionData.map(item => item.date),
+            datasets: [{
+                label: 'Score (%)',
+                data: submissionData.map(item => item.score),
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 6,
+                pointHoverRadius: 8,
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(context) {
+                            const index = context[0].dataIndex;
+                            return submissionData[index].problem;
+                        },
+                        label: function(context) {
+                            const index = context.dataIndex;
+                            return [
+                                `Score: ${context.parsed.y}%`,
+                                `Course: ${submissionData[index].course}`,
+                                `Date: ${submissionData[index].date}`
+                            ];
+                        }
+                    }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            }
+        }
+    });
+}
+
+function filterSubmissions() {
+    const filter = document.getElementById('courseFilter').value;
+    const rows = document.querySelectorAll('#submissionsTable tbody tr');
+    
+    rows.forEach(row => {
+        const courseCode = row.dataset.course;
+        if (!filter || courseCode === filter) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function sortSubmissions() {
+    const sortBy = document.getElementById('sortBy').value;
+    const tbody = document.querySelector('#submissionsTable tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    
+    rows.sort((a, b) => {
+        switch(sortBy) {
+            case 'score':
+                const scoreA = parseFloat(a.dataset.score);
+                const scoreB = parseFloat(b.dataset.score);
+                return scoreB - scoreA; // Descending order
+            case 'course':
+                const courseA = a.dataset.course;
+                const courseB = b.dataset.course;
+                return courseA.localeCompare(courseB);
+            case 'problem':
+                const problemA = a.dataset.problem;
+                const problemB = b.dataset.problem;
+                return problemA.localeCompare(problemB);
+            case 'date':
+            default:
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+                return dateB - dateA; // Most recent first
+        }
+    });
+    
+    // Clear tbody and re-append sorted rows
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
+}
+
+// function printReports() {
+//     window.print();
+// }
+</script>
+
+<style>
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #ffc107, #d39e00);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.progress {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+    .btn, .modal, .card-header .d-flex .gap-2 {
+        display: none !important;
+    }
+}
+</style>
+{% endblock %}

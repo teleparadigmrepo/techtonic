@@ -1,0 +1,8 @@
+Flask
+Flask-Login
+Flask-SQLAlchemy
+PyMySQL
+Werkzeug
+python-dotenv
+openai
+

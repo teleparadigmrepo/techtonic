@@ -1,0 +1,326 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <!-- Header -->
+  <div class="card shadow-sm border-0 mb-4" style="background: linear-gradient(135deg, #e8f4f8 0%, #d6e7f0 100%); color: #2c3e50; border: 1px solid rgba(176, 196, 222, 0.3);">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0" style="--bs-breadcrumb-divider-color: rgba(44, 62, 80, 0.4);">
+              <li class="breadcrumb-item">
+                <a href="{{ url_for('teacher_dashboard') }}" class="text-decoration-none" style="color: #5a6c7d;">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{{ url_for('teacher_course_detail', course_id=course.id) }}" class="text-decoration-none" style="color: #5a6c7d;">{{ course.name }}</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" class="text-decoration-none" style="color: #5a6c7d;">{{ problem.title }}</a>
+              </li>
+              <li class="breadcrumb-item active" style="color: #2c3e50;">Analytics</li>
+            </ol>
+          </nav>
+          <h3 class="card-title mb-2" style="color: #2c3e50;">
+            <i class="fas fa-chart-bar me-2" style="color: #7fb3d3;"></i>{{ problem.title }} - Analytics
+          </h3>
+          <p class="mb-3" style="color: #5a6c7d;">Detailed performance analysis based on students' latest attempts</p>
+        </div>
+        <div class="text-end">
+          <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" class="btn me-2" style="background: #f8fafc; color: #2c3e50; border: 1px solid #cbd5e0;">
+            <i class="fas fa-arrow-left me-1"></i>Back to Submissions
+          </a>
+          <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" class="btn" style="background: transparent; color: #2c3e50; border: 1px solid #7fb3d3;">
+            <i class="fas fa-eye me-1"></i>Preview Problem
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Background -->
+  <div class="analytics-content" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 15px; padding: 30px; margin-bottom: 20px; border: 1px solid rgba(203, 213, 224, 0.3);">
+    
+    <!-- Overview Stats -->
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card text-center border-0 shadow-sm stats-card">
+          <div class="card-body">
+            <i class="fas fa-file-upload fa-2x mb-2" style="color: #94a3b8;"></i>
+            <h4 class="mb-1" style="color: #334155;">{{ total_attempts }}</h4>
+            <small style="color: #64748b;">Total Attempts</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center border-0 shadow-sm stats-card">
+          <div class="card-body">
+            <i class="fas fa-users fa-2x mb-2" style="color: #a3b18a;"></i>
+            <h4 class="mb-1" style="color: #334155;">{{ unique_students }}</h4>
+            <small style="color: #64748b;">Students Attempted</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center border-0 shadow-sm stats-card">
+          <div class="card-body">
+            <i class="fas fa-chart-line fa-2x mb-2" style="color: #d4a574;"></i>
+            <h4 class="mb-1" style="color: #334155;">{{ "%.1f"|format(avg_score) }}%</h4>
+            <small style="color: #64748b;">Average Score</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center border-0 shadow-sm stats-card">
+          <div class="card-body">
+            <i class="fas fa-trophy fa-2x mb-2" style="color: #7fb3d3;"></i>
+            <h4 class="mb-1" style="color: #334155;">{{ "%.1f"|format(highest_score) if highest_score > 0 else 0 }}%</h4>
+            <small style="color: #64748b;">Highest Score</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score Distribution Chart -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <div class="card shadow-sm border-0 chart-card">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0" style="color: #334155;">
+              <i class="fas fa-chart-pie me-2" style="color: #7fb3d3;"></i>Score Distribution (Latest Attempts)
+            </h5>
+          </div>
+          <div class="card-body">
+            <canvas id="scoreDistributionChart" height="300"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 chart-card">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0" style="color: #334155;">
+              <i class="fas fa-list me-2" style="color: #7fb3d3;"></i>Score Breakdown
+            </h5>
+          </div>
+          <div class="card-body">
+            {% for range, count in score_ranges.items() %}
+            <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded" style="background: rgba(148, 163, 184, 0.1);">
+              <span class="badge" style="background: #94a3b8; color: white;">{{ range }}%</span>
+              <span class="fw-bold" style="color: #334155;">{{ count }} student{{ 's' if count != 1 else '' }}</span>
+            </div>
+            {% endfor %}
+            {% if students_with_zero_score > 0 %}
+            <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded" style="background: rgba(220, 53, 69, 0.1);">
+              <span class="badge" style="background: #ef4444; color: white;">No Score</span>
+              <span class="fw-bold" style="color: #334155;">{{ students_with_zero_score }} student{{ 's' if students_with_zero_score != 1 else '' }}</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance Analysis -->
+    {% if latest_submissions %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 performance-card">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0" style="color: #334155;">
+              <i class="fas fa-medal me-2" style="color: #d4a574;"></i>Top Performers 
+            </h5>
+          </div>
+          <div class="card-body">
+            {% set top_performers = latest_submissions|selectattr('total_score')|selectattr('total_score', '>', 0)|sort(attribute='total_score', reverse=true)|list %}
+            {% if top_performers %}
+              {% for submission in top_performers[:5] %}
+              <div class="d-flex justify-content-between align-items-center mb-2 p-3 border rounded performance-item">
+                <div>
+                  <div class="fw-medium" style="color: #334155;">{{ submission.student.name or submission.student.username }}</div>
+                  <small style="color: #64748b;">{{ submission.student.htno or submission.student.username }}</small>
+                </div>
+                <span class="badge fs-6" style="background: #a3b18a; color: white;">{{ "%.1f"|format(submission.total_score) }}%</span>
+              </div>
+              {% endfor %}
+            {% else %}
+              <p class="text-center py-3" style="color: #64748b;">No students have scored above 0% yet.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 performance-card">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0" style="color: #334155;">
+              <i class="fas fa-redo me-2" style="color: #7fb3d3;"></i>Most Attempts
+            </h5>
+          </div>
+          <div class="card-body">
+            {% for item in most_attempts[:5] %}
+            <div class="d-flex justify-content-between align-items-center mb-2 p-3 border rounded performance-item">
+              <div>
+                <div class="fw-medium" style="color: #334155;">{{ item.student.name or item.student.username }}</div>
+                <small style="color: #64748b;">{{ item.student.htno or item.student.username }}</small>
+                {% if item.latest_score is not none %}
+                <small class="d-block" style="color: #a3b18a;">Latest: {{ "%.1f"|format(item.latest_score) }}%</small>
+                {% endif %}
+              </div>
+              <span class="badge fs-6" style="background: #7fb3d3; color: white;">{{ item.count }} attempt{{ 's' if item.count != 1 else '' }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm border-0">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-chart-bar fa-3x mb-3" style="color: #94a3b8;"></i>
+            <h5 style="color: #64748b;">No submissions yet</h5>
+            <p style="color: #64748b;">Students haven't submitted any attempts for this problem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<style>
+.analytics-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.analytics-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(241, 245, 249, 0.1) 0%, transparent 50%, rgba(241, 245, 249, 0.1) 100%);
+  animation: shimmer 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.stats-card, .chart-card, .performance-card {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(203, 213, 224, 0.3);
+}
+
+.stats-card:hover, .chart-card:hover, .performance-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(148, 163, 184, 0.15) !important;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.performance-item {
+  transition: all 0.2s ease;
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(203, 213, 224, 0.2) !important;
+}
+
+.performance-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(3px);
+  border: 1px solid rgba(148, 163, 184, 0.3) !important;
+}
+
+.card-header {
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.badge {
+  font-size: 0.85em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .analytics-content {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .stats-card {
+    margin-bottom: 15px;
+  }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+$(document).ready(function() {
+  // Score Distribution Chart
+  const scoreCtx = document.getElementById('scoreDistributionChart').getContext('2d');
+  const scoreData = {
+    labels: [{% for range in score_ranges.keys() %}'{{ range }}%'{% if not loop.last %},{% endif %}{% endfor %}],
+    datasets: [{
+      data: [{% for count in score_ranges.values() %}{{ count }}{% if not loop.last %},{% endif %}{% endfor %}],
+      backgroundColor: [
+        '#e2e8f0',  // Light gray for 0-20
+        '#fed7aa',  // Light orange for 21-40  
+        '#fde68a',  // Light yellow for 41-60
+        '#bbf7d0',  // Light green for 61-80
+        '#bfdbfe'   // Light blue for 81-100
+      ],
+      borderWidth: 2,
+      borderColor: '#f8fafc',
+      hoverBorderWidth: 3,
+      hoverBorderColor: '#64748b'
+    }]
+  };
+  
+  new Chart(scoreCtx, {
+    type: 'doughnut',
+    data: scoreData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 20,
+            usePointStyle: true,
+            font: {
+              size: 12,
+              weight: 'bold'
+            }
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const value = context.parsed;
+              const total = context.dataset.data.reduce((a, b) => a + b, 0);
+              const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+              return `${label}: ${value} students (${percentage}%)`;
+            }
+          }
+        }
+      },
+      cutout: '60%',
+      animation: {
+        animateRotate: true,
+        animateScale: true
+      }
+    }
+  });
+});
+</script>
+{% endblock %}
