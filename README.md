@@ -2,8 +2,7 @@
 # Techtonic
 
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)  
-[![Flask](https://img.shields.io/badge/flask-2.0-green)](https://flask.palletsprojects.com/)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
+[![Flask](https://img.shields.io/badge/flask-2.0-green)](https://flask.palletsprojects.com/)    
 [![First Commit](https://img.shields.io/badge/first%20commit-26%20Jun%202025-orange)](https://github.com/teleparadigmrepo/techtonic/commit)
 
 > **Techtonic** — a role-based, AI-powered learning platform  
