@@ -1,8 +1,38 @@
-Flask
-Flask-Login
-Flask-SQLAlchemy
-PyMySQL
-Werkzeug
-python-dotenv
-openai
+# Core Flask packages
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Login>=0.6
+Flask-CORS==4.0.0
+Flask-Migrate==4.0.5
 
+# Security
+Werkzeug==2.3.7
+
+# Database
+SQLAlchemy==2.0.21
+
+# OpenAI
+openai==1.78.1
+
+
+# PDF Generation
+reportlab==4.0.4
+
+# HTML Parsing
+beautifulsoup4==4.12.2
+
+# File handling
+python-dotenv==1.0.0
+
+# Logging (usually included with Python but explicit for clarity)
+logging
+
+# Standard library packages (usually included with Python)
+# csv - included with Python
+# io - included with Python  
+# json - included with Python
+# os - included with Python
+# secrets - included with Python
+# tempfile - included with Python
+# datetime - included with Python
+# re - included with Python

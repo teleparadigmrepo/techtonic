@@ -14,8 +14,7 @@
           <p class="text-muted mb-3">{{ course.description }}</p>
           <div class="d-flex flex-wrap gap-2 mb-3">
             <span class="badge bg-primary">{{ course.code }}</span>
-            <span class="badge bg-info">{{ course.semester }}</span>
-            <span class="badge bg-success">{{ problems|length }} Problems</span>
+            <span class="badge bg-success">{{ problems|length }} Activities</span>
           </div>
         </div>
         <div class="text-end">
@@ -23,7 +22,7 @@
             href="{{ url_for('teacher_create_problem', course_id=course.id) }}"
             class="btn btn-primary"
           >
-            <i class="fas fa-plus me-1"></i>Add New Problem
+            <i class="fas fa-plus me-1"></i>Add New Activity
           </a>
         </div>
       </div>
@@ -37,7 +36,7 @@
         <div class="card-body">
           <i class="fas fa-tasks fa-2x text-primary mb-2"></i>
           <h4 class="mb-1">{{ problems|length }}</h4>
-          <small class="text-muted">Total Problems</small>
+          <small class="text-muted">Total Activities</small>
         </div>
       </div>
     </div>
@@ -74,9 +73,9 @@
   <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
       <h5 class="mb-1">
-        <i class="fas fa-list-alt text-primary me-2"></i>Course Problems
+        <i class="fas fa-list-alt text-primary me-2"></i>Course Activities
       </h5>
-      <p class="text-muted mb-0 small">Manage and monitor your course problems</p>
+      <p class="text-muted mb-0 small">Manage and monitor your course activities</p>
     </div>
     <div class="d-flex gap-2">
       <div class="dropdown">
@@ -107,13 +106,19 @@
                 <th scope="col" class="px-4 py-3 border-0">
                   <div class="d-flex align-items-center">
                     <i class="fas fa-book-open text-primary me-2"></i>
-                    Problem Details
+                    Activity Details
                   </div>
                 </th>
                 <th scope="col" class="text-center px-3 py-3 border-0">
                   <div class="d-flex align-items-center justify-content-center">
-                    <i class="fas fa-toggle-on text-success me-2"></i>
-                    Status
+                    <i class="fas fa-power-off text-success me-2"></i>
+                    Activity Control
+                  </div>
+                </th>
+                <th scope="col" class="text-center px-3 py-3 border-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-download text-info me-2"></i>
+                    Download
                   </div>
                 </th>
                 <th scope="col" class="text-center px-3 py-3 border-0">
@@ -128,12 +133,6 @@
                     Avg Score
                   </div>
                 </th>
-                <!-- <th scope="col" class="text-center px-3 py-3 border-0">
-                  <div class="d-flex align-items-center justify-content-center">
-                    <i class="fas fa-calendar text-muted me-2"></i>
-                    Created
-                  </div>
-                </th> -->
                 <th scope="col" class="text-center px-4 py-3 border-0">
                   <div class="d-flex align-items-center justify-content-center">
                     <i class="fas fa-cogs text-secondary me-2"></i>
@@ -154,39 +153,63 @@
                         </div>
                       </div>
                       <div class="flex-grow-1 min-width-0">
-                        <h6 class="mb-1 fw-semibold text-truncate"">
-                          <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
-                          class="btn btn-outline-info btn-sm" target="_blank" style="font-size: 16px;
-                          padding: 0px;
-                          font-weight: bold;">
+                        <h6 class="mb-1 fw-semibold text-truncate">
                           {{ problem.title }}
-                       </a>
-                       </h6>
-                        <div class="d-flex flex-wrap gap-1">
+                        </h6>
+                        <div class="d-flex flex-wrap gap-1 mb-2">
                           <small class="text-muted">ID: {{ problem.id }}</small>
                           <span class="text-muted">•</span>
                           <small class="text-muted">{{ problem.created_at.strftime('%b %d, %Y at %I:%M %p') }}</small>
+                        </div>
+                        <div class="d-flex flex-wrap gap-1" id="status-info-{{ problem.id }}">
+                          <!-- Activity State Badge -->
+                          {% if problem.is_active %}
+                            <small class="badge bg-success bg-opacity-20 text-success">
+                              <i class="fas fa-play me-1"></i>Currently Active
+                            </small>
+                            {% if problem.start_time %}
+                              <small class="text-muted">Started: {{ problem.start_time.strftime('%b %d, %I:%M %p') }}</small>
+                            {% endif %}
+                          {% else %}
+                            <small class="badge bg-secondary bg-opacity-20 text-secondary">
+                              <i class="fas fa-pause me-1"></i>Inactive
+                            </small>
+                            {% if problem.end_time %}
+                              <small class="text-muted">Stopped: {{ problem.end_time.strftime('%b %d, %I:%M %p') }}</small>
+                            {% endif %}
+                          {% endif %}
                         </div>
                       </div>
                     </div>
                   </td>
                   <td class="text-center px-3 py-3">
                     <div class="d-flex flex-column align-items-center gap-2">
-                      <span class="badge {{ 'bg-success' if problem.is_active else 'bg-secondary' }} rounded-pill px-3 py-2" id="status-badge-{{ problem.id }}">
-                        <i class="fas {{ 'fa-play' if problem.is_active else 'fa-pause' }} me-1"></i>
-                        {{ 'Active' if problem.is_active else 'Inactive' }}
+                      <button 
+                        type="button" 
+                        class="btn {{ 'btn-danger' if problem.is_active else 'btn-success' }} btn-sm activity-toggle-btn" 
+                        data-problem-id="{{ problem.id }}" 
+                        title="{{ 'Stop Activity' if problem.is_active else 'Start Activity' }}"
+                        id="activity-btn-{{ problem.id }}">
+                        <i class="fas {{ 'fa-stop' if problem.is_active else 'fa-play' }} me-1"></i>
+                        {{ 'Stop' if problem.is_active else 'Start' }}
+                      </button>
+                    </div>
+                  </td>
+                  <td class="text-center px-3 py-3">
+                    <div class="d-flex flex-column align-items-center gap-2">
+                      <span class="badge {{ 'bg-info' if problem.can_download_solution else 'bg-secondary' }} rounded-pill px-3 py-2" id="download-badge-{{ problem.id }}">
+                        <i class="fas {{ 'fa-download' if problem.can_download_solution else 'fa-download-slash' }} me-1"></i>
+                        {{ 'Enabled' if problem.can_download_solution else 'Disabled' }}
                       </span>
-                      <div class="btn-group btn-group-sm" role="group">
-                        {% if problem.is_active %}
-                          <button type="button" class="btn btn-outline-danger stop-btn" data-problem-id="{{ problem.id }}" title="Stop Problem">
-                            <i class="fas fa-stop"></i>
-                          </button>
-                        {% else %}
-                          <button type="button" class="btn btn-outline-success start-btn" data-problem-id="{{ problem.id }}" title="Start Problem">
-                            <i class="fas fa-play"></i>
-                          </button>
-                        {% endif %}
-                      </div>
+                      <button 
+                        type="button" 
+                        class="btn {{ 'btn-warning' if problem.can_download_solution else 'btn-info' }} btn-sm download-toggle-btn" 
+                        data-problem-id="{{ problem.id }}" 
+                        title="{{ 'Disable Download' if problem.can_download_solution else 'Enable Download' }}"
+                        id="download-btn-{{ problem.id }}">
+                        <i class="fas {{ 'fa-download-slash' if problem.can_download_solution else 'fa-download' }} me-1"></i>
+                        {{ 'Disable' if problem.can_download_solution else 'Enable' }}
+                      </button>
                     </div>
                   </td>
                   <td class="text-center px-3 py-3">
@@ -208,64 +231,35 @@
                       {% endif %}
                     </div>
                   </td>
-                  <!-- <td class="text-center px-3 py-3">
-                    <div class="text-muted">
-                      <div class="fw-medium">{{ problem.created_at.strftime('%b %d') }}</div>
-                      <small>{{ problem.created_at.strftime('%Y') }}</small>
-                    </div>
-                  </td> -->
                   <td class="text-center px-4 py-3">
                     <div class="d-flex justify-content-center gap-1">
-                      <!-- Always available actions -->
-                      <!-- <a href="/teacher/problem/{{ problem.id }}/edit" 
-                         class="btn btn-outline-primary btn-sm" 
-                         title="Edit Problem">
-                        <i class="fas fa-edit"></i>
-                      </a>
-                      <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
-                         class="btn btn-outline-info btn-sm" 
-                         title="Preview Problem">
-                        <i class="fas fa-eye"></i>
-                      </a> -->
+                      <!-- Preview - Always available for inactive activities -->
+                      {% if not problem.is_active %}
+                        <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
+                           class="btn btn-outline-info btn-sm" 
+                           title="Preview Activity"
+                           target="_blank">
+                          <i class="fas fa-eye"></i>
+                        </a>
+                      {% endif %}
                       
-                      <!-- Conditional actions -->
-                      <!-- {% if stats.attempted > 0 %} -->
+                      <!-- Submissions - Available for active or previously active activities with submissions -->
+                      {% if problem.is_active or stats.attempted > 0 %}
                         <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" 
                            class="btn btn-outline-success btn-sm" 
                            title="View Submissions ({{ stats.attempted }})">
-                          <i class="fas fa-users text-primary mb-2"></i>
+                          <i class="fas fa-users"></i>
                         </a>
-                        <!-- <a href="{{ url_for('teacher_problem_analytics', problem_id=problem.id) }}" 
+                      {% endif %}
+                      
+                      <!-- Analytics - Available for activities with submissions -->
+                      {% if stats.attempted > 0 %}
+                        <a href="{{ url_for('teacher_problem_analytics', problem_id=problem.id) }}" 
                            class="btn btn-outline-warning btn-sm" 
                            title="View Analytics">
                           <i class="fas fa-chart-bar"></i>
                         </a>
-                      {% else %}
-                        <button class="btn btn-outline-secondary btn-sm" 
-                                disabled 
-                                title="No submissions yet">
-                          <i class="fas fa-file-alt"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm" 
-                                disabled 
-                                title="No data for analytics">
-                          <i class="fas fa-chart-bar"></i>
-                        </button>
                       {% endif %}
-                      
-                      {% if not problem.is_active and stats.attempted == 0 %}
-                        <button class="btn btn-outline-danger btn-sm" 
-                                onclick="deleteProblem({{ problem.id }})" 
-                                title="Delete Problem">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      {% else %}
-                        <button class="btn btn-outline-secondary btn-sm" 
-                                disabled 
-                                title="Cannot delete: {{ 'Problem is active' if problem.is_active else 'Has submissions' }}">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      {% endif %} -->
                     </div>
                   </td>
                   
@@ -289,12 +283,12 @@
         <div class="mb-4">
           <i class="fas fa-inbox fa-4x text-muted opacity-50"></i>
         </div>
-        <h5 class="text-muted mb-3">No Problems Created Yet</h5>
+        <h5 class="text-muted mb-3">No Activities Created Yet</h5>
         <p class="text-muted mb-4">
-          Start building your course by creating your first problem. Problems help you assess student understanding and track progress.
+          Start building your course by creating your first activity. Activities help you assess student understanding and track progress.
         </p>
         <a href="{{ url_for('teacher_create_problem', course_id=course.id) }}" class="btn btn-primary btn-lg">
-          <i class="fas fa-plus me-2"></i>Create Your First Problem
+          <i class="fas fa-plus me-2"></i>Create Your First Activity
         </a>
       </div>
     </div>
@@ -340,33 +334,14 @@
   </div>
 </div>
 
-<!-- Delete Problem Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">
-          <i class="fas fa-exclamation-triangle text-warning me-2"></i>Delete Problem
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this problem? This action cannot be undone.</p>
-        <p class="text-muted">This problem has no submissions and is currently inactive, so it's safe to delete.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
-          <i class="fas fa-trash me-1"></i>Delete Problem
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 {% endblock %}
 
 {% block scripts %}
+<style>
+  .text-secondary {
+  color: #fff !important;
+}
+</style>
 <script>
 $(function(){
   let currentProblemId = null;
@@ -406,264 +381,230 @@ $(function(){
     
     // Animate the reordering
     tbody.fadeOut(200, function() {
-      $.each(rows, function(index, item) {
-        tbody.append(item);
+      $.each(rows, function(idx, row) {
+        tbody.append(row);
       });
       tbody.fadeIn(200);
     });
   });
 
-  // Reset Sessions functionality
-  $('#resetSessionsBtn').on('click', function() {
-    new bootstrap.Modal($('#resetSessionsModal')).show();
-  });
-
-  $('#confirmResetBtn').on('click', async function() {
-    showSpinner();
-    try {
-      const response = await fetch(`/api/teacher/course/{{ course.id }}/reset-sessions`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (data.status === 'ok') {
-        bootstrap.Modal.getInstance($('#resetSessionsModal')).hide();
-        
-        // Show success message
-        const alert = $(`
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fas fa-check-circle me-2"></i>${data.message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        `);
-        $('.container').first().prepend(alert);
-        
-        // Auto-dismiss after 5 seconds
-        setTimeout(() => alert.alert('close'), 5000);
-        
-      } else {
-        throw new Error(data.error || 'Failed to reset sessions');
-      }
-    } catch (error) {
-      alert('Error resetting sessions: ' + error.message);
-    } finally {
-      hideSpinner();
-    }
-  });
-
-  // Start/Stop Problem functionality with row-specific loading
-  $('.start-btn, .stop-btn').on('click', async function() {
+  // Activity toggle functionality
+  $('.activity-toggle-btn').on('click', function() {
     const problemId = $(this).data('problem-id');
-    const isStartBtn = $(this).hasClass('start-btn');
-    const action = isStartBtn ? 'start' : 'stop';
+    const isActive = $(this).hasClass('btn-danger'); // If it's red, it means currently active
     
     showCardLoading(problemId);
     
-    try {
-      const response = await fetch(`/api/teacher/problem/${problemId}/${action}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (data.status === 'ok') {
-        const row = $(this).closest('.problem-row');
-        const statusBadge = row.find(`#status-badge-${problemId}`);
-        
-        if (action === 'start') {
-          // Update to active state
-          statusBadge.removeClass('bg-secondary').addClass('bg-success')
-            .html('<i class="fas fa-play me-1"></i>Active');
+    $.ajax({
+      url: `/api/teacher/problem/${problemId}/toggle-activity`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': $('meta[name=csrf-token]').attr('content')
+      },
+      success: function(response) {
+        if (response.status === 'ok') {
+          // Update button
+          const btn = $(`#activity-btn-${problemId}`);
+          const statusInfo = $(`#status-info-${problemId}`);
+          const row = $(`.problem-row[data-problem-id="${problemId}"]`);
           
-          // Replace start button with stop button
-          $(this).removeClass('btn-outline-success start-btn')
-            .addClass('btn-outline-danger stop-btn')
-            .html('<i class="fas fa-stop"></i>')
-            .attr('title', 'Stop Problem');
-          
-          // Update row data attribute
-          row.attr('data-status', 'active');
-          
-        } else {
-          // Update to inactive state
-          statusBadge.removeClass('bg-success').addClass('bg-secondary')
-            .html('<i class="fas fa-pause me-1"></i>Inactive');
-          
-          // Replace stop button with start button
-          $(this).removeClass('btn-outline-danger stop-btn')
-            .addClass('btn-outline-success start-btn')
-            .html('<i class="fas fa-play"></i>')
-            .attr('title', 'Start Problem');
-          
-          // Update row data attribute
-          row.attr('data-status', 'inactive');
-        }
-        
-        // Show success toast
-        showToast(`Problem ${action === 'start' ? 'activated' : 'deactivated'} successfully!`, 'success');
-        
-      } else {
-        throw new Error(data.error || `Failed to ${action} problem`);
-      }
-    } catch (error) {
-      showToast(`Error ${action}ing problem: ` + error.message, 'error');
-    } finally {
-      hideCardLoading(problemId);
-    }
-  });
-
-  // Delete problem functionality
-  window.deleteProblem = function(problemId) {
-    currentProblemId = problemId;
-    new bootstrap.Modal($('#deleteModal')).show();
-  };
-
-  $('#confirmDeleteBtn').on('click', async function() {
-    if (!currentProblemId) return;
-    
-    showSpinner();
-    try {
-      const response = await fetch(`/api/teacher/problem/${currentProblemId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (data.status === 'ok') {
-        // Remove the problem row with animation
-        const row = $(`.problem-row[data-problem-id="${currentProblemId}"]`);
-        row.fadeOut(300, function() {
-          $(this).remove();
-          
-          // Check if no problems left
-          if ($('.problem-row').length === 0) {
-            location.reload(); // Reload to show empty state
+          if (response.is_active) {
+            // Activity is now active
+            btn.removeClass('btn-success').addClass('btn-danger')
+               .html('<i class="fas fa-stop me-1"></i>Stop')
+               .attr('title', 'Stop Activity');
+            
+            // Update status info under title
+            const startTime = response.start_time ? new Date(response.start_time).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              hour: 'numeric',
+              minute: '2-digit',
+              hour12: true
+            }) : 'just now';
+            
+            statusInfo.html(`
+              <small class="badge bg-success bg-opacity-20 text-success">
+                <i class="fas fa-play me-1"></i>Currently Active
+              </small>
+              <small class="text-muted">Started: ${startTime}</small>
+            `);
+            
+            // Update row data attribute
+            row.attr('data-status', 'active');
+          } else {
+            // Activity is now inactive
+            btn.removeClass('btn-danger').addClass('btn-success')
+               .html('<i class="fas fa-play me-1"></i>Start')
+               .attr('title', 'Start Activity');
+            
+            // Update status info under title
+            const endTime = response.end_time ? new Date(response.end_time).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              hour: 'numeric',
+              minute: '2-digit',
+              hour12: true
+            }) : 'just now';
+            
+            statusInfo.html(`
+              <small class="badge bg-secondary bg-opacity-20 text-secondary">
+                <i class="fas fa-pause me-1"></i>Inactive
+              </small>
+              <small class="text-muted">Stopped: ${endTime}</small>
+            `);
+            
+            // Update row data attribute
+            row.attr('data-status', 'inactive');
           }
-        });
-        
-        bootstrap.Modal.getInstance($('#deleteModal')).hide();
-        showToast('Problem deleted successfully!', 'success');
-        
-      } else {
-        throw new Error(data.error || 'Failed to delete problem');
+          
+          // Show success message
+          showToast('success', response.message);
+        } else {
+          showToast('error', response.error || 'Failed to toggle activity');
+        }
+      },
+      error: function(xhr) {
+        let errorMsg = 'An error occurred';
+        if (xhr.responseJSON && xhr.responseJSON.error) {
+          errorMsg = xhr.responseJSON.error;
+        }
+        showToast('error', errorMsg);
+      },
+      complete: function() {
+        hideCardLoading(problemId);
       }
-    } catch (error) {
-      showToast('Error deleting problem: ' + error.message, 'error');
-    } finally {
-      hideSpinner();
-      currentProblemId = null;
-    }
+    });
   });
 
-  // Toast notification helper
-  function showToast(message, type = 'info') {
-    const bgClass = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info';
-    const toast = $(`
-      <div class="toast align-items-center text-white ${bgClass} border-0 position-fixed" 
-           style="top: 20px; right: 20px; z-index: 9999;" role="alert">
-        <div class="d-flex">
-          <div class="toast-body">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} me-2"></i>
-            ${message}
-          </div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-        </div>
-      </div>
-    `);
+  // Download toggle functionality
+  $('.download-toggle-btn').on('click', function() {
+    const problemId = $(this).data('problem-id');
+    const isEnabled = $(this).hasClass('btn-warning'); // If it's warning, it means currently enabled
     
-    $('body').append(toast);
-    const bsToast = new bootstrap.Toast(toast[0], { delay: 4000 });
-    bsToast.show();
+    showCardLoading(problemId);
     
-    // Remove from DOM after hiding
-    toast.on('hidden.bs.toast', function() {
-      $(this).remove();
+    $.ajax({
+      url: `/api/teacher/problem/${problemId}/toggle-download`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': $('meta[name=csrf-token]').attr('content')
+      },
+      success: function(response) {
+        if (response.status === 'ok') {
+          // Update button
+          const btn = $(`#download-btn-${problemId}`);
+          const badge = $(`#download-badge-${problemId}`);
+          
+          if (response.can_download_solution) {
+            btn.removeClass('btn-info').addClass('btn-warning')
+               .html('<i class="fas fa-download-slash me-1"></i>Disable')
+               .attr('title', 'Disable Download');
+            badge.removeClass('bg-secondary').addClass('bg-info')
+                 .html('<i class="fas fa-download me-1"></i>Enabled');
+          } else {
+            btn.removeClass('btn-warning').addClass('btn-info')
+               .html('<i class="fas fa-download me-1"></i>Enable')
+               .attr('title', 'Enable Download');
+            badge.removeClass('bg-info').addClass('bg-secondary')
+                 .html('<i class="fas fa-download-slash me-1"></i>Disabled');
+          }
+          
+          // Show success message
+          showToast('success', response.message);
+        } else {
+          showToast('error', response.error || 'Failed to toggle download');
+        }
+      },
+      error: function(xhr) {
+        let errorMsg = 'An error occurred';
+        if (xhr.responseJSON && xhr.responseJSON.error) {
+          errorMsg = xhr.responseJSON.error;
+        }
+        showToast('error', errorMsg);
+      },
+      complete: function() {
+        hideCardLoading(problemId);
+      }
     });
-  }
+  });
 
-  // Initialize tooltips
-  $('[title]').tooltip();
+  // Reset sessions functionality
+  $('#resetSessionsBtn').on('click', function() {
+    $('#resetSessionsModal').modal('show');
+  });
 
-  // Add hover effects to table rows
-  $('.problem-row').hover(
-    function() { $(this).addClass('table-active'); },
-    function() { $(this).removeClass('table-active'); }
-  );
+  $('#confirmResetBtn').on('click', function() {
+    const btn = $(this);
+    const originalText = btn.html();
+    btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-1"></i>Resetting...');
+    
+    $.ajax({
+      url: `/api/teacher/course/{{ course.id }}/reset-sessions`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': $('meta[name=csrf-token]').attr('content')
+      },
+      success: function(response) {
+        if (response.status === 'ok') {
+          showToast('success', `Successfully reset sessions for ${response.affected_students} students`);
+          $('#resetSessionsModal').modal('hide');
+        } else {
+          showToast('error', response.error || 'Failed to reset sessions');
+        }
+      },
+      error: function(xhr) {
+        let errorMsg = 'An error occurred while resetting sessions';
+        if (xhr.responseJSON && xhr.responseJSON.error) {
+          errorMsg = xhr.responseJSON.error;
+        }
+        showToast('error', errorMsg);
+      },
+      complete: function() {
+        btn.prop('disabled', false).html(originalText);
+      }
+    });
+  });
 });
+
+// Toast notification function
+function showToast(type, message) {
+  const toastType = type === 'error' ? 'danger' : type;
+  const iconClass = type === 'error' ? 'fa-exclamation-circle' : 
+                   type === 'success' ? 'fa-check-circle' : 'fa-info-circle';
+  
+  const toast = $(`
+    <div class="toast align-items-center text-white bg-${toastType} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="fas ${iconClass} me-2"></i>${message}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  `);
+
+  // Create toast container if it doesn't exist
+  if ($('#toast-container').length === 0) {
+    $('body').append('<div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3"></div>');
+  }
+
+  $('#toast-container').append(toast);
+  
+  // Initialize and show toast
+  const bsToast = new bootstrap.Toast(toast[0], {
+    autohide: true,
+    delay: type === 'error' ? 8000 : 5000
+  });
+  bsToast.show();
+
+  // Remove toast element after it's hidden
+  toast.on('hidden.bs.toast', function() {
+    $(this).remove();
+  });
+}
 </script>
-
-<style>
-.problem-row {
-  transition: all 0.2s ease;
-}
-
-.problem-row:hover {
-  background-color: rgba(0, 123, 255, 0.05) !important;
-}
-
-.table-hover tbody tr:hover {
-  background-color: rgba(0, 123, 255, 0.05);
-}
-
-.badge {
-  font-size: 0.75rem;
-  padding: 0.5rem 0.75rem;
-}
-
-.btn-sm {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
-}
-
-.progress {
-  border-radius: 3px;
-}
-
-.toast {
-  min-width: 300px;
-}
-
-.table thead th {
-  font-weight: 600;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.sticky-top {
-  position: sticky;
-  top: 0;
-  z-index: 1020;
-}
-
-.min-width-0 {
-  min-width: 0;
-}
-
-@media (max-width: 768px) {
-  .btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-  }
-  
-  .table-responsive {
-    font-size: 0.875rem;
-  }
-  
-  .problem-row td {
-    padding: 0.75rem 0.5rem !important;
-  }
-}
-
-</style>
 {% endblock %}

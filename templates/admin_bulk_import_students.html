@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-info text-white">
+          <h4 class="mb-0">
+            <i class="fas fa-upload"></i> Bulk Import Students
+          </h4>
+          <small>Group: {{ group.name }} ({{ group.course.code }} - {{ group.course.name }})</small>
+        </div>
+        <div class="card-body">
+          
+          <!-- Instructions -->
+          <div class="alert alert-info">
+            <h6><i class="fas fa-info-circle"></i> Instructions:</h6>
+            <ul class="mb-0">
+              <li>Upload a CSV file with student usernames or hall ticket numbers</li>
+              <li>The CSV should have a header row (which will be ignored)</li>
+              <li>Each row should contain: <code>username_or_htno</code></li>
+              <li>Students must already exist in the system and be active</li>
+              <li>Students already in the group will be skipped</li>
+            </ul>
+          </div>
+
+          <!-- Sample CSV Format -->
+          <div class="alert alert-secondary">
+            <h6><i class="fas fa-file-csv"></i> Sample CSV Format:</h6>
+            <pre class="mb-0">username_or_htno
+john_doe
+20CS001
+jane_smith
+20CS002</pre>
+          </div>
+
+          <!-- Upload Form -->
+          <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="csv_file" class="form-label">
+                <i class="fas fa-file"></i> Select CSV File *
+              </label>
+              <input type="file" class="form-control" id="csv_file" name="csv_file" accept=".csv" required>
+              <div class="form-text">Only CSV files are allowed (max 10MB)</div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <a href="{{ url_for('admin_edit_group', group_id=group.id) }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Edit Group
+              </a>
+              <button type="submit" class="btn btn-info">
+                <i class="fas fa-upload"></i> Import Students
+              </button>
+            </div>
+          </form>
+
+          <!-- Current Students Count -->
+          <hr>
+          <div class="text-center">
+            <small class="text-muted">
+              Current students in group: <strong>{{ group.students|length }}</strong>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

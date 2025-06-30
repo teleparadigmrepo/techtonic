@@ -226,11 +226,27 @@
                       </td>
                       <td>
                         <div class="d-flex gap-1">
+                          <!-- Download Report -->
                           <a href="{{ url_for('student_report', sid=submission.id) }}"
                              class="btn btn-sm btn-outline-primary"
                              title="Download Detailed Report">
                             <i class="fas fa-download"></i>
                           </a>
+                          
+                          <!-- Download Solution (only if allowed) -->
+                          {% if submission.problem.can_download_solution and submission.problem.solution %}
+                            <button class="btn btn-sm btn-outline-success" 
+                                    onclick="downloadSolution({{ submission.problem.id }})"
+                                    title="Download Solution PDF">
+                              <i class="fas fa-file-pdf"></i>
+                            </button>
+                          {% else %}
+                            <button class="btn btn-sm btn-outline-secondary" 
+                                    disabled
+                                    title="{% if not submission.problem.solution %}No solution available{% else %}Solution download not allowed{% endif %}">
+                              <i class="fas fa-file-pdf"></i>
+                            </button>
+                          {% endif %}
                         </div>
                       </td>
                     </tr>
@@ -262,6 +278,20 @@
       </div>
     </div>
   {% endif %}
+</div>
+
+<!-- Loading Modal for Solution Download -->
+<div class="modal fade" id="downloadModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center py-4">
+        <div class="spinner-border text-primary mb-3" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mb-0">Generating solution PDF...</p>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
@@ -409,6 +439,78 @@ function sortSubmissions() {
     rows.forEach(row => tbody.appendChild(row));
 }
 
+// Solution download function
+function downloadSolution(problemId) {
+    // Show loading modal
+    const modal = new bootstrap.Modal(document.getElementById('downloadModal'));
+    modal.show();
+    
+    // Create a temporary link to download
+    const link = document.createElement('a');
+    link.href = `/api/download_solution_pdf/${problemId}`;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    
+    // Track download completion
+    let downloadStarted = false;
+    
+    // Handle the download
+    fetch(link.href, {
+        method: 'GET',
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(data => {
+                throw new Error(data.error || 'Download failed');
+            });
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        link.href = url;
+        link.download = `Problem_${problemId}_Solution.pdf`;
+        link.click();
+        
+        // Cleanup
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(link);
+        
+        // Hide modal after successful download
+        setTimeout(() => {
+            modal.hide();
+        }, 1000);
+    })
+    .catch(error => {
+        console.error('Download error:', error);
+        modal.hide();
+        
+        // Show error alert
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+        alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+        alertDiv.innerHTML = `
+            <strong>Download Failed!</strong> ${error.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(alertDiv);
+        
+        // Auto-remove alert after 5 seconds
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.parentNode.removeChild(alertDiv);
+            }
+        }, 5000);
+        
+        // Cleanup
+        if (link.parentNode) {
+            document.body.removeChild(link);
+        }
+    });
+}
+
 // function printReports() {
 //     window.print();
 // }
@@ -437,6 +539,23 @@ function sortSubmissions() {
 
 .progress {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Loading modal styling */
+#downloadModal .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Button hover effects */
+.btn-outline-success:hover {
+    transform: translateY(-1px);
+}
+
+.btn-outline-secondary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 @media print {

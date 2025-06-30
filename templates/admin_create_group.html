@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card shadow">
-        <div class="card-header bg-warning text-dark">
+        <div class="card-header bg-white">
           <h4 class="mb-0">
             <i class="fas fa-users"></i> Create New Group
           </h4>
@@ -70,40 +70,54 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-12">
-      <div class="card">
-        <div class="card-header">
+      <div class="card shadow">
+        <div class="card-header bg-white">
           <h5 class="mb-0">
             <i class="fas fa-list"></i> Existing Groups
           </h5>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
+            <table class="table table-hover">
+              <thead class="table-light">
                 <tr>
-                  <th>Group Name</th>
-                  <th>Course</th>
-                  <th>Teacher</th>
-                  <th>Students</th>
-                  <th>Created</th>
+                  <th><i class="fas fa-users me-1"></i>Group Name</th>
+                  <th><i class="fas fa-book me-1"></i>Course</th>
+                  <th><i class="fas fa-chalkboard-teacher me-1"></i>Teacher</th>
+                  <th><i class="fas fa-user-graduate me-1"></i>Students</th>
+                  <th><i class="fas fa-calendar me-1"></i>Created</th>
+                  <th><i class="fas fa-cogs me-1"></i>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {% for course in courses %}
                   {% for group in course.groups %}
                     <tr>
-                      <td><strong>{{ group.name }}</strong></td>
-                      <td>{{ course.code }} - {{ course.name }}</td>
+                      <td><strong class="text-primary">{{ group.name }}</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark">{{ course.code }}</span>
+                        <br><small class="text-muted">{{ course.name }}</small>
+                      </td>
                       <td>{{ course.teacher.name or course.teacher.username }}</td>
                       <td>
-                        <span class="badge bg-primary">{{ group.students|length }} students</span>
+                        <span class="badge bg-primary rounded-pill">{{ group.students|length }}</span>
                       </td>
-                      <td>{{ group.created_at.strftime('%d-%m-%Y') if group.created_at else 'N/A' }}</td>
+                      <td>
+                        <small class="text-muted">{{ group.created_at.strftime('%d-%m-%Y') if group.created_at else 'N/A' }}</small>
+                      </td>
+                      <td>
+                        <a href="{{ url_for('admin_edit_group', group_id=group.id) }}" class="btn btn-sm btn-outline-primary">
+                          <i class="fas fa-edit"></i> Edit
+                        </a>
+                      </td>
                     </tr>
                   {% endfor %}
                 {% else %}
                   <tr>
-                    <td colspan="5" class="text-center text-muted">No groups created yet</td>
+                    <td colspan="6" class="text-center text-muted py-4">
+                      <i class="fas fa-users fa-2x mb-2 d-block"></i>
+                      No groups created yet
+                    </td>
                   </tr>
                 {% endfor %}
               </tbody>
@@ -115,4 +129,187 @@
   </div>
 </div>
 {% endif %}
+
+<style>
+/* Card improvements */
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid #eee;
+  padding: 1.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Form improvements */
+.form-control, .form-select {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.form-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* Button improvements */
+.btn {
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #ffb300;
+  border-color: #ffb300;
+  color: #000;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-outline-primary {
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+}
+
+/* Table improvements */
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+/* Badge improvements */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.badge.bg-light {
+  border: 1px solid #dee2e6;
+}
+
+.badge.rounded-pill {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Alert improvements */
+.alert {
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.alert-info {
+  background-color: #e7f3ff;
+  color: #0c5460;
+}
+
+.alert ul {
+  padding-left: 1.5rem;
+}
+
+/* Shadow improvements */
+.shadow {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Icon spacing */
+.fas.me-1 {
+  margin-right: 0.25rem !important;
+}
+
+/* Empty state styling */
+.text-center.text-muted.py-4 {
+  padding: 3rem 1rem !important;
+}
+
+.text-center.text-muted.py-4 .fas {
+  color: #dee2e6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation for form interactions */
+.form-control:hover, .form-select:hover {
+  border-color: #b8c4ce;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Course badge styling */
+.badge.bg-light.text-dark {
+  font-family: monospace;
+  font-weight: 600;
+}
+</style>
 {% endblock %}

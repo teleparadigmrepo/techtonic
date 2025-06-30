@@ -89,11 +89,11 @@
                   <i class="fas fa-cog"></i> System Management
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="systemManagementDropdown">
-                  <li><a class="dropdown-item" href="{{ url_for('admin_create_student') }}">
+                  <!-- <li><a class="dropdown-item" href="{{ url_for('admin_create_student') }}">
                     <i class="fas fa-user-graduate"></i> Create Student
-                  </a></li>
-                  <li><a class="dropdown-item" href="{{ url_for('admin_create_teacher') }}">
-                    <i class="fas fa-chalkboard-teacher"></i> Create Teacher
+                  </a></li> -->
+                  <li><a class="dropdown-item" href="{{ url_for('create_user') }}">
+                    <i class="fas fa-chalkboard-teacher"></i> Create User
                   </a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{{ url_for('admin_create_course') }}">
@@ -103,8 +103,8 @@
                     <i class="fas fa-users-cog"></i> Create Group
                   </a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{{ url_for('admin_import_students') }}">
-                    <i class="fas fa-file-import"></i> Import Students
+                  <li><a class="dropdown-item" href="{{ url_for('bulk_create_users') }}">
+                    <i class="fas fa-file-import"></i> Import Users
                   </a></li>
                   <li><a class="dropdown-item" href="{{ url_for('manage_users') }}">
                     <i class="fas fa-list"></i> Manage Users

@@ -29,18 +29,7 @@
 
 
   <div class="container">
-    <!-- Enhanced Summary Stats -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, msg in messages %}
-      <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show shadow-sm" role="alert">
-        <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' or category == 'error' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %} me-2"></i>
-        {{ msg }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      </div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+   
     <div class="row mb-4">
       <div class="col-lg-3 col-md-6 mb-3">
         <div class="stats-card shadow-sm border-0 h-100">
@@ -794,4 +783,5 @@ body {
     font-size: 0.75rem;
   }
 }
+</style>
 {% endblock %}
