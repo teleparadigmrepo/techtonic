@@ -2581,3 +2581,400 @@
 2025-06-30 11:14:26,465 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 11:14:26] "GET /static/styles.css HTTP/1.1" 200 -
 2025-06-30 11:14:26,469 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 11:14:26] "GET /static/images/bd.jpg HTTP/1.1" 200 -
 2025-06-30 11:14:26,480 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 11:14:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:27:58,735 - INFO - check_forced_logout:257 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-06-30 12:27:58,735 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:27:58] "[32mGET /change-password HTTP/1.1[0m" 302 -
+2025-06-30 12:27:58,737 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:27:58] "GET /login HTTP/1.1" 200 -
+2025-06-30 12:27:58,760 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:27:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:27:58,765 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:27:58] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-06-30 12:27:58,772 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:27:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:28:02,146 - INFO - log_user_action:123 - User admin (ID: 1) - User logged in - Username: admin
+2025-06-30 12:28:02,146 - INFO - login:432 - User logged in successfully: admin
+2025-06-30 12:28:02,147 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-30 12:28:02,151 - INFO - log_user_action:123 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-06-30 12:28:02,159 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:02] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-30 12:28:02,173 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:28:02,187 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:28:19,238 - INFO - log_user_action:123 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-06-30 12:28:19,240 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:19] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-30 12:28:19,252 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:19] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:28:19,265 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:28:20,824 - INFO - log_user_action:123 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-06-30 12:28:20,824 - INFO - logout:469 - User logged out: admin
+2025-06-30 12:28:20,824 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-30 12:28:20,827 - INFO - check_forced_logout:257 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-06-30 12:28:20,827 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-06-30 12:28:20,830 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "GET /login HTTP/1.1" 200 -
+2025-06-30 12:28:20,851 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:28:20,854 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-06-30 12:28:20,859 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:28:24,050 - INFO - log_user_action:123 - User admin (ID: 1) - User logged in - Username: admin
+2025-06-30 12:28:24,050 - INFO - login:432 - User logged in successfully: admin
+2025-06-30 12:28:24,051 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-30 12:28:24,054 - INFO - log_user_action:123 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-06-30 12:28:24,056 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:24] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-30 12:28:24,069 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:28:24,082 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:28:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:05,207 - INFO - teacher_problem_analytics:2387 - Teacher 1 accessing analytics for problem 4
+2025-06-30 12:37:05,215 - WARNING - teacher_problem_analytics:2390 - Non-teacher user 1 tried to access problem analytics
+2025-06-30 12:37:05,216 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /teacher/problem/4/analytics HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,218 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,218 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,223 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,223 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,224 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,225 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,226 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,226 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,227 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,227 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,229 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,229 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,230 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,231 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,232 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,232 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,233 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,234 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,236 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,236 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,238 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,238 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,239 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,239 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,241 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,241 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,242 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,242 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,243 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,244 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,245 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,245 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,246 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,246 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,248 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,248 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,249 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,249 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:05,250 - WARNING - decorated_function:109 - Unauthorized access attempt by user 1 to student-only endpoint
+2025-06-30 12:37:05,251 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:05] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 12:37:12,622 - INFO - log_user_action:123 - User admin (ID: 1) - Accessed root route - 
+2025-06-30 12:37:12,622 - INFO - root:292 - Root route accessed from IP: 127.0.0.1
+2025-06-30 12:37:12,622 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:12] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-30 12:37:12,627 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:12] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-06-30 12:37:12,631 - INFO - log_user_action:123 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-06-30 12:37:12,632 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:12] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-30 12:37:12,649 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:12,665 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:14,263 - INFO - log_user_action:123 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-06-30 12:37:14,263 - INFO - logout:469 - User logged out: admin
+2025-06-30 12:37:14,263 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-30 12:37:14,265 - INFO - check_forced_logout:257 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-06-30 12:37:14,266 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-06-30 12:37:14,267 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "GET /login HTTP/1.1" 200 -
+2025-06-30 12:37:14,289 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:14,293 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-06-30 12:37:14,297 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:17,622 - INFO - log_user_action:123 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-06-30 12:37:17,622 - INFO - login:432 - User logged in successfully: tppavan
+2025-06-30 12:37:17,623 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-30 12:37:17,625 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:37:17,628 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:37:17,635 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:17] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:37:17,651 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:17,663 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:22,925 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 12:37:22,927 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 12:37:22,934 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:22] "GET /teacher/problem/12/preview HTTP/1.1" 200 -
+2025-06-30 12:37:22,944 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:22,958 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:26,240 - INFO - teacher_problem_submissions:2918 - Teacher 5 accessing submissions for problem 12
+2025-06-30 12:37:26,250 - INFO - teacher_problem_submissions:3063 - Teacher 5 successfully loaded 0 submissions for problem 12
+2025-06-30 12:37:26,251 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:26] "GET /teacher/problem/12/submissions HTTP/1.1" 200 -
+2025-06-30 12:37:26,264 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:26,276 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:27,223 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 12
+2025-06-30 12:37:27,225 - INFO - teacher_problem_analytics:2470 - Teacher 5 analytics loaded for problem 12: 0 students, 0 total attempts
+2025-06-30 12:37:27,231 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:27] "GET /teacher/problem/12/analytics HTTP/1.1" 200 -
+2025-06-30 12:37:27,246 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:27,260 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:31,865 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:37:31,867 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:37:31,868 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:31] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:37:31,881 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:31,891 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:35,063 - INFO - teacher_course_detail:2736 - Teacher 5 accessing course detail 1
+2025-06-30 12:37:35,071 - INFO - teacher_course_detail:2790 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-06-30 12:37:35,082 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:35] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-06-30 12:37:35,097 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:35,110 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:37:38,995 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 4
+2025-06-30 12:37:38,997 - INFO - teacher_problem_analytics:2470 - Teacher 5 analytics loaded for problem 4: 3 students, 8 total attempts
+2025-06-30 12:37:38,998 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:38] "GET /teacher/problem/4/analytics HTTP/1.1" 200 -
+2025-06-30 12:37:39,015 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:39] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:37:39,029 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:37:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:51:44,647 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 12:51:44,677 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 12:51:44,677 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 12:51:44,686 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 12:51:44,686 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 12:51:48,968 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:51:48,973 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:51:48,985 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:48] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:51:48,998 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:51:49,009 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:51:51,696 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 12:51:51,698 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 12:51:51,706 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:51] "GET /teacher/problem/12/preview HTTP/1.1" 200 -
+2025-06-30 12:51:51,723 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:51:51,736 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:51:53,692 - INFO - teacher_problem_submissions:3062 - Teacher 5 accessing submissions for problem 12
+2025-06-30 12:51:53,740 - INFO - teacher_problem_submissions:3207 - Teacher 5 successfully loaded 0 submissions for problem 12
+2025-06-30 12:51:53,750 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:53] "GET /teacher/problem/12/submissions HTTP/1.1" 200 -
+2025-06-30 12:51:53,769 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:51:53,782 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:51:54,866 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 12
+2025-06-30 12:51:54,869 - INFO - teacher_problem_analytics:2528 - Analytics generated for problem 12: 0 students, avg score 0.0%
+2025-06-30 12:51:54,869 - ERROR - teacher_problem_analytics:2555 - Error in teacher_problem_analytics: teacher/problem_analytics.html
+2025-06-30 12:51:54,869 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:54] "[32mGET /teacher/problem/12/analytics HTTP/1.1[0m" 302 -
+2025-06-30 12:51:54,871 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:51:54,873 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:51:54,874 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:54] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:51:54,890 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:51:54,899 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:51:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:52:26,156 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 11
+2025-06-30 12:52:26,157 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 11, has_submissions: False
+2025-06-30 12:52:26,158 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:26] "GET /teacher/problem/11/preview HTTP/1.1" 200 -
+2025-06-30 12:52:26,172 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:52:26,186 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:52:29,179 - INFO - teacher_course_detail:2880 - Teacher 5 accessing course detail 1
+2025-06-30 12:52:29,186 - INFO - teacher_course_detail:2934 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-06-30 12:52:29,195 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:29] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-06-30 12:52:29,210 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:52:29,222 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:52:32,299 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 4
+2025-06-30 12:52:32,302 - INFO - teacher_problem_analytics:2528 - Analytics generated for problem 4: 3 students, avg score 33.3%
+2025-06-30 12:52:32,302 - ERROR - teacher_problem_analytics:2555 - Error in teacher_problem_analytics: teacher/problem_analytics.html
+2025-06-30 12:52:32,303 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:32] "[32mGET /teacher/problem/4/analytics HTTP/1.1[0m" 302 -
+2025-06-30 12:52:32,305 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:52:32,307 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:52:32,307 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:32] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:52:32,326 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:52:32,337 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:52:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:54:28,452 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 12:54:28,483 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 12:54:28,483 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 12:54:28,491 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 12:54:28,491 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 12:54:36,542 - ERROR - handle_http_exception:198 - HTTP Exception: 404 - The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - URL: http://localhost:5000/teacher/problem/4/analytics
+2025-06-30 12:54:36,543 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:54:36] "[33mGET /teacher/problem/4/analytics HTTP/1.1[0m" 404 -
+2025-06-30 12:54:36,610 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:54:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:54:39,856 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:54:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:54:41,786 - ERROR - handle_http_exception:198 - HTTP Exception: 404 - The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. - URL: http://localhost:5000/teacher/problem/4/analytics
+2025-06-30 12:54:41,786 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:54:41] "[33mGET /teacher/problem/4/analytics HTTP/1.1[0m" 404 -
+2025-06-30 12:54:41,795 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:54:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:56:31,373 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 12:56:31,386 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 12:56:31,386 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 12:56:31,395 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 12:56:31,395 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 12:56:38,294 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:56:38,304 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:56:38,316 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:38] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:56:38,330 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:56:38,342 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:56:40,908 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 12:56:40,910 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 12:56:40,929 - ERROR - teacher_problem_preview:2377 - Error previewing problem 12 for teacher 5: Could not build url for endpoint 'teacher_problem_analytics' with values ['problem_id']. Did you mean 'teacher_problem_preview' instead?
+2025-06-30 12:56:40,930 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:40] "[32mGET /teacher/problem/12/preview HTTP/1.1[0m" 302 -
+2025-06-30 12:56:40,934 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:56:40,938 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:56:40,939 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:40] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:56:40,958 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:56:40,968 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 12:56:43,128 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 4
+2025-06-30 12:56:43,130 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 4, has_submissions: True
+2025-06-30 12:56:43,131 - ERROR - teacher_problem_preview:2377 - Error previewing problem 4 for teacher 5: Could not build url for endpoint 'teacher_problem_analytics' with values ['problem_id']. Did you mean 'teacher_problem_preview' instead?
+2025-06-30 12:56:43,132 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:43] "[32mGET /teacher/problem/4/preview HTTP/1.1[0m" 302 -
+2025-06-30 12:56:43,135 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 12:56:43,138 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 12:56:43,139 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:43] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 12:56:43,161 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 12:56:43,170 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 12:56:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:10:15,203 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 13:10:15,214 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 13:10:15,217 - ERROR - teacher_problem_preview:2377 - Error previewing problem 12 for teacher 5: Could not build url for endpoint 'teacher_problem_analytics' with values ['problem_id']. Did you mean 'teacher_problem_preview' instead?
+2025-06-30 13:10:15,218 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:15] "[32mGET /teacher/problem/12/preview HTTP/1.1[0m" 302 -
+2025-06-30 13:10:15,224 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:10:15,226 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:10:15,228 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:15] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:10:15,253 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:10:15,263 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:10:17,313 - INFO - log_user_action:123 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-06-30 13:10:17,313 - INFO - logout:469 - User logged out: tppavan
+2025-06-30 13:10:17,315 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-30 13:10:17,324 - INFO - check_forced_logout:257 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-06-30 13:10:17,324 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-06-30 13:10:17,332 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "GET /login HTTP/1.1" 200 -
+2025-06-30 13:10:17,358 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:10:17,362 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-06-30 13:10:17,368 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:10:20,881 - INFO - log_user_action:123 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-06-30 13:10:20,881 - INFO - login:432 - User logged in successfully: tppavan
+2025-06-30 13:10:20,881 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-30 13:10:20,884 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:10:20,885 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:10:20,886 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:20] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:10:20,900 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:10:20,911 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:10:23,043 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 13:10:23,044 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 13:10:23,045 - ERROR - teacher_problem_preview:2377 - Error previewing problem 12 for teacher 5: Could not build url for endpoint 'teacher_problem_analytics' with values ['problem_id']. Did you mean 'teacher_problem_preview' instead?
+2025-06-30 13:10:23,045 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:23] "[32mGET /teacher/problem/12/preview HTTP/1.1[0m" 302 -
+2025-06-30 13:10:23,047 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:10:23,049 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:10:23,050 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:23] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:10:23,066 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:23] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:10:23,082 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:10:25,867 - INFO - teacher_problem_preview:2354 - Teacher 5 previewing problem 12
+2025-06-30 13:10:25,868 - INFO - teacher_problem_preview:2367 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-06-30 13:10:25,870 - ERROR - teacher_problem_preview:2377 - Error previewing problem 12 for teacher 5: Could not build url for endpoint 'teacher_problem_analytics' with values ['problem_id']. Did you mean 'teacher_problem_preview' instead?
+2025-06-30 13:10:25,870 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:25] "[32mGET /teacher/problem/12/preview HTTP/1.1[0m" 302 -
+2025-06-30 13:10:25,875 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:10:25,877 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:10:25,878 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:25] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:10:25,891 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:10:25,900 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:10:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:11:02,823 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 13:11:02,850 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 13:11:02,850 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 13:11:02,860 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 13:11:02,860 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 13:11:06,405 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:11:06,413 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:11:06,425 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:06] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:11:06,436 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:11:06,448 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:11:07,334 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:11:07,336 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:11:07,337 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:07] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:11:07,347 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:11:07,358 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:11:09,385 - INFO - teacher_course_detail:2818 - Teacher 5 accessing course detail 1
+2025-06-30 13:11:09,395 - INFO - teacher_course_detail:2872 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-06-30 13:11:09,404 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:09] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-06-30 13:11:09,422 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:11:09,433 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:11:12,494 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:12] "[32mGET /teacher/problem/4/analytics HTTP/1.1[0m" 302 -
+2025-06-30 13:11:12,496 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:11:12,497 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:11:12,498 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:12] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:11:12,514 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:11:12,527 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:11:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:16:23,966 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 13:16:23,998 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 13:16:23,998 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 13:16:24,007 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 13:16:24,007 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 13:16:29,083 - INFO - teacher_course_detail:2736 - Teacher 5 accessing course detail 1
+2025-06-30 13:16:29,095 - INFO - teacher_course_detail:2790 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-06-30 13:16:29,108 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:29] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-06-30 13:16:29,125 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:16:29,139 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:16:31,439 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 4
+2025-06-30 13:16:31,442 - INFO - teacher_problem_analytics:2470 - Teacher 5 analytics loaded for problem 4: 3 students, 8 total attempts
+2025-06-30 13:16:31,448 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:31] "GET /teacher/problem/4/analytics HTTP/1.1" 200 -
+2025-06-30 13:16:31,462 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:16:31,476 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:16:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:18:13,181 - INFO - setup_logging:80 - Logging system initialized successfully
+2025-06-30 13:18:13,195 - INFO - create_app:150 - Flask app created successfully
+2025-06-30 13:18:13,195 - INFO - setup_login_manager:182 - Login manager configured successfully
+2025-06-30 13:18:13,204 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-06-30 13:18:13,204 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-06-30 13:18:17,828 - WARNING - admin_dashboard:485 - Non-admin user attempted admin access: tppavan
+2025-06-30 13:18:17,829 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /admin/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,833 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,834 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,836 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,836 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,839 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,839 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,841 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,841 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,842 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,843 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,844 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,844 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,846 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,846 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,848 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,848 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,850 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,850 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,851 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,852 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,853 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,854 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,855 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,855 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,856 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,856 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,858 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,858 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,860 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,860 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,862 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,863 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,865 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,865 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,867 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,867 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,869 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,869 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:17,870 - WARNING - decorated_function:109 - Unauthorized access attempt by user 5 to student-only endpoint
+2025-06-30 13:18:17,871 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:17] "[32mGET /student/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 13:18:21,168 - INFO - log_user_action:123 - User tppavan (ID: 5) - Accessed root route - 
+2025-06-30 13:18:21,168 - INFO - root:292 - Root route accessed from IP: 127.0.0.1
+2025-06-30 13:18:21,168 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:21] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-30 13:18:21,171 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:21] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-06-30 13:18:21,173 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-06-30 13:18:21,178 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-06-30 13:18:21,189 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:21] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-06-30 13:18:21,204 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:18:21,214 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:18:24,292 - INFO - teacher_course_detail:2737 - Teacher 5 accessing course detail 1
+2025-06-30 13:18:24,303 - INFO - teacher_course_detail:2791 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-06-30 13:18:24,312 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:24] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-06-30 13:18:24,327 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:18:24,340 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 13:18:26,662 - INFO - teacher_problem_analytics:2387 - Teacher 5 accessing analytics for problem 4
+2025-06-30 13:18:26,664 - INFO - teacher_problem_analytics:2471 - Teacher 5 analytics loaded for problem 4: 3 students, 8 total attempts
+2025-06-30 13:18:26,671 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:26] "GET /teacher/problem/4/analytics HTTP/1.1" 200 -
+2025-06-30 13:18:26,685 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-30 13:18:26,699 - INFO - _log:97 - 127.0.0.1 - - [30/Jun/2025 13:18:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 10:15:09,048 - INFO - log_user_action:123 - User tppavan (ID: 5) - Accessed root route - 
+2025-07-01 10:15:09,048 - INFO - root:292 - Root route accessed from IP: 127.0.0.1
+2025-07-01 10:15:09,048 - INFO - _log:97 - 127.0.0.1 - - [01/Jul/2025 10:15:09] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-01 10:15:09,052 - INFO - _log:97 - 127.0.0.1 - - [01/Jul/2025 10:15:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-01 10:15:09,054 - INFO - teacher_dashboard:2198 - Teacher 5 accessing dashboard
+2025-07-01 10:15:09,056 - INFO - teacher_dashboard:2224 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-01 10:15:09,057 - INFO - _log:97 - 127.0.0.1 - - [01/Jul/2025 10:15:09] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-01 10:15:09,077 - INFO - _log:97 - 127.0.0.1 - - [01/Jul/2025 10:15:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-01 10:15:09,165 - INFO - _log:97 - 127.0.0.1 - - [01/Jul/2025 10:15:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

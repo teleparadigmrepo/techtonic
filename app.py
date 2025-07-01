@@ -2427,11 +2427,12 @@ def teacher_problem_analytics(problem_id):
         total_attempts = len(all_submissions)
         unique_students = len(latest_submissions)
         
-        # Calculate average score based on students who have a score
-        scored_submissions = [s for s in latest_submissions if s.total_score is not None and s.total_score > 0]
-        avg_score = sum(s.total_score for s in scored_submissions) / len(scored_submissions) if scored_submissions else 0
+        # Calculate average score based on ALL students who have submitted (including zero scores)
+        submissions_with_scores = [s for s in latest_submissions if s.total_score is not None]
+        avg_score = sum(s.total_score for s in submissions_with_scores) / len(submissions_with_scores) if submissions_with_scores else 0
         
-        # Find highest score among students with score > 0
+        # Find highest score among students with valid scores
+        scored_submissions = [s for s in latest_submissions if s.total_score is not None and s.total_score > 0]
         highest_score = max((s.total_score for s in scored_submissions), default=0)
         
         # Score distribution based on latest submissions
