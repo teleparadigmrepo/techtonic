@@ -51,44 +51,56 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 import pytz
-
+from logging.handlers import TimedRotatingFileHandler
 
 
 # Constants
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'}
 
-# ─── Simple Logging Configuration ───────────────────────────────────────────
 def setup_logging():
-    """Configure simple file-based logging for the application"""
+    """Configure daily-rotated file logging and purge logs older than 30 days."""
     try:
-        # Create logs directory if it doesn't exist
         log_dir = 'logs'
         os.makedirs(log_dir, exist_ok=True)
-        
-        # Clear any existing handlers to avoid duplicates
+
+        # Remove any existing handlers
         for handler in logging.root.handlers[:]:
             logging.root.removeHandler(handler)
-        
-        # Configure root logger with simple format
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s',
-            handlers=[
-                logging.FileHandler(os.path.join(log_dir, 'app.log')),
-                logging.StreamHandler()  # Also log to console
-            ],
-            force=True  # Force reconfiguration
+
+        # Create a timed rotating file handler (daily at midnight, keep 30 files)
+        log_path = os.path.join(log_dir, 'app.log')
+        rotating_handler = TimedRotatingFileHandler(
+            filename=log_path,
+            when='midnight',     # roll over at midnight
+            interval=1,          # every 1 day
+            backupCount=30,      # keep 30 days of logs
+            encoding='utf-8',
+            utc=False            # use local time
         )
-        
-        logger = logging.getLogger(__name__)
-        logger.info("Logging system initialized successfully")
-        
-        return logger
-        
+        rotating_handler.suffix = "%Y-%m-%d"  # filename will become app.log.2025-07-01 etc
+        rotating_handler.setFormatter(logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'
+        ))
+
+        # Also log to console
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s'
+        ))
+
+        # Configure root logger
+        root = logging.getLogger()
+        root.setLevel(logging.INFO)
+        root.addHandler(rotating_handler)
+        root.addHandler(console_handler)
+
+        root.info("Logging system initialized successfully")
+        return root
+
     except Exception as e:
         print(f"Error setting up logging: {e}")
         return logging.getLogger(__name__)
-
+    
 # Initialize logger
 logger = setup_logging()
 
