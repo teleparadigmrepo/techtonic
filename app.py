@@ -50,6 +50,10 @@ from models import *
 import logging
 from logging.handlers import RotatingFileHandler
 import os
+import pytz
+
+
+
 # Constants
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'}
 
@@ -422,7 +426,7 @@ def login():
                 # Update login information
                 user.update_login_info()
                 session['user_session_token'] = user.session_token
-                session['login_time'] = datetime.utcnow()
+                session['login_time'] = datetime.now()
                 
                 # Login the user with remember=True for persistent sessions
                 login_user(user, remember=True)
@@ -575,7 +579,7 @@ def edit_user(user_id):
                         return render_template("edit_user.html", user=user)
                     user.password = generate_password_hash(new_password)
                     user.must_change_password = request.form.get("force_password_change") == "on"
-                    user.password_changed_at = datetime.utcnow()
+                    user.password_changed_at = datetime.now()
                 
                 # Update role if changed
                 new_role = request.form.get("role")
@@ -698,7 +702,7 @@ def create_user():
                     name=name,
                     htno=htno,
                     must_change_password=request.form.get("force_password_change") == "on",
-                    created_at=datetime.utcnow()
+                    created_at=datetime.now()
                 )
                 
                 db.session.add(new_user)
@@ -1619,7 +1623,7 @@ def change_password():
             # Update password
             current_user.password = generate_password_hash(new_password)
             current_user.must_change_password = False
-            current_user.password_changed_at = datetime.utcnow()
+            current_user.password_changed_at = datetime.now()
             
             try:
                 db.session.commit()
@@ -2005,7 +2009,8 @@ def reset_course_sessions(course_id):
         for student in students:
             # Generate new session token and set force logout timestamp
             student.session_token = secrets.token_urlsafe(32)
-            student.force_logout_at = datetime.utcnow()
+            student.force_logout_at = datetime.now()
+            student.is_online=0
             reset_count += 1
         
         # Commit all changes
@@ -2077,7 +2082,7 @@ def get_course_login_status(course_id):
             return jsonify({'error': 'Course not found or access denied'}), 403
         
         # Get active sessions (students logged in in last 30 minutes)
-        cutoff_time = datetime.utcnow() - timedelta(minutes=30)
+        cutoff_time = datetime.now() - timedelta(minutes=30)
         
         active_students = []
         total_students = 0
@@ -2318,7 +2323,7 @@ def api_download_problem_solution(problem_id):
             "problem_title": problem.title,
             "course_name": course.name,
             "solution": json.loads(problem.solution) if problem.solution else {},
-            "generated_at": datetime.utcnow().isoformat(),
+            "generated_at": datetime.now().isoformat(),
             "problem_state": problem.current_state
         }
         
@@ -2826,7 +2831,7 @@ def toggle_problem_activity(problem_id):
             Course.teacher_id == current_user.id
         ).first_or_404()
         
-        current_time = datetime.utcnow()
+        current_time = datetime.now()
         action = ""
         message = ""
         
@@ -2887,7 +2892,7 @@ def toggle_solution_download(problem_id):
         # Toggle download availability - using the correct field name from model
         problem.can_download_solution = not problem.can_download_solution
         
-        current_time = datetime.utcnow()
+        current_time = datetime.now()
         if problem.can_download_solution:
             action = "enabled"
             message = f"Solution download has been enabled for '{problem.title}'. Students can now download their solutions."
@@ -2937,63 +2942,139 @@ def teacher_problem_submissions(problem_id):
         
         logger.debug(f"Loading submissions with filter: {score_filter}, sort: {sort_by}")
         
-        # Get latest submissions per student - Fixed subquery
+        # Get all students enrolled in the course first
+        enrolled_students = []
+        groups = Group.query.filter_by(course_id=course.id).all()
+        for group in groups:
+            enrolled_students.extend(group.students)
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_enrolled = []
+        for student in enrolled_students:
+            if student.id not in seen:
+                seen.add(student.id)
+                unique_enrolled.append(student)
+        enrolled_students = unique_enrolled
+        
+        # Get currently logged in students (online in last 60 minutes)
+        cutoff_time = datetime.now() - timedelta(minutes=60)
+        logged_in_students_query = User.query.filter(
+            User.id.in_([student.id for student in enrolled_students]),
+            User.is_online == True,
+            User.last_activity >= cutoff_time
+        ).all()
+        
+        # Get latest submissions for logged-in users
         latest_submissions_subquery = (
             db.session.query(
                 Submission.student_id,
-                func.max(Submission.id).label('latest_id')  # Use max ID instead of timestamp
+                func.max(Submission.id).label('latest_id')
             )
             .filter(Submission.problem_id == problem_id)
             .group_by(Submission.student_id)
             .subquery()
         )
         
-        # Get latest submissions with user data - Fixed join
-        submissions_query = (
+        # Get submissions for logged-in users
+        logged_in_submissions = {}
+        submissions_with_users = (
             db.session.query(Submission, User)
             .join(User, Submission.student_id == User.id)
             .join(
                 latest_submissions_subquery,
                 and_(
                     Submission.student_id == latest_submissions_subquery.c.student_id,
-                    Submission.id == latest_submissions_subquery.c.latest_id  # Join on ID
+                    Submission.id == latest_submissions_subquery.c.latest_id
                 )
             )
             .filter(Submission.problem_id == problem_id)
+            .filter(User.id.in_([user.id for user in logged_in_students_query]))
+            .all()
         )
         
-        # Apply score filter
-        if score_filter == 'passed':
-            submissions_query = submissions_query.filter(Submission.total_score >= 60)
-        elif score_filter == 'failed':
-            submissions_query = submissions_query.filter(Submission.total_score < 60)
-        elif score_filter == 'excellent':
-            submissions_query = submissions_query.filter(Submission.total_score >= 80)
+        # Create a mapping of user_id to submission for logged-in users
+        for submission, user in submissions_with_users:
+            logged_in_submissions[user.id] = (submission, user)
         
-        # Apply sorting
+        # Create logged-in users list with their submission status
+        logged_in_users_data = []
+        for user in logged_in_students_query:
+            if user.id in logged_in_submissions:
+                # User has submitted
+                submission, _ = logged_in_submissions[user.id]
+                logged_in_users_data.append((submission, user))
+            else:
+                # User hasn't submitted - create a placeholder submission object
+                class PlaceholderSubmission:
+                    def __init__(self):
+                        self.id = None
+                        self.total_score = 0
+                        self.attempt = 0
+                        self.created_at = None
+                
+                placeholder_submission = PlaceholderSubmission()
+                logged_in_users_data.append((placeholder_submission, user))
+        
+        # Apply filters to logged-in users data
+        filtered_logged_in_data = []
+        for submission, user in logged_in_users_data:
+            # Apply score filter
+            if score_filter == 'passed' and (submission.total_score is None or submission.total_score < 60):
+                continue
+            elif score_filter == 'failed' and (submission.total_score is None or submission.total_score >= 60):
+                continue
+            elif score_filter == 'excellent' and (submission.total_score is None or submission.total_score < 80):
+                continue
+            
+            filtered_logged_in_data.append((submission, user))
+        
+        # Apply sorting to filtered data
         if sort_by == 'latest':
-            submissions_query = submissions_query.order_by(Submission.created_at.desc())
+            filtered_logged_in_data.sort(key=lambda x: x[1].last_activity or datetime.min, reverse=True)
         elif sort_by == 'score_high':
-            submissions_query = submissions_query.order_by(Submission.total_score.desc())
+            filtered_logged_in_data.sort(key=lambda x: x[0].total_score or 0, reverse=True)
         elif sort_by == 'score_low':
-            submissions_query = submissions_query.order_by(Submission.total_score.asc())
+            filtered_logged_in_data.sort(key=lambda x: x[0].total_score or 0)
         elif sort_by == 'name':
-            submissions_query = submissions_query.order_by(User.name.asc())
+            filtered_logged_in_data.sort(key=lambda x: x[1].name or x[1].username)
         
-        submissions = submissions_query.all()
+        # Get all submissions for statistics (not just logged-in users)
+        all_latest_submissions_subquery = (
+            db.session.query(
+                Submission.student_id,
+                func.max(Submission.id).label('latest_id')
+            )
+            .filter(Submission.problem_id == problem_id)
+            .group_by(Submission.student_id)
+            .subquery()
+        )
+        
+        all_submissions_query = (
+            db.session.query(Submission, User)
+            .join(User, Submission.student_id == User.id)
+            .join(
+                all_latest_submissions_subquery,
+                and_(
+                    Submission.student_id == all_latest_submissions_subquery.c.student_id,
+                    Submission.id == all_latest_submissions_subquery.c.latest_id
+                )
+            )
+            .filter(Submission.problem_id == problem_id)
+            .all()
+        )
         
         # Get submission statistics
         total_submissions = Submission.query.filter_by(problem_id=problem_id).count()
-        unique_students = len(set(sub.student_id for sub, user in submissions))
+        unique_students = len(set(sub.student_id for sub, user in all_submissions_query))
         
-        # FIXED: Calculate average score from latest submissions (not best submissions)
+        # Calculate average score from all latest submissions
         avg_score = 0
-        if submissions:
-            # Calculate average from latest submissions
-            total_score = sum(sub.total_score for sub, user in submissions if sub.total_score is not None)
-            avg_score = total_score / len(submissions) if submissions else 0
+        if all_submissions_query:
+            total_score = sum(sub.total_score for sub, user in all_submissions_query if sub.total_score is not None)
+            avg_score = total_score / len(all_submissions_query) if all_submissions_query else 0
         
-        # Get best submissions per student (only with score > 0) - For display purposes
+        # Get best submissions per student (only with score > 0)
         best_submissions_subquery = (
             db.session.query(
                 Submission.student_id,
@@ -3005,7 +3086,6 @@ def teacher_problem_submissions(problem_id):
             .subquery()
         )
         
-        # Get the actual best submissions with latest ID for ties
         best_submissions_with_latest = (
             db.session.query(
                 Submission.student_id,
@@ -3034,50 +3114,28 @@ def teacher_problem_submissions(problem_id):
             .all()
         )
         
-        # Get all students enrolled in the course
-        enrolled_students = []
-        groups = Group.query.filter_by(course_id=course.id).all()
-        for group in groups:
-            enrolled_students.extend(group.students)
-        
-        # Remove duplicates while preserving order
-        seen = set()
-        unique_enrolled = []
-        for student in enrolled_students:
-            if student.id not in seen:
-                seen.add(student.id)
-                unique_enrolled.append(student)
-        enrolled_students = unique_enrolled
-        
-        # Get currently logged in students (online in last 30 minutes)
-        cutoff_time = datetime.utcnow() - timedelta(minutes=60)
-        logged_in_students = User.query.filter(
-            User.id.in_([student.id for student in enrolled_students]),
-            User.is_online == True,
-            User.last_activity >= cutoff_time
-        ).count()
-        
         # Find students who haven't submitted
-        submitted_student_ids = set(sub.student_id for sub, user in submissions)
+        submitted_student_ids = set(sub.student_id for sub, user in all_submissions_query)
         not_submitted_students = [student for student in enrolled_students if student.id not in submitted_student_ids]
         
-        logger.info(f"Teacher {current_user.id} successfully loaded {len(submissions)} submissions for problem {problem_id}")
+        logger.info(f"Teacher {current_user.id} successfully loaded {len(filtered_logged_in_data)} logged-in users for problem {problem_id}")
         
         return render_template(
             "teacher_problem_submissions.html",
             problem=problem,
             course=course,
-            submissions=submissions,
+            submissions=filtered_logged_in_data,  # Pass logged-in users data
             best_submissions=best_submissions_query,
             total_submissions=total_submissions,
             unique_students=unique_students,
             avg_score=avg_score,
             not_submitted_students=not_submitted_students,
             enrolled_count=len(enrolled_students),
-            logged_in_count=logged_in_students,
+            logged_in_count=len(logged_in_students_query),
             current_filter=score_filter,
             current_sort=sort_by,
-            can_download_solution=problem.can_download_solution
+            can_download_solution=problem.can_download_solution,
+            show_logged_in_users=True  # Flag to indicate we're showing logged-in users
         )
         
     except Exception as e:
@@ -4454,7 +4512,7 @@ def bulk_create_users():
                                     name=name,
                                     htno=username,  # username same as hall ticket
                                     must_change_password=True,
-                                    created_at=datetime.utcnow()
+                                    created_at=datetime.now()
                                 )
                                 db.session.add(new_user)
                                 db.session.flush()

@@ -234,23 +234,23 @@
                   <td class="text-center px-4 py-3">
                     <div class="d-flex justify-content-center gap-1">
                       <!-- Preview - Always available for inactive activities -->
-                      {% if not problem.is_active %}
+                     
                         <a href="{{ url_for('teacher_problem_preview', problem_id=problem.id) }}" 
                            class="btn btn-outline-info btn-sm" 
                            title="Preview Activity"
                            target="_blank">
                           <i class="fas fa-eye"></i>
                         </a>
-                      {% endif %}
+                     
                       
                       <!-- Submissions - Available for active or previously active activities with submissions -->
-                      {% if problem.is_active or stats.attempted > 0 %}
+                     
                         <a href="{{ url_for('teacher_problem_submissions', problem_id=problem.id) }}" 
                            class="btn btn-outline-success btn-sm" 
                            title="View Submissions ({{ stats.attempted }})">
                           <i class="fas fa-users"></i>
                         </a>
-                      {% endif %}
+                     
                       
                       <!-- Analytics - Available for activities with submissions -->
                       {% if stats.attempted > 0 %}

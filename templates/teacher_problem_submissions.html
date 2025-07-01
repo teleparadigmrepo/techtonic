@@ -33,13 +33,13 @@
           {% if problem.start_date %}
           <small class="text-muted">
             <i class="fas fa-calendar-start me-1"></i>
-            Start: {{ problem.start_date.strftime('%b %d, %Y %H:%M') }}
+            Start: {{ problem.start_date.strftime('%b %d, %Y %I:%M %p') }}
           </small>
           {% endif %}
           {% if problem.end_date %}
           <small class="text-muted">
             <i class="fas fa-calendar-times me-1"></i>
-            End: {{ problem.end_date.strftime('%b %d, %Y %H:%M') }}
+            End: {{ problem.end_date.strftime('%b %d, %Y %I:%M %p') }}
           </small>
           {% endif %}
         </div>
@@ -98,12 +98,12 @@
   </div>
 </div>
 
-  <!-- Latest Submissions -->
+  <!-- Logged-in Users -->
   <div class="card shadow-sm border-0 mb-4">
     <div class="card-header bg-white">
       <div class="d-flex justify-content-between align-items-center">
         <h5 class="mb-0">
-          <i class="fas fa-list text-primary me-2"></i>Latest Submissions
+          <i class="fas fa-users-cog text-success me-2"></i>Logged-in Users
         </h5>
         <div class="d-flex gap-2">
           <!-- Filters -->
@@ -115,7 +115,7 @@
           </select>
           
           <select class="form-select form-select-sm" id="sortBy" onchange="applyFilters()" style="width: 150px;">
-            <option value="latest" {{ 'selected' if current_sort == 'latest' }}>Latest First</option>
+            <option value="latest" {{ 'selected' if current_sort == 'latest' }}>Latest Activity</option>
             <option value="score_high" {{ 'selected' if current_sort == 'score_high' }}>Highest Score</option>
             <option value="score_low" {{ 'selected' if current_sort == 'score_low' }}>Lowest Score</option>
             <option value="name" {{ 'selected' if current_sort == 'name' }}>Student Name</option>
@@ -140,53 +140,81 @@
               <th class="sortable" data-column="student">Student <i class="fas fa-sort ms-1"></i></th>
               <th class="sortable" data-column="score">Score <i class="fas fa-sort ms-1"></i></th>
               <th class="sortable" data-column="attempt">Attempt <i class="fas fa-sort ms-1"></i></th>
-              <th class="sortable" data-column="date">Submitted At <i class="fas fa-sort ms-1"></i></th>
+              <th class="sortable" data-column="date">Last Activity <i class="fas fa-sort ms-1"></i></th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody id="submissionsTableBody">
             {% for submission, user in submissions %}
-            <tr data-score="{{ submission.total_score }}" data-name="{{ user.name or user.username }}" data-htno="{{ user.htno or user.username }}" data-date="{{ submission.created_at.isoformat() }}">
+            <tr data-score="{{ submission.total_score or 0 }}" data-name="{{ user.name or user.username }}" data-htno="{{ user.htno or user.username }}" data-date="{{ user.last_activity.isoformat() if user.last_activity else '' }}">
               <td>
                 <div class="d-flex align-items-center">
-                  <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                  <div class="avatar-sm bg-{{ 'success' if user.is_online else 'secondary' }} text-white rounded-circle d-flex align-items-center justify-content-center me-2">
                     {{ user.name[0].upper() if user.name else user.username[0].upper() }}
                   </div>
                   <div>
                     <div class="fw-medium">{{ user.name or user.username }}</div>
                     <small class="text-muted">{{ user.htno or user.username }}</small>
+                    <div class="mt-1">
+                      <span class="badge bg-{{ 'success' if user.is_online else 'secondary' }} badge-sm">
+                        <i class="fas fa-circle me-1" style="font-size: 0.5rem;"></i>
+                        {{ 'Online' if user.is_online else 'Offline' }}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </td>
               <td>
+                {% if submission.total_score is not none %}
                 <span class="badge bg-{{ 'success' if submission.total_score >= 80 else 'warning' if submission.total_score >= 60 else 'danger' }}">
                   {{ submission.total_score|round(1) }}%
                 </span>
-              </td>
-              <td>
-                <span class="badge bg-secondary">{{ submission.attempt }}</span>
-              </td>
-              <td>
-                <small>{{ submission.created_at.strftime('%b %d, %Y %H:%M') }}</small>
-              </td>
-              <td>
-                {% if submission.total_score >= 80 %}
-                  <span class="badge bg-success">Excellent</span>
-                {% elif submission.total_score >= 60 %}
-                  <span class="badge bg-warning">Good</span>
                 {% else %}
-                  <span class="badge bg-danger">Needs Improvement</span>
+                <span class="badge bg-secondary">Not Submitted</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if submission.attempt %}
+                <span class="badge bg-secondary">{{ submission.attempt }}</span>
+                {% else %}
+                <span class="text-muted">-</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if user.last_activity %}
+                <small>{{ user.last_activity.strftime('%b %d, %Y %I:%M %p') }}</small>
+                {% else %}
+                <small class="text-muted">Never</small>
+                {% endif %}
+              </td>
+              <td>
+                {% if submission.total_score is not none %}
+                  {% if submission.total_score >= 80 %}
+                    <span class="badge bg-success">Excellent</span>
+                  {% elif submission.total_score >= 60 %}
+                    <span class="badge bg-warning">Good</span>
+                  {% else %}
+                    <span class="badge bg-danger">Needs Improvement</span>
+                  {% endif %}
+                {% else %}
+                  <span class="badge bg-secondary">Not Submitted</span>
                 {% endif %}
               </td>
               <td>
                 <div class="btn-group btn-group-sm">
+                  {% if submission.id %}
                   <button class="btn btn-outline-primary" onclick="viewSubmission({{ submission.id }})" title="View Details">
                     <i class="fas fa-eye"></i>
                   </button>
                   <a href="{{ url_for('teacher_report', sid=submission.id) }}" class="btn btn-outline-info" target="_blank" title="Download Report">
                     <i class="fas fa-file-pdf"></i>
                   </a>
+                  {% else %}
+                  <button class="btn btn-outline-secondary" disabled title="No submission yet">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  {% endif %}
                 </div>
               </td>
             </tr>
@@ -196,9 +224,9 @@
       </div>
       {% else %}
       <div class="text-center py-5" id="noSubmissionsMessage">
-        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
-        <h5 class="text-muted mb-3">No Submissions Yet</h5>
-        <p class="text-muted">Students haven't submitted solutions for this problem yet.</p>
+        <i class="fas fa-user-times fa-3x text-muted mb-3"></i>
+        <h5 class="text-muted mb-3">No Users Currently Online</h5>
+        <p class="text-muted">No students from this course are currently logged in.</p>
       </div>
       {% endif %}
     </div>
@@ -247,7 +275,7 @@
               </td>
               <td>{{ submission.attempt }}</td>
               <td>
-                <small>{{ submission.created_at.strftime('%b %d, %Y %H:%M') }}</small>
+                <small>{{ submission.created_at.strftime('%b %d, %Y %I:%M %p') }}</small>
               </td>
               <td>
                 <div class="btn-group btn-group-sm">
@@ -444,6 +472,25 @@
       font-size: 0.875rem;
     }
   }
+  .html-content {
+  line-height: 1.6;
+}
+
+.html-content p {
+  margin-bottom: 0.5rem;
+}
+
+.html-content ul, .html-content ol {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.html-content pre {
+  background-color: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
   </style>
   
   <script>
@@ -789,7 +836,9 @@
     });
   }
   
-// View submission details
+
+// View submission details - FIXED VERSION
+
 async function viewSubmission(submissionId) {
   try {
     $('#submissionModal').modal('show');
@@ -801,91 +850,106 @@ async function viewSubmission(submissionId) {
       </div>
     `);
 
-    const response = await fetch(`/api/teacher/submission/${submissionId}`);
-    const data = await response.json();
+    const resp = await fetch(`/api/teacher/submission/${submissionId}`);
+    const { status, submission, error } = await resp.json();
 
-    if (data.status === 'ok') {
-      const submission = data.submission;
-      let solutionHtml = '';
-      
-      try {
-        const solution = JSON.parse(submission.solution);
-        for (const [category, content] of Object.entries(solution)) {
-          solutionHtml += `
-            <div class="mb-4">
-              <h6 class="fw-bold text-primary">${category}</h6>
-              <div class="border rounded p-3 bg-light">
-                ${content}
-              </div>
-            </div>
-          `;
-        }
-      } catch (e) {
-        solutionHtml = `<div class="border rounded p-3 bg-light">${submission.solution}</div>`;
-      }
-
-      let feedbackHtml = '';
-      if (submission.feedback && submission.feedback.length > 0) {
-        feedbackHtml = submission.feedback.map(fb => {
-          const [category, message] = fb.split(':', 2);
-          const score = submission.scores[category.trim()] || 0;
-          return `
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h6 class="fw-bold mb-1">${category.trim()}</h6>
-                <span class="badge bg-primary">${score}%</span>
-              </div>
-              <p class="mb-0">${message.trim()}</p>
-            </div>
-          `;
-        }).join('');
-      }
-
-      $('#submissionContent').html(`
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card border-0 bg-light mb-3">
-              <div class="card-body">
-                <h6 class="card-title">Student Information</h6>
-                <p class="mb-1"><strong>Name:</strong> ${submission.student.name}</p>
-                <p class="mb-1"><strong>Hall Ticket:</strong> ${submission.student.htno}</p>
-                <p class="mb-1"><strong>Username:</strong> ${submission.student.username}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card border-0 bg-light mb-3">
-              <div class="card-body">
-                <h6 class="card-title">Submission Details</h6>
-                <p class="mb-1"><strong>Total Score:</strong> <span class="badge bg-primary">${submission.total_score}%</span></p>
-                <p class="mb-1"><strong>Attempt:</strong> ${submission.attempt}</p>
-                <p class="mb-1"><strong>Submitted:</strong> ${new Date(submission.created_at).toLocaleString()}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mb-4">
-          <h6 class="fw-bold">Solution</h6>
-          ${solutionHtml}
-        </div>
-        
-        ${feedbackHtml ? `
-          <div class="mb-4">
-            <h6 class="fw-bold">Feedback</h6>
-            ${feedbackHtml}
-          </div>
-        ` : ''}
-      `);
-    } else {
-      $('#submissionContent').html(`
+    if (status !== 'ok') {
+      return $('#submissionContent').html(`
         <div class="alert alert-danger">
           <i class="fas fa-exclamation-triangle me-2"></i>
-          Error loading submission: ${data.error}
+          Error loading submission: ${error}
         </div>
       `);
     }
-  } catch (error) {
+
+    // parse solution JSON if needed
+    let solution;
+    try {
+      solution = JSON.parse(submission.solution);
+    } catch {
+      solution = { 'Solution': submission.solution };
+    }
+
+    let solutionHtml = '';
+    for (const [category, content] of Object.entries(solution)) {
+      solutionHtml += `
+        <div class="mb-4">
+          <h6 class="fw-bold text-primary">${category}</h6>
+          <div class="border rounded p-3 bg-light">
+            ${content}
+          </div>
+        </div>
+      `;
+    }
+
+    let feedbackHtml = '';
+    if (submission.feedback?.length) {
+      feedbackHtml = submission.feedback.map(fb => {
+        const [cat, msg] = fb.includes(':')
+          ? fb.split(/:(.+)/).slice(0,2).map(s => s.trim())
+          : ['', fb];
+        const score = submission.scores?.[cat] ?? 0;
+        return `
+          <div class="mb-3">
+            ${cat ? `
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="fw-bold mb-0">${cat}</h6>
+                <span class="badge bg-primary">${score}%</span>
+              </div>` : ''}
+            <div class="border rounded p-3 bg-light">
+              ${msg}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    const contentHtml = `
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-0 bg-light mb-3">
+            <div class="card-body">
+              <h6 class="card-title">Student Information</h6>
+              <p class="mb-1"><strong>Name:</strong> ${submission.student.name}</p>
+              <p class="mb-1"><strong>Hall Ticket:</strong> ${submission.student.htno}</p>
+              <p class="mb-1"><strong>Username:</strong> ${submission.student.username}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-0 bg-light mb-3">
+            <div class="card-body">
+              <h6 class="card-title">Submission Details</h6>
+              <p class="mb-1">
+                <strong>Total Score:</strong>
+                <span class="badge bg-primary">${submission.total_score}%</span>
+              </p>
+              <p class="mb-1"><strong>Attempt:</strong> ${submission.attempt}</p>
+              <p class="mb-1">
+                <strong>Submitted:</strong>
+                ${new Date(submission.created_at).toLocaleString()}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h6 class="fw-bold">Solution</h6>
+        ${solutionHtml}
+      </div>
+
+      ${feedbackHtml ? `
+        <div class="mb-4">
+          <h6 class="fw-bold">Feedback</h6>
+          ${feedbackHtml}
+        </div>
+      ` : ''}
+    `;
+
+    $('#submissionContent').html(contentHtml);
+
+  } catch (e) {
     $('#submissionContent').html(`
       <div class="alert alert-danger">
         <i class="fas fa-exclamation-triangle me-2"></i>

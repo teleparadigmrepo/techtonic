@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     status = db.Column(db.String(20), default='active')  # 'active' or 'inactive'
     must_change_password = db.Column(db.Boolean, default=False)
     password_changed_at = db.Column(db.DateTime)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now)
     
     # Session management fields
     session_token = db.Column(db.String(200), default=lambda: secrets.token_urlsafe(32))
@@ -42,21 +42,21 @@ class User(db.Model, UserMixin):
     def invalidate_session(self):
         """Generate new session token to invalidate current sessions"""
         self.session_token = secrets.token_urlsafe(32)
-        self.force_logout_at = datetime.utcnow()
+        self.force_logout_at = datetime.now()
         db.session.commit()
     
     def update_login_info(self):
         """Update login timestamps and count"""
         self.last_login = self.current_login
-        self.current_login = datetime.utcnow()
+        self.current_login = datetime.now()
         self.login_count = (self.login_count or 0) + 1
         self.is_online = True
-        self.last_activity = datetime.utcnow()
+        self.last_activity = datetime.now()
         db.session.commit()
     
     def update_activity(self):
         """Update last activity timestamp"""
-        self.last_activity = datetime.utcnow()
+        self.last_activity = datetime.now()
         db.session.commit()
     
     def set_offline(self):
@@ -70,7 +70,7 @@ class Course(db.Model):
     code = db.Column(db.String(50), unique=True, nullable=False)
     description = db.Column(db.Text)
     teacher_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now)
     is_active = db.Column(db.Boolean, default=True)
     
     # Relationships
@@ -81,7 +81,7 @@ class Group(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now)
     
     # Relationships
     student_groups = db.relationship('StudentGroup', backref='group', lazy=True, cascade='all, delete-orphan')
@@ -94,7 +94,7 @@ class StudentGroup(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=False)
-    enrolled_at = db.Column(db.DateTime, default=datetime.utcnow)
+    enrolled_at = db.Column(db.DateTime, default=datetime.now)
     
     # Relationships
     student = db.relationship('User', backref='student_groups')
@@ -115,7 +115,7 @@ class Problem(db.Model):
     video_url = db.Column(db.String(300))  # YouTube URL
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
     created_by = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now)
     is_active = db.Column(db.Boolean, default=False)
     can_download_solution= db.Column(db.Boolean, default=False)
     # NEW: Problem timing fields
@@ -128,7 +128,7 @@ class Problem(db.Model):
     @property
     def current_state(self):
         """Get current state of the problem"""
-        now = datetime.utcnow()
+        now = datetime.now()
         if not self.is_active:
             return 'inactive'
         if self.start_date and now < self.start_date:
@@ -153,5 +153,5 @@ class Submission(db.Model):
     feedback     = db.Column(db.Text)   # JSON list of feedback
     total_score  = db.Column(db.Float)
     attempt      = db.Column(db.Integer, default=1)
-    created_at   = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at   = db.Column(db.DateTime, default=datetime.now)
 

@@ -18,6 +18,20 @@
 .pill-header { cursor: pointer; user-select: none; }
 .pill-header h6 { margin: 0; font-weight: 500; color: #0056b3; }
 
+/* Validation styling */
+.validation-error {
+  border: 2px solid #dc3545 !important;
+}
+.validation-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+.validation-message.show {
+  display: block;
+}
+
 /* ===== Results Modal: Enhanced Total Score Colors ===== */
 .total-score-section h4 { font-weight: 600; color: #333; margin: 0; }
 .total-score-section #totalScoreLabel { color: #666; font-weight: 600; }
@@ -248,7 +262,7 @@
           <button id="showFeedbackBtn" class="btn btn-outline-primary me-2" disabled>
             <i class="fas fa-eye me-1"></i>Show Feedback
           </button>
-          <!-- <button id="downloadPdfBtn" class="btn btn-outline-success" disabled><i class="fas fa-file-pdf me-1"></i>Download Feedback</button>  -->
+          <!-- <button id="downloadPdfBtn" class="btn btn-outline-success" disabled><i class="fas fa-file-pdf me-1"></i>Download Report</button> -->
           <span id="evalLoading" class="ms-2 d-none"><i class="fas fa-spinner fa-spin"></i> Evaluating...</span>
         </div>
       </div>
@@ -361,6 +375,7 @@
 {% block scripts %}
 <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 <script>
 $(function(){
   const PROBLEM_ID    = {{ problem.id }};
@@ -391,26 +406,167 @@ $(function(){
     return 'Needs Improvement 💪';
   }
 
+  // Function to validate text length (minimum 100 characters)
+  function validateTextLength(text) {
+    // Remove HTML tags and get plain text length
+    const plainText = text.replace(/<[^>]*>/g, '').trim();
+    return plainText.length >= 100;
+  }
+
+  // Function to show validation error
+  function showValidationError(editorIndex, message) {
+    const editorContainer = $(`#editor-${editorIndex}`).parent();
+    const errorDiv = editorContainer.find('.validation-message');
+    
+    if (errorDiv.length === 0) {
+      editorContainer.append(`<div class="validation-message">${message}</div>`);
+    } else {
+      errorDiv.text(message);
+    }
+    
+    $(`#editor-${editorIndex} .ql-container`).addClass('validation-error');
+    editorContainer.find('.validation-message').addClass('show');
+  }
+
+  // Function to hide validation error
+  function hideValidationError(editorIndex) {
+    const editorContainer = $(`#editor-${editorIndex}`).parent();
+    $(`#editor-${editorIndex} .ql-container`).removeClass('validation-error');
+    editorContainer.find('.validation-message').removeClass('show');
+  }
+
+  // Function to validate all editors
+  function validateAllEditors() {
+    let isValid = true;
+    const errors = [];
+
+    KEYS.forEach((cat, i) => {
+      const content = editors[i].root.innerHTML.trim();
+      if (!validateTextLength(content)) {
+        showValidationError(i, `Please write at least 100 characters for ${cat}`);
+        errors.push(`${cat} section needs at least 100 characters`);
+        isValid = false;
+      } else {
+        hideValidationError(i);
+      }
+    });
+
+    return { isValid, errors };
+  }
+
+  // FIXED: Enhanced step switching function that handles base script animations
+  function switchToStep(targetStepId) {
+    console.log('Switching to step:', targetStepId);
+    
+    // Get current active step
+    const currentStep = $('.step.active');
+    const targetStep = $(targetStepId);
+    
+    if (currentStep.length > 0) {
+      // Remove any existing animation classes first
+      currentStep.removeClass('animate__animated animate__fadeOut animate__fadeIn');
+      
+      // Add fade out animation to current step
+      currentStep.addClass('animate__animated animate__fadeOut');
+      
+      // Wait for fade out to complete, then switch
+      setTimeout(() => {
+        // Hide current step
+        currentStep.removeClass('active animate__animated animate__fadeOut')
+                  .hide()
+                  .css('display', 'none');
+        
+        // Show target step with fade in
+        targetStep.removeClass('animate__animated animate__fadeOut animate__fadeIn')
+                 .show()
+                 .css('display', 'block')
+                 .addClass('active animate__animated animate__fadeIn');
+        
+        console.log('Step switched to:', targetStepId);
+        console.log('Step visibility:', targetStep.is(':visible'));
+        
+        // Clean up animation classes after animation completes
+        setTimeout(() => {
+          targetStep.removeClass('animate__animated animate__fadeIn');
+        }, 600); // Animation duration
+        
+      }, 300); // Wait for fade out animation
+    } else {
+      // No current step, just show target
+      $('.step').removeClass('active').hide().css('display', 'none');
+      targetStep.show()
+               .css('display', 'block')
+               .addClass('active');
+    }
+  }
+
+  // Initialize page - ensure step2 is visible
+  function initializePage() {
+    console.log('Initializing page...');
+    
+    // Remove any animation classes that might interfere
+    $('.step').removeClass('animate__animated animate__fadeOut animate__fadeIn');
+    
+    // Force step2 to be visible and step3 to be hidden
+    $('#step2').show().css('display', 'block').addClass('active');
+    $('#step3').hide().css('display', 'none').removeClass('active');
+    
+    // Hide any other steps that might exist
+    $('.step').not('#step2').hide().css('display', 'none').removeClass('active');
+    
+    console.log('Page initialized - Step2 visible:', $('#step2').is(':visible'));
+  }
+
   // 1) Initialize one Quill instance per rubric category
   KEYS.forEach((cat, i) => {
     $('#solutionSections').append(`
       <div class="mb-4">
         <h6><strong>${cat}</strong> <span class="text-muted">(${RUBRIC[cat]} points)</span></h6>
         <div id="editor-${i}" style="height:200px; background:#fff;"></div>
+        <div class="validation-message">Please write at least 100 characters for this section</div>
       </div>
     `);
-    editors[i] = new Quill(`#editor-${i}`, {
+    
+    const editor = new Quill(`#editor-${i}`, {
       theme: 'snow',
-      modules: { toolbar: [['bold','italic'], ['code-block'], ['link'], [{ list:'ordered' }, { list:'bullet' }]] }
+      modules: { 
+        toolbar: [
+          ['bold','italic'], 
+          ['code-block'], 
+          ['link'], 
+          [{ list:'ordered' }, { list:'bullet' }]
+        ] 
+      }
     });
+
+    // Add real-time validation
+    editor.on('text-change', function() {
+      const content = editor.root.innerHTML.trim();
+      if (validateTextLength(content)) {
+        hideValidationError(i);
+      }
+    });
+
+    editors[i] = editor;
   });
 
   const showSpinner = ()=> $('#globalSpinner').removeClass('d-none');
   const hideSpinner = ()=> $('#globalSpinner').addClass('d-none');
 
-  // Step navigation
-  $('#toStep3').click(()=>{ $('#step2').removeClass('active'); $('#step3').addClass('active'); });
-  $('#backToStep2').click(()=>{ $('#step3').removeClass('active'); $('#step2').addClass('active'); });
+  // FIXED: Step navigation with proper event handling and animation coordination
+  $('#toStep3').off('click').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent base script from interfering
+    console.log('toStep3 clicked');
+    switchToStep('#step3');
+  });
+
+  $('#backToStep2').off('click').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent base script from interfering
+    console.log('backToStep2 clicked');
+    switchToStep('#step2');
+  });
 
   // View PDF modal
   {% if problem.doc_path %}
@@ -432,9 +588,24 @@ $(function(){
   });
   {% endif %}
 
-  // Enhanced Evaluate button
+  // Enhanced Evaluate button with validation
   $('#evaluateBtn').click(async ()=>{
     if(attempts_left <= 0) return;
+    
+    // Validate all editors first
+    const validation = validateAllEditors();
+    if (!validation.isValid) {
+      // Show error alert with specific issues
+      const errorMessage = "Please complete all sections:\n\n" + validation.errors.join('\n');
+      alert(errorMessage);
+      
+      // Scroll to first error
+      const firstErrorEditor = $('.validation-error').first();
+      if (firstErrorEditor.length) {
+        firstErrorEditor[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
     
     // Update solObj with current editor content
     solObj = {}; // Reset the object
@@ -490,7 +661,6 @@ $(function(){
               </div>
               <div class="score-badge-container">
                 <div class="score-badge score-badge-${scoreClass}">${score}/${maxScore}</div>
-               
               </div>
             </div>
           </div>
@@ -565,57 +735,65 @@ $(function(){
     resultModal.show();
   });
   
-  // Enhanced PDF Download
-  // Enhanced PDF Download
-// Enhanced PDF Download with proper multi-page generation and custom filename
-$('#downloadPdfBtn').click(async () => {
-  // 1) Make overlay visible and scroll top
-  const $ov = $('#pdfOverlay').addClass('pdf-visible').css({
-    top: 0, left: 0, visibility: 'visible', zIndex: 9999
+  // Enhanced PDF Download with proper multi-page generation and custom filename
+  $('#downloadPdfBtn').click(async () => {
+    // 1) Make overlay visible and scroll top
+    const $ov = $('#pdfOverlay').addClass('pdf-visible').css({
+      top: 0, left: 0, visibility: 'visible', zIndex: 9999
+    });
+    window.scrollTo(0,0);
+
+    // 2) Give browser ~1s to reflow with new CSS/visibility
+    await new Promise(r => setTimeout(r, 1000));
+
+    // 3) PDF options
+    const opts = {
+      margin:       [10, 10, 10, 10],        // mm
+      filename:     `TECHTONIC_Report_${new Date().toISOString().split('T')[0]}.pdf`,
+      html2canvas:  { scale: 1.5, useCORS: true, scrollX:0, scrollY:0 },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak:    {
+         mode: ['avoid-all','css'],
+         before: ['.pdf-section'],
+         avoid: ['.pdf-feedback-item','.pdf-solution-content']
+      }
+    };
+
+    // 4) Export
+    html2pdf().set(opts)
+               .from(document.getElementById('pdfContent'))
+               .save()
+               .then(() => {
+                 // Hide overlay again
+                 $ov.removeClass('pdf-visible')
+                    .css({ top:'-9999px', visibility:'hidden', zIndex:-1 });
+               })
+               .catch(err => {
+                 console.error('PDF export error:', err);
+                 alert('PDF generation failed. See console for details.');
+               });
   });
-  window.scrollTo(0,0);
 
-  // 2) Give browser ~1s to reflow with new CSS/visibility
-  await new Promise(r => setTimeout(r, 1000));
-
-  // 3) PDF options
-  const opts = {
-    margin:       [10, 10, 10, 10],        // mm
-    filename:     `TECHTONIC_Report_${new Date().toISOString().split('T')[0]}.pdf`,
-    html2canvas:  { scale: 1.5, useCORS: true, scrollX:0, scrollY:0 },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak:    {
-       mode: ['avoid-all','css'],
-       before: ['.pdf-section'],
-       avoid: ['.pdf-feedback-item','.pdf-solution-content']
-    }
-  };
-
-  // 4) Export
-  html2pdf().set(opts)
-             .from(document.getElementById('pdfContent'))
-             .save()
-             .then(() => {
-               // Hide overlay again
-               $ov.removeClass('pdf-visible')
-                  .css({ top:'-9999px', visibility:'hidden', zIndex:-1 });
-             })
-             .catch(err => {
-               console.error('PDF export error:', err);
-               alert('PDF generation failed. See console for details.');
-             });
-
-});
-
-// Auto-expand first accordion on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const firstAccordion = document.querySelector('.accordion-collapse');
-  if (firstAccordion) {
-    new bootstrap.Collapse(firstAccordion, { toggle: false }).show();
+  // FIXED: Initialize page with proper timing
+  function initializeWithDelay() {
+    // Wait for base script to finish its initialization
+    setTimeout(() => {
+      console.log('Document ready - initializing with delay...');
+      initializePage();
+    }, 100);
   }
-});
-});
 
-
+  // Initialize on both document ready and window load
+  $(document).ready(initializeWithDelay);
+  $(window).on('load', initializeWithDelay);
+  
+  // Auto-expand first accordion on page load
+  setTimeout(function() {
+    const firstAccordion = document.querySelector('.accordion-collapse');
+    if (firstAccordion) {
+      new bootstrap.Collapse(firstAccordion, { toggle: false }).show();
+    }
+  }, 500);
+});
 </script>
 {% endblock %}
