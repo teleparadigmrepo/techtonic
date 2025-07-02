@@ -1,0 +1,35 @@
+2025-07-01 13:55:43,543 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 13:55:43,557 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 13:55:43,557 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 13:55:43,566 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.168.15.220:5000
+2025-07-01 13:55:43,566 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-01 14:04:05,964 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:05,978 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:05,978 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:05,999 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,013 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,015 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,015 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,028 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,028 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,034 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,048 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,048 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,124 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,138 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,138 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,189 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,204 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,204 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,210 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,224 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,224 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,301 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,301 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-01 14:04:06,315 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,315 - INFO - create_app:166 - Flask app created successfully
+2025-07-01 14:04:06,315 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-01 14:04:06,315 - INFO - setup_login_manager:198 - Login manager configured successfully

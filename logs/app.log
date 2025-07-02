@@ -1,8 +1,162 @@
-2025-07-01 13:55:43,543 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-01 13:55:43,557 - INFO - create_app:166 - Flask app created successfully
-2025-07-01 13:55:43,557 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-01 13:55:43,566 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://172.168.15.220:5000
-2025-07-01 13:55:43,566 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 09:41:03,850 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,853 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,858 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,863 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,868 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,870 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,871 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,876 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,877 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,881 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,882 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,883 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,670 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,671 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,674 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,675 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,675 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,681 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,682 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,687 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,692 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,694 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,694 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:19,107 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed root route - 
+2025-07-02 09:41:19,107 - INFO - root:308 - Root route accessed from IP: 127.0.0.1
+2025-07-02 09:41:19,130 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 09:41:20,769 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-02 09:41:20,770 - INFO - logout:485 - User logged out: admin
+2025-07-02 09:41:20,780 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-02 09:41:24,564 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-02 09:41:24,564 - INFO - login:448 - User logged in successfully: admin
+2025-07-02 09:41:24,568 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 09:41:26,464 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-02 09:41:26,464 - INFO - logout:485 - User logged out: admin
+2025-07-02 09:41:26,466 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-02 09:41:30,558 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-02 09:41:30,558 - INFO - login:448 - User logged in successfully: admin
+2025-07-02 09:41:30,565 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
