@@ -1,0 +1,1138 @@
+2025-07-03 09:30:50,171 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-03 09:30:50,172 - INFO - login:448 - User logged in successfully: admin
+2025-07-03 09:30:50,174 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:30:50,190 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-03 09:30:50,207 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:50] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-07-03 09:30:50,226 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:30:50,239 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:30:53,631 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-03 09:30:53,631 - INFO - logout:485 - User logged out: admin
+2025-07-03 09:30:53,632 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 09:30:53,634 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-03 09:30:53,634 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 09:30:53,639 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "GET /login HTTP/1.1" 200 -
+2025-07-03 09:30:53,665 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:30:53,669 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 09:30:53,673 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:30:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:31:02,096 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 09:31:02,096 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 09:31:02,097 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:31:02,099 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-03 09:31:02,101 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-03 09:31:02,102 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:02] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 09:31:02,116 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:31:02,129 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:31:05,982 - INFO - teacher_problem_preview:2493 - Teacher 5 previewing problem 14
+2025-07-03 09:31:05,984 - INFO - teacher_problem_preview:2506 - Teacher 5 problem preview loaded: problem 14, has_submissions: False
+2025-07-03 09:31:05,991 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:05] "GET /teacher/problem/14/preview HTTP/1.1" 200 -
+2025-07-03 09:31:06,005 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:31:06,023 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:31:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:36:42,029 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 09:36:42,066 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 09:36:42,066 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 09:36:42,075 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 09:36:42,075 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 09:36:50,326 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-03 09:36:50,326 - INFO - logout:485 - User logged out: tppavan
+2025-07-03 09:36:50,327 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 09:36:50,329 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-03 09:36:50,329 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 09:36:50,338 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "GET /login HTTP/1.1" 200 -
+2025-07-03 09:36:50,365 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:36:50,369 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 09:36:50,375 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:36:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:04,200 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-03 09:37:04,200 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-03 09:37:04,201 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:04] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:37:04,204 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:37:04,212 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 3 problems from 1 active courses
+2025-07-03 09:37:04,222 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:04] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:37:04,238 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:37:04,246 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:06,808 - INFO - student_solve:1794 - Student 3 accessing problem 12
+2025-07-03 09:37:06,809 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 12
+2025-07-03 09:37:06,816 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:06] "GET /student/solve/12 HTTP/1.1" 200 -
+2025-07-03 09:37:06,831 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:37:07,063 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:15,037 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: 12bd1a0501
+2025-07-03 09:37:15,037 - INFO - logout:485 - User logged out: 12bd1a0501
+2025-07-03 09:37:15,038 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 09:37:15,048 - INFO - check_forced_logout:273 - Forcing logout for user 3 - session token mismatch or admin logout
+2025-07-03 09:37:15,049 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 09:37:15,051 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "GET /login HTTP/1.1" 200 -
+2025-07-03 09:37:15,072 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:37:15,077 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 09:37:15,081 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:28,167 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 09:37:28,167 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 09:37:28,168 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:37:28,172 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-03 09:37:28,183 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-03 09:37:28,193 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:28] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 09:37:28,207 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:37:28,235 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:30,177 - INFO - teacher_course_detail:2876 - Teacher 5 accessing course detail 1
+2025-07-03 09:37:30,211 - INFO - teacher_course_detail:2930 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 09:37:30,220 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:30] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 09:37:30,231 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:37:30,242 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:37:35,889 - INFO - toggle_problem_activity:2952 - Teacher 5 attempting to toggle activity for problem 14
+2025-07-03 09:37:36,002 - INFO - toggle_problem_activity:2988 - Teacher 5 successfully started activity for problem 14 ('Customer Loyalty Report with Error Handling and Deduplication in Talend Studio')
+2025-07-03 09:37:36,003 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:37:36] "POST /api/teacher/problem/14/toggle-activity HTTP/1.1" 200 -
+2025-07-03 09:38:05,133 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:38:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:38:05,141 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:38:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:39:05,233 - INFO - teacher_course_detail:2876 - Teacher 5 accessing course detail 1
+2025-07-03 09:39:05,242 - INFO - teacher_course_detail:2930 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 09:39:05,243 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:05] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 09:39:05,257 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:05] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 09:39:05,344 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:39:13,193 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-03 09:39:13,193 - INFO - logout:485 - User logged out: tppavan
+2025-07-03 09:39:13,194 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 09:39:13,199 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-03 09:39:13,199 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 09:39:13,204 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "GET /login HTTP/1.1" 200 -
+2025-07-03 09:39:13,228 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:39:13,231 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 09:39:13,239 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:39:16,325 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-03 09:39:16,325 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-03 09:39:16,325 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:39:16,328 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:39:16,331 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 09:39:16,333 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:16] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:39:16,349 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:39:16,359 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:39:18,222 - INFO - student_solve:1794 - Student 3 accessing problem 14
+2025-07-03 09:39:18,223 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:39:18,225 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:18] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-03 09:39:18,243 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:39:18,268 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:39:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:43:38,048 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 09:43:38,061 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 09:43:38,061 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 09:43:38,070 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 09:43:38,070 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 09:43:44,209 - INFO - student_solve:1794 - Student 3 accessing problem 14
+2025-07-03 09:43:44,212 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:43:44,227 - ERROR - student_solve:1855 - Error in student_solve for problem 14 by student 3: 'p' is undefined
+2025-07-03 09:43:44,228 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:44] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-03 09:43:44,230 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:43:44,233 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 09:43:44,238 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:44] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:43:44,251 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:44] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:43:44,260 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:43:47,290 - INFO - student_solve:1794 - Student 3 accessing problem 14
+2025-07-03 09:43:47,291 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:43:47,293 - ERROR - student_solve:1855 - Error in student_solve for problem 14 by student 3: 'p' is undefined
+2025-07-03 09:43:47,294 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:47] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-03 09:43:47,295 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:43:47,298 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 09:43:47,299 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:47] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:43:47,312 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:43:47,323 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:43:49,362 - INFO - student_solve:1794 - Student 3 accessing problem 14
+2025-07-03 09:43:49,363 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:43:49,366 - ERROR - student_solve:1855 - Error in student_solve for problem 14 by student 3: 'p' is undefined
+2025-07-03 09:43:49,366 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:49] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-03 09:43:49,368 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:43:49,371 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 09:43:49,373 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:49] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:43:49,383 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:43:49,394 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:43:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:44:23,794 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 09:44:23,808 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 09:44:23,808 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 09:44:23,817 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 09:44:23,817 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 09:44:25,716 - INFO - student_dashboard:1498 - Student 3 accessing dashboard
+2025-07-03 09:44:25,722 - INFO - student_dashboard:1544 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 09:44:25,734 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:25] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 09:44:25,746 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:44:25,754 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:44:27,227 - INFO - student_solve:1794 - Student 3 accessing problem 14
+2025-07-03 09:44:27,232 - INFO - student_solve:1843 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:44:27,245 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:27] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-03 09:44:27,259 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:44:27,286 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:44:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:57:56,421 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 09:57:56,434 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 09:57:56,435 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 09:57:56,443 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 09:57:56,444 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 09:59:02,465 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 09:59:02,479 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 09:59:02,479 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 09:59:02,488 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 09:59:02,488 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 09:59:05,826 - INFO - student_solve:1837 - Student 3 accessing problem 14
+2025-07-03 09:59:05,829 - INFO - student_solve:1886 - Student 3 has 3 attempts left for problem 14
+2025-07-03 09:59:05,845 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:05] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-03 09:59:05,864 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:59:05,887 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:59:17,205 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: 12bd1a0501
+2025-07-03 09:59:17,205 - INFO - logout:485 - User logged out: 12bd1a0501
+2025-07-03 09:59:17,206 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 09:59:17,208 - INFO - check_forced_logout:273 - Forcing logout for user 3 - session token mismatch or admin logout
+2025-07-03 09:59:17,208 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 09:59:17,210 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "GET /login HTTP/1.1" 200 -
+2025-07-03 09:59:17,235 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:59:17,238 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 09:59:17,243 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:59:21,159 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 09:59:21,160 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 09:59:21,162 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:21] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 09:59:21,171 - INFO - teacher_dashboard:2380 - Teacher 5 accessing dashboard
+2025-07-03 09:59:21,182 - INFO - teacher_dashboard:2406 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-03 09:59:21,190 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:21] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 09:59:21,206 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:59:21,220 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:59:22,909 - INFO - teacher_course_detail:2919 - Teacher 5 accessing course detail 1
+2025-07-03 09:59:22,919 - INFO - teacher_course_detail:2973 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 09:59:22,928 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:22] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 09:59:22,943 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:59:22,957 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:59:24,877 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 09:59:24,878 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 09:59:24,882 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:24] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 09:59:24,899 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 09:59:24,924 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 09:59:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 09:59:43,046 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 10:00:18,584 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 10:00:18,590 - INFO - generate_pills:1349 - Successfully generated 3 pills for user 5. Workflow generated: False, Problem context used: True
+2025-07-03 10:00:18,592 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:00:18] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 10:01:37,828 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 10:02:10,877 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 10:02:11,102 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 3009 characters
+2025-07-03 10:02:11,102 - INFO - generate_pills:1349 - Successfully generated 4 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 10:02:11,104 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:02:11] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 10:03:24,478 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:03:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 10:03:24,490 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:03:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 10:08:28,072 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 10:08:28,085 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 10:08:28,086 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 10:08:28,094 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 10:08:28,094 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 10:08:39,528 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 10:08:39,531 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 10:08:39,539 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:08:39] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 10:08:39,553 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:08:39] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 10:08:39,723 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:08:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 10:08:57,258 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 10:09:33,205 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 10:09:33,440 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 3020 characters
+2025-07-03 10:09:33,440 - INFO - generate_pills:1349 - Successfully generated 3 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 10:09:33,443 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:09:33] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 10:10:05,437 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 10:10:05,437 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 10:10:05,438 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:10:05] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 10:10:06,277 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-03 10:10:26,153 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 10:10:26,154 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-03 10:10:26,155 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:10:26] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-03 10:10:31,183 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 10:10:31,184 - ERROR - save_problem:1119 - Error saving problem for user 5: 'prompt_text' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'prompt_text' is an invalid keyword argument for Problem
+2025-07-03 10:10:31,235 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:10:31] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 10:11:53,410 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 10:11:53,434 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 10:11:53,434 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 10:11:53,443 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 10:11:53,443 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 10:11:57,618 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 10:11:57,621 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 10:11:57,633 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:11:57] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 10:11:57,648 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:11:57] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 10:11:57,808 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:11:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 10:12:18,596 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 10:12:43,992 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 10:12:44,211 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 3046 characters
+2025-07-03 10:12:44,211 - INFO - generate_pills:1349 - Successfully generated 3 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 10:12:44,214 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 10:12:44] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 11:53:35,659 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 11:53:35,659 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 11:53:35,660 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:53:35] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 11:53:38,651 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 11:53:38,652 - ERROR - save_problem:1119 - Error saving problem for user 5: 'prompt_text' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'prompt_text' is an invalid keyword argument for Problem
+2025-07-03 11:53:38,654 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:53:38] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 11:54:36,818 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 11:54:36,850 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 11:54:36,850 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 11:54:36,858 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 11:54:36,858 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 11:56:04,493 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 11:56:04,494 - ERROR - save_problem:1119 - Error saving problem for user 5: 'prompt_text' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'prompt_text' is an invalid keyword argument for Problem
+2025-07-03 11:56:04,496 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:56:04] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 11:56:10,048 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 11:56:10,051 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 11:56:10,064 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:56:10] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 11:56:10,079 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:56:10] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 11:56:10,201 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:56:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 11:56:28,355 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 11:57:07,134 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 11:57:07,361 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 2761 characters
+2025-07-03 11:57:07,361 - INFO - generate_pills:1349 - Successfully generated 5 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 11:57:07,361 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:57:07] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 11:57:13,917 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 11:57:13,917 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 11:57:13,919 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:57:13] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 11:57:14,750 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 11:57:14,750 - ERROR - save_problem:1119 - Error saving problem for user 5: 'prompt_text' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'prompt_text' is an invalid keyword argument for Problem
+2025-07-03 11:57:14,751 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:57:14] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 11:58:58,314 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 11:58:58,327 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 11:58:58,327 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 11:58:58,336 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 11:58:58,336 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 11:59:01,134 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 11:59:01,136 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 11:59:01,144 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:01] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 11:59:01,162 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:01] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 11:59:01,346 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 11:59:21,731 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 11:59:49,031 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 11:59:49,261 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 2830 characters
+2025-07-03 11:59:49,261 - INFO - generate_pills:1349 - Successfully generated 3 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 11:59:49,264 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:49] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 11:59:55,597 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 11:59:55,597 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 11:59:55,597 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:55] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 11:59:56,965 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 11:59:56,966 - ERROR - save_problem:1119 - Error saving problem for user 5: 'prompt_text' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'prompt_text' is an invalid keyword argument for Problem
+2025-07-03 11:59:56,968 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 11:59:56] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 12:01:55,503 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:01:55,529 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:01:55,529 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:01:55,538 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:01:55,538 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:01:58,790 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:01:58,791 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:01:58,800 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:01:58] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:01:58,812 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:01:58] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:01:58,963 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:01:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:02:23,956 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 12:02:58,581 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:02:58,825 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 2979 characters
+2025-07-03 12:02:58,825 - INFO - generate_pills:1349 - Successfully generated 3 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 12:02:58,828 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:02:58] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 12:03:05,765 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 12:03:05,765 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 12:03:05,766 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:03:05] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 12:03:09,943 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 12:03:09,944 - ERROR - save_problem:1119 - Error saving problem for user 5: 'doc_filename' is an invalid keyword argument for Problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1090, in save_problem
+    problem = Problem(
+              ^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 2167, in _declarative_constructor
+    raise TypeError(
+TypeError: 'doc_filename' is an invalid keyword argument for Problem
+2025-07-03 12:03:09,945 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:03:09] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 12:04:11,166 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:04:11,180 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:04:11,180 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:04:11,189 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:04:11,189 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:04:16,245 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:04:16,259 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:04:16,259 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:04:16,268 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:04:16,268 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:04:19,058 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:04:19,060 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:04:19,068 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:04:19] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:04:19,081 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:04:19] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:04:19,216 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:04:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:04:59,699 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 12:05:46,917 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:05:47,149 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 2699 characters
+2025-07-03 12:05:47,149 - INFO - generate_pills:1349 - Successfully generated 5 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 12:05:47,150 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:05:47] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 12:07:50,227 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 12:07:50,227 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 12:07:50,227 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:07:50] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 12:07:54,027 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 12:07:54,029 - ERROR - handle_general_exception:225 - Unhandled exception: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: dict can not be used as parameter (Background on this error at: https://sqlalche.me/e/20/7s2a) - URL: http://localhost:5000/api/save_problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1105, in save_problem
+    db.session.commit()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 151, in execute
+    query = self.mogrify(query, args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 129, in mogrify
+    query = query % self._escape_args(args, conn)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 104, in _escape_args
+    return {key: conn.literal(val) for (key, val) in args.items()}
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/connections.py", line 530, in literal
+    return self.escape(obj, self.encoders)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/connections.py", line 523, in escape
+    return converters.escape_item(obj, self.charset, mapping=mapping)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/converters.py", line 23, in escape_item
+    val = encoder(val, charset, mapping)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/converters.py", line 30, in escape_dict
+    raise TypeError("dict can not be used as parameter")
+TypeError: dict can not be used as parameter
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1119, in save_problem
+    logger.error(f"Error saving problem for user {current_user.id}: {str(e)}", exc_info=True)
+                                                  ^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2106, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: dict can not be used as parameter (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-07-03 12:07:54,197 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:07:54] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 12:09:09,856 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:09:09,870 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:09:09,870 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:09:09,879 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:09:09,879 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:09:13,578 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:09:13,580 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:09:13,588 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:13] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:09:13,603 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:13] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:09:13,759 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:09:16,059 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:09:16,060 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:09:16,061 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:09:16,075 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:09:16,261 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:09:16,540 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:09:16,541 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:09:16,541 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:09:16,554 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:09:16,578 - INFO - teacher_create_problem:2427 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:09:16,579 - INFO - teacher_create_problem:2463 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:09:16,580 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:09:16,590 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:09:16,803 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:09:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:09:31,928 - INFO - generate_pills:1130 - User 5 (teacher) generating pills
+2025-07-03 12:10:05,230 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:10:05,239 - INFO - generate_pills:1332 - Overall workflow generated for user 5: 2840 characters
+2025-07-03 12:10:05,239 - INFO - generate_pills:1349 - Successfully generated 4 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-03 12:10:05,240 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:10:05] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 12:10:10,303 - INFO - generate_prompt:1374 - User 5 (teacher) generating evaluation prompt
+2025-07-03 12:10:10,303 - INFO - generate_prompt:1494 - Successfully generated evaluation prompt for user 5
+2025-07-03 12:10:10,303 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:10:10] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 12:10:11,657 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-03 12:10:37,965 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:10:37,965 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-03 12:10:37,966 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:10:37] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-03 12:10:44,611 - INFO - save_problem:1028 - User 5 (teacher) saving problem
+2025-07-03 12:10:44,614 - ERROR - handle_general_exception:225 - Unhandled exception: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: dict can not be used as parameter (Background on this error at: https://sqlalche.me/e/20/7s2a) - URL: http://localhost:5000/api/save_problem
+Traceback (most recent call last):
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1105, in save_problem
+    db.session.commit()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 151, in execute
+    query = self.mogrify(query, args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 129, in mogrify
+    query = query % self._escape_args(args, conn)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/cursors.py", line 104, in _escape_args
+    return {key: conn.literal(val) for (key, val) in args.items()}
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/connections.py", line 530, in literal
+    return self.escape(obj, self.encoders)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/connections.py", line 523, in escape
+    return converters.escape_item(obj, self.charset, mapping=mapping)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/converters.py", line 23, in escape_item
+    val = encoder(val, charset, mapping)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/pymysql/converters.py", line 30, in escape_dict
+    raise TypeError("dict can not be used as parameter")
+TypeError: dict can not be used as parameter
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/Music/Techtonic/techtonic/app.py", line 1119, in save_problem
+    logger.error(f"Error saving problem for user {current_user.id}: {str(e)}", exc_info=True)
+                                                  ^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2106, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "/home/tele/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: dict can not be used as parameter (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-07-03 12:10:44,618 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:10:44] "[35m[1mPOST /api/save_problem HTTP/1.1[0m" 500 -
+2025-07-03 12:12:16,922 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:12:16,958 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:12:16,958 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:12:16,967 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:12:16,967 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:12:19,862 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 12:12:19,864 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 12:12:19,873 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:12:19] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 12:12:19,886 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:12:19] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:12:20,023 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:12:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:12:35,385 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-03 12:13:13,024 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:13:13,256 - INFO - generate_pills:1249 - Successfully generated 5 pills for user 5
+2025-07-03 12:13:13,257 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:13:13] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 12:14:43,486 - INFO - generate_prompt:1269 - User 5 (teacher) generating evaluation prompt
+2025-07-03 12:14:43,487 - INFO - generate_prompt:1389 - Successfully generated evaluation prompt for user 5
+2025-07-03 12:14:43,487 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:14:43] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 12:14:45,126 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-03 12:15:05,087 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 12:15:05,088 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-03 12:15:05,089 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:05] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-03 12:15:09,576 - INFO - api_save_problem:1029 - Teacher 5 saving problem
+2025-07-03 12:15:09,577 - INFO - api_save_problem:1064 - PDF uploaded for problem by teacher 5: Techtonic_Examples_CS-1.pdf
+2025-07-03 12:15:09,782 - INFO - api_save_problem:1072 - Problem 'Report with Error Handling and Deduplication in Talend Studio' saved by teacher 5
+2025-07-03 12:15:09,783 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:09] "POST /api/save_problem HTTP/1.1" 200 -
+2025-07-03 12:15:11,267 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 12:15:11,273 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 12:15:11,283 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:11] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 12:15:11,297 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:15:11,313 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:15:46,125 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-03 12:15:46,126 - INFO - logout:485 - User logged out: tppavan
+2025-07-03 12:15:46,127 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 12:15:46,137 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-03 12:15:46,138 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 12:15:46,142 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "GET /login HTTP/1.1" 200 -
+2025-07-03 12:15:46,168 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:15:46,172 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 12:15:46,180 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:15:50,019 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 12:15:50,019 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 12:15:50,020 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 12:15:50,022 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 12:15:50,024 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 12:15:50,026 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:50] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 12:15:50,041 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:15:50,053 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:15:51,626 - INFO - teacher_course_detail:2814 - Teacher 5 accessing course detail 1
+2025-07-03 12:15:51,637 - INFO - teacher_course_detail:2868 - Teacher 5 course detail loaded: 5 groups, 5 problems, 11 students
+2025-07-03 12:15:51,645 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:51] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 12:15:51,660 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:15:51,674 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:15:54,466 - INFO - toggle_problem_activity:2890 - Teacher 5 attempting to toggle activity for problem 15
+2025-07-03 12:15:54,619 - INFO - toggle_problem_activity:2926 - Teacher 5 successfully started activity for problem 15 ('Report with Error Handling and Deduplication in Talend Studio')
+2025-07-03 12:15:54,619 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:54] "POST /api/teacher/problem/15/toggle-activity HTTP/1.1" 200 -
+2025-07-03 12:15:57,730 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-03 12:15:57,730 - INFO - logout:485 - User logged out: tppavan
+2025-07-03 12:15:57,731 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 12:15:57,733 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-03 12:15:57,733 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 12:15:57,738 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "GET /login HTTP/1.1" 200 -
+2025-07-03 12:15:57,760 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:15:57,763 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 12:15:57,770 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:15:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:16:02,084 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-03 12:16:02,084 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-03 12:16:02,084 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 12:16:02,087 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 12:16:02,092 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 12:16:02,099 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:02] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 12:16:02,111 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:16:02,120 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:16:05,618 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 12:16:05,620 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 12:16:05,627 - ERROR - student_solve:1793 - Error in student_solve for problem 15 by student 3: 'p' is undefined
+2025-07-03 12:16:05,627 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:05] "[32mGET /student/solve/15 HTTP/1.1[0m" 302 -
+2025-07-03 12:16:05,630 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 12:16:05,632 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 12:16:05,634 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:05] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 12:16:05,647 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:16:05,655 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:16:41,370 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:16:41,401 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:16:41,402 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:16:41,410 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:16:41,410 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:16:44,099 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 12:16:44,105 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 12:16:44,119 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:44] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 12:16:44,135 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:44] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:16:44,146 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:16:45,235 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 12:16:45,238 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 12:16:45,261 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:45] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 12:16:45,284 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:16:45,313 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:16:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:54:02,218 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 12:54:02,232 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 12:54:02,232 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 12:54:02,241 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:54:02,241 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 12:54:05,834 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 12:54:05,836 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 12:54:05,852 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:05] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 12:54:05,869 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 12:54:05,895 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 12:54:08,777 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 12:54:08,779 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 12:54:08,783 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:08] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 12:54:08,802 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:08] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 12:54:09,011 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 12:54:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:01:51,974 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 13:01:52,000 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 13:01:52,000 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 13:01:52,009 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 13:01:52,009 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 13:01:55,284 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:01:55,287 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:01:55,302 - ERROR - student_solve:1793 - Error in student_solve for problem 15 by student 3: Object of type Undefined is not JSON serializable
+2025-07-03 13:01:55,303 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:55] "[32mGET /student/solve/15 HTTP/1.1[0m" 302 -
+2025-07-03 13:01:55,307 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:01:55,310 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 13:01:55,315 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:55] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:01:55,329 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:01:55,344 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:01:57,206 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:01:57,207 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:01:57,209 - ERROR - student_solve:1793 - Error in student_solve for problem 15 by student 3: Object of type Undefined is not JSON serializable
+2025-07-03 13:01:57,210 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:57] "[32mGET /student/solve/15 HTTP/1.1[0m" 302 -
+2025-07-03 13:01:57,212 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:01:57,215 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 13:01:57,216 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:57] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:01:57,229 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:01:57,242 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:01:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:02:05,027 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:02:05,028 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:02:05,030 - ERROR - student_solve:1793 - Error in student_solve for problem 15 by student 3: Object of type Undefined is not JSON serializable
+2025-07-03 13:02:05,030 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:02:05] "[32mGET /student/solve/15 HTTP/1.1[0m" 302 -
+2025-07-03 13:02:05,032 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:02:05,037 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 13:02:05,040 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:02:05] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:02:05,051 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:02:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:02:05,061 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:02:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:03:32,912 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 13:03:32,938 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 13:03:32,938 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 13:03:32,947 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 13:03:32,947 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 13:03:35,905 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:03:35,911 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 13:03:35,923 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:35] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:03:35,937 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:03:35,950 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:03:37,579 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:03:37,580 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:03:37,587 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:37] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 13:03:37,607 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:03:37,656 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:03:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:04:28,941 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:04:28] "GET /static/uploads/docs/Techtonic_Examples_CS-1.pdf HTTP/1.1" 200 -
+2025-07-03 13:08:23,066 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:08:23,067 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:08:23,069 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:08:23] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 13:08:23,085 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:08:23] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-03 13:08:23,258 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:08:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:09:18,690 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-03 13:09:18,703 - INFO - create_app:166 - Flask app created successfully
+2025-07-03 13:09:18,703 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-03 13:09:18,712 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 13:09:18,712 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-03 13:09:21,082 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:09:21,085 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:09:21,100 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:21] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 13:09:21,115 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:09:21,161 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:09:32,025 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:09:32,031 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 5 problems from 1 active courses
+2025-07-03 13:09:32,037 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:32] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:09:32,049 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:09:32,060 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:09:33,443 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-03 13:09:33,445 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-03 13:09:33,451 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:33] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-03 13:09:33,479 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:09:33,532 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:09:42,379 - INFO - student_solve:1732 - Student 3 accessing problem 12
+2025-07-03 13:09:42,383 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 12
+2025-07-03 13:09:42,393 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:42] "GET /student/solve/12 HTTP/1.1" 200 -
+2025-07-03 13:09:42,415 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:09:42,465 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:09:47,871 - INFO - student_solve:1732 - Student 3 accessing problem 15
+2025-07-03 13:09:47,872 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 15
+2025-07-03 13:09:47,875 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:47] "GET /student/solve/15 HTTP/1.1" 200 -
+2025-07-03 13:09:47,891 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:09:47,914 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:09:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:11,754 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:10:11,757 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 13:10:11,760 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:11] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:10:11,778 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:10:11,791 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:13,568 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: 12bd1a0501
+2025-07-03 13:10:13,568 - INFO - logout:485 - User logged out: 12bd1a0501
+2025-07-03 13:10:13,568 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 13:10:13,575 - INFO - check_forced_logout:273 - Forcing logout for user 3 - session token mismatch or admin logout
+2025-07-03 13:10:13,576 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 13:10:13,578 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "GET /login HTTP/1.1" 200 -
+2025-07-03 13:10:13,601 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:10:13,606 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 13:10:13,612 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:18,058 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 13:10:18,058 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 13:10:18,058 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:18] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 13:10:18,061 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:10:18,065 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-03 13:10:18,074 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:18] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:10:18,087 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:10:18,097 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:19,944 - INFO - teacher_course_detail:2814 - Teacher 5 accessing course detail 1
+2025-07-03 13:10:19,954 - INFO - teacher_course_detail:2868 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 13:10:19,963 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:19] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 13:10:19,978 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:19] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:10:19,988 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:21,494 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 13:10:21,496 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 13:10:21,499 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:21] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 13:10:21,514 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:10:21,555 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:10:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:10:43,807 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-03 13:10:47,110 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 502 Bad Gateway"
+2025-07-03 13:10:47,110 - INFO - _sleep_for_retry:1058 - Retrying request to /chat/completions in 0.485970 seconds
+2025-07-03 13:11:23,088 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 13:11:23,314 - INFO - generate_pills:1249 - Successfully generated 3 pills for user 5
+2025-07-03 13:11:23,315 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:11:23] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 13:11:32,226 - INFO - generate_prompt:1269 - User 5 (teacher) generating evaluation prompt
+2025-07-03 13:11:32,226 - INFO - generate_prompt:1389 - Successfully generated evaluation prompt for user 5
+2025-07-03 13:11:32,226 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:11:32] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 13:11:33,306 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-03 13:11:55,944 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 13:11:55,944 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-03 13:11:55,945 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:11:55] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-03 13:12:09,916 - INFO - api_save_problem:1029 - Teacher 5 saving problem
+2025-07-03 13:12:09,917 - INFO - api_save_problem:1064 - PDF uploaded for problem by teacher 5: Techtonic_Examples_CS-1.pdf
+2025-07-03 13:12:10,090 - INFO - api_save_problem:1072 - Problem 'Report with Error Handling and Deduplication in Talend Studio' saved by teacher 5
+2025-07-03 13:12:10,091 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:10] "POST /api/save_problem HTTP/1.1" 200 -
+2025-07-03 13:12:11,448 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:12:11,451 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 13:12:11,452 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:11] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:12:11,470 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:12:11,482 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:12:16,579 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:16] "[35m[1mGET /api/download_problem_pdf/16 HTTP/1.1[0m" 500 -
+2025-07-03 13:12:16,589 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:12:21,296 - ERROR - download_solution_pdf:3854 - Error processing pills: 'str' object has no attribute 'get'
+2025-07-03 13:12:21,305 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:21] "GET /api/download_solution_pdf/16 HTTP/1.1" 200 -
+2025-07-03 13:12:25,278 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:25] "GET /api/download_problem_pdf/14 HTTP/1.1" 200 -
+2025-07-03 13:12:28,148 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:28] "[35m[1mGET /api/download_problem_pdf/16 HTTP/1.1[0m" 500 -
+2025-07-03 13:12:28,160 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:12:36,085 - ERROR - download_solution_pdf:3854 - Error processing pills: 'str' object has no attribute 'get'
+2025-07-03 13:12:36,093 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:36] "GET /api/download_solution_pdf/16 HTTP/1.1" 200 -
+2025-07-03 13:12:56,094 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-03 13:12:56,094 - INFO - logout:485 - User logged out: tppavan
+2025-07-03 13:12:56,094 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 13:12:56,096 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-03 13:12:56,096 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 13:12:56,098 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "GET /login HTTP/1.1" 200 -
+2025-07-03 13:12:56,120 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:12:56,124 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 13:12:56,129 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:12:59,756 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-03 13:12:59,756 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-03 13:12:59,757 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:59] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 13:12:59,759 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-03 13:12:59,761 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-03 13:12:59,763 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:59] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-03 13:12:59,774 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:12:59,783 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:12:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:13:01,438 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-03 13:13:01,439 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-03 13:13:01,441 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:01] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-03 13:13:01,456 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:01] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:13:01,487 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:13:06,686 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: 12bd1a0501
+2025-07-03 13:13:06,686 - INFO - logout:485 - User logged out: 12bd1a0501
+2025-07-03 13:13:06,687 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-03 13:13:06,688 - INFO - check_forced_logout:273 - Forcing logout for user 3 - session token mismatch or admin logout
+2025-07-03 13:13:06,689 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-03 13:13:06,690 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "GET /login HTTP/1.1" 200 -
+2025-07-03 13:13:06,710 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:13:06,715 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-03 13:13:06,718 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:13:10,110 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-03 13:13:10,110 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-03 13:13:10,110 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-03 13:13:10,112 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:13:10,115 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 13:13:10,116 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:10] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:13:10,128 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:13:10,139 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:13:13,322 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 16
+2025-07-03 13:13:13,324 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 16, has_submissions: False
+2025-07-03 13:13:13,332 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:13] "GET /teacher/problem/16/preview HTTP/1.1" 200 -
+2025-07-03 13:13:13,344 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:13:13,358 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:13:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:15:35,158 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:15:35,188 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 13:15:35,189 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:35] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:15:35,215 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:15:35,230 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:15:37,216 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:37] "[35m[1mGET /api/download_problem_pdf/16 HTTP/1.1[0m" 500 -
+2025-07-03 13:15:37,228 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:15:45,143 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 16
+2025-07-03 13:15:45,146 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 16, has_submissions: False
+2025-07-03 13:15:45,147 - WARNING - fromjson_filter:3227 - Failed to parse JSON string: [{"content":"<h6>Overview</h6>\n<p>The concept of <strong>lookup joins</strong> in Talend Studio is central to merging datasets from different data sources. In our alternate retail chain scenario, you manage <code>products.csv</code> containing product details and <code>sales.csv</code> with transaction records. Lookup joins enable you to match these datasets on <code>product_id</code>, ensuring that each product gains enriched information from its corresponding sales data. This process is essential for consolidating data, enhancing quality, and preparing it for further analysis.</p>\n\n<h6>Key Components</h6>\n<ul>\n  <li><strong>tFileInputDelimited</strong>: Component to read CSV files.</li>\n  <li><strong>tMap</strong>: The mapping component that configures the lookup join between primary and lookup rows.</li>\n  <li><strong>Lookup Table Configuration</strong>: Defining join keys such as <code>product_id</code> to properly combine records.</li>\n  <li><strong>Join Model</strong>: Options that include inner join, left join, and others to match your data requirements.</li>\n</ul>\n\n<h6>Implementation Considerations</h6>\n<p>When setting up lookup joins in Talend Studio, verify that the join key exists in both datasets. Misconfiguration can lead to missing or unmatched data that impacts data quality. <strong>Best practices</strong> include right pre-sorting of data, leveraging the correct lookup model (e.g., inner join when all matched data is required), and tuning memory settings for large datasets. Common challenges involve performance issues when working with large files and managing null values when a join key is missing from one dataset.</p>\n\n<h6>Tool Integration</h6>\n<p>Talend Studio simplifies implementing lookup joins by providing a visual guide in the <strong>tMap</strong> component. Through its drag-and-drop interface, users can map input columns to output, set join conditions, and add filters. The UI clearly indicates the relationship between the main data stream and the lookup table, making it accessible even for users with limited coding experience. Additionally, error handlers are available in the tool to capture any join issues during execution.</p>\n\n<h6>Benefits & Applications</h6>\n<p>The benefits of mastering lookup joins include improved data consolidation and readiness for advanced processing. In our retail chain case, the method allows you to merge product information with sales data to compute popularity scores. Real-world applications range from CRM data integrating customer profiles with transaction histories, to inventory management where sales and product details combine for forecasting. Lookup joins streamline processes, reduce manual data merging, and enhance overall system efficiency.</p>\n<p>This hands-on approach in Talend ensures that users become adept at configuring components through a simple graphical UI, making troubleshooting and adjustments straightforward.</p>","example":"<example1>Using tMap, join products.csv and sales.csv on product_id to combine product specs with sale amounts.</example1> <example2>Configure an inner join to exclude products not found in the sales file, thereby ensuring data integrity.</example2>","key_takeaways":["Lookup joins merge data from multiple sources seamlessly.","tMap provides a visual interface for setting join conditions.","Ensuring key fields exist in both datasets is critical.","Pre-testing with sample data helps troubleshoot issues.","Mastery of lookup joins enhances data quality and integration."],"topic":"Lookup Joins in Talend Studio","workflow":"<div class=\"concept-step\"><span class=\"concept-step-number\">1</span> <strong>Open Talend Studio</strong>: Navigate to the Integration perspective and drag the <code>tFileInputDelimited</code> for products.csv.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">2</span> <strong>Add Lookup Data</strong>: Drag a second <code>tFileInputDelimited</code> for sales.csv and configure the file path and delimiter.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">3</span> <strong>Configure tMap Join</strong>: Connect both components to a <code>tMap</code> and set <code>product_id</code> as the join key, choosing the appropriate join model.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">4</span> <strong>Test Join</strong>: Run the job and verify the output for correctly merged records.</div>"},{"content":"<h6>Overview</h6>\n<p>Data deduplication addresses the issue of duplicate records that can compromise data quality. Combined with <strong>custom error handling</strong>, Talend Studio empowers users to create workflows that not only cleanse data but also manage exceptions gracefully. In our retail chain scenario, where multiple instances of product details might exist in <code>products.csv</code>, deduplication ensures that each product is represented only once before further processing.</p>\n\n<h6>Key Components</h6>\n<ul>\n  <li><strong>tUniqRow</strong>: Eliminates duplicate rows based on specified key columns.</li>\n  <li><strong>tJavaRow</strong>: Injects custom Java code to modify or flag data as needed.</li>\n  <li><strong>tLogCatcher</strong> &amp; <strong>tDie</strong>: Components dedicated to catching errors, logging them, and managing workflow termination when critical issues arise.</li>\n  <li><strong>Error Handling Routines</strong>: Defined via global or component-specific settings.</li>\n</ul>\n\n<h6>Implementation Considerations</h6>\n<p>While deduplication cleans your data, coupling it with custom error handling is key to a robust ETL process. It is recommended to define primary keys within <code>tUniqRow</code> that appropriately identify unique records. When handling errors, integrating <code>tLogCatcher</code> ensures that you capture warnings and exceptions, while <code>tDie</code> can be set to stop processing under severe circumstances. The main challenge is balancing error tolerance with data integrity to avoid processing unwanted or corrupted records.</p>\n\n<h6>Tool Integration</h6>\n<p>In Talend Studio, the deduplication process is visually supported through <strong>tUniqRow</strong> where you define key columns like <code>product_id</code> to identify duplicates. For custom logic, the <strong>tJavaRow</strong> allows insertion of custom code, such as adjusting product popularity scores or flagging products with no sales. Error handling is visually managed using <strong>tLogCatcher</strong> and <strong>tDie</strong>, which help track operational issues during job execution. The intuitive interface guides users through drag-and-drop connections and property configurations.</p>\n\n<h6>Benefits & Applications</h6>\n<p>Implementing data deduplication and custom error handling significantly improves data reliability. For example, in our scenario, ensuring that duplicate products are removed prevents skewing the calculated popularity score. This methodology is applicable across industries such as retail, finance, and healthcare where data accuracy is paramount. Tailoring error responses helps maintain a controlled job flow and informs users of necessary remedial actions. The approach not only streamlines data processing but also enhances user confidence in the ETL pipeline.</p>\n<p>By combining deduplication and error handling, Talend users develop resilient workflows which are adaptable to evolving data complexities.</p>","example":"<example1>Eliminate duplicate product entries in products.csv using tUniqRow, specifying product_id as the key.</example1> <example2>Write a tJavaRow snippet to flag records missing sales data, and use tLogCatcher to capture these discrepancies for later review.</example2>","key_takeaways":["Deduplication cleans data by removing redundant entries.","Use tUniqRow to define keys that identify unique records.","Custom logic via tJavaRow provides dynamic data validation.","Error handling with tLogCatcher and tDie secures the workflow.","Integrating deduplication with error management builds resilience."],"topic":"Data Deduplication and Custom Error Handling","workflow":"<div class=\"concept-step\"><span class=\"concept-step-number\">1</span> <strong>Set Up Deduplication</strong>: Drag and drop <code>tUniqRow</code> onto the canvas and connect it to your product input component.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">2</span> <strong>Configure Key Fields</strong>: Specify <code>product_id</code> in the 'Unique Key' field to filter out duplicates.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">3</span> <strong>Add Custom Logic</strong>: Insert a <code>tJavaRow</code> component to add conditions for data validation and flagging.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">4</span> <strong>Implement Error Handling</strong>: Connect a <code>tLogCatcher</code> and a <code>tDie</code> for proper logging and failure management.</div>"},{"content":"<h6>Overview</h6>\n<p>Pivotal to many Talend Studio workflows is the capability to export processed data efficiently. In the context of our retail chain scenario, after merging and cleaning the data, the final enriched dataset is exported into an Excel file. <strong>Iterative processing</strong> using components like <code>tFlowToIterate</code> and <code>tIterateToFlow</code> further allows you to process data records individually or in batches to perform additional operations before export.</p>\n\n<h6>Key Components</h6>\n<ul>\n  <li><strong>tFileOutputExcel</strong>: Exports data into an Excel spreadsheet.</li>\n  <li><strong>tFlowToIterate</strong>: Converts a row-based flow into iterations to process each record separately.</li>\n  <li><strong>tIterateToFlow</strong>: Converts iterative data back to a row-based structure for final aggregation.</li>\n  <li><strong>Dynamic Configuration</strong>: Adjusting Excel formatting options and iterative batch processes.</li>\n</ul>\n\n<h6>Implementation Considerations</h6>\n<p>When exporting data and using iteration components, configuring the data flow correctly is crucial. Establish proper connections between the iterative and row-based components to ensure seamless looping. In our scenario, each product’s intermediate processing, such as flagging low performance or calculating metrics, can be managed iteratively before final export. The best practice is to validate data output after each iteration cycle. Common challenges include mismatched data formats and ensuring that iterative processes do not create performance bottlenecks during large-scale exports.</p>\n\n<h6>Tool Integration</h6>\n<p>Talend Studio’s <strong>tFileOutputExcel</strong> simplifies the export process with a user-friendly interface that lets you define file paths, sheet names, and formatting options. For iterative processing, components like <strong>tFlowToIterate</strong> are easily connected to your main data flow, allowing customized batch operations. The tool also provides properties panels where iterative steps can be fine-tuned, ensuring that each pass of the loop processes records as intended. These features make it accessible for beginner to advanced users to perform iterative and batch processing tasks.</p>\n\n<h6>Benefits & Applications</h6>\n<p>Exporting data into Excel is crucial for sharing data insights with non-technical stakeholders. Iterative processing allows additional logic, such as conditional formatting or record flagging, to be applied on a per-record basis. In our retail scenario, this enables the system to flag products as 'SLOW MOVERS' if they have no sales and to add timestamp columns to track processing. Applications range from report generation and inventory management to detailed audit trails in financial data processing.</p>\n<p>The flexibility of iterative components combined with the powerful export capabilities in Talend ensures that complex workflows remain manageable and reliable. Mastering these tools means you can design scalable, user-friendly data pipelines for diverse business needs.</p>","example":"<example1>Configure tFileOutputExcel to export the finalized product sales data, including flagged slow movers, into a dedicated Excel file.</example1> <example2>Use tFlowToIterate to process each product record individually, applying metrics calculations before reassembling the data stream for export.</example2>","key_takeaways":["Exporting data in Excel supports broad stakeholder communication.","tFileOutputExcel is easy to configure for consistent outputs.","Using tFlowToIterate and tIterateToFlow enables precise record-level processing.","Iteration helps integrate additional business logic within workflows.","Combining export and iteration enhances flexibility and data integrity."],"topic":"Exporting Data and Iterative Processing in Talend Studio","workflow":"<div class=\"concept-step\"><span class=\"concept-step-number\">1</span> <strong>Design Export Component</strong>: Insert <code>tFileOutputExcel</code> and specify file destination and sheet parameters.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">2</span> <strong>Integrate Iteration</strong>: Connect <code>tFlowToIterate</code> after data processing to iterate through each record.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">3</span> <strong>Reassemble Data</strong>: Use <code>tIterateToFlow</code> to convert iterative data back into a coherent dataset.</div>\n<div class=\"concept-step\"><span class=\"concept-step-number\">4</span> <strong>Run and Validate</strong>: Execute the job, verifying the Excel file output and ensuring that batch processes capture all required changes.</div>","overall_workflow":"<div class=\"workflow-step\">\n  <span class=\"step-number\">1</span>\n  <strong>Login and Launch Talend Studio:</strong> Open Talend Studio and select the Integration perspective from the welcome screen. <em>This sets the stage for a new ETL job creation.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">2</span>\n  <strong>Create a New Job:</strong> Navigate to the Repository, right-click on Job Designs, and select 'Create job'. Enter a clear name referencing the retail data enrichment scenario. <em>Proper naming helps in project organization.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">3</span>\n  <strong>Add Source Components:</strong> Drag <code>tFileInputDelimited</code> components to import <code>products.csv</code> and <code>sales.csv</code>. Configure file paths and delimiters accordingly. <em>Accurate source configuration is essential for data ingestion.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">4</span>\n  <strong>Configure Lookup Join:</strong> Insert a <code>tMap</code> component to join the products and sales data based on <code>product_id</code>. Ensure the correct join model is selected. <em>This is crucial for accurate data merging.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">5</span>\n  <strong>Implement Deduplication and Custom Logic:</strong> Connect a <code>tUniqRow</code> to filter out duplicate product entries. Use <code>tJavaRow</code> to add custom flags or adjustments. <em>Refining data quality at this stage prevents errors downstream.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">6</span>\n  <strong>Add Error Handling:</strong> Integrate <code>tLogCatcher</code> and <code>tDie</code> components to capture and manage errors during processing. <em>This ensures robust job execution and simplifies debugging.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">7</span>\n  <strong>Configure Iterative Processing:</strong> Link <code>tFlowToIterate</code> and <code>tIterateToFlow</code> components to handle record-based operations. <em>This setup is essential for applying per-record business rules.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">8</span>\n  <strong>Export Final Data:</strong> Drag in a <code>tFileOutputExcel</code> component to output the enriched data. Specify the file path, sheet name, and formatting parameters. <em>Final output design enables easy sharing and review.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">9</span>\n  <strong>Save and Execute the Job:</strong> Check all configurations, save the job, and run it. Monitor execution logs for any errors and verify the output file. <em>This final step confirms that all components are correctly integrated.</em>\n</div>\n<div class=\"workflow-step\">\n  <span class=\"step-number\">10</span>\n  <strong>Troubleshooting and Logs Review:</strong> If errors occur, use the error details from <code>tLogCatcher</code> to resolve issues, and re-run the job until it executes smoothly. <em>Meticulous review of logs ensures data accuracy and process reliability.</em>\n</div>"}
+2025-07-03 13:15:45,149 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:45] "GET /teacher/problem/16/preview HTTP/1.1" 200 -
+2025-07-03 13:15:45,163 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:15:45,172 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:15:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:16:33,167 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:16:33,177 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 13:16:33,181 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:16:33] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:16:33,202 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:16:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:16:33,215 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:16:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:22:07,608 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:22:07,610 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-03 13:22:07,612 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:07] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:22:07,628 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:22:07,641 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:22:09,592 - INFO - teacher_course_detail:2814 - Teacher 5 accessing course detail 1
+2025-07-03 13:22:09,599 - INFO - teacher_course_detail:2868 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 13:22:09,600 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:09] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 13:22:09,616 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:22:09,630 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:22:11,208 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 13:22:11,209 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 13:22:11,210 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:11] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 13:22:11,223 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:22:11,255 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:22:26,119 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-03 13:22:55,480 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 13:22:55,712 - INFO - generate_pills:1249 - Successfully generated 3 pills for user 5
+2025-07-03 13:22:55,715 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:22:55] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-03 13:25:31,776 - INFO - teacher_course_detail:2814 - Teacher 5 accessing course detail 1
+2025-07-03 13:25:31,783 - INFO - teacher_course_detail:2868 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-03 13:25:31,783 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:31] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-03 13:25:31,796 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:25:31,807 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:25:33,312 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-03 13:25:33,314 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-03 13:25:33,315 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:33] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-03 13:25:33,329 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:25:33,360 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:25:45,648 - INFO - generate_prompt:1269 - User 5 (teacher) generating evaluation prompt
+2025-07-03 13:25:45,648 - INFO - generate_prompt:1389 - Successfully generated evaluation prompt for user 5
+2025-07-03 13:25:45,649 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:25:45] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-03 13:25:46,424 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-03 13:26:05,494 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-03 13:26:05,495 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-03 13:26:05,496 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:26:05] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-03 13:29:43,540 - INFO - api_save_problem:1029 - Teacher 5 saving problem
+2025-07-03 13:29:43,542 - INFO - api_save_problem:1064 - PDF uploaded for problem by teacher 5: Report_with_Error_Handling_and_Deduplication_in_Talend_Studio_Solution-1.pdf
+2025-07-03 13:29:43,791 - INFO - api_save_problem:1072 - Problem 'Report with Error Handling and Deduplication in Talend Studio' saved by teacher 5
+2025-07-03 13:29:43,792 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:29:43] "POST /api/save_problem HTTP/1.1" 200 -
+2025-07-03 13:29:45,183 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-03 13:29:45,185 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-03 13:29:45,187 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:29:45] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-03 13:29:45,201 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:29:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:29:45,213 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:29:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:30:25,259 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 17
+2025-07-03 13:30:25,260 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 17, has_submissions: False
+2025-07-03 13:30:25,260 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:25] "GET /teacher/problem/17/preview HTTP/1.1" 200 -
+2025-07-03 13:30:25,276 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:30:25,288 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:30:51,185 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 17
+2025-07-03 13:30:51,187 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 17, has_submissions: False
+2025-07-03 13:30:51,189 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:51] "GET /teacher/problem/17/preview HTTP/1.1" 200 -
+2025-07-03 13:30:51,208 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:30:51,222 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:30:55,738 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 12
+2025-07-03 13:30:55,739 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 12, has_submissions: False
+2025-07-03 13:30:55,740 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:55] "GET /teacher/problem/12/preview HTTP/1.1" 200 -
+2025-07-03 13:30:55,755 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:30:55,765 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:30:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-03 13:31:00,857 - INFO - teacher_problem_preview:2431 - Teacher 5 previewing problem 17
+2025-07-03 13:31:00,858 - INFO - teacher_problem_preview:2444 - Teacher 5 problem preview loaded: problem 17, has_submissions: False
+2025-07-03 13:31:00,859 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:31:00] "GET /teacher/problem/17/preview HTTP/1.1" 200 -
+2025-07-03 13:31:00,876 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:31:00] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-03 13:31:00,888 - INFO - _log:97 - 127.0.0.1 - - [03/Jul/2025 13:31:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

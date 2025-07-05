@@ -1,0 +1,287 @@
+2025-07-04 11:20:21,599 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 11:20:21,613 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 11:20:21,613 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 11:20:21,622 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 11:20:21,623 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 11:20:30,768 - INFO - log_user_action:139 - User tppavan (ID: 5) - Accessed root route - 
+2025-07-04 11:20:30,768 - INFO - root:308 - Root route accessed from IP: 127.0.0.1
+2025-07-04 11:20:30,768 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:30] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-04 11:20:30,771 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:30] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-04 11:20:30,775 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-04 11:20:30,782 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 5 problems
+2025-07-04 11:20:30,794 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:30] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-04 11:20:30,812 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 11:20:30,838 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 11:20:35,097 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-04 11:20:35,097 - INFO - logout:485 - User logged out: tppavan
+2025-07-04 11:20:35,097 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-04 11:20:35,099 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-04 11:20:35,100 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-04 11:20:35,103 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "GET /login HTTP/1.1" 200 -
+2025-07-04 11:20:35,113 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 11:20:35,128 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-04 11:20:35,135 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 11:20:37,687 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-04 11:20:37,687 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-04 11:20:37,687 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-04 11:20:37,689 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 11:20:37,695 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 11:20:37,702 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:37] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 11:20:37,713 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 11:20:37,725 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 11:20:39,223 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 11:20:39,225 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 11:20:39,233 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:39] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 11:20:39,244 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:39] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 11:20:39,274 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:20:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 11:24:22,550 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 11:24:22,564 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 11:24:22,564 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 11:24:22,573 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 11:24:22,573 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 11:24:27,618 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 11:24:27,621 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 11:24:27,636 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:24:27] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 11:24:27,650 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:24:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 11:24:27,674 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 11:24:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 12:23:21,846 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 12:23:21,860 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 12:23:21,863 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 12:23:21] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 12:23:21,879 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 12:23:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 12:23:21,905 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 12:23:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:06:18,218 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:06:18,232 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:06:18,232 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:06:18,241 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:06:18,241 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:06:26,756 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:06:26,759 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 16:06:26,765 - ERROR - student_solve:1793 - Error in student_solve for problem 14 by student 3: No filter named 'regex_findall'.
+2025-07-04 16:06:26,766 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:26] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:06:26,769 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:06:26,775 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:06:26,788 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:26] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:06:26,805 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:06:26,823 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:06:28,459 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:06:28,463 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 16:06:28,472 - ERROR - student_solve:1793 - Error in student_solve for problem 14 by student 3: No filter named 'regex_findall'.
+2025-07-04 16:06:28,473 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:28] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:06:28,475 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:06:28,479 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:06:28,480 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:28] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:06:28,491 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:06:28,501 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:06:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:10:04,356 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:10:04,385 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:10:04,385 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:10:04,394 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:10:04,394 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:10:13,935 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:10:13,949 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:10:13,949 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:10:13,958 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:10:13,958 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:10:15,894 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:10:15,900 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:10:15,912 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:15] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:10:15,923 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:10:15,933 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:10:17,457 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:10:17,458 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 16:10:17,467 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:17] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 16:10:17,482 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:10:17,509 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:10:46,935 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:10:46,949 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:10:46,949 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:10:46,958 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:10:46,958 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:10:49,171 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:10:49,173 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 16:10:49,190 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:49] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 16:10:49,204 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:10:49,229 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:10:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:17:04,367 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:17:04,388 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:17:04,388 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:17:04,397 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:17:04,397 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:17:07,537 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:17:07,540 - INFO - student_solve:1781 - Student 3 has 3 attempts left for problem 14
+2025-07-04 16:17:07,557 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:17:07] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 16:17:07,575 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:17:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:17:07,599 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:17:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:32:05,290 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:32:05,319 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:32:05,320 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:32:05,329 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:32:05,329 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:32:25,285 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:32:25,288 - ERROR - student_solve:1797 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:32:25,289 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:25] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:32:25,292 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:32:25,296 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:32:25,309 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:25] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:32:25,350 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:32:25,380 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:32:28,288 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:32:28,289 - ERROR - student_solve:1797 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:32:28,290 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:28] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:32:28,292 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:32:28,295 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:32:28,296 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:28] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:32:28,310 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-04 16:32:28,318 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:32:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:33:11,886 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:33:11,917 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:33:11,917 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:33:11,926 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:33:11,926 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:33:16,178 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:33:16,185 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:33:16,200 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:16] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:33:16,211 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:33:16,220 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:33:17,660 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:33:17,662 - ERROR - student_solve:1797 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:33:17,662 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:17] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:33:17,664 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:33:17,666 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:33:17,668 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:17] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:33:17,681 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:33:17,692 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:33:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:36:00,729 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:36:00,749 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:36:00,749 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:36:00,758 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:36:00,758 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:36:05,841 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:36:05,847 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:36:05,859 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:05] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:36:05,870 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:36:05,880 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:36:07,226 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:36:07,228 - ERROR - student_solve:1797 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:36:07,228 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:07] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:36:07,230 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:36:07,233 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:36:07,235 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:07] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:36:07,248 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:36:07,259 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:36:33,817 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:36:33,830 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:36:33,830 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:36:33,839 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:36:33,839 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:36:36,093 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:36:36,099 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:36:36,115 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:36] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:36:36,127 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:36:36,135 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:36:37,677 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:36:37,679 - ERROR - student_solve:1798 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:36:37,680 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:37] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:36:37,684 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:36:37,692 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:36:37,695 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:37] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:36:37,710 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:36:37,718 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:36:52,348 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:36:52,358 - ERROR - student_solve:1798 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:36:52,359 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:52] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:36:52,362 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:36:52,367 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:36:52,370 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:52] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:36:52,383 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:36:52,392 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:36:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:41:53,399 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-04 16:41:53,413 - INFO - create_app:166 - Flask app created successfully
+2025-07-04 16:41:53,413 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-04 16:41:53,422 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 16:41:53,422 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-04 16:41:55,722 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:41:55,728 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:41:55,740 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:55] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:41:55,749 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:41:55,759 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:41:57,206 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:41:57,208 - ERROR - student_solve:1790 - Error in student_solve for problem 14 by student 3: 'list' object has no attribute 'get'
+2025-07-04 16:41:57,209 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:57] "[32mGET /student/solve/14 HTTP/1.1[0m" 302 -
+2025-07-04 16:41:57,214 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:41:57,221 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:41:57,225 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:57] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:41:57,242 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:41:57,250 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:41:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:42:40,885 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:42:40,910 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:42:40,912 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:40] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:42:40,922 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:40] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-04 16:42:40,935 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:42:42,342 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-04 16:42:42,345 - INFO - student_solve:1777 - Student 3 loaded problem 14 with 3 attempts remaining
+2025-07-04 16:42:42,361 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:42] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-04 16:42:42,382 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:42:42,656 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:42:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:44:43,002 - INFO - api_evaluate:1800 - User 3 submitting solution for evaluation
+2025-07-04 16:44:53,441 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-04 16:44:53,688 - INFO - api_evaluate:1860 - Submission 14 saved for student 3, problem 14, score: 50
+2025-07-04 16:44:53,689 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:44:53] "POST /api/evaluate HTTP/1.1" 200 -
+2025-07-04 16:45:42,270 - INFO - student_reports:1499 - Student 3 accessing reports
+2025-07-04 16:45:42,275 - INFO - student_reports:1593 - Student 3 reports loaded: 3 unique problems, avg score: 50.00
+2025-07-04 16:45:42,283 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:42] "GET /student/reports HTTP/1.1" 200 -
+2025-07-04 16:45:42,303 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:45:42,372 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:45:46,304 - INFO - report_download:1876 - User 3 (student) requesting report for submission 14
+2025-07-04 16:45:46,326 - INFO - report_download:2014 - PDF report generated successfully for submission 14 by user 3
+2025-07-04 16:45:46,326 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:46] "GET /student/report/14 HTTP/1.1" 200 -
+2025-07-04 16:45:57,827 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-04 16:45:57,832 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-04 16:45:57,836 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:57] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-04 16:45:57,852 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:57] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-04 16:45:57,862 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:45:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:46:01,550 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: 12bd1a0501
+2025-07-04 16:46:01,574 - INFO - logout:485 - User logged out: 12bd1a0501
+2025-07-04 16:46:01,574 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-04 16:46:01,576 - INFO - check_forced_logout:273 - Forcing logout for user 3 - session token mismatch or admin logout
+2025-07-04 16:46:01,577 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-04 16:46:01,586 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "GET /login HTTP/1.1" 200 -
+2025-07-04 16:46:01,609 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:46:01,625 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-04 16:46:01,722 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:46:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:48:03,479 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-04 16:48:03,480 - INFO - login:448 - User logged in successfully: admin
+2025-07-04 16:48:03,482 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-04 16:48:03,489 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-04 16:48:03,499 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:03] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-07-04 16:48:03,515 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:03] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-04 16:48:03,530 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:48:07,240 - INFO - admin_create_course:748 - Admin 1 accessing create course
+2025-07-04 16:48:07,242 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:07] "GET /admin/create-course HTTP/1.1" 200 -
+2025-07-04 16:48:07,259 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:48:07,268 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:48:08,617 - INFO - change_password:1656 - User 1 (admin) accessing password change
+2025-07-04 16:48:08,624 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:08] "GET /change-password HTTP/1.1" 200 -
+2025-07-04 16:48:08,661 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:08] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-04 16:48:08,760 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-04 16:48:09,494 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-04 16:48:09,494 - INFO - logout:485 - User logged out: admin
+2025-07-04 16:48:09,494 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-04 16:48:09,497 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-04 16:48:09,497 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-04 16:48:09,499 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "GET /login HTTP/1.1" 200 -
+2025-07-04 16:48:09,519 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-04 16:48:09,526 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-04 16:48:09,528 - INFO - _log:97 - 127.0.0.1 - - [04/Jul/2025 16:48:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

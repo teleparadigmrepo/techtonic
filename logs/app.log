@@ -1,162 +1,138 @@
-2025-07-02 09:41:03,850 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,853 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,858 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,863 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,868 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,870 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,871 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,876 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,877 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,881 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,882 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:03,883 - INFO - setup_logging:97 - Logging system initialized successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,670 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,671 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,674 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,675 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,675 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,676 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,681 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,682 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,687 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,692 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:04,694 - INFO - create_app:166 - Flask app created successfully
-2025-07-02 09:41:04,694 - INFO - setup_login_manager:198 - Login manager configured successfully
-2025-07-02 09:41:19,107 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed root route - 
-2025-07-02 09:41:19,107 - INFO - root:308 - Root route accessed from IP: 127.0.0.1
-2025-07-02 09:41:19,130 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
-2025-07-02 09:41:20,769 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
-2025-07-02 09:41:20,770 - INFO - logout:485 - User logged out: admin
-2025-07-02 09:41:20,780 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
-2025-07-02 09:41:24,564 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
-2025-07-02 09:41:24,564 - INFO - login:448 - User logged in successfully: admin
-2025-07-02 09:41:24,568 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
-2025-07-02 09:41:26,464 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
-2025-07-02 09:41:26,464 - INFO - logout:485 - User logged out: admin
-2025-07-02 09:41:26,466 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
-2025-07-02 09:41:30,558 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
-2025-07-02 09:41:30,558 - INFO - login:448 - User logged in successfully: admin
-2025-07-02 09:41:30,565 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-05 09:46:08,175 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-05 09:46:08,188 - INFO - create_app:166 - Flask app created successfully
+2025-07-05 09:46:08,189 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-05 09:46:08,197 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 09:46:08,198 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-05 09:46:13,922 - INFO - log_user_action:139 - User 12bd1a0501 (ID: 3) - User logged in - Username: 12bd1a0501
+2025-07-05 09:46:13,922 - INFO - login:448 - User logged in successfully: 12bd1a0501
+2025-07-05 09:46:13,923 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:13] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-05 09:46:13,925 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 09:46:13,931 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 09:46:13,943 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:13] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 09:46:13,956 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:46:13,966 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:46:16,045 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:46:16,047 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 2 attempts remaining
+2025-07-05 09:46:16,055 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:16] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:46:16,072 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:46:16,099 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:46:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:46:54,614 - INFO - api_evaluate:1810 - User 3 submitting solution for evaluation
+2025-07-05 09:47:01,212 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 09:47:01,349 - INFO - api_evaluate:1870 - Submission 15 saved for student 3, problem 14, score: 25
+2025-07-05 09:47:01,349 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:01] "POST /api/evaluate HTTP/1.1" 200 -
+2025-07-05 09:47:10,485 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 09:47:10,496 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 09:47:10,501 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:10] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 09:47:10,525 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:47:10,537 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:47:14,865 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:47:14,867 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:47:14,869 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:14] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:47:14,890 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:47:14,915 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:47:32,680 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-05 09:47:32,694 - INFO - create_app:166 - Flask app created successfully
+2025-07-05 09:47:32,694 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-05 09:47:32,703 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 09:47:32,703 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-05 09:47:34,849 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:47:34,854 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:47:34,879 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:34] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:47:34,896 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:34] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:47:34,920 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:47:41,212 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:47:41,215 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:47:41,221 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:41] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:47:41,252 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:41] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-05 09:47:41,392 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:47:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:49:24,886 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:49:24,888 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:49:24,899 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:24] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:49:24,917 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:49:24,967 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:49:27,455 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 09:49:27,463 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 09:49:27,474 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:27] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 09:49:27,487 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:49:27,499 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:49:33,692 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:49:33,695 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:49:33,704 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:33] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:49:33,725 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:49:33,771 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:49:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:51:28,470 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 09:51:28,473 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 09:51:28,475 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:51:28] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 09:51:28,492 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:51:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:51:28,500 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:51:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:53:22,917 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-05 09:53:22,930 - INFO - create_app:166 - Flask app created successfully
+2025-07-05 09:53:22,930 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-05 09:53:22,939 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 09:53:22,939 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-05 09:53:27,112 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 09:53:27,118 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 09:53:27,130 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:27] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 09:53:27,146 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:53:27,155 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:53:29,163 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:53:29,164 - WARNING - student_solve:1774 - Failed to parse last solution for problem 14: Extra data: line 1 column 12558 (char 12557)
+2025-07-05 09:53:29,165 - INFO - student_solve:1786 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:53:29,173 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:29] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:53:29,190 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 09:53:29,240 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:53:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 09:58:53,451 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-05 09:58:53,465 - INFO - create_app:166 - Flask app created successfully
+2025-07-05 09:58:53,465 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-05 09:58:53,474 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 09:58:53,474 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-05 09:59:25,017 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 09:59:25,020 - WARNING - student_solve:1775 - Failed to parse last solution for problem 14: Extra data: line 1 column 12558 (char 12557)
+2025-07-05 09:59:25,020 - INFO - student_solve:1787 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 09:59:25,037 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:59:25] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 09:59:25,052 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:59:25] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-05 09:59:25,209 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 09:59:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:01:40,247 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-05 10:01:40,260 - INFO - create_app:166 - Flask app created successfully
+2025-07-05 10:01:40,260 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-05 10:01:40,269 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 10:01:40,269 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-05 10:01:50,039 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 10:01:50,042 - INFO - student_solve:1798 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 10:01:50,060 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:01:50] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 10:01:50,077 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:01:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:01:50,125 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:01:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:06:36,095 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 10:06:36,098 - INFO - student_solve:1798 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 10:06:36,103 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:06:36] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 10:06:36,122 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:06:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:06:36,170 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:06:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:06:57,962 - INFO - api_evaluate:1822 - User 3 submitting solution for evaluation
+2025-07-05 10:07:08,386 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 10:07:08,532 - INFO - api_evaluate:1882 - Submission 16 saved for student 3, problem 14, score: 25
+2025-07-05 10:07:08,532 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:08] "POST /api/evaluate HTTP/1.1" 200 -
+2025-07-05 10:07:19,383 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 10:07:19,401 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 10:07:19,414 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:19] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 10:07:19,438 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:19] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:07:19,448 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:07:52,493 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 10:07:52,503 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 10:07:52,510 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:52] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 10:07:52,524 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:07:52,533 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:07:54,245 - INFO - student_solve:1732 - Student 3 accessing problem 14
+2025-07-05 10:07:54,246 - INFO - student_solve:1798 - Student 3 loaded problem 14 with 1 attempts remaining
+2025-07-05 10:07:54,249 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:54] "GET /student/solve/14 HTTP/1.1" 200 -
+2025-07-05 10:07:54,261 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:07:54,321 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:07:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 10:08:06,953 - INFO - student_dashboard:1436 - Student 3 accessing dashboard
+2025-07-05 10:08:06,955 - INFO - student_dashboard:1482 - Student 3 dashboard loaded with 4 problems from 1 active courses
+2025-07-05 10:08:06,957 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:08:06] "GET /student/dashboard HTTP/1.1" 200 -
+2025-07-05 10:08:06,974 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:08:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-05 10:08:06,982 - INFO - _log:97 - 127.0.0.1 - - [05/Jul/2025 10:08:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

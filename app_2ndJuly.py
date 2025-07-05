@@ -1081,7 +1081,7 @@ def api_save_problem():
 @app.route("/api/generate_pills", methods=["POST"])
 @login_required
 def generate_pills():
-    """Generate educational pills for given topics with optional problem context and overall tool usage workflow."""
+    """Generate educational pills for given topics with optional problem context."""
     try:
         logger.info(f"User {current_user.id} ({current_user.role}) generating pills")
         
@@ -1089,97 +1089,51 @@ def generate_pills():
         topics = data.get("topics")
         problem = data.get("problem_statement") or data.get("statement")
         use_problem_context = data.get("use_problem_context", True)  # Default to True
-        generate_workflow = data.get("generate_workflow", False)  # Overall workflow generation parameter
         
         if not isinstance(topics, list) or not topics:
             logger.warning(f"Invalid topics provided by user {current_user.id}: {topics}")
             abort(400, "Missing or invalid 'topics'; expected a non-empty list of strings.")
         
-        # Build system prompt based on whether to use problem context and workflow generation
+        # Build system prompt based on whether to use problem context
         if use_problem_context and problem and isinstance(problem, str):
-            # Overall workflow generation instructions
-            overall_workflow_instructions = ""
-            if generate_workflow:
-                overall_workflow_instructions = (
-                    "Additionally, generate an 'overall_workflow' key at the root level (separate from pills) that contains "
-                    "a comprehensive step-by-step guide for using the specific tool mentioned in the problem statement "
-                    "(e.g., Salesforce, ServiceNow, etc.) to solve a similar alternative problem. This should include:\n\n"
-                    "Format as clean, structured HTML:\n"
-                    "• Tool access and navigation steps (login, menu navigation, module selection)\n"
-                    "• Field selection and configuration guidance\n"
-                    "• Data entry and form completion procedures\n"
-                    "• Feature utilization specific to the tool's UI/UX\n"
-                    "• Save, submit, and verification steps\n"
-                    "• Common troubleshooting tips\n\n"
-                    "Structure each step as:\n"
-                    "<div class=\"workflow-step\">\n"
-                    "  <span class=\"step-number\">[number]</span>\n"
-                    "  <strong>[Action Title]:</strong> [Detailed instruction with specific UI elements, menus, buttons]\n"
-                    "  <em>[Why this step is important or what to expect]</em>\n"
-                    "</div>\n\n"
-                    "Include 8-12 comprehensive steps covering the complete user journey from tool access to task completion.\n"
-                    "Use specific terminology and UI elements relevant to the mentioned tool (Salesforce, ServiceNow, etc.).\n"
-                )
-            
-            # Individual pill workflow instructions (simplified)
-            individual_workflow_instructions = (
-                "• workflow: Include only if this specific topic requires hands-on tool interaction. "
-                "If included, provide 3-4 key steps specific to using this concept within the tool's interface. "
-                "Format as simple HTML with <div class=\"concept-step\"> tags. "
-                "Otherwise, use empty string (\"\").\n"
-            )
-            
             system_prompt = (
-                "You are an expert educator and technical instructor specializing in enterprise tools and platforms. "
-                "Given the problem statement below and its key topics, produce a JSON object with two main keys:\n\n"
-                "1. 'pills': An array of educational pill objects, each containing:\n"
+                "You are an expert educator. Given the problem statement below and its key topics, "
+                "produce a JSON object under the key 'pills' whose value is an array of objects. "
+                "Each object must include:\n"
                 "• topic: the exact name of the concept\n"
-                "• content: well-structured HTML educational content (450-550 words) organized in clear sections:\n"
-                "  - <h6>Overview</h6>: Brief definition and importance of the concept\n"
-                "  - <h6>Key Components</h6>: Core elements or principles (use <ul><li> for structured lists)\n"
-                "  - <h6>Implementation Considerations</h6>: Practical aspects, best practices, and common challenges\n"
-                "  - <h6>Tool Integration</h6>: How this concept is implemented/accessed in the specific platform\n"
-                "  - <h6>Benefits & Applications</h6>: Real-world value and use cases\n"
-                "  Use proper HTML formatting: <p> for paragraphs, <strong> for key terms, <ul><li> for lists, <code> for technical terms\n"
-                "• example: 2-3 concrete, practical examples showing how this topic applies to solving an alternative version "
-                "of the original problem using the same tool/platform. Format: <example1>detailed first example</example1> "
-                "<example2>detailed second example</example2> <example3>detailed third example if provided</example3>\n"
-                f"{individual_workflow_instructions}"
-                "• key_takeaways: 4-5 essential bullet points summarizing the most critical concepts and actionable insights\n\n"
-                f"2. {overall_workflow_instructions if generate_workflow else ''}"
-                f"{'If not generating overall workflow, omit the overall_workflow key entirely.' if not generate_workflow else ''}\n\n"
-                "Content formatting requirements:\n"
-                "- Use semantic HTML tags appropriately\n"
-                "- Keep paragraphs concise (2-3 sentences maximum)\n"
-                "- Use <strong> for emphasis on important terms, UI elements, menu names\n"
-                "- Use <em> for subtle emphasis, warnings, or helpful tips\n"
-                "- Use <code> for technical terms, field names, or specific values\n"
-                "- Ensure all HTML is properly nested and valid\n"
-                "- Avoid using h1-h5 tags (only h6 is allowed for subheadings)\n"
-                "- Make content practical and immediately applicable to tool usage\n\n"
-                "Create a single alternate problem scenario that:\n"
-                "- Uses the same tool/platform mentioned in the original problem\n"
-                "- Requires similar functionality but with different business context\n"
-                "- Can be solved using the same core concepts and tool features\n"
-                "- Is realistic and relatable for students learning the platform\n\n"
-                "Use this alternate scenario consistently across all pills and the overall workflow.\n"
-                "Focus on practical tool usage: menu navigation, field selection, form completion, feature utilization.\n"
-                "Do not reveal or directly solve the original problem statement.\n"
+                "• content: well-structured HTML educational content (400-500 words) with clear sections:\n"
+                "  - Brief definition/overview\n"
+                "  - Key principles or components (use <ul><li> for bullet points)\n"
+                "  - Why it matters in this context\n"
+                "  - Common applications or variations\n"
+                "  - How this topic helps solve the alternate example\n"
+                "  Format using proper HTML tags: <h4> for subheadings, <p> for paragraphs, <strong> for emphasis, <ul><li> for lists\n"
+                "• example: 2-3 concrete, relatable scenarios showing how this topic applies to solving a single, alternate version of the original problem. "
+                "All examples must relate to the same alternate example. Wrap each example in separate HTML tags: "
+                "<example1>first example</example1> <example2>second example</example2> <example3>third example if provided</example3>\n"
+                "• key_takeaways: 3-4 bullet points summarizing the most important concepts\n\n"
+                "Format the content with proper HTML structure:\n"
+                "- Use <strong> for key terms\n"
+                "- Use <ul><li> for bullet point lists\n"
+                "- Use <p> for paragraphs (keep them short, 2-3 sentences max)\n"
+                "- Use <h6> for subheadings when helpful\n"
+                "- Use <h6> for headings when helpful\n"
+                "- Ensure all HTML is properly formatted and escaped\n"
+                "- Ensure not ot use h1 to h5 tags in response\n"
+                "- For examples field: wrap each example in numbered HTML tags: <example1>, <example2>, <example3>\n\n"
+                "Generate a single alternate version of the problem that is structurally similar but different in surface details.\n"
+                "This alternate example should be used consistently across the example sections of all topics.\n"
+                "Each topic must include a section that clearly explains how the concept helps in solving that alternate example.\n"
+                "Do not reveal or solve the original problem statement.\n"
                 "Return **only** the JSON.\n\n"
-                f"Problem Statement:\n{problem}\n\n"
-                f"Topics to cover: {', '.join(topics)}\n\n"
-                "Important: Emphasize hands-on tool usage, UI navigation, and practical implementation steps. "
-                "Students should learn both the concepts AND how to execute them within the specific platform."
+                f"Problem Statement:\n\"\"\"\n{problem}\n\"\"\"\n"
+                "Topics: " + ", ".join(topics)
             )
         else:
             # General knowledge pills without problem context
-            individual_workflow_instructions = (
-                "• workflow: Empty string (\"\") for all pills since no specific tool context is provided\n"
-            )
-            
             system_prompt = (
                 "You are an expert educator. Create comprehensive knowledge pills for the given topics. "
-                "Produce a JSON object with a 'pills' key whose value is an array of objects. "
+                "Produce a JSON object under the key 'pills' whose value is an array of objects. "
                 "Each object must include:\n"
                 "• topic: the exact name of the concept\n"
                 "• content: well-structured educational content (400-500 words) with clear sections:\n"
@@ -1187,28 +1141,27 @@ def generate_pills():
                 "  - Key principles or components (use bullet points when appropriate)\n"
                 "  - Why it's important to understand\n"
                 "  - Common applications or use cases\n"
-                "• example: 2-3 concrete, relatable scenarios showing practical application. "
-                "Format: <example1>first example</example1> <example2>second example</example2> <example3>third example if provided</example3>\n"
-                f"{individual_workflow_instructions}"
+                "• example: 2-3 concrete, relatable scenarios showing practical application. Each example should be wrapped in separate HTML tags: <example1>first example</example1> <example2>second example</example2> <example3>third example if provided</example3>\n"
                 "• key_takeaways: 3-4 bullet points summarizing the most important concepts\n\n"
                 "Format the content with proper HTML structure:\n"
                 "- Use <strong> for key terms\n"
                 "- Use <ul><li> for bullet point lists\n"
                 "- Use <p> for paragraphs (keep them short, 2-3 sentences max)\n"
                 "- Use <h6> for subheadings when helpful\n"
-                "- Ensure all HTML is properly formatted and escaped\n\n"
+                "- Ensure all HTML is properly formatted and escaped\n"
+                "- For examples field: wrap each example in numbered HTML tags: <example1>, <example2>, <example3>\n\n"
                 "Make each pill a comprehensive, standalone learning resource.\n"
                 "Return **only** the JSON.\n\n"
                 "Topics: " + ", ".join(topics)
             )
-
+        
         logger.debug(f"System prompt generated for user {current_user.id}")
         
         resp = openai.chat.completions.create(
             model=MODEL_NAME,
             messages=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": "Generate the knowledge pills and workflow as specified."}
+                {"role": "user", "content": "Generate the knowledge pills as specified."}
             ],
         )
         
@@ -1222,32 +1175,19 @@ def generate_pills():
         
         parsed = json.loads(content)
         pills = parsed.get("pills", [])
-        overall_workflow = parsed.get("overall_workflow", "") if generate_workflow else ""
         
         # Validate the structure of pills
         for pill in pills:
             if not all(key in pill for key in ["topic", "content", "example", "key_takeaways"]):
                 logger.error(f"Invalid pill structure from model for user {current_user.id}")
                 return jsonify({"error": "Invalid pill structure from model"}), 502
-            
-            # Ensure workflow key exists for individual pills
-            if "workflow" not in pill:
-                pill["workflow"] = ""
-        
-        # Prepare response
-        response_data = {
-            "pills": pills,
-            "used_problem_context": use_problem_context and bool(problem),
-            "workflow_generated": generate_workflow,
-            "total_pills": len(pills)
-        }
-        
-        # Add overall workflow to response if generated
-        if generate_workflow and overall_workflow:
-            response_data["overall_workflow"] = overall_workflow
         
         logger.info(f"Successfully generated {len(pills)} pills for user {current_user.id}")
-        return jsonify(response_data)
+        return jsonify({
+            "pills": pills,
+            "used_problem_context": use_problem_context and bool(problem),
+            "total_pills": len(pills)
+        })
         
     except json.JSONDecodeError as e:
         logger.error(f"JSON decode error for user {current_user.id}: {str(e)}")
@@ -1731,80 +1671,61 @@ def student_solve(pid):
     try:
         logger.info(f"Student {current_user.id} accessing problem {pid}")
         
-        # Role verification
+        # Only students may view this
         if current_user.role != "student":
             logger.warning(f"Non-student user {current_user.id} tried to access student_solve")
             return redirect(url_for("admin_dashboard"))
         
-        # Load problem with error handling
+        # Must change password first
+        if current_user.must_change_password:
+            logger.info(f"Student {current_user.id} redirected to change password")
+            flash("You must change your password before accessing problems.", "warning")
+            return redirect(url_for("change_password"))
+        
+        # Load problem or 404
         problem = Problem.query.get_or_404(pid)
+        logger.debug(f"Problem {pid} loaded for student {current_user.id}")
         
-        # Parse pills JSON with proper structure handling
-        try:
-            pills_data = json.loads(problem.pills) if problem.pills else {}
-            pills = pills_data.get('pills', [])
-            overall_workflow = pills_data.get('overall_workflow')
-            
-            logger.debug(f"Parsed {len(pills)} pills for problem {pid}")
-            
-        except (TypeError, json.JSONDecodeError) as e:
-            logger.warning(f"Failed to parse pills for problem {pid}: {str(e)}")
-            pills = []
-            overall_workflow = None
-
-        # Parse rubric JSON
-        try:
-            rubric_data = json.loads(problem.rubric) if problem.rubric else {}
-        except (TypeError, json.JSONDecodeError) as e:
-            logger.warning(f"Failed to parse rubric for problem {pid}: {str(e)}")
-            rubric_data = {}
-
-        # Get last submission and parse its solution for pre-filling
-        last_sub = (Submission.query
-                   .filter_by(student_id=current_user.id, problem_id=pid)
-                   .order_by(Submission.created_at.desc())
-                   .first())
-                   
-        # Parse last solution for pre-filling editor
-        last_solution = {}
-        if last_sub and last_sub.solution:
-            try:
-                # First try to clean the solution string
-                solution_str = last_sub.solution.strip()
-                # Find the first valid JSON object
-                first_brace = solution_str.find('{')
-                last_brace = solution_str.rfind('}')
-                if first_brace != -1 and last_brace != -1:
-                    clean_json = solution_str[first_brace:last_brace + 1]
-                    last_solution = json.loads(clean_json)
-                    logger.debug(f"Successfully parsed last solution for problem {pid}: {list(last_solution.keys())}")
-                else:
-                    raise ValueError("No valid JSON object found in solution")
-                    
-            except (TypeError, json.JSONDecodeError, ValueError) as e:
-                logger.warning(f"Failed to parse last solution for problem {pid}: {str(e)}")
-                logger.debug(f"Raw solution content: {last_sub.solution[:100]}...")  # Log first 100 chars
-                last_solution = {}
-                
-        # Calculate attempts remaining
-        used_attempts = last_sub.attempt if last_sub else 0
-        attempts_left = max(0, 3 - used_attempts)
+        # Fetch most recent submission
+        last_sub = (
+            Submission.query
+            .filter_by(student_id=current_user.id, problem_id=pid)
+            .order_by(Submission.created_at.desc())
+            .first()
+        )
         
-        if attempts_left == 0:
-            logger.warning(f"Student {current_user.id} has no attempts left for problem {pid}")
+        # Block if 3 or more attempts used
+        if last_sub and last_sub.attempt >= 3:
+            logger.warning(f"Student {current_user.id} has exhausted attempts for problem {pid}")
             flash("You have exhausted all attempts for this problem.", "warning")
             return redirect(url_for("student_dashboard"))
-
-        logger.info(f"Student {current_user.id} loaded problem {pid} with {attempts_left} attempts remaining")
-
+        
+        # Parse rubric JSON (or fallback to empty dict)
+        try:
+            rubric_data = json.loads(problem.rubric)
+        except (TypeError, ValueError) as e:
+            logger.warning(f"Failed to parse rubric for problem {pid}: {str(e)}")
+            rubric_data = {}
+        
+        # Parse pills JSON (or fallback to empty list)
+        try:
+            pills_data = json.loads(problem.pills) if problem.pills else []
+        except (TypeError, ValueError) as e:
+            logger.warning(f"Failed to parse pills for problem {pid}: {str(e)}")
+            pills_data = []
+        
+        # Compute attempts left (3 allowed total)
+        used = last_sub.attempt if last_sub else 0
+        attempts_left = max(0, 3 - used)
+        
+        logger.info(f"Student {current_user.id} has {attempts_left} attempts left for problem {pid}")
+        
         return render_template(
             "student_solve.html",
             problem=problem,
             last_sub=last_sub,
-            last_solution=last_solution,  # Pass the parsed last solution
             rubric=rubric_data,
-            pills=pills,
-            overall_workflow=overall_workflow,
+            pills=pills_data,
             attempts_left=attempts_left
         )
         
@@ -4372,6 +4293,10 @@ def admin_bulk_import_students(group_id):
                 
                 # Show results
                 if added_count > 0:
+                    flash(f'Successfully added {added_count} students to the group.', 'success')
+                
+                if error_count > 0:
+                    error_msg = f'{error_count} errors occurred:\n' + '\n'.join(errors[:10])
                     if len(errors) > 10:
                         error_msg += f'\n... and {len(errors) - 10} more errors'
                     flash(error_msg, 'warning')

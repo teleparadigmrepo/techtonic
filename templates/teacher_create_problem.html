@@ -38,7 +38,7 @@
             <input id="titleInput" name="title" type="text"
                    class="form-control"
                    placeholder="Enter problem title…"
-                   value="Design and implement a web-based Student Management System"
+                   value="Customer Loyalty Report with Error Handling and Deduplication in Talend Studio"
                    required />
           </div>
 
@@ -60,12 +60,32 @@
             <textarea id="topicsInput" name="topics_json"
                       class="form-control" rows="6"
                       placeholder="E.g. Machine Learning\nData Structures"
-                      required>MySQL CRUD Operations
-Form Validation
-React State Management
-RESTful API Principles</textarea>
+                      required>In Talend Studio (Trial version)
+lookup joins,  data deduplication, and custom logic and error handling
+Advanced components and its usage
+tMap with lookup functionality
+tUniqRow for deduplication
+tLogCatcher and tDie for error handling
+tFileOutputExcel for exporting data
+tFlowToIterate and tIterateToFlow to demonstrate iteration
+tJavaRow to apply custom Java logic</textarea>
           </div>
-
+ <!-- 7) Workflow Generation Option -->
+ <div class="mb-3">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="generateWorkflowCheck">
+    <label class="form-check-label" for="generateWorkflowCheck">
+      <i class="fas fa-project-diagram text-info me-1"></i>
+      Generate Example Workflow
+    </label>
+    <div class="form-text">
+      <small class="text-muted">
+        <i class="fas fa-info-circle me-1"></i>
+        Include a step-by-step workflow example to help students understand the implementation process using the tools mentioned in the problem statement.
+      </small>
+    </div>
+  </div>
+</div>
           <!-- 5) Rubric -->
           <div class="mb-3">
             <label for="metaInput" class="form-label">
@@ -73,10 +93,11 @@ RESTful API Principles</textarea>
             </label>
             <textarea id="metaInput" class="form-control" rows="6"
                       placeholder="Problem Understanding|30\nAlgorithm Design|30\nCode Quality|40"
-                      required>Database Schema Design|25
-API Endpoint Implementation|30
-Frontend Component Architecture|25
-Input Validation & Error Handling|20</textarea>
+                      required>Handled CSV files in Talend?|20
+Was the join between customers and orders based on customer_id implemented effectively (e.g., via tMap)?|20
+Did the job use tMap to handle logic such as deduplication, loyalty score calculation, and setting "INACTIVE" status?|20
+Did the output go to a structured Excel file using components like tFileOutputExcel with expected columns and formatting?|20
+Was there logic to detect and log issues such as missing or invalid customer IDs in the orders data using components like tLogCatcher, tWarn, or error handling branches?|20</textarea>
             <div id="metaError" class="text-danger mt-2" style="display:none;"></div>
           </div>
 
@@ -99,7 +120,9 @@ Input Validation & Error Handling|20</textarea>
             </div>
           </div>
 
-          <!-- 7) Generate / Preview Pills -->
+         
+
+          <!-- 8) Generate / Preview Pills -->
           <div class="mb-3 text-end">
             <button type="button" id="generatePillsBtn"
                     class="btn btn-outline-primary me-2">
@@ -111,7 +134,7 @@ Input Validation & Error Handling|20</textarea>
             </button>
           </div>
 
-          <!-- 8) Evaluation Prompt -->
+          <!-- 9) Evaluation Prompt -->
           <div class="mb-3">
             <label for="systemPromptInput" class="form-label">
               <i class="fas fa-robot"></i> Evaluation Prompt *
@@ -138,7 +161,7 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
             </div>
           </div>
 
-          <!-- 9) Solution Preview -->
+          <!-- 10) Solution Preview -->
           <div id="solutionPreview" class="mb-3" style="display: none;">
             <label class="form-label">
               <i class="fas fa-check-circle text-success"></i> Generated Solution
@@ -150,7 +173,7 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
             </div>
           </div>
 
-          <!-- 10) Action Buttons -->
+          <!-- 11) Action Buttons -->
           <div class="d-flex justify-content-between align-items-center">
             <div>
               <!-- <button type="button" id="downloadProblemBtn"
@@ -249,6 +272,42 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
     .example-box strong {
       color: #0056b3;
     }
+    .workflow-box {
+      background: #e3f2fd !important;
+      border-left: 4px solid #1976d2 !important;
+      border-radius: 0 .5rem .5rem 0 !important;
+      padding: 1.25rem !important;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    }
+    .workflow-box h6 {
+      color: #1976d2;
+      margin-bottom: 1rem;
+    }
+    .workflow-step {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 0.375rem;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .workflow-step:last-child {
+      margin-bottom: 0;
+    }
+    .step-number {
+      background: #1976d2;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 0.75rem;
+    }
     .solution-content {
       max-height: 400px;
       overflow-y: auto;
@@ -276,6 +335,307 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
       font-size: 0.8rem;
       font-weight: 600;
     }
+    /* Updated CSS for Knowledge Pills with Workflow Support */
+
+/* Modal Enhancements */
+.modal-xl {
+  max-width: 1200px;
+}
+
+#pillsModal .modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Tab Navigation */
+#pillsTab .nav-link {
+  color: #6c757d;
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+#pillsTab .nav-link.active {
+  color: #0056b3;
+  border-color: #dee2e6 #dee2e6 #fff;
+  background-color: #fff;
+}
+
+#pillsTab .nav-link:hover {
+  color: #0056b3;
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+/* Pill Cards */
+.pill-card {
+  border-left: 4px solid #0056b3;
+  border-radius: .5rem;
+  background: #fff;
+  margin-bottom: .75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+.pill-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.pill-header .accordion-button {
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  color: #0056b3;
+  padding: 1rem 1.25rem;
+}
+
+.pill-header .accordion-button:not(.collapsed) {
+  background: #f8f9fa;
+  color: #0056b3;
+  box-shadow: none;
+}
+
+.pill-header .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 86, 179, 0.1);
+}
+
+.accordion-body {
+  background: #f8f9fa;
+  padding: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Section Titles */
+.section-title {
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Example Boxes */
+.examples-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+.example-box {
+  background: #fff !important;
+  border-left: 4px solid #28a745 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+.example-box p {
+  margin-bottom: 0.5rem !important;
+  color: #495057;
+}
+
+.example-box p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.example-box strong {
+  color: #28a745;
+  font-weight: 600;
+}
+
+/* Individual Concept Workflow */
+.concept-workflow-box {
+  background: #fff3cd !important;
+  border-left: 4px solid #ffc107 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+.concept-workflow-box h6 {
+  color: #856404;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.concept-step {
+  background: #fff;
+  border: 1px solid #ffeaa7;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.concept-step:last-child {
+  margin-bottom: 0;
+}
+
+/* Key Takeaways */
+.takeaways-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+.takeaways-box {
+  background: #e3f2fd !important;
+  border-left: 4px solid #2196f3 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+.takeaways-list {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
+.takeaways-list li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.takeaways-list li:last-child {
+  margin-bottom: 0;
+}
+
+.takeaways-text {
+  color: #495057;
+  line-height: 1.6;
+}
+
+/* Overall Workflow Container */
+.overall-workflow-container {
+  padding: 1rem;
+}
+
+.workflow-header {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.workflow-header h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.workflow-header p {
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.workflow-content {
+  max-width: 100%;
+}
+
+/* Workflow Steps */
+.workflow-step {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.workflow-step:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.workflow-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.workflow-step strong {
+  color: #495057;
+  font-weight: 600;
+}
+
+.workflow-step em {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-xl {
+    max-width: 95%;
+    margin: 1rem auto;
+  }
+  
+  .workflow-step {
+    padding: 1rem;
+  }
+  
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    margin-right: 0.75rem;
+  }
+  
+  .accordion-body {
+    padding: 1rem;
+  }
+}
+
+/* Loading States */
+.workflow-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+}
+
+.workflow-loading .spinner-border {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Print Styles */
+@media print {
+  .modal-header,
+  .modal-footer,
+  .btn,
+  .nav-tabs {
+    display: none !important;
+  }
+  
+  .modal-body {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  .workflow-step {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
   </style>
 {% endblock %}
 
@@ -307,7 +667,40 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
       });
       
       // Set initial content
-      problemEditor.root.innerHTML = `Design and implement a web-based Student Management System that allows users to perform basic CRUD (Create, Read, Update, Delete) operations on student records. The frontend should be developed using React and styled with HTML, CSS, and Bootstrap to ensure a clean and responsive user interface. The backend should be built using Express.js, exposing RESTful API endpoints to handle requests and interact with a MySQL database for persistent storage of student information such as name, email, and course. The system should include input validation, modular code organization, and follow best practices in API design and component-based architecture.`;
+      problemEditor.root.innerHTML = `Scenario:
+
+You are given two different files:
+
+customers.csv – Contains customer information, potentially with duplicates.
+
+orders.csv – Contains order data including customer IDs and order values.
+
+
+Your task is to:
+
+Build a Talend job to:
+
+
+Read and parse both customers.csv and orders.csv.
+
+Join the two datasets based on the customer_id field.
+
+Deduplicate customer records based on unique customer identifiers.
+
+Calculate a loyalty score for each customer using total order value (e.g., tiered score based on spending).
+
+Handle and log errors, such as missing or invalid customer IDs in the order file.
+
+Export the final enriched and cleaned dataset to an Excel file.
+
+
+Bonus:
+
+Flag customers with no orders as "INACTIVE" in the output.
+
+Generate warnings if an order refers to a customer ID not present in the customer file.
+
+Include a timestamp column indicating when the record was processed.`;
 
       problemEditor.on('text-change', ()=> {
         $('#problemInput').val(problemEditor.root.innerHTML);
@@ -336,12 +729,176 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
       }
       $('#metaInput').on('blur input', validateScoreTotal);
 
-      // 3) Pills generation
+      
+
+      // 4) Preview in modal
+      // Updated Pills Preview JavaScript Function
+      $('#previewPillsBtn').on('click', () => {
+  const body = $('#pillsModalBody').empty();
+  const accId = 'knowledgePillsAccordion';
+  
+  // Check if overall workflow exists in localStorage
+  const overallWorkflowData = localStorage.getItem('lastGeneratedWorkflow');
+  const hasOverallWorkflow = overallWorkflowData && overallWorkflowData.trim() !== '';
+  
+  // Create main container with tabs if overall workflow exists
+  if (hasOverallWorkflow) {
+    // Create tabbed interface
+    body.append(`
+      <ul class="nav nav-tabs mb-3" id="pillsTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="knowledge-tab" data-bs-toggle="tab" 
+                  data-bs-target="#knowledge-pane" type="button" role="tab">
+            <i class="fas fa-lightbulb me-2"></i>Knowledge Pills
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="workflow-tab" data-bs-toggle="tab" 
+                  data-bs-target="#workflow-pane" type="button" role="tab">
+            <i class="fas fa-project-diagram me-2"></i>Tool Usage Workflow
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pillsTabContent">
+        <div class="tab-pane fade show active" id="knowledge-pane" role="tabpanel">
+          <div class="accordion" id="${accId}"></div>
+        </div>
+        <div class="tab-pane fade" id="workflow-pane" role="tabpanel">
+          <div id="overallWorkflowContent"></div>
+        </div>
+      </div>
+    `);
+  } else {
+    // Simple accordion without tabs
+    body.append(`<div class="accordion" id="${accId}"></div>`);
+  }
+
+  // Generate individual knowledge pills
+  generatedPills.forEach((pill, i) => {
+    const collapseId = `collapse${i}`;
+    const headingId  = `heading${i}`;
+    
+    // Extract examples
+    const examples = [];
+    const regex = /<example\d+>([\s\S]*?)<\/example\d+>/g;
+    let match;
+    while ((match = regex.exec(pill.example)) !== null) {
+      examples.push(match[1].trim());
+    }
+    const examplesHtml = examples
+      .map((text, idx) => `<p class="mb-1"><strong>Example ${idx + 1}:</strong> ${text}</p>`)
+      .join('\n');
+
+    // Individual pill workflow (if exists and not empty)
+    const pillWorkflowHtml = pill.workflow && pill.workflow.trim() ? `
+      <div class="concept-workflow-box">
+        <h6><i class="fas fa-cogs me-2"></i>Using This Concept</h6>
+        ${pill.workflow}
+      </div>
+    ` : '';
+
+    // Generate key takeaways
+    const takeawaysHtml = Array.isArray(pill.key_takeaways) 
+      ? `<ul class="takeaways-list">${pill.key_takeaways.map(t => `<li>${t}</li>`).join('')}</ul>`
+      : `<div class="takeaways-text">${pill.key_takeaways}</div>`;
+
+    $(`#${accId}`).append(`
+      <div class="accordion-item pill-card">
+        <h2 class="accordion-header pill-header" id="${headingId}">
+          <button
+            class="accordion-button ${i ? 'collapsed' : ''}"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#${collapseId}"
+            aria-expanded="${!i}"
+            aria-controls="${collapseId}">
+            <i class="fas fa-lightbulb me-2 text-warning"></i>
+            ${pill.topic}
+          </button>
+        </h2>
+        <div
+          id="${collapseId}"
+          class="accordion-collapse collapse ${!i ? 'show' : ''}"
+          aria-labelledby="${headingId}"
+          data-bs-parent="#${accId}">
+          <div class="accordion-body">
+            <div class="pill-content mb-3">
+              ${pill.content}
+            </div>
+            
+            <div class="examples-section mb-3">
+              <h6 class="section-title">
+                <i class="fas fa-code me-2"></i>Practical Examples
+              </h6>
+              <div class="example-box">
+                ${examplesHtml}
+              </div>
+            </div>
+            
+            ${pillWorkflowHtml}
+            
+            <div class="takeaways-section">
+              <h6 class="section-title">
+                <i class="fas fa-key me-2"></i>Key Takeaways
+              </h6>
+              <div class="takeaways-box">
+                ${takeawaysHtml}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+
+  // Add overall workflow content if it exists
+  if (hasOverallWorkflow) {
+    const workflowContent = `
+      <div class="overall-workflow-container">
+        <div class="workflow-header mb-4">
+          <h5><i class="fas fa-route me-2 text-primary"></i>Complete Implementation Workflow</h5>
+          <p class="text-muted">Follow this step-by-step guide to implement a similar solution using the mentioned tools and technologies.</p>
+        </div>
+        <div class="workflow-content">
+          ${overallWorkflowData}
+        </div>
+      </div>
+    `;
+    $('#overallWorkflowContent').html(workflowContent);
+  }
+
+  new bootstrap.Modal($('#pillsModal')).show();
+});
+
+// Add this function to handle API response and store workflow
+function handlePillsGenerationResponse(response) {
+  // Store the pills data
+  generatedPills = response.pills || [];
+  
+  // Store the overall workflow if it exists
+  if (response.overall_workflow && response.overall_workflow.trim()) {
+    localStorage.setItem('lastGeneratedWorkflow', response.overall_workflow);
+  } else {
+    // Clear any existing workflow data if none was generated
+    localStorage.removeItem('lastGeneratedWorkflow');
+  }
+  
+  // Update UI or show success message
+  console.log('Pills generated successfully:', {
+    pillsCount: generatedPills.length,
+    hasWorkflow: !!response.overall_workflow,
+    usedProblemContext: response.used_problem_context
+  });
+}
+
+      // Update the pills generation function to handle overall workflow
       $('#generatePillsBtn').on('click',async()=>{
         const topics = $('#topicsInput').val()
                           .split(/\r?\n/)
                           .map(s=>s.trim()).filter(Boolean);
         const problem = problemEditor.root.innerHTML.trim();
+        const generateWorkflow = $('#generateWorkflowCheck').is(':checked');
+        
         if(!topics.length||!problem){
           return alert('Enter statement & at least one topic.');
         }
@@ -350,71 +907,29 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
           const res = await fetch('/api/generate_pills',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({ topics, problem_statement:problem })
+            body: JSON.stringify({ 
+              topics, 
+              problem_statement: problem,
+              generate_workflow: generateWorkflow
+            })
           });
           const data = await res.json();
           if(data.pills){
             generatedPills = data.pills;
+            
+            // Store overall workflow if generated
+            if(data.overall_workflow) {
+              localStorage.setItem('lastGeneratedWorkflow', data.overall_workflow);
+            } else {
+              localStorage.removeItem('lastGeneratedWorkflow');
+            }
+            
             $('#previewPillsBtn').prop('disabled',false);
             updateProblemData();
           } else throw new Error(data.error||'Error');
         }catch(e){ alert(e.message); }
         $('#globalSpinner').addClass('d-none');
       });
-
-      // 4) Preview in modal
-      $('#previewPillsBtn').on('click', () => {
-        const body = $('#pillsModalBody').empty();
-        const accId = 'knowledgePillsAccordion';
-        body.append(`<div class="accordion" id="${accId}"></div>`);
-
-        generatedPills.forEach((pill, i) => {
-          const collapseId = `collapse${i}`;
-          const headingId  = `heading${i}`;
-          const examples = [];
-          const regex = /<example\d+>([\s\S]*?)<\/example\d+>/g;
-          let match;
-          while ((match = regex.exec(pill.example)) !== null) {
-            examples.push(match[1].trim());
-          }
-          const examplesHtml = examples
-            .map((text, idx) => `<p class="mb-1"><strong>Example ${idx + 1}:</strong> ${text}</p>`)
-            .join('\n');
-
-          $(`#${accId}`).append(`
-            <div class="accordion-item pill-card">
-              <h2 class="accordion-header pill-header" id="${headingId}">
-                <button
-                  class="accordion-button ${i ? 'collapsed' : ''}"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#${collapseId}"
-                  aria-expanded="${!i}"
-                  aria-controls="${collapseId}">
-                  ${pill.topic}
-                </button>
-              </h2>
-              <div
-                id="${collapseId}"
-                class="accordion-collapse collapse ${!i ? 'show' : ''}"
-                aria-labelledby="${headingId}"
-                data-bs-parent="#${accId}">
-                <div class="accordion-body">
-                  <div class="pill-content mb-3">
-                    ${pill.content}
-                  </div>
-                  <div class="example-box">
-                    ${examplesHtml}
-                  </div>
-                </div>
-              </div>
-            </div>
-          `);
-        });
-
-        new bootstrap.Modal($('#pillsModal')).show();
-      });
-
       // 5) Generate evaluation prompt
       $('#generatePromptBtn').on('click',async()=>{
         const topics = $('#topicsInput').val()
@@ -456,7 +971,7 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
                           .split(/\r?\n/)
                           .map(s=>s.trim()).filter(Boolean);
         const problem = problemEditor.root.innerHTML.trim();
-        const prompt = $('#systemPromptInput').val().trim();
+        const prompt_text = $('#systemPromptInput').val().trim();
         
         if(!validateScoreTotal()||!topics.length||!problem||!prompt){
           return alert('Fill all required fields including evaluation prompt.');
@@ -476,7 +991,7 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
             body: JSON.stringify({
               problem_statement: problem,
               rubric: rubric,
-              evaluation_prompt: prompt,
+              evaluation_prompt: prompt_text,
               topics: topics
             })
           });
@@ -506,66 +1021,91 @@ You are a seasoned evaluator and expert in assessing student coding assignments.
       }
 
       // 8) Update problem data for downloads
-      function updateProblemData() {
-        currentProblemData = {
-          title: $('#titleInput').val(),
-          statement: problemEditor.root.innerHTML,
-          topics: $('#topicsInput').val().split(/\r?\n/).map(s=>s.trim()).filter(Boolean),
-          rubric: $('#metaInput').val(),
-          pills: generatedPills,
-          prompt: $('#systemPromptInput').val(),
-          videoUrl: $('#videoLinkInput').val(),
-          pdfFile: $('#pdfInput')[0].files[0]?.name || null
-        };
-        $('#downloadProblemBtn').prop('disabled', false);
-      }
+      // 8) Update problem data for downloads - Updated to include overall workflow
+function updateProblemData() {
+  currentProblemData = {
+    title: $('#titleInput').val(),
+    statement: problemEditor.root.innerHTML,
+    topics: $('#topicsInput').val().split(/\r?\n/).map(s=>s.trim()).filter(Boolean),
+    rubric: $('#metaInput').val(),
+    pills: generatedPills,
+    overall_workflow: localStorage.getItem('lastGeneratedWorkflow') || null,
+    prompt: $('#systemPromptInput').val(),
+    videoUrl: $('#videoLinkInput').val(),
+    pdfFile: $('#pdfInput')[0].files[0]?.name || null
+  };
+  $('#downloadProblemBtn').prop('disabled', false);
+}
 
       
       // 11) Save problem
-      $('#saveProblemBtn').on('click',async()=>{
-        if(!validateScoreTotal()) return;
-        $('#problemInput').val(problemEditor.root.innerHTML);
-        const form = new FormData();
-        form.append('course_id',$('#courseSelect').val());
-        form.append('title',$('#titleInput').val());
-        form.append('statement',problemEditor.root.innerHTML);
-        form.append('topics_json',
-                    JSON.stringify($('#topicsInput').val()
-                      .split(/\r?\n/).map(s=>s.trim()).filter(Boolean)));
-        const rubricObj={};
-        $('#metaInput').val().split(/\r?\n/).forEach(l=>{
-          const [k,v]=l.split('|').map(s=>s.trim());
-          if(k&&v) rubricObj[k]=+v;
-        });
-        form.append('rubric_json', JSON.stringify(rubricObj));
-        form.append('pills_json', JSON.stringify(generatedPills));
-        form.append('prompt_text',$('#systemPromptInput').val());
-        form.append('solution_json', JSON.stringify(generatedSolution));
-        const file = $('#pdfInput')[0].files[0];
-        if(file) form.append('doc_file',file);
-        form.append('video_url',$('#videoLinkInput').val());
+      // Global variables to store the complete pills data
 
-        $('#saveProblemBtn').prop('disabled',true)
-                            .html('<i class="fas fa-spinner fa-spin"></i> Saving...');
-        try{
-          const res = await fetch('/api/save_problem',{
-            method:'POST',
-            body: form
-          });
-          const data = await res.json();
-          if(data.status==='ok'){
-            alert('Problem created successfully!');
-            window.location.href = '/teacher/dashboard';
-          } else {
-            throw new Error(data.error||'Unknown error');
-          }
-        }catch(e){
-          alert('Error saving problem: '+e.message);
-        }finally{
-          $('#saveProblemBtn').prop('disabled',false)
-                              .html('<i class="fas fa-save me-1"></i>Save Problem');
-        }
-      });
+let overallWorkflow = "";
+
+// Update your pill generation success handler to capture both pills and workflow
+function handlePillsGeneration(data) {
+    generatedPills = data.pills || [];
+    overallWorkflow = data.overall_workflow || "";
+    
+    // Your existing pill display logic here
+    console.log(`Generated ${generatedPills.length} pills and workflow: ${overallWorkflow ? 'Yes' : 'No'}`);
+}
+
+// Updated save problem function
+// 11) Save problem - Updated to include overall workflow
+$('#saveProblemBtn').on('click',async()=>{
+  if(!validateScoreTotal()) return;
+  $('#problemInput').val(problemEditor.root.innerHTML);
+  const form = new FormData();
+  form.append('course_id',$('#courseSelect').val());
+  form.append('title',$('#titleInput').val());
+  form.append('statement',problemEditor.root.innerHTML);
+  form.append('topics_json',
+              JSON.stringify($('#topicsInput').val()
+                .split(/\r?\n/).map(s=>s.trim()).filter(Boolean)));
+  const rubricObj={};
+  $('#metaInput').val().split(/\r?\n/).forEach(l=>{
+    const [k,v]=l.split('|').map(s=>s.trim());
+    if(k&&v) rubricObj[k]=+v;
+  });
+  form.append('rubric_json', JSON.stringify(rubricObj));
+  
+  // Include overall workflow in pills data
+  const pillsDataWithWorkflow = {
+    pills: generatedPills,
+    overall_workflow: localStorage.getItem('lastGeneratedWorkflow') || null
+  };
+  form.append('pills_json', JSON.stringify(pillsDataWithWorkflow));
+  
+  form.append('prompt',$('#systemPromptInput').val());
+  form.append('solution_json', JSON.stringify(generatedSolution));
+  const file = $('#pdfInput')[0].files[0];
+  if(file) form.append('doc_file',file);
+  form.append('video_url',$('#videoLinkInput').val());
+
+  $('#saveProblemBtn').prop('disabled',true)
+                      .html('<i class="fas fa-spinner fa-spin"></i> Saving...');
+  try{
+    const res = await fetch('/api/save_problem',{
+      method:'POST',
+      body: form
+    });
+    const data = await res.json();
+    if(data.status==='ok'){
+      alert('Problem created successfully!');
+      window.location.href = '/teacher/dashboard';
+    } else {
+      throw new Error(data.error||'Unknown error');
+    }
+  }catch(e){
+    alert('Error saving problem: '+e.message);
+  }finally{
+    $('#saveProblemBtn').prop('disabled',false)
+                        .html('<i class="fas fa-save me-1"></i>Save Problem');
+  }
+});
+
 
       // Initialize
       updateProblemData();

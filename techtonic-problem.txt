@@ -1,0 +1,84 @@
+Exercise Title: Customer Loyalty Report with Error Handling and Deduplication in Talend Studio (Trial version)
+-------------------------------------------------------------------------------------------------------------
+Scenario:
+You are given two different files:
+
+customers.csv – Contains customer information, potentially with duplicates.
+orders.csv – Contains order data including customer IDs and order values.
+
+Your task is to:
+Build a Talend job to:
+
+Read and parse both customers.csv and orders.csv.
+Join the two datasets based on the customer_id field.
+Deduplicate customer records based on unique customer identifiers.
+Calculate a loyalty score for each customer using total order value (e.g., tiered score based on spending).
+Handle and log errors, such as missing or invalid customer IDs in the order file.
+Export the final enriched and cleaned dataset to an Excel file.
+
+Bonus:
+Flag customers with no orders as "INACTIVE" in the output.
+Generate warnings if an order refers to a customer ID not present in the customer file.
+Include a timestamp column indicating when the record was processed.
+
+Knowledge Pills:
+----------------
+In Talend Studio (Trial version)-
+lookup joins,  data deduplication, and custom logic and error handling
+Advanced components and its usage
+tMap with lookup functionality
+tUniqRow for deduplication
+tLogCatcher and tDie for error handling
+tFileOutputExcel for exporting data
+tFlowToIterate and tIterateToFlow to demonstrate iteration
+tJavaRow to apply custom Java logic
+
+Evaluation:
+-----------
+Handled CSV files in Talend?
+Was the join between customers and orders based on customer_id implemented effectively (e.g., via tMap)?
+Did the job use tMap to handle logic such as deduplication, loyalty score calculation, and setting "INACTIVE" status?
+Did the output go to a structured Excel file using components like tFileOutputExcel with expected columns and formatting?
+Was there logic to detect and log issues such as missing or invalid customer IDs in the orders data using components like tLogCatcher, tWarn, or error handling branches?
+
+Reference : https://chatgpt.com/share/68525d00-b528-800a-8107-af330692f420
+===============================================================================================================
+===============================================================================================================
+===============================================================================================================
+Exercise Title: Multi-Format Data Integration and Reporting in Talend Studio (Trial version)
+-------------------------------------------------------------------------------------------------------------
+Scenario:
+---------
+You are given three different files:
+orders.xml – Contains nested order data.
+products.json – Contains product details.
+inventory.xlsx – Contains warehouse inventory levels.
+
+Your task is to:
+----------------
+Integrate and standardize data from XML, JSON, and Excel files, perform transformation and join operations, and generate outputs in both CSV and JSON formats.
+
+Bonus:
+------
+Handle missing inventory levels by filling them with "OUT OF STOCK".
+Generate warnings if the product ID in orders has no matching entry in products.json.
+
+Knowledge Pills:
+----------------
+In Talend Studio (Trial version)-
+XML and JSON flattening
+Excel field type handling
+tMap joins and data cleansing
+Multi-output format generation
+
+Evaluation:
+-----------
+Handled XML, JSON, and Excel in Talend?
+Able join multiple data sources on a common key?
+Is the solution uses tMap for transformation, enrichment, and logic?
+Is the solution outputs to both structured (CSV) and semi-structured (JSON) formats?
+
+Reference : https://chatgpt.com/share/68529866-815c-800a-a906-9b4ef3afe403
+===============================================================================================================
+
+

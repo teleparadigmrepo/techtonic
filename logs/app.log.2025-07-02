@@ -1,0 +1,584 @@
+2025-07-02 09:41:03,850 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,853 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,858 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,863 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,866 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,867 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,868 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,869 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,870 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,871 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,872 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,873 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,874 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,875 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,876 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,877 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,878 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,880 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,881 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,882 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:03,883 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,666 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,667 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,667 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,668 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,668 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,670 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,670 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,671 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,671 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,672 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,673 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,673 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,674 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,674 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,675 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,675 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,676 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,680 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,681 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,682 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,682 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,683 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,684 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,684 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,687 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,687 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,692 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:04,694 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 09:41:04,694 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 09:41:19,107 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed root route - 
+2025-07-02 09:41:19,107 - INFO - root:308 - Root route accessed from IP: 127.0.0.1
+2025-07-02 09:41:19,130 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 09:41:20,769 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-02 09:41:20,770 - INFO - logout:485 - User logged out: admin
+2025-07-02 09:41:20,780 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-02 09:41:24,564 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-02 09:41:24,564 - INFO - login:448 - User logged in successfully: admin
+2025-07-02 09:41:24,568 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 09:41:26,464 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-02 09:41:26,464 - INFO - logout:485 - User logged out: admin
+2025-07-02 09:41:26,466 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-02 09:41:30,558 - INFO - log_user_action:139 - User admin (ID: 1) - User logged in - Username: admin
+2025-07-02 09:41:30,558 - INFO - login:448 - User logged in successfully: admin
+2025-07-02 09:41:30,565 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 10:03:43,746 - INFO - student_solve:1672 - Student 1 accessing problem 11
+2025-07-02 10:03:43,746 - WARNING - student_solve:1676 - Non-student user 1 tried to access student_solve
+2025-07-02 10:03:43,752 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 10:03:45,359 - INFO - log_user_action:139 - User admin (ID: 1) - Accessed admin dashboard - 
+2025-07-02 10:03:47,367 - INFO - change_password:1596 - User 1 (admin) accessing password change
+2025-07-02 10:03:48,190 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: admin
+2025-07-02 10:03:48,190 - INFO - logout:485 - User logged out: admin
+2025-07-02 10:03:48,194 - INFO - check_forced_logout:273 - Forcing logout for user 1 - session token mismatch or admin logout
+2025-07-02 10:03:51,226 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-02 10:03:51,227 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-02 10:03:51,230 - INFO - teacher_dashboard:2215 - Teacher 5 accessing dashboard
+2025-07-02 10:03:51,235 - INFO - teacher_dashboard:2241 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 10:30:07,098 - INFO - teacher_dashboard:2215 - Teacher 5 accessing dashboard
+2025-07-02 10:30:07,118 - INFO - teacher_dashboard:2241 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 10:31:08,266 - INFO - teacher_dashboard:2215 - Teacher 5 accessing dashboard
+2025-07-02 10:31:08,275 - INFO - teacher_dashboard:2241 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 15:26:28,192 - INFO - log_user_action:139 - User tppavan (ID: 5) - Accessed root route - 
+2025-07-02 15:26:28,192 - INFO - root:308 - Root route accessed from IP: 127.0.0.1
+2025-07-02 15:26:28,197 - INFO - teacher_dashboard:2215 - Teacher 5 accessing dashboard
+2025-07-02 15:26:28,204 - INFO - teacher_dashboard:2241 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 15:26:29,966 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-02 15:26:29,966 - INFO - logout:485 - User logged out: tppavan
+2025-07-02 15:26:29,970 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-02 15:26:34,372 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-02 15:26:34,373 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-02 15:26:34,384 - INFO - teacher_dashboard:2215 - Teacher 5 accessing dashboard
+2025-07-02 15:26:34,406 - INFO - teacher_dashboard:2241 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 15:26:39,445 - INFO - teacher_create_problem:2262 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 15:26:39,445 - INFO - teacher_create_problem:2298 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 15:44:38,216 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 15:44:38,230 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 15:44:38,230 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 15:45:03,226 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 15:45:03,239 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 15:45:03,239 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 15:45:03,248 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 15:45:03,248 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 15:45:12,170 - INFO - teacher_create_problem:2298 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 15:45:12,172 - INFO - teacher_create_problem:2334 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 15:45:12,180 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:12] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 15:45:12,196 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:45:12,250 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:45:18,796 - INFO - teacher_dashboard:2251 - Teacher 5 accessing dashboard
+2025-07-02 15:45:18,801 - INFO - teacher_dashboard:2277 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 15:45:18,808 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:18] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 15:45:18,826 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:18] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 15:45:18,841 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:45:21,034 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-02 15:45:21,034 - INFO - logout:485 - User logged out: tppavan
+2025-07-02 15:45:21,034 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-02 15:45:21,038 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-02 15:45:21,039 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-02 15:45:21,045 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "GET /login HTTP/1.1" 200 -
+2025-07-02 15:45:21,088 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:45:21,092 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-02 15:45:21,097 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:45:24,657 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-02 15:45:24,658 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-02 15:45:24,659 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-02 15:45:24,663 - INFO - teacher_dashboard:2251 - Teacher 5 accessing dashboard
+2025-07-02 15:45:24,666 - INFO - teacher_dashboard:2277 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 15:45:24,667 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:24] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 15:45:24,682 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:45:24,692 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:45:26,729 - INFO - teacher_course_detail:2790 - Teacher 5 accessing course detail 1
+2025-07-02 15:45:26,755 - INFO - teacher_course_detail:2844 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-07-02 15:45:26,763 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:26] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-02 15:45:26,779 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:45:26,794 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:45:28,113 - INFO - teacher_create_problem:2298 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 15:45:28,114 - INFO - teacher_create_problem:2334 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 15:45:28,114 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:28] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 15:45:28,129 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:45:28,158 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:45:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:47:39,278 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-02 15:47:39,278 - ERROR - generate_pills:1226 - OpenAI API error for user 5: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-02 15:47:39,278 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:47:39] "[35m[1mPOST /api/generate_pills HTTP/1.1[0m" 500 -
+2025-07-02 15:51:35,393 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 15:51:35,407 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 15:51:35,407 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 15:51:35,416 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 15:51:35,416 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 15:51:40,499 - INFO - teacher_create_problem:2307 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 15:51:40,502 - INFO - teacher_create_problem:2343 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 15:51:40,511 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:51:40] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 15:51:40,527 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:51:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 15:51:40,556 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:51:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 15:51:42,929 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-02 15:53:14,852 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 15:53:15,317 - INFO - generate_pills:1229 - Successfully generated 10 pills for user 5
+2025-07-02 15:53:15,318 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 15:53:15] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:07:02,250 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 16:07:02,264 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 16:07:02,264 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 16:07:02,273 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 16:07:02,273 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 16:07:06,301 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 16:07:06,303 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:07:06,311 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:07:06] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 16:07:06,324 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:07:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:07:06,348 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:07:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:07:15,341 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-02 16:08:04,926 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:08:05,153 - INFO - generate_pills:1249 - Successfully generated 5 pills for user 5
+2025-07-02 16:08:05,154 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:08:05] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:10:08,038 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 16:10:08,056 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:10:08,058 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:10:08] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 16:10:08,077 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:10:08] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:10:08,236 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:10:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:11:16,657 - INFO - generate_pills:1086 - User 5 (teacher) generating pills
+2025-07-02 16:12:15,769 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:12:15,995 - INFO - generate_pills:1249 - Successfully generated 5 pills for user 5
+2025-07-02 16:12:15,997 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:12:15] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:15:29,072 - INFO - generate_prompt:1269 - User 5 (teacher) generating evaluation prompt
+2025-07-02 16:15:29,072 - INFO - generate_prompt:1389 - Successfully generated evaluation prompt for user 5
+2025-07-02 16:15:29,073 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:15:29] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-02 16:16:49,204 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-02 16:17:12,599 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:17:12,599 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-02 16:17:12,600 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:17:12] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-02 16:17:24,239 - INFO - api_save_problem:1029 - Teacher 5 saving problem
+2025-07-02 16:17:24,241 - INFO - api_save_problem:1064 - PDF uploaded for problem by teacher 5: Techtonic_Examples_CS-1.pdf
+2025-07-02 16:17:24,405 - INFO - api_save_problem:1072 - Problem 'Customer Loyalty Report with Error Handling and Deduplication in Talend Studio (Trial version)' saved by teacher 5
+2025-07-02 16:17:24,405 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:17:24] "POST /api/save_problem HTTP/1.1" 200 -
+2025-07-02 16:17:25,778 - INFO - teacher_dashboard:2275 - Teacher 5 accessing dashboard
+2025-07-02 16:17:25,783 - INFO - teacher_dashboard:2301 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:17:25,790 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:17:25] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:17:25,805 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:17:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:17:25,816 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:17:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:20:21,969 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:20:21,970 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:20:21,970 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:20:21] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:20:21,990 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:20:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:20:22,023 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:20:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:21:40,081 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:21:40,093 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:21:40,096 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:21:40,117 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:21:40,202 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:21:40,561 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:21:40,561 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:21:40,562 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:21:40,575 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:21:40,617 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:21:40,617 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:21:40,618 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:21:40,625 - INFO - teacher_create_problem:2322 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:21:40,625 - INFO - teacher_create_problem:2358 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:21:40,626 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:21:40,637 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:21:40,773 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:21:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:30:24,294 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 16:30:24,307 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 16:30:24,307 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 16:30:24,316 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 16:30:24,316 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 16:30:27,750 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:27,751 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:27,761 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:27] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:27,773 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:27] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:27,883 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:30:28,227 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,227 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,228 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,238 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,264 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,265 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,266 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,276 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,290 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,290 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,291 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,305 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,323 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,324 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,324 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,339 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,353 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,354 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,355 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,364 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,380 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,381 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,381 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,397 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,415 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,415 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,416 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,427 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,441 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:28,442 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:28,442 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:28,455 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:28,545 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:30:30,137 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:30,139 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:30,141 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:30,158 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:30,302 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:30,302 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:30,303 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:30,313 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:30,402 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:30:30,655 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:30,655 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:30,656 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:30,668 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:30,810 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:30,811 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:30,811 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:30,828 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:30,972 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:30,973 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:30,973 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:30,988 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:30] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:31,117 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:31,117 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:31,118 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:31] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:31,130 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:31] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:31,250 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:30:31,250 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:30:31,251 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:31] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:30:31,260 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:31] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:30:31,340 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:30:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:32:07,339 - INFO - generate_pills:1087 - User 5 (teacher) generating pills
+2025-07-02 16:32:55,265 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:32:55,492 - INFO - generate_pills:1289 - Overall workflow generated for user 5: 2705 characters
+2025-07-02 16:32:55,492 - INFO - generate_pills:1306 - Successfully generated 3 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-02 16:32:55,493 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:32:55] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:35:04,348 - INFO - generate_pills:1087 - User 5 (teacher) generating pills
+2025-07-02 16:35:39,714 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:35:39,715 - INFO - generate_pills:1306 - Successfully generated 3 pills for user 5. Workflow generated: False, Problem context used: True
+2025-07-02 16:35:39,716 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:35:39] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:40:56,397 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 16:40:56,411 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 16:40:56,411 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 16:40:56,420 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 16:40:56,420 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 16:41:01,606 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:41:01,607 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:41:01,615 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:01] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:41:01,633 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:01] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:41:01,795 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:41:02,090 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:41:02,091 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:41:02,091 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:41:02,102 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:41:02,128 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:41:02,129 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:41:02,129 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:41:02,140 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:41:02,153 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:41:02,154 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:41:02,154 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:41:02,167 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:41:02,183 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:41:02,184 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:41:02,184 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:41:02,198 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:41:02,300 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:41:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:16,250 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:46:16,251 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:46:16,252 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:16] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:46:16,273 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:16] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:46:16,411 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:22,130 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 16:46:22,143 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 16:46:22,143 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 16:46:22,152 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 16:46:22,153 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 16:46:27,356 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: None)
+2025-07-02 16:46:27,357 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:46:27,365 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:27] "GET /teacher/create-problem HTTP/1.1" 200 -
+2025-07-02 16:46:27,380 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:27,405 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:32,542 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:46:32,547 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 16:46:32,554 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:32] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:46:32,571 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:32,581 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:36,574 - INFO - teacher_course_detail:2876 - Teacher 5 accessing course detail 1
+2025-07-02 16:46:36,587 - INFO - teacher_course_detail:2930 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-07-02 16:46:36,596 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:36] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-02 16:46:36,610 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:36,624 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:43,566 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:46:43,568 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 3 problems
+2025-07-02 16:46:43,569 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:43] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:46:43,586 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:43,595 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:50,550 - INFO - teacher_course_detail:2876 - Teacher 5 accessing course detail 1
+2025-07-02 16:46:50,556 - INFO - teacher_course_detail:2930 - Teacher 5 course detail loaded: 5 groups, 3 problems, 11 students
+2025-07-02 16:46:50,557 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:50] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-02 16:46:50,575 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:50,584 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:46:51,822 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 16:46:51,823 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:46:51,824 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:51] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 16:46:51,841 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:46:51,864 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:46:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:47:05,102 - INFO - generate_pills:1087 - User 5 (teacher) generating pills
+2025-07-02 16:48:50,900 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:48:51,133 - INFO - generate_pills:1289 - Overall workflow generated for user 5: 3018 characters
+2025-07-02 16:48:51,133 - INFO - generate_pills:1306 - Successfully generated 5 pills for user 5. Workflow generated: True, Problem context used: True
+2025-07-02 16:48:51,134 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:48:51] "POST /api/generate_pills HTTP/1.1" 200 -
+2025-07-02 16:49:26,636 - INFO - generate_prompt:1331 - User 5 (teacher) generating evaluation prompt
+2025-07-02 16:49:26,637 - INFO - generate_prompt:1451 - Successfully generated evaluation prompt for user 5
+2025-07-02 16:49:26,637 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:49:26] "POST /api/generate_prompt HTTP/1.1" 200 -
+2025-07-02 16:49:30,507 - INFO - api_generate_solution:924 - Teacher 5 generating solution
+2025-07-02 16:50:21,768 - INFO - _send_single_request:1025 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-02 16:50:21,784 - INFO - api_generate_solution:1006 - Solution generated successfully for teacher 5
+2025-07-02 16:50:21,784 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:21] "POST /api/generate_solution HTTP/1.1" 200 -
+2025-07-02 16:50:35,408 - INFO - api_save_problem:1029 - Teacher 5 saving problem
+2025-07-02 16:50:35,410 - INFO - api_save_problem:1064 - PDF uploaded for problem by teacher 5: Techtonic_Examples_CS-1.pdf
+2025-07-02 16:50:35,559 - INFO - api_save_problem:1072 - Problem 'Customer Loyalty Report with Error Handling and Deduplication in Talend Studio' saved by teacher 5
+2025-07-02 16:50:35,560 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:35] "POST /api/save_problem HTTP/1.1" 200 -
+2025-07-02 16:50:36,899 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:50:36,902 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:50:36,903 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:36] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:50:36,918 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:50:36,930 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:50:41,764 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:41] "GET /api/download_problem_pdf/14 HTTP/1.1" 200 -
+2025-07-02 16:50:59,756 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:50:59] "GET /api/download_solution_pdf/14 HTTP/1.1" 200 -
+2025-07-02 16:51:21,818 - INFO - teacher_problem_submissions:3058 - Teacher 5 accessing submissions for problem 14
+2025-07-02 16:51:21,830 - INFO - teacher_problem_submissions:3255 - Teacher 5 successfully loaded 0 logged-in users for problem 14
+2025-07-02 16:51:21,842 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:21] "GET /teacher/problem/14/submissions HTTP/1.1" 200 -
+2025-07-02 16:51:21,853 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:21,875 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:26,682 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:51:26,684 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:51:26,686 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:26] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:51:26,700 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:26] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:51:26,712 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:33,506 - INFO - change_password:1718 - User 5 (teacher) accessing password change
+2025-07-02 16:51:33,509 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:33] "GET /change-password HTTP/1.1" 200 -
+2025-07-02 16:51:33,535 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:33,543 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:35,234 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-02 16:51:35,234 - INFO - logout:485 - User logged out: tppavan
+2025-07-02 16:51:35,234 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-02 16:51:35,236 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-02 16:51:35,237 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-02 16:51:35,239 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "GET /login HTTP/1.1" 200 -
+2025-07-02 16:51:35,259 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:35,267 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-02 16:51:35,274 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:46,751 - INFO - log_user_action:139 - User tppavan (ID: 5) - User logged in - Username: tppavan
+2025-07-02 16:51:46,751 - INFO - login:448 - User logged in successfully: tppavan
+2025-07-02 16:51:46,752 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:46] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-02 16:51:46,754 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:51:46,758 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:51:46,760 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:46] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:51:46,782 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:46,794 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:50,244 - INFO - teacher_problem_preview:2493 - Teacher 5 previewing problem 14
+2025-07-02 16:51:50,246 - INFO - teacher_problem_preview:2506 - Teacher 5 problem preview loaded: problem 14, has_submissions: False
+2025-07-02 16:51:50,253 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:50] "GET /teacher/problem/14/preview HTTP/1.1" 200 -
+2025-07-02 16:51:50,269 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:50,284 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:51:52,244 - INFO - teacher_edit_problem:2637 - Teacher 5 accessing edit page for problem 14
+2025-07-02 16:51:52,246 - INFO - teacher_edit_problem:2661 - Teacher 5 edit page loaded for problem 14
+2025-07-02 16:51:52,295 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:52] "GET /teacher/problem/14/edit HTTP/1.1" 200 -
+2025-07-02 16:51:52,314 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:51:52,328 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:51:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:52:09,648 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:52:09] "GET /static/uploads/docs/Techtonic_Examples_CS-1.pdf HTTP/1.1" 200 -
+2025-07-02 16:52:09,689 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:52:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:52:38,749 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:52:38,753 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:52:38,754 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:52:38] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:52:38,770 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:52:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:52:38,779 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:52:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:53:53,006 - INFO - setup_logging:97 - Logging system initialized successfully
+2025-07-02 16:53:53,020 - INFO - create_app:166 - Flask app created successfully
+2025-07-02 16:53:53,020 - INFO - setup_login_manager:198 - Login manager configured successfully
+2025-07-02 16:53:53,029 - INFO - _log:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-02 16:53:53,029 - INFO - _log:97 - [33mPress CTRL+C to quit[0m
+2025-07-02 16:53:58,373 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:53:58,379 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:53:58,391 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:53:58] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:53:58,404 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:53:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:53:58,415 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:53:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:53:59,972 - INFO - teacher_dashboard:2337 - Teacher 5 accessing dashboard
+2025-07-02 16:53:59,974 - INFO - teacher_dashboard:2363 - Teacher 5 dashboard loaded: 1 courses, 4 problems
+2025-07-02 16:53:59,975 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:53:59] "GET /teacher/dashboard HTTP/1.1" 200 -
+2025-07-02 16:53:59,989 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:53:59] "GET /static/styles.css HTTP/1.1" 200 -
+2025-07-02 16:54:00,058 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:54:02,865 - INFO - teacher_course_detail:2876 - Teacher 5 accessing course detail 1
+2025-07-02 16:54:02,876 - INFO - teacher_course_detail:2930 - Teacher 5 course detail loaded: 5 groups, 4 problems, 11 students
+2025-07-02 16:54:02,884 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:02] "GET /teacher/course/1 HTTP/1.1" 200 -
+2025-07-02 16:54:02,901 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:54:02,915 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:54:04,073 - INFO - teacher_create_problem:2384 - Teacher 5 accessing create problem page (course_id: 1)
+2025-07-02 16:54:04,117 - INFO - teacher_create_problem:2420 - Teacher 5 create problem page loaded with 1 courses
+2025-07-02 16:54:04,120 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:04] "GET /teacher/create-problem/1 HTTP/1.1" 200 -
+2025-07-02 16:54:04,135 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:54:04,166 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-02 16:54:30,410 - INFO - log_user_action:139 - User Anonymous (ID: Anonymous) - User logged out - Username: tppavan
+2025-07-02 16:54:30,410 - INFO - logout:485 - User logged out: tppavan
+2025-07-02 16:54:30,411 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-02 16:54:30,412 - INFO - check_forced_logout:273 - Forcing logout for user 5 - session token mismatch or admin logout
+2025-07-02 16:54:30,413 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-07-02 16:54:30,415 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "GET /login HTTP/1.1" 200 -
+2025-07-02 16:54:30,438 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-07-02 16:54:30,442 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "[36mGET /static/images/bd.jpg HTTP/1.1[0m" 304 -
+2025-07-02 16:54:30,448 - INFO - _log:97 - 127.0.0.1 - - [02/Jul/2025 16:54:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

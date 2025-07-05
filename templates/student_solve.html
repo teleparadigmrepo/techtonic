@@ -201,6 +201,174 @@
   #pdfOverlay, #pdfOverlay * { visibility: visible; }
   #pdfOverlay { position: absolute; top:0; left:0; }
 }
+#pillsTab .nav-link {
+  color: #6c757d;
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+#pillsTab .nav-link.active {
+  color: #0056b3;
+  border-color: #dee2e6 #dee2e6 #fff;
+  background-color: #fff;
+}
+
+/* Example Boxes Enhancement */
+.examples-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+.example-box {
+  background: #fff !important;
+  border-left: 4px solid #28a745 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Workflow Styles */
+.concept-workflow-box {
+  background: #fff3cd !important;
+  border-left: 4px solid #ffc107 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+.workflow-header {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+/* Enhanced Workflow Styles */
+.workflow-step {
+  background-color: #fff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #0d6efd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workflow-step:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #0d6efd;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.workflow-header {
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.workflow-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+workflow-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.workflow-content {
+  padding: 0 1rem;
+}
+
+/* Key Takeaways Styles */
+.takeaways-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+.takeaways-box {
+  background: #e3f2fd !important;
+  border-left: 4px solid #2196f3 !important;
+  border-radius: 0 .5rem .5rem 0 !important;
+  padding: 1rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+.takeaways-list {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
+.takeaways-list li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+/* Add these styles for the editor */
+.ql-editor {
+    min-height: 150px;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.ql-editor[data-placeholder]:empty::before {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.ql-container {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #fefefe;
+}
+
+.ql-toolbar {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.editor-container {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.editor-label {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.editor-section {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
 </style>
 
 <div class="container my-5">
@@ -215,25 +383,116 @@
           <p class="fst-italic mb-0">{{ problem.statement | safe  }}</p>
         </div>
         <h6 class="mt-4 mb-3"><strong>Knowledge Pills</strong> <span class="ms-2 text-muted fs-6">(Click to expand)</span></h6>
-        <div class="accordion" id="knowledgePillsAccordion">
-          {% for p in pills %}
-          <div class="accordion-item pill-card">
-            <h2 class="accordion-header pill-header" id="heading{{ loop.index }}">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
-                {{ p.topic }}
-              </button>
-            </h2>
-            <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#knowledgePillsAccordion">
-              <div class="accordion-body bg-light">
-                {{ p.content | safe }}
-                <div class="example-box p-3 bg-white border-start border-primary border-4 rounded-end shadow-sm">
-                  <p class="mb-0 fst-italic"><strong>Example:</strong> {{ p.example | safe  }}</p>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-pills mb-3" id="pillsTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="knowledge-tab" data-bs-toggle="pill" 
+                    data-bs-target="#knowledge-pane" type="button" role="tab">
+              <i class="fas fa-lightbulb me-2"></i>Knowledge Pills
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="workflow-tab" data-bs-toggle="pill" 
+                    data-bs-target="#workflow-pane" type="button" role="tab">
+              <i class="fas fa-route me-2"></i>Overall Workflow
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="pillsTabContent">
+          <!-- Knowledge Pills Tab -->
+          <div class="tab-pane fade show active" id="knowledge-pane" role="tabpanel">
+            <div class="accordion" id="knowledgePillsAccordion">
+              {% for p in pills %}
+              <div class="accordion-item pill-card">
+                <h2 class="accordion-header pill-header" id="heading{{ loop.index }}">
+                  <button class="accordion-button collapsed" type="button" 
+                          data-bs-toggle="collapse" 
+                          data-bs-target="#collapse{{ loop.index }}" 
+                          aria-expanded="false" 
+                          aria-controls="collapse{{ loop.index }}">
+                    <i class="fas fa-lightbulb me-2 text-warning"></i>{{ p.topic }}
+                  </button>
+                </h2>
+                <div id="collapse{{ loop.index }}" 
+                     class="accordion-collapse collapse" 
+                     aria-labelledby="heading{{ loop.index }}" 
+                     data-bs-parent="#knowledgePillsAccordion">
+                  <div class="accordion-body">
+                    <div class="pill-content mb-3">
+                      {{ p.content | safe }}
+                    </div>
+
+                    <!-- Examples Section -->
+                    <div class="examples-section mb-3">
+                      <h6 class="section-title">
+                        <i class="fas fa-code me-2"></i>Practical Examples
+                      </h6>
+                      <div class="example-box">
+                        {% if p.examples is defined and p.examples|length > 0 %}
+                          {% for example in p.examples %}
+                            <p class="mb-1"><strong>Example {{ loop.index }}:</strong> {{ example | safe }}</p>
+                          {% endfor %}
+                        {% else %}
+                          <p class="mb-0"><strong>Example:</strong> {{ p.example | safe }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <!-- Individual Concept Workflow -->
+                    {% if p.workflow %}
+                    <div class="concept-workflow-box">
+                      <h6><i class="fas fa-cogs me-2"></i>Using This Concept</h6>
+                      {{ p.workflow | safe }}
+                    </div>
+                    {% endif %}
+
+                    <!-- Key Takeaways -->
+                    {% if p.key_takeaways %}
+                    <div class="takeaways-section">
+                      <h6 class="section-title">
+                        <i class="fas fa-key me-2"></i>Key Takeaways
+                      </h6>
+                      <div class="takeaways-box">
+                        {% if p.key_takeaways is string %}
+                          <div class="takeaways-text">{{ p.key_takeaways | safe }}</div>
+                        {% else %}
+                          <ul class="takeaways-list">
+                            {% for takeaway in p.key_takeaways %}
+                              <li>{{ takeaway }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
                 </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Overall Workflow Tab -->
+          <div class="tab-pane fade" id="workflow-pane" role="tabpanel">
+            <div class="overall-workflow-container">
+              <div class="workflow-header">
+                <h5><i class="fas fa-route me-2"></i>Complete Implementation Workflow</h5>
+                <p class="text-muted">Follow this step-by-step guide to implement the solution.</p>
+              </div>
+              <div class="workflow-content">
+                {% if overall_workflow %}
+                  {{ overall_workflow | safe }}
+                {% else %}
+                  <p class="text-muted text-center">No workflow information available.</p>
+                {% endif %}
               </div>
             </div>
           </div>
-          {% endfor %}
         </div>
+
         <div class="d-flex justify-content-between align-items-center mt-4">
           <div></div>
           <div class="text-end">
@@ -377,6 +636,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
+// Replace the existing JavaScript section in your template with this fixed version:
+
 $(function(){
   const PROBLEM_ID    = {{ problem.id }};
   const SYSTEM_PROMPT = {{ problem.prompt|tojson }};
@@ -386,6 +647,9 @@ $(function(){
   const RUBRIC  = {{ rubric|tojson }};
   const KEYS    = Object.keys(RUBRIC);
   const editors = [];
+  
+  // Get the last solution data from the backend
+  const lastSolution = {{ last_solution|tojson }};
   
   // Declare solObj in broader scope so both handlers can access it
   let solObj = {};
@@ -517,38 +781,59 @@ $(function(){
     console.log('Page initialized - Step2 visible:', $('#step2').is(':visible'));
   }
 
-  // 1) Initialize one Quill instance per rubric category
-  KEYS.forEach((cat, i) => {
-    $('#solutionSections').append(`
-      <div class="mb-4">
-        <h6><strong>${cat}</strong> <span class="text-muted">(${RUBRIC[cat]} points)</span></h6>
-        <div id="editor-${i}" style="height:200px; background:#fff;"></div>
-        <div class="validation-message">Please write at least 100 characters for this section</div>
-      </div>
-    `);
-    
-    const editor = new Quill(`#editor-${i}`, {
-      theme: 'snow',
-      modules: { 
-        toolbar: [
-          ['bold','italic'], 
-          ['code-block'], 
-          ['link'], 
-          [{ list:'ordered' }, { list:'bullet' }]
-        ] 
-      }
-    });
-
-    // Add real-time validation
-    editor.on('text-change', function() {
-      const content = editor.root.innerHTML.trim();
-      if (validateTextLength(content)) {
-        hideValidationError(i);
-      }
-    });
-
-    editors[i] = editor;
+  // FIXED: Initialize one Quill instance per rubric category with pre-filling
+KEYS.forEach((cat, i) => {
+  // Create editor container
+  $('#solutionSections').append(`
+    <div class="mb-4 editor-container">
+      <h6><strong>${cat}</strong> <span class="text-muted">(${RUBRIC[cat]} points)</span></h6>
+      <div id="editor-${i}" class="editor-section" style="height:200px;"></div>
+      <div class="validation-message">Please write at least 100 characters for this section</div>
+    </div>
+  `);
+  
+  // Initialize Quill editor
+  const editor = new Quill(`#editor-${i}`, {
+    theme: 'snow',
+    modules: { 
+      toolbar: [
+        ['bold', 'italic'], 
+        ['code-block'], 
+        ['link'], 
+        [{ list: 'ordered' }, { list: 'bullet' }]
+      ] 
+    },
+    placeholder: `Explain how you will implement ${cat}...`
   });
+
+  // PRE-FILL WITH LAST SOLUTION
+  if (lastSolution && cat in lastSolution) {
+    // Ensure content is properly sanitized and not empty
+    const content = lastSolution[cat];
+    if (content && content.trim() !== '' && content !== '<p><br></p>') {
+      // Use Quill's setContents with Delta or setText for plain text
+      try {
+        // Try to parse as Delta if it's stored that way
+        const delta = JSON.parse(content);
+        editor.setContents(delta);
+      } catch (e) {
+        // If not a Delta, set as HTML directly
+        editor.root.innerHTML = content;
+      }
+      console.log(`Pre-filled ${cat} with content`);
+    }
+  }
+
+  // Add real-time validation
+  editor.on('text-change', function() {
+    const content = editor.root.innerHTML.trim();
+    if (validateTextLength(content)) {
+      hideValidationError(i);
+    }
+  });
+
+  editors[i] = editor;
+});
 
   const showSpinner = ()=> $('#globalSpinner').removeClass('d-none');
   const hideSpinner = ()=> $('#globalSpinner').addClass('d-none');
@@ -795,5 +1080,8 @@ $(function(){
     }
   }, 500);
 });
+
+// REMOVE THE DUPLICATE SCRIPT AT THE BOTTOM - This was causing the conflict!
+// The script that starts with "$(document).ready(function() {" should be completely removed
 </script>
 {% endblock %}
